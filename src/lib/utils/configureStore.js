@@ -4,29 +4,32 @@ import { reducer as formReducer } from 'redux-form';
 import { fork, all } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
 
-import stateTemplateReducer from '../containers/StateTemplate/reducer';
-import stateTemplateSaga from '../containers/StateTemplate/saga';
+import appReducer from '../containers/App/reducer';
+import appSaga from '../containers/App/saga';
 
-// register all reducers here...
-const rootReducer = combineReducers({
+const registerReducers = reducers => combineReducers({
   form: formReducer,
-  stateTemplate: stateTemplateReducer,
+  app: appReducer,
+  ...reducers,
 });
 
-// register all sagas here...
-function* rootSaga() {
+const registerSagas = sagas => function* rootSaga() {
   yield all([
-    fork(stateTemplateSaga),
+    fork(appSaga),
+    ...sagas.map(x => fork(x)),
   ]);
-}
+};
 
-const sagaMiddleware = createSagaMiddleware();
+// configure store to register reducers and sagas in combination
+// with our reducers and sags, and add dev tools
+const configureStore = (options = {}) => {
+  const { initialState = {}, reducers = {}, sagas = [] } = options;
 
-const configureStore = (initialState) => {
-  // add in other middlewares here
-  const middlewares = [
-    sagaMiddleware,
-  ];
+  const sagaMiddleware = createSagaMiddleware();
+  const middlewares = [sagaMiddleware];
+
+  const rootReducer = registerReducers(reducers);
+  const rootSaga = registerSagas(sagas);
 
   const store = createStore(
     rootReducer,

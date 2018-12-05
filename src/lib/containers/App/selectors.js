@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect';
 
-const selectStateTemplate = state => state.stateTemplate;
-const selectRouting = state => selectStateTemplate(state).routing;
-const selectDisplay = state => selectStateTemplate(state).display;
-const selectStatus = state => selectStateTemplate(state).status;
+const selectApp = state => state.app;
+const selectRouting = state => selectApp(state).routing;
+const selectDisplay = state => selectApp(state).display;
+const selectStatus = state => selectApp(state).status;
 
 // routing
 export const getHash = () => createSelector(selectRouting, x => x.hash);

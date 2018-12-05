@@ -6,10 +6,6 @@ import Header from './Header';
 import Footer from './Footer';
 import * as actions from './actions';
 
-import '../../style/state-template/css/cagov.core.css';
-import '../../style/state-template/css/colorscheme-oceanside.css';
-import '../../style/style.scss';
-
 // main container for applications - handles routing and user settings
 export class StateTemplate extends React.PureComponent {
   componentDidMount() {
