@@ -8,7 +8,8 @@ import FieldSelect from './components/Form/FieldSelect';
 import Overlay from './components/Overlay';
 // containers
 import App from './containers/App';
-import StatusWrapper from './containers/App/StatusWrapper';
+import ErrorSection from './containers/Status/ErrorSection';
+import LoadingSection from './containers/Status/LoadingSection';
 // utils
 import * as api from './utils/api';
 import configureStore from './utils/configureStore';
@@ -22,7 +23,8 @@ export {
   FieldRadioButtons,
   FieldSelect,
   Overlay,
-  StatusWrapper,
+  ErrorSection,
+  LoadingSection,
   api,
   configureStore,
   validate,

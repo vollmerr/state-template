@@ -1,14 +1,14 @@
 import React from 'react';
+import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import * as actions from '../actions';
-import * as selectors from '../selectors';
+import * as actions from '../App/actions';
+import * as selectors from '../App/selectors';
 
 import ErrorMessage from './ErrorMessage';
-import Loading from './Loading';
 
-class Status extends React.Component {
+class ErrorSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
@@ -24,6 +24,21 @@ class Status extends React.Component {
     updateStatus({ error: null });
   }
 
+  renderError = () => {
+    const { error, btnProps, updateStatus } = this.props;
+
+    // attach clearing the error onClick
+    if (btnProps) {
+      const passedOnClick = btnProps.onClick;
+      btnProps.onClick = (event) => {
+        updateStatus({ error: null });
+        passedOnClick(event);
+      };
+    }
+
+    return <ErrorMessage error={error} btnProps={btnProps} />;
+  }
+
   componentDidCatch() {
     // TODO: setup error logging service.... (Henry)
     // You can also log the error to an error reporting service
@@ -31,23 +46,31 @@ class Status extends React.Component {
   }
 
   render() {
-    const { children, error, isLoading } = this.props;
+    const { children, error } = this.props;
     const { hasError } = this.state;
 
+    // catches both local errors and api errors
     if (hasError || error) {
-      return <ErrorMessage error={error} />;
-    }
-
-    if (isLoading) {
-      return <Loading />;
+      return this.renderError();
     }
 
     return children;
   }
 }
 
+ErrorSection.propTypes = {
+  children: T.node,
+  btnProps: T.object,
+  error: T.string.isRequired,
+  updateStatus: T.func.isRequired,
+};
+
+ErrorSection.defaultProps = {
+  btnProps: undefined,
+  children: null,
+};
+
 export const mapStateToProps = createStructuredSelector({
-  isLoading: selectors.getIsLoading(),
   error: selectors.getError(),
 });
 
@@ -57,4 +80,4 @@ export const mapDispatchToProps = dispatch => ({
 
 const withRedux = connect(mapStateToProps, mapDispatchToProps);
 
-export default withRedux(Status);
+export default withRedux(ErrorSection);

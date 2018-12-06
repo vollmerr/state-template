@@ -1,5 +1,3 @@
-### default
-
 ```jsx
 <div className={'btn-row'}>
   <Button text={'default button'} />

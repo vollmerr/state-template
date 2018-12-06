@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import govLogo from '../../../images/Ca-Gov-Logo-Gold.svg';
 
-const UtilityHeader = ({ toggleSettingsOpen }) => (
+const UtilityHeader = ({ toggleSettingsOpen, contactLink }) => (
   <div className="utility-header">
     <div className="container">
       <div className="group">
@@ -34,7 +34,7 @@ const UtilityHeader = ({ toggleSettingsOpen }) => (
         <div className="half settings-links p-t-sm">
           <ul className="utility-links">
             <li>
-              <Link to={'/help'}>Contact Us</Link>
+              <Link to={contactLink}>Contact Us</Link>
             </li>
             <li>
               <button onClick={toggleSettingsOpen} type={'button'} className="btn btn-xs btn-primary" aria-expanded="false" aria-controls="siteSettings">

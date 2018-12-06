@@ -1,13 +1,19 @@
 import React from 'react';
+import T from 'prop-types';
 import { connect } from 'react-redux';
 import { HashRouter, Route } from 'react-router-dom';
+
+import { routeProp } from '../../utils/propTypes';
 
 import Header from './Header';
 import Footer from './Footer';
 import * as actions from './actions';
 
+import '../../style/core/css/cagov.core.css';
+import '../../style/style.scss';
+
 // main container for applications - handles routing and user settings
-export class StateTemplate extends React.PureComponent {
+export class App extends React.PureComponent {
   componentDidMount() {
     this.setSettings();
     this.registerRouting();
@@ -31,10 +37,11 @@ export class StateTemplate extends React.PureComponent {
   // register routes in redux for navigation and
   // handle updating on change
   registerRouting = () => {
-    const { updateRouting, routes } = this.props;
+    const { updateRouting, routes, contactLink } = this.props;
     // update store with routes and current pages hash
     updateRouting({
       routes,
+      contactLink,
       hash: window.location.hash.replace('#', ''),
     });
     // register for future changes and clear errors on page change
@@ -63,10 +70,20 @@ export class StateTemplate extends React.PureComponent {
   }
 }
 
+App.propTypes = {
+  contactLink: T.string,
+  routes: T.arrayOf(routeProp).isRequired,
+  updateRouting: T.func.isRequired,
+};
+
+App.defaultProps = {
+  contactLink: '/help',
+};
+
 export const mapDispatchToProps = dispatch => ({
   updateRouting: props => dispatch(actions.updateRouting(props)),
 });
 
 const withRedux = connect(null, mapDispatchToProps);
 
-export default withRedux(StateTemplate);
+export default withRedux(App);

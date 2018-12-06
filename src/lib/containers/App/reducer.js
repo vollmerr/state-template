@@ -6,6 +6,7 @@ export const initialState = {
   routing: {
     routes: [],
     hash: '/',
+    contactLink: '/help',
   },
   display: {
     isMobileOpen: false,

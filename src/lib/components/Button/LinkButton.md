@@ -2,11 +2,11 @@
 
 ```jsx
 <div className={'btn-row'}>
-  <LinkButton text={'default button'} to={'/'} />
-  <LinkButton text={'primary button'} primary to={'/'} />
-  <LinkButton text={'secondary button'} secondary to={'/'} />
-  <LinkButton text={'highlight button'} highlight to={'/'} />
-  <LinkButton text={'standout button'} standout to={'/'} />
+  <LinkButton text={'default link'} to={'/'} />
+  <LinkButton text={'primary link'} to={'/'} primary />
+  <LinkButton text={'secondary link'} to={'/'} secondary />
+  <LinkButton text={'highlight link'} to={'/'} highlight />
+  <LinkButton text={'standout link'} to={'/'} standout />
 </div>
 ```
 
@@ -16,9 +16,9 @@ External links open in a new tab.
 ```jsx
 <div className={'btn-row'}>
   <LinkButton text={'default link'} href={'http://www.google.com'} />
-  <LinkButton text={'primary link'} primary href={'http://www.google.com'} />
-  <LinkButton text={'secondary link'} secondary href={'http://www.google.com'} />
-  <LinkButton text={'highlight link'} highlight href={'http://www.google.com'} />
-  <LinkButton text={'standout link'} standout href={'http://www.google.com'}  />
+  <LinkButton text={'primary link'} href={'http://www.google.com'} primary />
+  <LinkButton text={'secondary link'} href={'http://www.google.com'} secondary />
+  <LinkButton text={'highlight link'} href={'http://www.google.com'} highlight />
+  <LinkButton text={'standout link'} href={'http://www.google.com'} standout />
 </div>
 ```

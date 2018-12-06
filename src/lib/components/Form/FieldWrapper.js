@@ -4,7 +4,7 @@ import React from 'react';
 // Handles displaying errors if vlaidation has failed
 const FieldWrapper = (props) => {
   const {
-    label, meta, helpText, className, children,
+    label, meta, helpText, className, children, required,
   } = props;
   const { touched, error } = meta;
 
@@ -17,7 +17,12 @@ const FieldWrapper = (props) => {
 
   return (
     <div className={`form-group ${statusClass} ${className}`}>
-      {label && <label className="control-label">{label}</label>}
+      {label && (
+        <label className="control-label">
+          {required && <span className="required-label">* </span>}
+          {label}
+        </label>
+      )}
 
       {children}
 

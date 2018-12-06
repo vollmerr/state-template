@@ -1,8 +1,10 @@
 import React from 'react';
+import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import Overlay from '../../../components/Overlay';
+import { routeProp } from '../../../utils/propTypes';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
 
@@ -26,14 +28,16 @@ class Header extends React.PureComponent {
   }
 
   render() {
-    const { isMobileOpen, isSettingsOpen, routes } = this.props;
+    const {
+      isMobileOpen, isSettingsOpen, routes, contactLink,
+    } = this.props;
 
     return (
       <header role="banner" id="header" className="global-header fixed">
         <div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
 
         <LocationBar />
-        <UtilityHeader toggleSettingsOpen={this.toggleSettingsOpen} />
+        <UtilityHeader toggleSettingsOpen={this.toggleSettingsOpen} contactLink={contactLink} />
         <SettingsBar isSettingsOpen={isSettingsOpen} toggleSettingsOpen={this.toggleSettingsOpen} />
         <Branding />
         <MobileControls toggleMobileOpen={this.toggleMobileOpen} />
@@ -57,10 +61,19 @@ class Header extends React.PureComponent {
   }
 }
 
+Header.propTypes = {
+  isMobileOpen: T.bool.isRequired,
+  isSettingsOpen: T.bool.isRequired,
+  routes: T.arrayOf(routeProp).isRequired,
+  contactLink: T.string.isRequired,
+  updateDisplay: T.func.isRequired,
+};
+
 export const mapStateToProps = createStructuredSelector({
   isMobileOpen: selectors.getIsMobileOpen(),
   isSettingsOpen: selectors.getIsSettingsOpen(),
   routes: selectors.getRoutes(),
+  contactLink: selectors.getContactLink(),
 });
 
 export const mapDispatchToProps = dispatch => ({

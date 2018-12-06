@@ -1,5 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import T from 'prop-types';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import * as selectors from '../selectors';
 
 const externalLink = {
   target: '_blank',
@@ -10,6 +15,8 @@ class Footer extends React.PureComponent {
   getCopyRight = () => `Copyright \u00A9 ${new Date().getFullYear()}`
 
   render() {
+    const { contactLink } = this.props;
+
     return (
       <React.Fragment>
         <footer id="footer" className="global-footer">
@@ -21,7 +28,7 @@ class Footer extends React.PureComponent {
                   <li><a href="http://www.ca.gov/Use" {...externalLink}>Conditions of Use</a></li>
                   <li><a href="http://www.ca.gov/Privacy" {...externalLink}>Privacy Policy</a></li>
                   <li><a href="http://www.ca.gov/Accessibility" {...externalLink}>Accessibility</a></li>
-                  <li><Link to="/help">Contact Us</Link></li>
+                  <li><Link to={contactLink}>Contact Us</Link></li>
                 </ul>
               </div>
               <div className="quarter text-right">
@@ -68,4 +75,14 @@ class Footer extends React.PureComponent {
   }
 }
 
-export default Footer;
+Footer.propTypes = {
+  contactLink: T.string.isRequired,
+};
+
+export const mapStateToProps = createStructuredSelector({
+  contactLink: selectors.getContactLink(),
+});
+
+const withRedux = connect(mapStateToProps);
+
+export default withRedux(Footer);

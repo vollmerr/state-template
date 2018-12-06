@@ -1,5 +1,5 @@
 {
-  "name": "cra-lib",
+  "name": "state-template",
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -27,6 +27,7 @@
     "docs:build": "styleguidist build"
   },
   "peerDependencies": {
+    "node-sass": "4.x",
     "react": "16.x",
     "react-dom": "16.x",
     "react-redux": "5.x",
@@ -47,11 +48,12 @@
     "eslint-config-airbnb": "^17.1.0",
     "lint-staged": "^8.1.0",
     "mockdate": "^2.0.2",
+    "node-sass": "^4.10.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-redux": "5.1.1",
-    "react-router-dom": "4.3.1",
-    "react-scripts": "2.1.1",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^2.1.1",
     "react-styleguidist": "^8.0.6",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",

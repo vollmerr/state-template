@@ -8,6 +8,7 @@ const selectStatus = state => selectApp(state).status;
 // routing
 export const getHash = () => createSelector(selectRouting, x => x.hash);
 export const getRoutes = () => createSelector(selectRouting, x => x.routes);
+export const getContactLink = () => createSelector(selectRouting, x => x.contactLink);
 // display
 export const getIsMobileOpen = () => createSelector(selectDisplay, x => x.isMobileOpen);
 export const getIsSettingsOpen = () => createSelector(selectDisplay, x => x.isSettingsOpen);
