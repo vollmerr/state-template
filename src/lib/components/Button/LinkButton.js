@@ -7,7 +7,7 @@ import Button from '.';
 /**
  * A `Button` specialized for links. Buttons with a `to`
  * are handled by react-router-dom's internal routing.
- * See `Button` for full set of available props.
+ * See [Button](#button) for full set of available props.
  */
 const LinkButton = (props) => {
   const {

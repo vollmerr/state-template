@@ -15,7 +15,7 @@ class ExampleOverlay extends React.PureComponent {
 
   render() {
     const { isOpen } = this.state;
-console.log('is open: ', isOpen);
+    
     return (
       <div>
         <Button onClick={this.toggleOpen} text={'open'} />

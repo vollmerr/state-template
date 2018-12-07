@@ -1,4 +1,5 @@
 import React from 'react';
+import T from 'prop-types';
 
 // wrapper around fields to display an optional label and help block.
 // Handles displaying errors if vlaidation has failed
@@ -30,6 +31,22 @@ const FieldWrapper = (props) => {
       {helpText && <p className="help-block">{helpText}</p>}
     </div>
   );
+};
+
+FieldWrapper.propTypes = {
+  label: T.string,
+  meta: T.object.isRequired,
+  helpText: T.string,
+  className: T.string,
+  children: T.element.isRequired,
+  required: T.bool,
+};
+
+FieldWrapper.defaultProps = {
+  label: '',
+  helpText: '',
+  className: '',
+  required: false,
 };
 
 export default FieldWrapper;

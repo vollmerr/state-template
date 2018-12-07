@@ -2,11 +2,12 @@
 .bpa__overlay {
   z-index: 1040;
   opacity: 0.3;
-  background-color: $color-disabled;
+  background-color: $gray-light;
   position: fixed;
   width: 100%;
   height: 100%;
   left: 0;
+  top: 0;
   display: block;
 
   &.mobile-only {

@@ -1,6 +1,6 @@
 {
   "name": "state-template",
-  "version": "0.1.0",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -63,6 +63,7 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
+    "pikaday": "^1.8.0",
     "prop-types": "^15.6.2",
     "redux-devtools-extension": "^2.13.7"
   }
