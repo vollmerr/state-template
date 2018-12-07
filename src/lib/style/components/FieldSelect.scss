@@ -1,0 +1,24 @@
+.select {
+  &.multiple {
+    &:after {
+      display: none;
+    }
+
+    height: auto;
+
+    select {
+      height: auto;
+      padding: 10px;
+      overflow: auto;
+    }
+  }
+
+  select {
+    &:disabled {
+      background: $disabled-color;
+      cursor: not-allowed;
+    }
+
+    padding-left: 10px;
+  }
+}

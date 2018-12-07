@@ -46,9 +46,11 @@ const FieldRadioButtons = (props) => {
     input, options, primary, disabled,
   } = props;
 
+  const disabledClass = disabled ? 'disabled' : '';
+
   return (
     <FieldWrapper {...props}>
-      <div>
+      <div className={disabledClass}>
         {
           options.filter(x => !x.hidden).map(option => (
             <RadioButton

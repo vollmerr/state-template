@@ -32,6 +32,8 @@ class Header extends React.PureComponent {
       isMobileOpen, isSettingsOpen, routes, contactLink,
     } = this.props;
 
+    const filteredRoutes = routes.filter(x => !x.hidden);
+
     return (
       <header role="banner" id="header" className="global-header fixed">
         <div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
@@ -40,13 +42,13 @@ class Header extends React.PureComponent {
         <UtilityHeader toggleSettingsOpen={this.toggleSettingsOpen} contactLink={contactLink} />
         <SettingsBar isSettingsOpen={isSettingsOpen} toggleSettingsOpen={this.toggleSettingsOpen} />
         <Branding />
-        <MobileControls toggleMobileOpen={this.toggleMobileOpen} />
+        <MobileControls toggleMobileOpen={this.toggleMobileOpen} routes={filteredRoutes} />
 
         <div className="navigation-search">
           <Navigation
             isMobileOpen={isMobileOpen}
             toggleMobileOpen={this.toggleMobileOpen}
-            routes={routes}
+            routes={filteredRoutes}
           />
           <div id="head-search" className="search-container">
             <Search />

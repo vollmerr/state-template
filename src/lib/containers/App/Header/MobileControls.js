@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MobileControls = ({ toggleMobileOpen }) => {
+const MobileControls = ({ toggleMobileOpen, routes }) => {
   const menuButtonProps = {
     type: 'button',
     onClick: toggleMobileOpen,
@@ -16,10 +16,14 @@ const MobileControls = ({ toggleMobileOpen }) => {
         the mobile page header section  */}
       </span>
       <div className="mobile-control-group main-nav-icons pull-right">
-        <button {...menuButtonProps}>
-          <span className="ca-gov-icon-menu hidden-print" aria-hidden="true" />
-          <span className="sr-only">Menu</span>
-        </button>
+        {
+          Boolean(routes.length) && (
+            <button {...menuButtonProps}>
+              <span className="ca-gov-icon-menu hidden-print" aria-hidden="true" />
+              <span className="sr-only">Menu</span>
+            </button>
+          )
+        }
         {/* <button className="mobile-control toggle-search">
           <span className="ca-gov-icon-search hidden-print" aria-hidden="true" />
           <span className="sr-only">Search</span>

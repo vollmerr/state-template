@@ -8,22 +8,23 @@ import withField from './withField';
 // group of radio buttons with optional help text and label
 // displays error if validation fails
 const FieldSelect = (props) => {
-  const { input, options, disabled } = props;
+  const {
+    input, options, disabled, multiple,
+  } = props;
+  const labelClass = `select ${multiple ? 'multiple' : ''}`;
 
   return (
     <FieldWrapper {...props}>
-      <div>
-        <label className="select">
-          <select {...input} disabled={disabled}>
-            <option disabled hidden style={{ display: 'none' }} value={''} />
-            {
-              options.filter(x => !x.hidden).map(option => (
-                <option key={option.value} value={option.value}>{option.label}</option>
-              ))
-            }
-          </select>
-        </label>
-      </div>
+      <label className={labelClass}>
+        <select {...input} multiple={multiple} disabled={disabled}>
+          <option disabled hidden style={{ display: 'none' }} value={''} />
+          {
+            options.filter(x => !x.hidden).map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))
+          }
+        </select>
+      </label>
     </FieldWrapper>
   );
 };
@@ -40,10 +41,13 @@ FieldSelect.propTypes = {
   ).isRequired,
   /** Disable the input */
   disabled: T.bool,
+  /** Allow multiple selecting */
+  multiple: T.bool,
 };
 
 FieldSelect.defaultProps = {
   disabled: false,
+  multiple: false,
 };
 
 const withReduxField = withField(isEmptyRadio);

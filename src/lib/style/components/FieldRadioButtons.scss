@@ -1,0 +1,16 @@
+.disabled {
+  * {
+    cursor: not-allowed;
+  }
+
+  .check-icon-radio {
+    border-color: $disabled-color;
+  }
+
+  .btn {
+    background: $disabled-color;
+    &:hover {
+      color: inherit;
+    }
+  }
+}

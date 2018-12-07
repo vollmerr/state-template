@@ -42,5 +42,20 @@
       { value: 'value 2', label: 'label 2' },
     ]}
   />
+  <FieldSelect
+    multiple
+    name={'multiSelect'}
+    label={'Select Multiple Values'}
+    options={[
+      { value: 'value 1', label: 'label 1' },
+      { value: 'value 2', label: 'label 2' },
+      { value: 'value 3', label: 'label 3' },
+      { value: 'value 4', label: 'label 4' },
+      { value: 'value 5', label: 'label 5' },
+      { value: 'value 6', label: 'label 6' },
+      { value: 'value 7', label: 'label 7' },
+      { value: 'value 8', label: 'label 8' },
+    ]}
+  />
 </ExampleForm>
 ```
