@@ -1,24 +1,36 @@
-// components
+// ////////////////////////////////////// components
+// button
 import Button from './components/Button';
 import LinkButton from './components/Button/LinkButton';
+// form
 import FieldCheckboxes from './components/Form/FieldCheckboxes';
+import FieldDate from './components/Form/FieldDate';
 import FieldInput from './components/Form/FieldInput';
 import FieldRadioButtons from './components/Form/FieldRadioButtons';
 import FieldSelect from './components/Form/FieldSelect';
+// overlay
 import Overlay from './components/Overlay';
-// containers
+
+
+// ////////////////////////////////////// containers
+// app
 import App from './containers/App';
+// status
 import ErrorSection from './containers/Status/ErrorSection';
 import LoadingSection from './containers/Status/LoadingSection';
-// utils
+
+
+// ////////////////////////////////////// utils
 import * as api from './utils/api';
 import configureStore from './utils/configureStore';
 import * as validate from './utils/validate';
+
 
 export {
   Button,
   LinkButton,
   FieldCheckboxes,
+  FieldDate,
   FieldInput,
   FieldRadioButtons,
   FieldSelect,

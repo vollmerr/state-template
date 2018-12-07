@@ -7,7 +7,7 @@ import withField from './withField';
 
 // individual radio button, applies state-template styling
 const RadioButton = ({
-  input, value, label, primary, disabled, // eslint-disable-line react/prop-types
+  input, value, label, variant, disabled, // eslint-disable-line react/prop-types
 }) => {
   const checked = input.value.toString().indexOf(value) !== -1;
   const onChange = () => input.onChange(value);
@@ -19,11 +19,11 @@ const RadioButton = ({
     name: input.name,
   };
 
-  if (primary) {
+  if (variant) {
     return (
       <label className={'check'}>
         <input className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
-        <span className={'btn btn-lg btn-block bg-highlight--checked rounded-0'}>{label}</span>
+        <span className={`btn btn-lg btn-block bg-${variant}--checked rounded-0`}>{label}</span>
       </label>
     );
   }
@@ -43,7 +43,7 @@ const RadioButton = ({
 // displays error if validation fails
 const FieldRadioButtons = (props) => {
   const {
-    input, options, primary, disabled,
+    input, options, variant, disabled,
   } = props;
 
   const disabledClass = disabled ? 'disabled' : '';
@@ -56,7 +56,7 @@ const FieldRadioButtons = (props) => {
             <RadioButton
               input={input}
               key={option.value}
-              primary={primary}
+              variant={variant}
               disabled={disabled}
               {...option}
             />
@@ -69,8 +69,11 @@ const FieldRadioButtons = (props) => {
 
 
 FieldRadioButtons.propTypes = {
-  /** Use `primary` styling */
-  primary: T.bool,
+  /** Use style variant */
+  variant: T.oneOf([
+    '',
+    'highlight',
+  ]),
   /** Input from redux-form's Field, attaches name, value, etc */
   input: T.object.isRequired,
   /** Options to select from */
@@ -85,7 +88,7 @@ FieldRadioButtons.propTypes = {
 };
 
 FieldRadioButtons.defaultProps = {
-  primary: false,
+  variant: '',
   disabled: false,
 };
 

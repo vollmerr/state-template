@@ -11,7 +11,13 @@ const FieldSelect = (props) => {
   const {
     input, options, disabled, multiple,
   } = props;
-  const labelClass = `select ${multiple ? 'multiple' : ''}`;
+
+  let labelClass = 'select';
+  if (multiple) {
+    // expects array as default if multiple is used
+    input.value = input.value || [];
+    labelClass += ' multiple';
+  }
 
   return (
     <FieldWrapper {...props}>

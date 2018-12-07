@@ -26,8 +26,8 @@ export class ExampleForm extends React.PureComponent {
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         {children}
-        <Button type={'submit'} text={'Submit'} />
-        <Button text={'Reset'} onClick={reset} />
+        <Button type={'submit'} text={'Submit'} variant={'primary'} />
+        <Button text={'Reset'} onClick={reset} variant={'default'} />
       </form>
     );
   }

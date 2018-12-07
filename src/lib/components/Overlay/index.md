@@ -18,7 +18,7 @@ class ExampleOverlay extends React.PureComponent {
     
     return (
       <div>
-        <Button onClick={this.toggleOpen} text={'open'} />
+        <Button onClick={this.toggleOpen} text={'open'} variant={'default'} />
         <Overlay onClick={this.toggleOpen} show={isOpen} />
       </div>
     );

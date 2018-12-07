@@ -1,10 +1,11 @@
 ```jsx
 <div className={'btn-row'}>
-  <Button text={'default button'} />
-  <Button text={'primary button'} primary />
-  <Button text={'secondary button'} secondary />
-  <Button text={'highlight button'} highlight />
-  <Button text={'standout button'} standout />
+  <Button text={'button'} />
+  <Button text={'default button'} variant={'default'} />
+  <Button text={'primary button'} variant={'primary'} />
+  <Button text={'secondary button'} variant={'secondary'} />
+  <Button text={'highlight button'} variant={'highlight'} />
+  <Button text={'standout button'} variant={'standout'} />
 </div>
 ```
 
@@ -12,11 +13,12 @@
 
 ```jsx
 <div className={'btn-row'}>
-  <Button text={'default button'} isActive />
-  <Button text={'primary button'} primary isActive />
-  <Button text={'secondary button'} secondary isActive />
-  <Button text={'highlight button'} highlight isActive />
-  <Button text={'standout button'} standout isActive />
+  <Button text={'button'} />
+  <Button text={'default button'} variant={'default'} isActive />
+  <Button text={'primary button'} variant={'primary'} isActive />
+  <Button text={'secondary button'} variant={'secondary'} isActive />
+  <Button text={'highlight button'} variant={'highlight'} isActive />
+  <Button text={'standout button'} variant={'standout'} isActive />
 </div>
 ```
 
@@ -24,11 +26,12 @@
 
 ```jsx
 <div className={'btn-row'}>
-  <Button text={'default button'} disabled />
-  <Button text={'primary button'} primary disabled />
-  <Button text={'secondary button'} secondary disabled />
-  <Button text={'highlight button'} highlight disabled />
-  <Button text={'standout button'} standout disabled />
+  <Button text={'button'} disabled />
+  <Button text={'default button'} variant={'default'} disabled />
+  <Button text={'primary button'} variant={'primary'} disabled />
+  <Button text={'secondary button'} variant={'secondary'} disabled />
+  <Button text={'highlight button'} variant={'highlight'} disabled />
+  <Button text={'standout button'} variant={'standout'} disabled />
 </div>
 ```
 
@@ -37,7 +40,7 @@ Other properties get passed down to the button component, such as onChange handl
 
 ```jsx
 <div className={'btn-row'}>
-  <Button text={'click me'} onClick={() => alert('You Clicked Me!!')} />
-  <Button text={'other props'} id={'ButtonId'} style={{ fontSize: '20px' }} />
+  <Button text={'click me'} onClick={() => alert('You Clicked Me!!')} variant={'default'} />
+  <Button text={'other props'} id={'ButtonId'} style={{ fontSize: '20px' }} variant={'primary'} />
 </div>
 ```

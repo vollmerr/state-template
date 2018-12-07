@@ -32,14 +32,12 @@
 </ExampleForm>
 ```
 
-### primary style
+### highlight variant
 
 ```jsx
-
-
 <ExampleForm form={'radioButtonPrimary'}>
   <FieldRadioButtons 
-    primary
+    variant={'highlight'}
     name={'primaryRadioButton'}
     label={'Primary Radio Button'}
     options={[
@@ -49,8 +47,8 @@
     helpText={'This is the `helpText` content...'}
   />
   <FieldRadioButtons 
-    primary
     required
+    variant={'highlight'}
     name={'requiredPrimaryRadioButton'}
     label={'Required Primary Radio Button'}
     options={[
@@ -59,8 +57,8 @@
     ]}
   />
   <FieldRadioButtons 
-    primary
     disabled
+    variant={'highlight'}
     name={'disabledPrimaryRadioButton'}
     label={'Disabled Primary Radio Button'}
     options={[

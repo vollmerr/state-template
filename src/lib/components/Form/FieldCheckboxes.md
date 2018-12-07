@@ -30,12 +30,12 @@
 </ExampleForm>
 ```
 
-### primary style
+### primary variant
 
 ```jsx
 <ExampleForm form={'checkboxPrimary'}>
   <FieldCheckboxes 
-    primary
+    variant={'primary'}
     name={'primaryCheckbox'}
     label={'Primary Checkbox'}
     options={[
@@ -45,8 +45,8 @@
     helpText={'This is the `helpText` content...'}
   />
   <FieldCheckboxes 
-    primary
     required
+    variant={'primary'}
     name={'requiredPrimaryCheckbox'}
     label={'Required Primary Checkbox'}
     options={[
@@ -55,8 +55,8 @@
     ]}
   />
   <FieldCheckboxes 
-    primary
-    disabled
+    disabled 
+    variant={'primary'}
     name={'disabledPrimaryCheckbox'}
     label={'Disabled Primary Checkbox'}
     options={[

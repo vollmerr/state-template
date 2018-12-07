@@ -7,7 +7,7 @@ import withField from './withField';
 
 // individual checkbox, applies state-template styling
 const Checkbox = ({
-  input, value, label, primary, disabled, // eslint-disable-line react/prop-types
+  input, value, label, variant, disabled, // eslint-disable-line react/prop-types
 }) => {
   const checked = input.value.toString().indexOf(value) !== -1;
   const onChange = (event) => {
@@ -30,11 +30,11 @@ const Checkbox = ({
     name: input.name,
   };
 
-  if (primary) {
+  if (variant) {
     return (
       <label className={'check'}>
         <input className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
-        <span className={'btn btn-md btn-block color-white--checked bg-primary--checked rounded-0'}>{label}</span>
+        <span className={`btn btn-md btn-block color-white--checked bg-${variant}--checked rounded-0`}>{label}</span>
       </label>
     );
   }
@@ -54,7 +54,7 @@ const Checkbox = ({
 // displays error if validation fails
 export const FieldCheckboxes = (props) => {
   const {
-    input, options, primary, disabled,
+    input, options, variant, disabled,
   } = props;
 
   const disabledClass = disabled ? 'disabled' : '';
@@ -67,7 +67,7 @@ export const FieldCheckboxes = (props) => {
             <Checkbox
               input={input}
               key={option.value}
-              primary={primary}
+              variant={variant}
               disabled={disabled}
               {...option}
             />
@@ -79,8 +79,11 @@ export const FieldCheckboxes = (props) => {
 };
 
 FieldCheckboxes.propTypes = {
-  /** Use `primary` styling */
-  primary: T.bool,
+  /** Use style variant */
+  variant: T.oneOf([
+    '',
+    'primary',
+  ]),
   /** Input from redux-form's Field, attaches name, value, etc */
   input: T.object.isRequired,
   /** Options to select from */
@@ -95,7 +98,7 @@ FieldCheckboxes.propTypes = {
 };
 
 FieldCheckboxes.defaultProps = {
-  primary: false,
+  variant: '',
   disabled: false,
 };
 
