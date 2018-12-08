@@ -75,7 +75,6 @@ class DatePicker extends Component {
         <input
           className="hidden"
           id={input.name}
-          onChange={(v) => { console.log('changed: ', v); }}
         />
       </div>
     );

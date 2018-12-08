@@ -1,9 +1,10 @@
 import React from 'react';
 import T from 'prop-types';
 
-import { isEmptyRadio } from '../../utils/validate';
-import FieldWrapper from './FieldWrapper';
-import withField from './withField';
+import { isEmptyRadio } from '../../../utils/validate';
+
+import FieldWrapper from '../FieldWrapper';
+import withField from '../withField';
 
 // group of radio buttons with optional help text and label
 // displays error if validation fails

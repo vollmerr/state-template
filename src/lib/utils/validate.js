@@ -2,6 +2,7 @@
 const regex = {
   email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
   phone: /\d\d\d-\d\d\d-\d\d\d\d/,
+  time: /^\d{2}:\d{2} (am|pm)$/,
 };
 
 export const isEmptyText = value => (
@@ -36,6 +37,12 @@ export const isValidPhone = value => (
 
 export const isInvalidDate = value => (
   !value
-    ? 'Invalid Date, plase select from the date picker.'
+    ? 'Invalid Date, please select from the date picker.'
+    : undefined
+);
+
+export const isEmptyTime = value => (
+  !value || !regex.time.test(value)
+    ? 'Required'
     : undefined
 );

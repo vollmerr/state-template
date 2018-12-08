@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import T from 'prop-types';
 
 /**
@@ -10,19 +11,18 @@ const Button = (props) => {
     variant,
     isActive,
     text,
-    type,
     className,
-    component,
+    component: C,
     ...rest
   } = props;
 
-  const activeClass = isActive ? 'active' : '';
-  const variantClass = variant ? `btn-${variant}` : '';
-  const btnClass = `btn ${variantClass} ${className} ${activeClass}`;
-  const C = component;
+  const btnClass = classNames([
+    'btn',
+    className,
+    { active: isActive, [`btn-${variant}`]: variant },
+  ]);
 
-  // eslint-disable-next-line react/button-has-type
-  return <C type={type} className={btnClass} {...rest}>{text}</C>;
+  return <C className={btnClass} {...rest}>{text}</C>;
 };
 
 Button.propTypes = {

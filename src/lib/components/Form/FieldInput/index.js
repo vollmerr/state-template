@@ -1,9 +1,10 @@
 import React from 'react';
 import T from 'prop-types';
 
-import { isEmptyText } from '../../utils/validate';
-import FieldWrapper from './FieldWrapper';
-import withField from './withField';
+import { isEmptyText } from '../../../utils/validate';
+
+import FieldWrapper from '../FieldWrapper';
+import withField from '../withField';
 
 // input field that applies state-template styling
 const FieldInput = (props) => {

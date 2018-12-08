@@ -11,17 +11,12 @@
     "type": "git",
     "url": "URL_OF_YOUR_REPOSITORY"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
+    "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
     "docs": "styleguidist server",
     "docs:build": "styleguidist build"
@@ -45,6 +40,7 @@
     "cross-env": "^5.2.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.5",
     "eslint-config-airbnb": "^17.1.0",
     "lint-staged": "^8.1.0",
     "mockdate": "^2.0.2",
@@ -63,8 +59,21 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "pikaday": "^1.8.0",
     "prop-types": "^15.6.2",
     "redux-devtools-extension": "^2.13.7"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "jest": {
+    "resetMocks": true,
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

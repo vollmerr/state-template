@@ -8,6 +8,7 @@ import FieldDate from './components/Form/FieldDate';
 import FieldInput from './components/Form/FieldInput';
 import FieldRadioButtons from './components/Form/FieldRadioButtons';
 import FieldSelect from './components/Form/FieldSelect';
+import FieldTime from './components/Form/FieldTime';
 // overlay
 import Overlay from './components/Overlay';
 
@@ -34,6 +35,7 @@ export {
   FieldInput,
   FieldRadioButtons,
   FieldSelect,
+  FieldTime,
   Overlay,
   ErrorSection,
   LoadingSection,

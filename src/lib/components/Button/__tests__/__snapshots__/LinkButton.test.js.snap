@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkButton should render correctly 1`] = `
+<Button
+  className=""
+  component="a"
+  href="http://www.google.com"
+  target="_blank"
+  text="test text"
+  type="button"
+  variant=""
+/>
+`;

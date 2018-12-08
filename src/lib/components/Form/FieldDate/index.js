@@ -1,10 +1,10 @@
 import React from 'react';
 import T from 'prop-types';
 
-import { isInvalidDate } from '../../utils/validate';
+import { isInvalidDate } from '../../../utils/validate';
 
-import FieldWrapper from './FieldWrapper';
-import withField from './withField';
+import FieldWrapper from '../FieldWrapper';
+import withField from '../withField';
 import DatePicker from './DatePicker';
 
 // Date picker for redux-form using pikaday library
