@@ -15,7 +15,7 @@ import Overlay from './components/Overlay';
 
 // ////////////////////////////////////// containers
 // app
-import App from './containers/App';
+import Global from './containers/Global';
 // status
 import ErrorSection from './containers/Status/ErrorSection';
 import LoadingSection from './containers/Status/LoadingSection';
@@ -44,4 +44,4 @@ export {
   validate,
 };
 
-export default App;
+export default Global;

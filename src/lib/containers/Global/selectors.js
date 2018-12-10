@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect';
 
-const selectApp = state => state.app;
-const selectRouting = state => selectApp(state).routing;
-const selectDisplay = state => selectApp(state).display;
-const selectStatus = state => selectApp(state).status;
+const selectGlobal = state => state.global;
+const selectRouting = state => selectGlobal(state).routing;
+const selectDisplay = state => selectGlobal(state).display;
+const selectStatus = state => selectGlobal(state).status;
 
 // routing
 export const getHash = () => createSelector(selectRouting, x => x.hash);

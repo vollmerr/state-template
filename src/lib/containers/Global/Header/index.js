@@ -40,7 +40,10 @@ class Header extends React.PureComponent {
 
         <LocationBar />
         <UtilityHeader toggleSettingsOpen={this.toggleSettingsOpen} contactLink={contactLink} />
-        <SettingsBar isSettingsOpen={isSettingsOpen} toggleSettingsOpen={this.toggleSettingsOpen} />
+        <SettingsBar
+          isSettingsOpen={isSettingsOpen}
+          toggleSettingsOpen={this.toggleSettingsOpen}
+        />
         <Branding />
         <MobileControls toggleMobileOpen={this.toggleMobileOpen} routes={filteredRoutes} />
 

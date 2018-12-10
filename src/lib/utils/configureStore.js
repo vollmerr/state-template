@@ -4,18 +4,18 @@ import { reducer as formReducer } from 'redux-form';
 import { fork, all } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
 
-import appReducer from '../containers/App/reducer';
-import appSaga from '../containers/App/saga';
+import globalReducer from '../containers/Global/reducer';
+import globalSaga from '../containers/Global/saga';
 
 const registerReducers = reducers => combineReducers({
   form: formReducer,
-  app: appReducer,
+  global: globalReducer,
   ...reducers,
 });
 
 const registerSagas = sagas => function* rootSaga() {
   yield all([
-    fork(appSaga),
+    fork(globalSaga),
     ...sagas.map(x => fork(x)),
   ]);
 };

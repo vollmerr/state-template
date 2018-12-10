@@ -21,7 +21,7 @@ const Overlay = (props) => {
     onClick,
     role: 'presentation',
     onKeyPress: onKeyPress || onClick,
-    className: `bpa__overlay ${isMobile && 'mobile-only'}`,
+    className: `overlay ${isMobile && 'mobile-only'}`,
     ...rest,
   };
 

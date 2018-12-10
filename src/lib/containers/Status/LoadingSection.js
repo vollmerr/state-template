@@ -3,7 +3,7 @@ import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import * as selectors from '../App/selectors';
+import * as selectors from '../Global/selectors';
 
 import LoadingMessage from './LoadingMessage';
 
