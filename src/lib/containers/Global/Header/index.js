@@ -29,7 +29,7 @@ class Header extends React.PureComponent {
 
   render() {
     const {
-      isMobileOpen, isSettingsOpen, routes, contactLink,
+      isMobileOpen, isSettingsOpen, routes, contactLink, brandingLogo,
     } = this.props;
 
     const filteredRoutes = routes.filter(x => !x.hidden);
@@ -44,7 +44,7 @@ class Header extends React.PureComponent {
           isSettingsOpen={isSettingsOpen}
           toggleSettingsOpen={this.toggleSettingsOpen}
         />
-        <Branding />
+        <Branding src={brandingLogo} />
         <MobileControls toggleMobileOpen={this.toggleMobileOpen} routes={filteredRoutes} />
 
         <div className="navigation-search">

@@ -1,4 +1,6 @@
 // ////////////////////////////////////// components
+// banner
+import BannerPrimary from './components/Banner/BannerPrimary';
 // button
 import Button from './components/Button';
 import LinkButton from './components/Button/LinkButton';
@@ -9,6 +11,11 @@ import FieldInput from './components/Form/FieldInput';
 import FieldRadioButtons from './components/Form/FieldRadioButtons';
 import FieldSelect from './components/Form/FieldSelect';
 import FieldTime from './components/Form/FieldTime';
+// layout
+import Container from './components/Layout/Container';
+import MainContent from './components/Layout/MainContent';
+import MainPrimary from './components/Layout/MainPrimary';
+import Section from './components/Layout/Section';
 // overlay
 import Overlay from './components/Overlay';
 
@@ -28,6 +35,7 @@ import * as validate from './utils/validate';
 
 
 export {
+  BannerPrimary,
   Button,
   LinkButton,
   FieldCheckboxes,
@@ -36,6 +44,10 @@ export {
   FieldRadioButtons,
   FieldSelect,
   FieldTime,
+  Container,
+  MainContent,
+  MainPrimary,
+  Section,
   Overlay,
   ErrorSection,
   LoadingSection,

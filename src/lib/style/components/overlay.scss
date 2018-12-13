@@ -3,10 +3,9 @@
   z-index: $zindex-modal-background;
   opacity: 0.3;
   background-color: $gray-light;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
   display: block;
 
   &.mobile-only {

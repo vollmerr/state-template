@@ -9,6 +9,7 @@ import Header from './Header';
 import Footer from './Footer';
 import * as actions from './actions';
 
+import odiLogo from '../../images/office-of-digital-innovation-logo.png';
 import '../../style/core/css/cagov.core.css';
 import '../../style/style.scss';
 
@@ -17,13 +18,6 @@ export class App extends React.PureComponent {
   componentDidMount() {
     this.setSettings();
     this.registerRouting();
-  }
-
-  getRoutes = () => {
-    const { routes } = this.props;
-    return routes.map(route => (
-      <Route {...route} />
-    ));
   }
 
   // set setttings user has set (in SettingsBar)
@@ -51,18 +45,21 @@ export class App extends React.PureComponent {
     });
   }
 
+  renderRoutes = () => {
+    const { routes } = this.props;
+    return routes.map(route => (
+      <Route {...route} />
+    ));
+  }
+
   render() {
+    const { brandingLogo } = this.props;
+
     return (
       <HashRouter>
         <>
-          <Header />
-          <div id="main-content" className="main-content">
-            <div className="section">
-              <main className="main-primary">
-                {this.getRoutes()}
-              </main>
-            </div>
-          </div>
+          <Header brandingLogo={brandingLogo} />
+          {this.renderRoutes()}
           <Footer />
         </>
       </HashRouter>
@@ -74,10 +71,12 @@ App.propTypes = {
   contactLink: T.string,
   routes: T.arrayOf(routeProp).isRequired,
   updateRouting: T.func.isRequired,
+  brandingLogo: T.string,
 };
 
 App.defaultProps = {
   contactLink: '/help',
+  brandingLogo: odiLogo,
 };
 
 export const mapDispatchToProps = dispatch => ({

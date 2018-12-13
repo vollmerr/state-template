@@ -1,5 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
+import classNames from 'classnames';
 
 /**
  * Renders an overlay that blocks user interaction
@@ -21,7 +22,10 @@ const Overlay = (props) => {
     onClick,
     role: 'presentation',
     onKeyPress: onKeyPress || onClick,
-    className: `overlay ${isMobile && 'mobile-only'}`,
+    className: classNames({
+      overlay: true,
+      'mobile-only': isMobile,
+    }),
     ...rest,
   };
 
