@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldCheckboxes should render correctly 1`] = `
+<FieldWrapper
+  className=""
+  disabled={false}
+  helpText=""
+  input={
+    Object {
+      "name": "testName",
+      "onChange": [MockFunction],
+      "value": "test value",
+    }
+  }
+  label="test label"
+  meta={
+    Object {
+      "error": null,
+      "touched": false,
+    }
+  }
+  options={
+    Array [
+      Object {
+        "label": "l1",
+        "value": "v1",
+      },
+      Object {
+        "label": "l2",
+        "value": "v2",
+      },
+    ]
+  }
+  required={false}
+  variant={null}
+>
+  <div
+    className=""
+  >
+    <Checkbox
+      disabled={false}
+      input={
+        Object {
+          "name": "testName",
+          "onChange": [MockFunction],
+          "value": "test value",
+        }
+      }
+      key="v1"
+      label="l1"
+      value="v1"
+      variant={null}
+    />
+    <Checkbox
+      disabled={false}
+      input={
+        Object {
+          "name": "testName",
+          "onChange": [MockFunction],
+          "value": "test value",
+        }
+      }
+      key="v2"
+      label="l2"
+      value="v2"
+      variant={null}
+    />
+  </div>
+</FieldWrapper>
+`;

@@ -7,10 +7,10 @@ const { testUtils } = global;
 
 const props = {
   input: testUtils.getInputProp(),
-  value,
-  label,
-  variant,
-  disabled,
+  value: 'v1',
+  label: 'test label',
+  variant: null,
+  disabled: false,
 };
 
 let wrapper;
@@ -23,27 +23,9 @@ describe('Checkbox', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  // it('should allow variants', () => {
-  //   wrapper.setProps({ variant: 'secondary' });
-  //   const className = wrapper.find('button').prop('className');
-  //   expect(className).toMatch(/btn-secondary/);
-  // });
-
-  // it('should attach classNames', () => {
-  //   wrapper.setProps({ className: 'textClass' });
-  //   const className = wrapper.find('button').prop('className');
-  //   expect(className).toMatch(/textClass/);
-  // });
-
-  // it('should allow different components', () => {
-  //   wrapper.setProps({ component: 'a' });
-  //   expect(wrapper.find('a').length).toBe(1);
-  // });
-
-  // it('should pass additional props', () => {
-  //   wrapper.setProps({ id: 'testId', type: 'submit' });
-  //   const button = wrapper.find('button');
-  //   expect(button.prop('id')).toBe('testId');
-  //   expect(button.prop('type')).toBe('submit');
-  // });
+  it('should allow variants', () => {
+    wrapper.setProps({ variant: 'primary' });
+    const className = wrapper.find('span').prop('className');
+    expect(className).toMatch(/bg-primary/);
+  });
 });

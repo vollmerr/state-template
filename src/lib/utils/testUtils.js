@@ -9,3 +9,11 @@ export const getInputProp = ({
   onChange,
   ...rest,
 });
+
+export const getMetaProp = ({
+  touched = false,
+  error = null,
+} = {}) => ({
+  touched,
+  error,
+});
