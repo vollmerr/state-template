@@ -23,16 +23,35 @@ const Form = () => (
           </ST.Container>
         </ST.Section>
         <ST.Section>
-          <ST.Container>
-          In form content...
-          </ST.Container>
+          <ST.LoadingSection>
+            <ST.Container>
+            In form content...
+            </ST.Container>
+          </ST.LoadingSection>
         </ST.Section>
       </ST.MainPrimary>
     </ST.MainContent>
   </>
 );
 
-const Home = () => <div>in home</div>;
+const Home = () => (
+  <ST.MainContent>
+    <ST.Section>
+      <ST.MainPrimary>
+        <ST.Table
+          data={[
+            { id: 1, col1: 'row 1 col 1', col2: 'row 1 col 2' },
+            { id: 2, col1: 'row 2 col 1', col2: 'row 2 col 2' },
+          ]}
+          headers={{ col1: 'column 1', col2: 'column 2' }}
+          title={'example title...'}
+          onClickRow={row => alert(`you click on row ${row.id}`)}
+        />
+      </ST.MainPrimary>
+    </ST.Section>
+  </ST.MainContent>
+);
+
 
 const Help = () => <div>in help</div>;
 

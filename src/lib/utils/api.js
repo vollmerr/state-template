@@ -1,3 +1,5 @@
+import * as auth from './auth';
+
 export const wait = ms => new Promise(r => setTimeout(r, ms));
 
 /**
@@ -57,17 +59,17 @@ export function request(url, options) {
  * @return {object}           The response data
  */
 export function requestWithToken(url, options = {}) {
-  // const token = getToken();
-  // // config settings to send api
-  // const newOptions = {
-  //   ...options,
-  //   method: options.method || 'get',
-  //   headers: {
-  //     Authorization: `Bearer ${token}`,
-  //     ...options.headers || { 'Content-Type': 'application/json' },
-  //     'Access-Control-Expose-Headers': 'Content-Disposition',
-  //   },
-  // };
+  const token = auth.getToken();
+  // config settings to send api
+  const newOptions = {
+    ...options,
+    method: options.method || 'get',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...options.headers || { 'Content-Type': 'application/json' },
+      'Access-Control-Expose-Headers': 'Content-Disposition',
+    },
+  };
 
-  return request(url, options);
+  return request(url, newOptions);
 }

@@ -1,0 +1,42 @@
+th.reactable-header-sortable {
+  &:after {
+    font-family: "CaGov";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  &.reactable-header-sort-desc:after {
+    content: '\42';
+  }
+
+  &.reactable-header-sort-asc:after {
+    content: '\43';
+  }
+}
+
+.st-table {
+  margin: 15px 0;
+
+  tr {
+    cursor: pointer;
+  }
+}
+
+.reactable-title {
+  .has-feedback.form-group,
+  h2 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .form-control-feedback {
+    top: 0;
+    z-index: auto;
+  }
+}

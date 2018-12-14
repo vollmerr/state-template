@@ -18,6 +18,7 @@ import MainPrimary from './components/Layout/MainPrimary';
 import Section from './components/Layout/Section';
 // overlay
 import Overlay from './components/Overlay';
+import Table from './components/Table';
 
 
 // ////////////////////////////////////// containers
@@ -31,6 +32,7 @@ import LoadingSection from './containers/Status/LoadingSection';
 // ////////////////////////////////////// utils
 import * as api from './utils/api';
 import configureStore from './utils/configureStore';
+import * as serviceWorker from './utils/serviceWorker';
 import * as validate from './utils/validate';
 
 
@@ -49,10 +51,12 @@ export {
   MainPrimary,
   Section,
   Overlay,
+  Table,
   ErrorSection,
   LoadingSection,
   api,
   configureStore,
+  serviceWorker,
   validate,
 };
 
