@@ -46,3 +46,9 @@ export const isEmptyTime = value => (
     ? 'Required'
     : undefined
 );
+
+export const isValidZip = zip => (
+  (zip && zip.match(/^\d{5}$/))
+    ? undefined
+    : 'Please enter a 5 digit zip code. Ex: 95628'
+);
