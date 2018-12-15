@@ -1,4 +1,7 @@
 // ////////////////////////////////////// components
+
+// a
+import A from './components/A';
 // banner
 import BannerPrimary from './components/Banner/BannerPrimary';
 // button
@@ -39,6 +42,7 @@ import * as validate from './utils/validate';
 
 
 export {
+  A,
   BannerPrimary,
   Button,
   LinkButton,
