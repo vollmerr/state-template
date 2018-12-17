@@ -18,9 +18,9 @@ export const isEmptyRadio = value => (
 );
 
 export const isEmptyCheck = value => (
-  (!!value && !value.length) || (typeof value !== 'object')
-    ? 'Required'
-    : undefined
+  (value && value.length)
+    ? undefined
+    : 'Required'
 );
 
 export const isValidEmail = value => (

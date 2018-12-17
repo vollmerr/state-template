@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerPrimary should render correctly 1`] = `
+<div
+  className="header-primary-banner hidden-print hidden-xs"
+  style={
+    Object {
+      "backgroundImage": "url(imgSrc.png)",
+      "height": "450px",
+    }
+  }
+/>
+`;
