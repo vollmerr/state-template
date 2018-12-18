@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'; // eslint-disable-line import/no-extraneous-dependencies
+import { HashRouter } from 'react-router-dom';
 
 import App, * as ST from './lib';
 
@@ -90,10 +91,9 @@ const routes = Object.values(routesByKey);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App
-      routes={routes}
-      // brandingLogo={imgSrc}
-    />
+    <HashRouter>
+      <App routes={routes} />
+    </HashRouter>
   </Provider>,
   document.getElementById('root'),
 );

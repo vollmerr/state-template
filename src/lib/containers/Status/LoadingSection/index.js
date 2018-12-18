@@ -55,7 +55,7 @@ class LoadingSection extends React.Component {
 }
 
 LoadingSection.propTypes = {
-  isLoading: T.bool.isRequired,
+  isLoading: T.number.isRequired,
   children: T.node,
   delay: T.number,
 };

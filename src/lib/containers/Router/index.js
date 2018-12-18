@@ -11,7 +11,7 @@ import '../../style/core/css/cagov.core.css';
 import '../../style/style.scss';
 
 // main container for applications - handles routing and user settings
-export class Router extends React.PureComponent {
+export class Router extends React.Component {
   componentDidMount() {
     this.registerRouting();
   }

@@ -42,7 +42,7 @@ const configureStore = (options = {}) => {
 
   const rootReducer = registerReducers(reducers);
   const rootSaga = registerSagas(sagas);
-  console.log('ROOT: ', rootReducer);
+
   const store = createStore(
     rootReducer,
     initialState,

@@ -25,7 +25,7 @@ const Wrapper = (props) => {
 
 Wrapper.propTypes = {
   baseClass: T.string,
-  children: T.element.isRequired,
+  children: T.node.isRequired,
   tag: T.oneOfType([T.string, T.element]),
   className: T.string,
 };

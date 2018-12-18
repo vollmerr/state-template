@@ -1,7 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
 import { connect } from 'react-redux';
-import { HashRouter } from 'react-router-dom';
 
 import { routeProp } from '../../utils/propTypes';
 
@@ -15,7 +14,7 @@ import '../../style/core/css/cagov.core.css';
 import '../../style/style.scss';
 
 // main container for applications - handles routing and user settings
-export class App extends React.PureComponent {
+export class App extends React.Component {
   componentDidMount() {
     this.setSettings();
   }
@@ -32,13 +31,11 @@ export class App extends React.PureComponent {
     const { routes, brandingLogo } = this.props;
 
     return (
-      <HashRouter>
-        <>
-          <Header brandingLogo={brandingLogo} />
-          <Router routes={routes} />
-          <Footer />
-        </>
-      </HashRouter>
+      <>
+        <Header brandingLogo={brandingLogo} />
+        <Router routes={routes} />
+        <Footer />
+      </>
     );
   }
 }
