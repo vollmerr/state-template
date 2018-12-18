@@ -10,12 +10,13 @@ const A = (props) => {
   const {
     to,
     href,
+    text,
     children,
     ...rest
   } = props;
 
   let aProps;
-  let C = 'a';
+  let Tag = 'a';
   if (href) {
     // is external link
     aProps = {
@@ -29,10 +30,10 @@ const A = (props) => {
       ...rest,
       to,
     };
-    C = Link;
+    Tag = Link;
   }
 
-  return <C {...aProps}>{children}</C>;
+  return <Tag {...aProps}>{text}</Tag>;
 };
 
 A.propTypes = {
@@ -41,7 +42,7 @@ A.propTypes = {
   /** Path for external links (open in new tab) */
   href: T.string,
   /** Content to display as a link */
-  children: T.node.isRequired,
+  text: T.string.isRequired,
 };
 
 A.defaultProps = {

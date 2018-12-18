@@ -1,0 +1,1 @@
+export const UPDATE_DISPLAY = 'ST/App/UPDATE_DISPLAY';

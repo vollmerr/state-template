@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import Overlay from '../../../components/Overlay';
 import { routeProp } from '../../../utils/propTypes';
+import * as routerSelectors from '../../Router/selectors';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
 
@@ -67,6 +68,7 @@ class Header extends React.PureComponent {
 }
 
 Header.propTypes = {
+  brandingLogo: T.string.isRequired,
   isMobileOpen: T.bool.isRequired,
   isSettingsOpen: T.bool.isRequired,
   routes: T.arrayOf(routeProp).isRequired,
@@ -77,8 +79,8 @@ Header.propTypes = {
 export const mapStateToProps = createStructuredSelector({
   isMobileOpen: selectors.getIsMobileOpen(),
   isSettingsOpen: selectors.getIsSettingsOpen(),
-  routes: selectors.getRoutes(),
-  contactLink: selectors.getContactLink(),
+  routes: routerSelectors.getRoutes(),
+  contactLink: routerSelectors.getContactLink(),
 });
 
 export const mapDispatchToProps = dispatch => ({

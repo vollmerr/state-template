@@ -1,13 +1,14 @@
 import React from 'react';
 import T from 'prop-types';
 import { connect } from 'react-redux';
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import { routeProp } from '../../utils/propTypes';
 
+import * as routerActions from '../Router/actions';
+import Router from '../Router';
 import Header from './Header';
 import Footer from './Footer';
-import * as actions from './actions';
 
 import odiLogo from '../../images/office-of-digital-innovation-logo.png';
 import '../../style/core/css/cagov.core.css';
@@ -17,7 +18,6 @@ import '../../style/style.scss';
 export class App extends React.PureComponent {
   componentDidMount() {
     this.setSettings();
-    this.registerRouting();
   }
 
   // set setttings user has set (in SettingsBar)
@@ -28,38 +28,14 @@ export class App extends React.PureComponent {
     }
   }
 
-  // register routes in redux for navigation and
-  // handle updating on change
-  registerRouting = () => {
-    const { updateRouting, routes, contactLink } = this.props;
-    // update store with routes and current pages hash
-    updateRouting({
-      routes,
-      contactLink,
-      hash: window.location.hash.replace('#', ''),
-    });
-    // register for future changes and clear errors on page change
-    window.addEventListener('hashchange', (event) => {
-      const hash = event.newURL.replace(/^[^#]*#/, '');
-      updateRouting({ hash });
-    });
-  }
-
-  renderRoutes = () => {
-    const { routes } = this.props;
-    return routes.map(route => (
-      <Route {...route} />
-    ));
-  }
-
   render() {
-    const { brandingLogo } = this.props;
+    const { routes, brandingLogo } = this.props;
 
     return (
       <HashRouter>
         <>
           <Header brandingLogo={brandingLogo} />
-          {this.renderRoutes()}
+          <Router routes={routes} />
           <Footer />
         </>
       </HashRouter>
@@ -68,19 +44,16 @@ export class App extends React.PureComponent {
 }
 
 App.propTypes = {
-  contactLink: T.string,
   routes: T.arrayOf(routeProp).isRequired,
-  updateRouting: T.func.isRequired,
   brandingLogo: T.string,
 };
 
 App.defaultProps = {
-  contactLink: '/help',
   brandingLogo: odiLogo,
 };
 
 export const mapDispatchToProps = dispatch => ({
-  updateRouting: props => dispatch(actions.updateRouting(props)),
+  updateRouting: props => dispatch(routerActions.updateRouting(props)),
 });
 
 const withRedux = connect(null, mapDispatchToProps);

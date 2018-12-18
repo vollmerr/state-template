@@ -23,14 +23,14 @@ const LinkButton = (props) => {
       ...rest,
       href,
       target: '_blank',
-      component: 'a',
+      tag: 'a',
     };
   } else {
     // is internal link
     btnProps = {
       ...rest,
       to,
-      component: Link,
+      tag: Link,
     };
   }
 

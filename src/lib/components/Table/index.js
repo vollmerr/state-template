@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table as ReactableTable, Tr, Td } from 'reactable';
 
-// TODO: MOVE TO ST
+import Icon from '../Icon';
 
 // TODO move to sepeate file..
 const TableHeader = ({ title, onFilter, showFilter }) => (
@@ -45,8 +45,8 @@ class Table extends React.Component {
     const tableProps = {
       itemsPerPage,
       className: 'table table-condensed table-hover st-table',
-      previousPageLabel: '&#171;',
-      nextPageLabel: '&#187;',
+      previousPageLabel: <Icon name={'caret-two-left'} />,
+      nextPageLabel: <Icon name={'caret-two-right'} />,
       noDataText: `No ${title}`,
       hideFilterInput: true,
       filterBy: filter,

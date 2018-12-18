@@ -4,8 +4,19 @@ import { reducer as formReducer } from 'redux-form';
 import { fork, all } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
 
-import globalReducer from '../containers/Global/reducer';
-import globalSaga from '../containers/Global/saga';
+import appReducer from '../containers/App/reducer';
+// import authReducer from '../containers/Auth/reducer';
+import statusReducer from '../containers/Status/reducer';
+import routerReducer from '../containers/Router/reducer';
+// import authSaga from '../containers/Auth/saga';
+import statusSaga from '../containers/Status/saga';
+
+const globalReducer = combineReducers({
+  app: appReducer,
+  router: routerReducer,
+  // auth: authReducer,
+  status: statusReducer,
+});
 
 const registerReducers = reducers => combineReducers({
   form: formReducer,
@@ -15,7 +26,8 @@ const registerReducers = reducers => combineReducers({
 
 const registerSagas = sagas => function* rootSaga() {
   yield all([
-    fork(globalSaga),
+    // fork(authSaga),
+    fork(statusSaga),
     ...sagas.map(x => fork(x)),
   ]);
 };
@@ -30,7 +42,7 @@ const configureStore = (options = {}) => {
 
   const rootReducer = registerReducers(reducers);
   const rootSaga = registerSagas(sagas);
-
+  console.log('ROOT: ', rootReducer);
   const store = createStore(
     rootReducer,
     initialState,

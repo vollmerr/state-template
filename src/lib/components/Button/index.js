@@ -12,7 +12,7 @@ const Button = (props) => {
     isActive,
     text,
     className,
-    component: C,
+    tag: Tag,
     ...rest
   } = props;
 
@@ -22,7 +22,7 @@ const Button = (props) => {
     { active: isActive, [`btn-${variant}`]: variant },
   ]);
 
-  return <C className={btnClass} {...rest}>{text}</C>;
+  return <Tag className={btnClass} {...rest}>{text}</Tag>;
 };
 
 Button.propTypes = {
@@ -45,15 +45,15 @@ Button.propTypes = {
   ]),
   /** Style class name to attach to button */
   className: T.string,
-  /** Component to use */
-  component: T.oneOfType([T.func, T.string]),
+  /** HTML tag to use */
+  tag: T.oneOfType([T.func, T.string]),
 };
 
 Button.defaultProps = {
   variant: '',
   type: 'button',
   className: '',
-  component: 'button',
+  tag: 'button',
 };
 
 export default Button;

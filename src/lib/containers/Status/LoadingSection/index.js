@@ -3,9 +3,9 @@ import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import * as selectors from '../Global/selectors';
-
 import LoadingMessage from './LoadingMessage';
+
+import * as selectors from '../selectors';
 
 class LoadingSection extends React.Component {
   constructor(props) {
@@ -27,9 +27,14 @@ class LoadingSection extends React.Component {
   }
 
   setDelay = () => {
-    this.delayTimer = setTimeout(() => {
+    const { delay } = this.props;
+    if (delay) {
+      this.delayTimer = setTimeout(() => {
+        this.setState({ delayReached: true });
+      }, delay);
+    } else {
       this.setState({ delayReached: true });
-    }, 200);
+    }
   }
 
   clearDelay = () => {
@@ -52,10 +57,12 @@ class LoadingSection extends React.Component {
 LoadingSection.propTypes = {
   isLoading: T.bool.isRequired,
   children: T.node,
+  delay: T.number,
 };
 
 LoadingSection.defaultProps = {
   children: null,
+  delay: 200,
 };
 
 export const mapStateToProps = createStructuredSelector({

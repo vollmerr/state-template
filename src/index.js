@@ -34,15 +34,18 @@ const Form = () => (
   </>
 );
 
+const aLotOfData = Array(300).fill(0).map((x, i) => ({
+  id: i,
+  col1: `row ${i} col 1`,
+  col2: `row ${i} col 2`,
+}));
+
 const Home = () => (
   <ST.MainContent>
     <ST.Section>
       <ST.MainPrimary>
         <ST.Table
-          data={[
-            { id: 1, col1: 'row 1 col 1', col2: 'row 1 col 2' },
-            { id: 2, col1: 'row 2 col 1', col2: 'row 2 col 2' },
-          ]}
+          data={aLotOfData}
           headers={{ col1: 'column 1', col2: 'column 2' }}
           title={'example title...'}
           onClickRow={row => alert(`you click on row ${row.id}`)}

@@ -3,8 +3,8 @@ import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import * as actions from '../Global/actions';
-import * as selectors from '../Global/selectors';
+import * as actions from '../actions';
+import * as selectors from '../selectors';
 
 import ErrorMessage from './ErrorMessage';
 

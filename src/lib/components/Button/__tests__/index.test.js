@@ -34,8 +34,8 @@ describe('Button', () => {
     expect(className).toMatch(/textClass/);
   });
 
-  it('should allow different components', () => {
-    wrapper.setProps({ component: 'a' });
+  it('should allow different tags', () => {
+    wrapper.setProps({ tag: 'a' });
     expect(wrapper.find('a').length).toBe(1);
   });
 

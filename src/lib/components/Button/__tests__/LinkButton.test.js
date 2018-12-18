@@ -27,7 +27,7 @@ describe('LinkButton', () => {
 
   describe('external links', () => {
     it('should use an `a` tag', () => {
-      const component = wrapper.find(Button).prop('component');
+      const component = wrapper.find(Button).prop('tag');
       expect(component).toBe('a');
     });
 
@@ -40,7 +40,7 @@ describe('LinkButton', () => {
   describe('internal links', () => {
     it('should use a `Link` tag', () => {
       wrapper.setProps({ to: '/testPath', href: undefined });
-      const component = wrapper.find(Button).prop('component');
+      const component = wrapper.find(Button).prop('tag');
       expect(component).toBe(Link);
     });
   });

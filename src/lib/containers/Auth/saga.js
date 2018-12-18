@@ -2,8 +2,10 @@ import {
   all, takeEvery, put, select,
 } from 'redux-saga/effects';
 
-import * as selectors from './selectors';
+// import * as C from 'constants';
+// import * as auth from '../../utils/auth';
 import * as actions from './actions';
+import * as selectors from './selectors';
 
 // catches all requests to update loading status and errors
 export function* matchPattern(action) {
@@ -28,5 +30,6 @@ export function* matchPattern(action) {
 export default function* stateTemplateSaga() {
   yield all([
     takeEvery('*', matchPattern),
+    // takeLatest(C.AUTH_LOGIN, auth.login),
   ]);
 }

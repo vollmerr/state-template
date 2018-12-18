@@ -4,7 +4,7 @@ import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import * as selectors from '../selectors';
+import * as routerSelectors from '../../Router/selectors';
 
 const externalLink = {
   target: '_blank',
@@ -80,7 +80,7 @@ Footer.propTypes = {
 };
 
 export const mapStateToProps = createStructuredSelector({
-  contactLink: selectors.getContactLink(),
+  contactLink: routerSelectors.getContactLink(),
 });
 
 const withRedux = connect(mapStateToProps);

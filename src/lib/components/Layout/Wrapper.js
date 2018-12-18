@@ -6,7 +6,7 @@ const Wrapper = (props) => {
   const {
     baseClass,
     children,
-    component: C,
+    tag: Tag,
     className,
     ...rest
   } = props;
@@ -26,13 +26,13 @@ const Wrapper = (props) => {
 Wrapper.propTypes = {
   baseClass: T.string,
   children: T.element.isRequired,
-  component: T.oneOfType([T.string, T.element]),
+  tag: T.oneOfType([T.string, T.element]),
   className: T.string,
 };
 
 Wrapper.defaultProps = {
   baseClass: '',
-  component: 'div',
+  tag: 'div',
   className: '',
 };
 

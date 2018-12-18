@@ -1,3 +1,0 @@
-export const UPDATE_ROUTING = 'App/UPDATE_ROUTING';
-export const UPDATE_DISPLAY = 'App/UPDATE_DISPLAY';
-export const UPDATE_STATUS = 'App/UPDATE_STATUS';

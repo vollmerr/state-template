@@ -9,7 +9,6 @@
 //   localStorage.setItem(TOKEN, token);
 // }
 
-
 // /**
 //  * Gets the authenication token from localStorage
 //  * @return {String}     - authenication token
@@ -18,14 +17,12 @@
 //   return localStorage.getItem(TOKEN);
 // }
 
-
 // /**
 //  * Clears the authenication token from localStorage
 //  */
 // export function clearToken() {
 //   localStorage.removeItem(TOKEN);
 // }
-
 
 // /**
 //  * Helper function to valdate that token exists and is not expired
@@ -44,7 +41,6 @@
 //     return false;
 //   }
 // }
-
 
 // /**
 //  * Helper function to put jwt token into global redux store

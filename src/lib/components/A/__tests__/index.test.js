@@ -7,7 +7,7 @@ import A from '..';
 
 const props = {
   href: 'http://www.google.com',
-  children: 'link text',
+  text: 'link text',
 };
 
 let wrapper;

@@ -40,3 +40,48 @@ th.reactable-header-sortable {
     z-index: auto;
   }
 }
+
+.reactable-pagination {
+  border: none !important;
+  text-align: center;
+  tr:hover {
+    cursor: default;
+  }
+  td {
+    border: none !important;
+    padding-top: 20px !important;
+    &:hover {
+      background: transparent !important;
+    }
+    a {
+      position: relative;
+      padding: $padding-base-vertical $padding-base-horizontal;
+      line-height: $line-height-base;
+      text-decoration: none;
+      color: $pagination-color;
+      background-color: $pagination-bg;
+      border: 1px solid $pagination-border;
+      margin-left: -1px;
+    }
+    a {
+      &:hover,
+      &:focus {
+        z-index: 2;
+        color: $pagination-hover-color;
+        background-color: $pagination-hover-bg;
+        border-color: $pagination-hover-border;
+      }
+    }
+    a.reactable-current-page {
+      &,
+      &:hover,
+      &:focus {
+        z-index: 3;
+        color: $pagination-active-color;
+        background-color: $pagination-active-bg;
+        border-color: $pagination-active-border;
+        cursor: default;
+      }
+    }
+  }
+}

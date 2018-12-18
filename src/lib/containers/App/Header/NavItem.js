@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import * as selectors from '../selectors';
+import * as routerSelectors from '../../Router/selectors';
 
 /**
  * A single navigation item
@@ -18,16 +18,21 @@ const NavItem = ({
   icon,
   toggleMobileOpen,
   hash,
+  onClick,
 }) => {
   const isActive = path === hash;
   const activeClass = isActive ? 'active' : '';
+  const mappedOnClick = (event) => {
+    if (onClick) onClick(event);
+    toggleMobileOpen(event);
+  };
 
   return (
     <li className={`nav-item ${activeClass}`}>
       <Link
         to={path}
         className={'first-level-link'}
-        onClick={toggleMobileOpen}
+        onClick={mappedOnClick}
       >
         <span className={icon} aria-hidden={'true'} />
         {name}
@@ -37,7 +42,7 @@ const NavItem = ({
 };
 
 export const mapStateToProps = createStructuredSelector({
-  hash: selectors.getHash(),
+  hash: routerSelectors.getHash(),
 });
 
 const withRedux = connect(mapStateToProps);
