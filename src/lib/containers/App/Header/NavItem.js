@@ -1,9 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-
-import * as routerSelectors from '../../Routing/selectors';
+import { Link, withRouter } from 'react-router-dom';
 
 /**
  * A single navigation item
@@ -19,8 +15,10 @@ const NavItem = ({
   toggleMobileOpen,
   hash,
   onClick,
+  location,
+  ...props
 }) => {
-  const isActive = path === hash;
+  const isActive = location.pathname === path;
   const activeClass = isActive ? 'active' : '';
   const mappedOnClick = (event) => {
     if (onClick) onClick(event);
@@ -41,10 +39,4 @@ const NavItem = ({
   );
 };
 
-export const mapStateToProps = createStructuredSelector({
-  hash: routerSelectors.getHash(),
-});
-
-const withRedux = connect(mapStateToProps);
-
-export default withRedux(NavItem);
+export default withRouter(NavItem);

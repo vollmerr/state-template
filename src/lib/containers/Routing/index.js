@@ -27,17 +27,8 @@ export class Routing extends React.PureComponent {
   // handle updating on change
   registerRouting = () => {
     const { updateRouting, routes, contactLink } = this.props;
-    // update store with routes and current pages hash
-    updateRouting({
-      routes,
-      contactLink,
-      hash: window.location.hash.replace('#', ''),
-    });
-    // register for future changes and clear errors on page change
-    window.addEventListener('hashchange', (event) => {
-      const hash = event.newURL.replace(/^[^#]*#/, '');
-      updateRouting({ hash });
-    });
+    // update store with routes for use throughout the app
+    updateRouting({ routes, contactLink });
   }
 
   render() {

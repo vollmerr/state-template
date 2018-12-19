@@ -59,14 +59,19 @@ class ErrorSection extends React.Component {
 }
 
 ErrorSection.propTypes = {
+  /** Content to render when no error */
   children: T.node,
+  /** Props to pass to `Button` in error message */
   btnProps: T.object,
-  error: T.string.isRequired,
+  /** Provided by redux, error to render */
+  error: T.string,
+  /** Provided by redux, action to dispatch for updating the status */
   updateStatus: T.func.isRequired,
 };
 
 ErrorSection.defaultProps = {
   btnProps: undefined,
+  error: null,
   children: null,
 };
 

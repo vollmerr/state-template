@@ -14,7 +14,14 @@ class LoadingSection extends React.Component {
     this.delayTimer = null;
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidMount() {
+    const { isLoading } = this.props;
+    if (isLoading) {
+      this.setDelay();
+    }
+  }
+
+  componentWillReceiveProps(prevProps) {
     const { isLoading } = this.props;
     // set a delay for displahying the loading indicator to avoid flashing
     if (isLoading !== prevProps.isLoading) {

@@ -36,7 +36,7 @@ class Header extends React.PureComponent {
     const filteredRoutes = routes.filter(x => !x.hidden);
 
     return (
-      <header role="banner" id="header" className="global-header fixed">
+      <header role="banner" id="header" className="global-header">
         <div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
 
         <LocationBar />

@@ -1,6 +1,5 @@
 import React from 'react';
 import T from 'prop-types';
-import { connect } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
 import { routeProp } from '../../utils/propTypes';
@@ -13,7 +12,12 @@ import odiLogo from '../../images/office-of-digital-innovation-logo.png';
 import '../../style/core/css/cagov.core.css';
 import '../../style/style.scss';
 
-// main container for applications - handles routing and user settings
+/**
+ * This container handles updating user setttings, rendering
+ * the header and footer, and routing. This container is the
+ * default export fhe project, and the main entry point of any
+ * application that is using this project.
+ */
 export class App extends React.Component {
   componentDidMount() {
     this.setSettings();
@@ -43,7 +47,7 @@ export class App extends React.Component {
 }
 
 App.propTypes = {
-  router: T.node,
+  router: T.func,
   routes: T.arrayOf(routeProp).isRequired,
   brandingLogo: T.string,
 };
@@ -53,6 +57,4 @@ App.defaultProps = {
   brandingLogo: odiLogo,
 };
 
-const withRedux = connect();
-
-export default withRedux(App);
+export default App;

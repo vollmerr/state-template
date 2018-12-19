@@ -1,4 +1,5 @@
 import React from 'react';
+import T from 'prop-types';
 import { Table as ReactableTable, Tr, Td } from 'reactable';
 
 import Icon from '../Icon';
@@ -22,6 +23,11 @@ const TableHeader = ({ title, onFilter, showFilter }) => (
   </div>
 );
 
+/**
+ * Renders a table with search box for filtering results,
+ * sorting on columns, and pagination when more than 15 items
+ * are being displayed.
+ */
 class Table extends React.Component {
   state = { filter: '' }
 
@@ -98,5 +104,23 @@ class Table extends React.Component {
     );
   }
 }
+
+Table.propTypes = {
+  /** List of columns to filter when using the search box. Defaults to all columns */
+  toFilter: T.arrayOf(T.string),
+  /** Map of column names to header names to display in header row */
+  headers: T.object.isRequired,
+  /** Title of table */
+  title: T.string.isRequired,
+  /** Rows of data to render. Must have an `id` property in each row */
+  data: T.arrayOf(T.object).isRequired,
+  /** handler for clicking on a row */
+  onClickRow: T.func,
+};
+
+Table.defaultProps = {
+  toFilter: null,
+  onClickRow: null,
+};
 
 export default Table;
