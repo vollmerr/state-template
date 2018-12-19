@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import * as routerSelectors from '../../Router/selectors';
+import * as routerSelectors from '../../Routing/selectors';
 
 /**
  * A single navigation item

@@ -1,5 +1,4 @@
 // ////////////////////////////////////// components
-
 // a
 import A from './components/A';
 // banner
@@ -26,14 +25,21 @@ import Overlay from './components/Overlay';
 import Panel from './components/Panel';
 import Table from './components/Table';
 
-
 // ////////////////////////////////////// containers
 // app
 import App from './containers/App';
+import * as appActions from './containers/App/actions';
+import * as appSelectors from './containers/App/selectors';
+// router
+import Routing from './containers/Routing';
+import * as routingActions from './containers/Routing/actions';
+import * as routingSelectors from './containers/Routing/selectors';
 // status
+import Status from './containers/Status';
 import ErrorSection from './containers/Status/ErrorSection';
 import LoadingSection from './containers/Status/LoadingSection';
-
+import * as statusActions from './containers/Status/actions';
+import * as statusSelectors from './containers/Status/selectors';
 
 // ////////////////////////////////////// utils
 import * as api from './utils/api';
@@ -41,6 +47,18 @@ import configureStore from './utils/configureStore';
 import * as fieldOptions from './utils/fieldOptions';
 import * as serviceWorker from './utils/serviceWorker';
 import * as validate from './utils/validate';
+
+const globalActions = {
+  ...appActions,
+  ...routingActions,
+  ...statusActions,
+};
+
+const globalSelectors = {
+  ...appSelectors,
+  ...routingSelectors,
+  ...statusSelectors,
+};
 
 export {
   A,
@@ -61,6 +79,8 @@ export {
   Overlay,
   Panel,
   Table,
+  Routing,
+  Status,
   ErrorSection,
   LoadingSection,
   api,
@@ -68,6 +88,8 @@ export {
   fieldOptions,
   serviceWorker,
   validate,
+  globalActions,
+  globalSelectors,
 };
 
 export default App;

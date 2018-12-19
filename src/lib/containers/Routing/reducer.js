@@ -8,11 +8,6 @@ export const initialState = {
   contactLink: '/help',
 };
 
-export const routingReducer = (state, action) => ({
-  ...state,
-  ...action.payload,
-});
-
 export default handleActions({
   [C.UPDATE_ROUTING]: (state, action) => ({ ...state, ...action.payload }),
 }, initialState);

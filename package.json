@@ -1,6 +1,6 @@
 {
   "name": "state-template",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -20,7 +20,7 @@
     "eject": "react-scripts eject",
     "docs": "styleguidist server",
     "docs:build": "styleguidist build",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "node-sass": "4.x",

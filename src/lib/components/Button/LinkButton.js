@@ -42,13 +42,11 @@ LinkButton.propTypes = {
   to: T.string,
   /** Path for external links (open in new tab) */
   href: T.string,
-  ...Button.propTypes,
 };
 
 LinkButton.defaultProps = {
   to: '',
   href: '',
-  ...Button.defaultProps,
 };
 
 export default LinkButton;

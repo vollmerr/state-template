@@ -7,13 +7,13 @@ import createSagaMiddleware from 'redux-saga';
 import appReducer from '../containers/App/reducer';
 // import authReducer from '../containers/Auth/reducer';
 import statusReducer from '../containers/Status/reducer';
-import routerReducer from '../containers/Router/reducer';
+import routingReducer from '../containers/Routing/reducer';
 // import authSaga from '../containers/Auth/saga';
 import statusSaga from '../containers/Status/saga';
 
 const globalReducer = combineReducers({
   app: appReducer,
-  router: routerReducer,
+  routing: routingReducer,
   // auth: authReducer,
   status: statusReducer,
 });

@@ -4,7 +4,7 @@ import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import * as routerSelectors from '../../Router/selectors';
+import * as routerSelectors from '../../Routing/selectors';
 
 const externalLink = {
   target: '_blank',

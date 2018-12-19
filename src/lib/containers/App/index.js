@@ -1,11 +1,11 @@
 import React from 'react';
 import T from 'prop-types';
 import { connect } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
 
 import { routeProp } from '../../utils/propTypes';
 
-import * as routerActions from '../Router/actions';
-import Router from '../Router';
+import Routing from '../Routing';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -28,31 +28,31 @@ export class App extends React.Component {
   }
 
   render() {
-    const { routes, brandingLogo } = this.props;
+    const { routes, router: Router, brandingLogo } = this.props;
 
     return (
-      <>
-        <Header brandingLogo={brandingLogo} />
-        <Router routes={routes} />
-        <Footer />
-      </>
+      <Router>
+        <>
+          <Header brandingLogo={brandingLogo} />
+          <Routing routes={routes} />
+          <Footer />
+        </>
+      </Router>
     );
   }
 }
 
 App.propTypes = {
+  router: T.node,
   routes: T.arrayOf(routeProp).isRequired,
   brandingLogo: T.string,
 };
 
 App.defaultProps = {
+  router: HashRouter,
   brandingLogo: odiLogo,
 };
 
-export const mapDispatchToProps = dispatch => ({
-  updateRouting: props => dispatch(routerActions.updateRouting(props)),
-});
-
-const withRedux = connect(null, mapDispatchToProps);
+const withRedux = connect();
 
 export default withRedux(App);

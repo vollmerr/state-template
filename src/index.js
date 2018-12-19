@@ -57,7 +57,15 @@ const Home = () => (
 );
 
 
-const Help = () => <div>in help</div>;
+const Help = () => (
+  <ST.MainContent>
+    <ST.Section>
+      <ST.MainPrimary>
+        <ST.LinkButton to={'/'} text={'home...'} />
+      </ST.MainPrimary>
+    </ST.Section>
+  </ST.MainContent>
+);
 
 // order here determines order in navigation menu
 export const routesByKey = {
@@ -91,9 +99,7 @@ const routes = Object.values(routesByKey);
 
 ReactDOM.render(
   <Provider store={store}>
-    <HashRouter>
-      <App routes={routes} />
-    </HashRouter>
+    <App routes={routes} />
   </Provider>,
   document.getElementById('root'),
 );

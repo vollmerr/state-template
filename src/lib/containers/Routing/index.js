@@ -1,7 +1,7 @@
 import React from 'react';
 import T from 'prop-types';
+import { withRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
 
 import { routeProp } from '../../utils/propTypes';
 
@@ -11,7 +11,7 @@ import '../../style/core/css/cagov.core.css';
 import '../../style/style.scss';
 
 // main container for applications - handles routing and user settings
-export class Router extends React.Component {
+export class Routing extends React.PureComponent {
   componentDidMount() {
     this.registerRouting();
   }
@@ -49,13 +49,13 @@ export class Router extends React.Component {
   }
 }
 
-Router.propTypes = {
+Routing.propTypes = {
   contactLink: T.string,
   routes: T.arrayOf(routeProp).isRequired,
   updateRouting: T.func.isRequired,
 };
 
-Router.defaultProps = {
+Routing.defaultProps = {
   contactLink: '/help',
 };
 
@@ -63,6 +63,7 @@ export const mapDispatchToProps = dispatch => ({
   updateRouting: props => dispatch(actions.updateRouting(props)),
 });
 
-const withRedux = connect(null, mapDispatchToProps);
+const withRedux = connect(null, mapDispatchToProps)(Routing);
+const withRouting = withRouter(withRedux);
 
-export default withRedux(Router);
+export default withRouting;

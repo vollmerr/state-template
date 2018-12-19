@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import Overlay from '../../../components/Overlay';
 import { routeProp } from '../../../utils/propTypes';
-import * as routerSelectors from '../../Router/selectors';
+import * as routerSelectors from '../../Routing/selectors';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
 
