@@ -3,10 +3,10 @@ import React from 'react';
 import ErrorSection from './ErrorSection';
 import LoadingSection from './LoadingSection';
 
-const Status = ({ children }) => (
+const Status = ({ children, errorProps, loadingProps }) => (
   <>
-    <ErrorSection>
-      <LoadingSection>
+    <ErrorSection {...errorProps}>
+      <LoadingSection {...loadingProps}>
         {children}
       </LoadingSection>
     </ErrorSection>

@@ -1,6 +1,6 @@
 {
   "name": "state-template",
-  "version": "0.0.15",
+  "version": "0.0.17",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "jwt-decode": "^2.2.0",
     "pikaday": "^1.8.0",
     "prop-types": "^15.6.2",
     "reactable": "^1.1.0",

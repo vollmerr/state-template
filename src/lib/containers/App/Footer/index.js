@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import T from 'prop-types';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 
-import * as routerSelectors from '../../Routing/selectors';
+import A from '../../../components/A';
 
 const externalLink = {
   target: '_blank',
@@ -24,11 +21,10 @@ class Footer extends React.PureComponent {
             <div className="row">
               <div className="three-quarters">
                 <ul className="footer-links">
-                  <li><a href="#skip-to-content">Back to Top</a></li>
                   <li><a href="http://www.ca.gov/Use" {...externalLink}>Conditions of Use</a></li>
                   <li><a href="http://www.ca.gov/Privacy" {...externalLink}>Privacy Policy</a></li>
                   <li><a href="http://www.ca.gov/Accessibility" {...externalLink}>Accessibility</a></li>
-                  <li><Link to={contactLink}>Contact Us</Link></li>
+                  <li><A {...contactLink} /></li>
                 </ul>
               </div>
               <div className="quarter text-right">
@@ -76,13 +72,10 @@ class Footer extends React.PureComponent {
 }
 
 Footer.propTypes = {
-  contactLink: T.string.isRequired,
+  contactLink: T.shape({
+    text: T.string.isRequired,
+    href: T.string.isRequired,
+  }).isRequired,
 };
 
-export const mapStateToProps = createStructuredSelector({
-  contactLink: routerSelectors.getContactLink(),
-});
-
-const withRedux = connect(mapStateToProps);
-
-export default withRedux(Footer);
+export default Footer;

@@ -3,6 +3,7 @@ import T from 'prop-types';
 import { HashRouter } from 'react-router-dom';
 
 import { routeProp } from '../../utils/propTypes';
+import StatusMessage from '../Status/StatusMessage';
 
 import Routing from '../Routing';
 import Header from './Header';
@@ -32,14 +33,17 @@ export class App extends React.Component {
   }
 
   render() {
-    const { routes, router: Router, brandingLogo } = this.props;
+    const {
+      routes, router: Router, brandingLogo, fixedHeader, contactLink,
+    } = this.props;
 
     return (
       <Router>
         <>
-          <Header brandingLogo={brandingLogo} />
+          <Header brandingLogo={brandingLogo} fixed={fixedHeader} contactLink={contactLink} />
           <Routing routes={routes} />
-          <Footer />
+          <Footer contactLink={contactLink} />
+          <StatusMessage />
         </>
       </Router>
     );
@@ -49,12 +53,28 @@ export class App extends React.Component {
 App.propTypes = {
   router: T.func,
   routes: T.arrayOf(routeProp).isRequired,
-  brandingLogo: T.string,
+  brandingLogo: T.shape({
+    src: T.string.isRequired,
+    alt: T.string.isRequired,
+  }),
+  contactLink: T.shape({
+    text: T.string.isRequired,
+    href: T.string.isRequired,
+  }).isRequired,
+  fixedHeader: T.bool,
 };
 
 App.defaultProps = {
   router: HashRouter,
-  brandingLogo: odiLogo,
+  brandingLogo: {
+    src: odiLogo,
+    alt: 'Office of Digital Innovation logo',
+  },
+  contactLink: {
+    text: 'Contact Us',
+    href: 'https://cdt.ca.gov/support/',
+  },
+  fixedHeader: true,
 };
 
 export default App;

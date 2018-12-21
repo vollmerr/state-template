@@ -21,7 +21,7 @@ class LoadingSection extends React.Component {
     }
   }
 
-  componentWillReceiveProps(prevProps) {
+  componentDidUpdate(prevProps) {
     const { isLoading } = this.props;
     // set a delay for displahying the loading indicator to avoid flashing
     if (isLoading !== prevProps.isLoading) {
@@ -31,6 +31,10 @@ class LoadingSection extends React.Component {
         this.clearDelay();
       }
     }
+  }
+
+  componentWillUnmount() {
+    this.clearDelay();
   }
 
   setDelay = () => {
@@ -76,6 +80,6 @@ export const mapStateToProps = createStructuredSelector({
   isLoading: selectors.getIsLoading(),
 });
 
-const withRedux = connect(mapStateToProps);
+const withRedux = connect(mapStateToProps)(LoadingSection);
 
-export default withRedux(LoadingSection);
+export default withRedux;

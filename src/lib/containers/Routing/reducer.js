@@ -5,7 +5,6 @@ import * as C from './constants';
 export const initialState = {
   routes: [],
   hash: '/',
-  contactLink: '/help',
 };
 
 export default handleActions({

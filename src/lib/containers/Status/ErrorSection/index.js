@@ -20,18 +20,18 @@ class ErrorSection extends React.Component {
   }
 
   componentWillUnmount() {
-    const { updateStatus } = this.props;
-    updateStatus({ error: null });
+    const { clearError } = this.props;
+    clearError();
   }
 
   renderError = () => {
-    const { error, btnProps, updateStatus } = this.props;
+    const { error, btnProps, clearError } = this.props;
 
     // attach clearing the error onClick
     if (btnProps) {
       const passedOnClick = btnProps.onClick;
       btnProps.onClick = (event) => {
-        updateStatus({ error: null });
+        clearError();
         passedOnClick(event);
       };
     }
@@ -65,8 +65,8 @@ ErrorSection.propTypes = {
   btnProps: T.object,
   /** Provided by redux, error to render */
   error: T.string,
-  /** Provided by redux, action to dispatch for updating the status */
-  updateStatus: T.func.isRequired,
+  /** Provided by redux, action to dispatch for removing the error */
+  clearError: T.func.isRequired,
 };
 
 ErrorSection.defaultProps = {
@@ -80,9 +80,9 @@ export const mapStateToProps = createStructuredSelector({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  updateStatus: props => dispatch(actions.updateStatus(props)),
+  clearError: () => dispatch(actions.setError(null)),
 });
 
-const withRedux = connect(mapStateToProps, mapDispatchToProps);
+const withRedux = connect(mapStateToProps, mapDispatchToProps)(ErrorSection);
 
-export default withRedux(ErrorSection);
+export default withRedux;

@@ -6,3 +6,4 @@ export const selectStatus = state => selectGlobal(state).status;
 
 export const getIsLoading = () => createSelector(selectStatus, x => x.isLoading);
 export const getError = () => createSelector(selectStatus, x => x.error);
+export const getMessages = () => createSelector(selectStatus, x => x.messages);

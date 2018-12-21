@@ -1,6 +1,8 @@
 import React from 'react';
+import T from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import A from '../../../components/A';
 import govLogo from '../../../images/Ca-Gov-Logo-Gold.svg';
 
 const UtilityHeader = ({ toggleSettingsOpen, contactLink }) => (
@@ -34,7 +36,7 @@ const UtilityHeader = ({ toggleSettingsOpen, contactLink }) => (
         <div className="half settings-links p-t-sm">
           <ul className="utility-links">
             <li>
-              <Link to={contactLink}>Contact Us</Link>
+              <A {...contactLink} />
             </li>
             <li>
               <button onClick={toggleSettingsOpen} type={'button'} className="btn btn-xs btn-primary" aria-expanded="false" aria-controls="siteSettings">
@@ -49,5 +51,13 @@ Settings
     </div>
   </div>
 );
+
+UtilityHeader.propTypes = {
+  toggleSettingsOpen: T.func.isRequired,
+  contactLink: T.shape({
+    text: T.string.isRequired,
+    href: T.string.isRequired,
+  }).isRequired,
+};
 
 export default UtilityHeader;

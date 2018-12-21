@@ -11,7 +11,7 @@ const TableHeader = ({ title, onFilter, showFilter }) => (
       <h2>{title}</h2>
     </div>
     {
-      showFilter && (
+      Boolean(showFilter) && (
         <div className={'col-xs-12 col-sm-6'}>
           <div className={'form-group has-feedback'}>
             <input className={'form-control'} placeholder={'Search'} onInput={onFilter} />
@@ -72,7 +72,9 @@ class Table extends React.Component {
   }
 
   render() {
-    const { title, data, headers } = this.props;
+    const {
+      title, data, headers, renderCol,
+    } = this.props;
     const tableProps = this.buildTableProps();
 
     return (
@@ -89,9 +91,14 @@ class Table extends React.Component {
                       if (!header) {
                         return null;
                       }
+                      // add custom rendering to columns
+                      let value = row[col];
+                      if (renderCol[col]) {
+                        value = renderCol[col](value, row, col);
+                      }
 
                       return (
-                        <Td column={headers[col]} key={`${row.id}-${col}`}>{row[col]}</Td>
+                        <Td column={headers[col]} key={`${row.id}-${col}`}>{value}</Td>
                       );
                     })
                   }
@@ -114,13 +121,16 @@ Table.propTypes = {
   title: T.string.isRequired,
   /** Rows of data to render. Must have an `id` property in each row */
   data: T.arrayOf(T.object).isRequired,
-  /** handler for clicking on a row */
+  /** Handler for clicking on a row */
   onClickRow: T.func,
+  /** Custom render functions for column values */
+  renderCol: T.objectOf(T.func),
 };
 
 Table.defaultProps = {
   toFilter: null,
   onClickRow: null,
+  renderCol: {},
 };
 
 export default Table;

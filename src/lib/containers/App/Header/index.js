@@ -2,6 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import classNames from 'classnames';
 
 import Overlay from '../../../components/Overlay';
 import { routeProp } from '../../../utils/propTypes';
@@ -30,13 +31,19 @@ class Header extends React.PureComponent {
 
   render() {
     const {
-      isMobileOpen, isSettingsOpen, routes, contactLink, brandingLogo,
+      fixed,
+      brandingLogo,
+      isMobileOpen,
+      isSettingsOpen,
+      routes,
+      contactLink,
     } = this.props;
 
     const filteredRoutes = routes.filter(x => !x.hidden);
+    const cn = classNames(['global-header', { fixed }]);
 
     return (
-      <header role="banner" id="header" className="global-header">
+      <header role="banner" id="header" className={cn}>
         <div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
 
         <LocationBar />
@@ -45,7 +52,7 @@ class Header extends React.PureComponent {
           isSettingsOpen={isSettingsOpen}
           toggleSettingsOpen={this.toggleSettingsOpen}
         />
-        <Branding src={brandingLogo} />
+        <Branding {...brandingLogo} />
         <MobileControls toggleMobileOpen={this.toggleMobileOpen} routes={filteredRoutes} />
 
         <div className="navigation-search">
@@ -68,11 +75,18 @@ class Header extends React.PureComponent {
 }
 
 Header.propTypes = {
-  brandingLogo: T.string.isRequired,
+  fixed: T.bool.isRequired,
+  brandingLogo: T.shape({
+    src: T.string.isRequired,
+    alt: T.string.isRequired,
+  }).isRequired,
   isMobileOpen: T.bool.isRequired,
   isSettingsOpen: T.bool.isRequired,
   routes: T.arrayOf(routeProp).isRequired,
-  contactLink: T.string.isRequired,
+  contactLink: T.shape({
+    text: T.string.isRequired,
+    href: T.string.isRequired,
+  }).isRequired,
   updateDisplay: T.func.isRequired,
 };
 
@@ -80,7 +94,6 @@ export const mapStateToProps = createStructuredSelector({
   isMobileOpen: selectors.getIsMobileOpen(),
   isSettingsOpen: selectors.getIsSettingsOpen(),
   routes: routerSelectors.getRoutes(),
-  contactLink: routerSelectors.getContactLink(),
 });
 
 export const mapDispatchToProps = dispatch => ({

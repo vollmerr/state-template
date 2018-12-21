@@ -25,6 +25,6 @@
   ];
 
   <div style={{ overflow: 'auto', display: 'grid' }}>
-    <App routes={routes} router={MemoryRouter} />
+    <App routes={routes} router={MemoryRouter} fixedHeader={false} />
   </div>
 ```
