@@ -1,12 +1,22 @@
-.table-header {
-  .has-feedback.form-group,
-  h2 {
-    margin-top: 5px;
-    margin-bottom: 10px;
+.react-bootstrap-table {
+  .table-header {
+    .has-feedback.form-group,
+    h2 {
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    .form-control-feedback {
+      top: 0;
+      z-index: auto;
+    }
   }
 
-  .form-control-feedback {
-    top: 0;
-    z-index: auto;
+  .table {
+    word-break: break-all;
+  }
+
+  .react-bootstrap-table-page-btns-ul {
+    margin: 0;
   }
 }

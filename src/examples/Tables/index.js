@@ -9,12 +9,14 @@ export class Tables extends React.Component {
     id: i,
     col1: `row ${i} col 1`,
     col2: `row ${i} col 2`,
+    col3: 'really really really really really really really really really long cell',
   }))
 
   buildColumns = () => [
     { dataField: 'id', text: 'ID', sort: true },
     { dataField: 'col1', text: 'Column 1', sort: true },
     { dataField: 'col2', text: 'Column 2' },
+    { dataField: 'col3', text: 'Really Long Data' },
     { dataField: 'btn', text: '', formatter: this.renderButton },
   ]
 

@@ -19,6 +19,7 @@ class Table extends React.Component {
         <TableHeader title={title} {...searchProps} />
         <BootstrapTable
           hover
+          condensed
           bordered={false}
           pagination={pagination}
           rowEvents={rowEvents}
