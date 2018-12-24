@@ -6,6 +6,8 @@ import BannerPrimary from './components/Banner/BannerPrimary';
 // button
 import Button from './components/Button';
 import LinkButton from './components/Button/LinkButton';
+// card
+import Card from './components/Card';
 // form
 import FieldCheckboxes from './components/Form/FieldCheckboxes';
 import FieldDate from './components/Form/FieldDate';
@@ -68,6 +70,7 @@ export {
   BannerPrimary,
   Button,
   LinkButton,
+  Card,
   FieldCheckboxes,
   FieldDate,
   FieldInput,

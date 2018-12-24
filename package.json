@@ -1,6 +1,6 @@
 {
   "name": "state-template",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -43,6 +43,7 @@
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.5",
     "eslint-config-airbnb": "^17.1.0",
+    "faker": "^4.1.0",
     "lint-staged": "^8.1.0",
     "mockdate": "^2.0.2",
     "node-sass": "^4.10.0",
@@ -64,7 +65,9 @@
     "jwt-decode": "^2.2.0",
     "pikaday": "^1.8.0",
     "prop-types": "^15.6.2",
-    "reactable": "^1.1.0",
+    "react-bootstrap-table-next": "^1.4.4",
+    "react-bootstrap-table2-paginator": "^1.0.4",
+    "react-bootstrap-table2-toolkit": "^1.1.1",
     "redux-devtools-extension": "^2.13.7"
   },
   "browserslist": [

@@ -8,7 +8,12 @@ import Page from '../Page';
 export class StatusMessages extends React.Component {
   registerMessage = () => {
     const { registerMessage } = this.props;
-    registerMessage({ name: 'exampleMessage', message: 'example message...' });
+    const key = Math.random();
+    registerMessage({
+      key, // unique identifier for message
+      children: `message ${key}`,
+      variant: 'primary',
+    });
   }
 
   render() {

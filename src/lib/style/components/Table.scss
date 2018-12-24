@@ -1,34 +1,4 @@
-th.reactable-header-sortable {
-  &:after {
-    font-family: "CaGov";
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin-left: 10px;
-    margin-top: 5px;
-  }
-
-  &.reactable-header-sort-desc:after {
-    content: '\42';
-  }
-
-  &.reactable-header-sort-asc:after {
-    content: '\43';
-  }
-}
-
-.st-table {
-  margin: 15px 0;
-
-  tr {
-    cursor: pointer;
-  }
-}
-
-.reactable-title {
+.table-header {
   .has-feedback.form-group,
   h2 {
     margin-top: 5px;
@@ -38,50 +8,5 @@ th.reactable-header-sortable {
   .form-control-feedback {
     top: 0;
     z-index: auto;
-  }
-}
-
-.reactable-pagination {
-  border: none !important;
-  text-align: center;
-  tr:hover {
-    cursor: default;
-  }
-  td {
-    border: none !important;
-    padding-top: 20px !important;
-    &:hover {
-      background: transparent !important;
-    }
-    a {
-      position: relative;
-      padding: $padding-base-vertical $padding-base-horizontal;
-      line-height: $line-height-base;
-      text-decoration: none;
-      color: $pagination-color;
-      background-color: $pagination-bg;
-      border: 1px solid $pagination-border;
-      margin-left: -1px;
-    }
-    a {
-      &:hover,
-      &:focus {
-        z-index: 2;
-        color: $pagination-hover-color;
-        background-color: $pagination-hover-bg;
-        border-color: $pagination-hover-border;
-      }
-    }
-    a.reactable-current-page {
-      &,
-      &:hover,
-      &:focus {
-        z-index: 3;
-        color: $pagination-active-color;
-        background-color: $pagination-active-bg;
-        border-color: $pagination-active-border;
-        cursor: default;
-      }
-    }
   }
 }

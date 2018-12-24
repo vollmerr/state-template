@@ -27,17 +27,15 @@ const registerMessage = (state, action) => ({
   ...state,
   messages: {
     ...state.messages,
-    [action.payload.name]: action.payload,
+    [action.payload.key]: action.payload,
   },
 });
 
-const clearMessage = (state, action) => ({
-  ...state,
-  messages: {
-    ...state.messages,
-    [action.payload]: undefined,
-  },
-});
+const clearMessage = (state, action) => {
+  const messages = { ...state.messages };
+  delete messages[action.payload];
+  return ({ ...state, messages });
+};
 
 export default handleActions({
   [C.INCREASE_LOADING]: increaseLoading,

@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 
 import { configureStore } from '../lib';
 
-const ExampleRedux = ({ children, store }) => {
+const ExampleRedux = ({ children, store, ...rest }) => {
   const initialState = { global: { ...store } };
   const newStore = configureStore({ initialState });
 
   return (
-    <Provider store={newStore}>
+    <Provider store={newStore} {...rest}>
       {children}
     </Provider>
   );

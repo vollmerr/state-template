@@ -3,19 +3,28 @@ import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
+import Card from '../../../components/Card';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
 
-class StatusMessage extends React.Component {
+class StatusMessage extends React.Component { // eslint-disable-line
   render() {
-    const { messages } = this.props;
+    const { messages, clearMessage } = this.props;
     const messageValues = Object.values(messages);
 
     if (!messageValues.length) {
       return null;
     }
 
-    return messageValues.map(x => <h1 key={x.name}>message...</h1>);
+    return (
+      <div className={'status-message'}>
+        {
+          messageValues.map(x => (
+            <Card {...x} onDismiss={() => clearMessage(x.key)} />
+          ))
+        }
+      </div>
+    );
   }
 }
 
@@ -28,9 +37,9 @@ export const mapStateToProps = createStructuredSelector({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  clearMessage: name => dispatch(actions.clearMessage(name)),
+  clearMessage: key => dispatch(actions.clearMessage(key)),
 });
 
-const withRedux = connect(mapStateToProps)(StatusMessage);
+const withRedux = connect(mapStateToProps, mapDispatchToProps)(StatusMessage);
 
 export default withRedux;

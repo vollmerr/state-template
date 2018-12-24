@@ -28,9 +28,9 @@ export function* matchPattern(action) {
 
 // handles clearing a short time message was registered
 export function* statusMessage(action) {
-  const { delayMs = 4000, name } = action.payload;
+  const { delayMs = 4000, key } = action.payload;
   yield delay(delayMs);
-  yield put(actions.clearMessage(name));
+  yield put(actions.clearMessage(key));
 }
 
 export default function* stateTemplateSaga() {
