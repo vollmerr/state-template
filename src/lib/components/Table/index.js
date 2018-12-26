@@ -12,7 +12,7 @@ const pagination = paginationFactory({ hidePageListOnlyOnePage: true });
 
 class Table extends React.Component {
   renderTable = ({ searchProps, baseProps }) => {
-    const { title, rowEvents } = this.props;
+    const { title, rowEvents, defaultSorted } = this.props;
 
     return (
       <>
@@ -24,6 +24,7 @@ class Table extends React.Component {
           pagination={pagination}
           rowEvents={rowEvents}
           noDataIndication={'No Entries'}
+          defaultSorted={defaultSorted}
           {...baseProps}
         />
       </>

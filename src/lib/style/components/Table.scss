@@ -1,22 +1,29 @@
-.react-bootstrap-table {
-  .table-header {
-    .has-feedback.form-group,
-    h2 {
-      margin-top: 5px;
-      margin-bottom: 10px;
-    }
-
-    .form-control-feedback {
-      top: 0;
-      z-index: auto;
-    }
+.table-header {
+  .has-feedback.form-group,
+  h2 {
+    margin-top: 5px;
+    margin-bottom: 10px;
   }
 
+  .form-control-feedback {
+    top: 0;
+    z-index: auto;
+  }
+}
+
+.react-bootstrap-table {
   .table {
     word-break: break-all;
   }
+}
 
-  .react-bootstrap-table-page-btns-ul {
-    margin: 0;
+.react-bootstrap-table-page-btns-ul {
+  margin: 0;
+}
+
+.react-bs-table-sizePerPage-dropdown {
+  .dropdown-menu {
+    bottom: 100%;
+    top: auto;
   }
 }

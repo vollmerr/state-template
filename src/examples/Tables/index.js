@@ -37,6 +37,7 @@ export class Tables extends React.Component {
           data={this.buildData()}
           columns={this.buildColumns()}
           rowEvents={{ onClick: this.clickRow }}
+          defaultSorted={[{ dataField: 'col1', order: 'desc' }]}
         />
       </Page>
     );
