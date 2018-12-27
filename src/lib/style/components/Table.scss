@@ -12,7 +12,10 @@
 }
 
 .react-bootstrap-table {
+  overflow-x: auto;
+
   .table {
+    table-layout: auto;
     word-break: break-all;
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
+import classNames from 'classnames';
 
 // wrapper around fields to display an optional label and help block.
 // Handles displaying errors if vlaidation has failed
@@ -9,15 +10,19 @@ const FieldWrapper = (props) => {
   } = props;
   const { touched, error } = meta;
 
-  let statusClass = '';
   let errorMessage = '';
   if (touched && error) {
-    statusClass = 'has-error';
     errorMessage = error;
   }
 
+  const cn = classNames([
+    'form-group',
+    className,
+    { 'has-error': errorMessage },
+  ]);
+
   return (
-    <div className={`form-group ${statusClass} ${className}`}>
+    <div className={cn}>
       {label && (
         <label className="control-label">
           {required && <span className="required-label">* </span>}

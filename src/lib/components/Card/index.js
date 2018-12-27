@@ -23,7 +23,17 @@ const Card = (props) => {
 
   return (
     <div className={cn} {...rest}>
-      {onDismiss && <Icon name={'close-mark'} onClick={onDismiss} className={'dismiss-icon'} />}
+      {
+        onDismiss
+        && (
+          <Icon
+            name={'close-mark'}
+            onClick={onDismiss}
+            className={'dismiss-icon'}
+            data-test={'button-dismiss'}
+          />
+        )
+      }
       {header && <div className={'card-header'}>{header}</div>}
       <div className={'card-block'}>{children}</div>
       {footer && <div className={'card-footer'}>{footer}</div>}
