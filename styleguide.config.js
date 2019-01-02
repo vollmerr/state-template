@@ -1,8 +1,8 @@
 const path = require('path');
-const craWebpack = require('react-scripts/config/webpack.config.dev'); // eslint-disable-line
+const craWebpack = require('react-scripts/config/webpack.config'); // eslint-disable-line
 
 const getWebpack = () => {
-  const config = craWebpack;
+  const config = craWebpack('development');
   config.resolve.alias['state-template'] = path.join(path.join(__dirname, 'src/lib/'));
   return config;
 };
