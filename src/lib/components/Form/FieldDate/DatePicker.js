@@ -74,7 +74,7 @@ class DatePicker extends Component {
         {/* handle dispatching to redux-form */}
         <input
           className="hidden"
-          id={input.name}
+          name={input.name}
         />
       </div>
     );

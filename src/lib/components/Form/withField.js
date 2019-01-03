@@ -5,20 +5,25 @@ import { Field } from 'redux-form';
 // before they get to the compoonent
 const withField = emptyValidator => component => (props) => {
   const { disabled, required, validate = [] } = props;
-  // attach the validation for required based off input type
-  if (required) {
-    validate.push(emptyValidator);
-  }
-  // do not validate disabled fields
-  const fixedValidate = !disabled ? validate : [];
 
-  const fixedProps = {
+  let toValidate;
+  // only validate fields that are not disabled
+  if (!disabled) {
+    // attach the validation for required based off input type
+    if (required) {
+      toValidate = [...validate, emptyValidator];
+    } else {
+      toValidate = validate;
+    }
+  }
+
+  const fieldProps = {
     ...props,
     component,
-    validate: fixedValidate,
+    validate: toValidate,
   };
 
-  return <Field {...fixedProps} />;
+  return <Field {...fieldProps} />;
 };
 
 export default withField;

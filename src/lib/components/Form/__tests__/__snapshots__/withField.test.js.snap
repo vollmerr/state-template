@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withField should render correctly 1`] = `
+<Field
+  component="input"
+  disabled={false}
+  input={
+    Object {
+      "name": "testName",
+      "onChange": [MockFunction],
+      "value": "test value",
+    }
+  }
+  label="test label"
+  meta={
+    Object {
+      "error": null,
+      "touched": false,
+    }
+  }
+  required={true}
+  validate={
+    Array [
+      [Function],
+      [MockFunction],
+    ]
+  }
+/>
+`;

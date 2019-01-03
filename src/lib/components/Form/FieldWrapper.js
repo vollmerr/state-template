@@ -6,8 +6,14 @@ import classNames from 'classnames';
 // Handles displaying errors if vlaidation has failed
 const FieldWrapper = (props) => {
   const {
-    label, meta, helpText, className, children, required,
+    label,
+    meta,
+    helpText,
+    className,
+    children,
+    required,
   } = props;
+
   const { touched, error } = meta;
 
   let errorMessage = '';
@@ -24,16 +30,16 @@ const FieldWrapper = (props) => {
   return (
     <div className={cn}>
       {label && (
-        <label className="control-label">
-          {required && <span className="required-label">* </span>}
+        <label className="control-label" data-test={'label'}>
+          {required && <span className="required-label" data-test={'required'}>* </span>}
           {label}
         </label>
       )}
 
       {children}
 
-      {errorMessage && <small className="feedback">{errorMessage}</small>}
-      {helpText && <p className="help-block">{helpText}</p>}
+      {errorMessage && <small className="feedback" data-test={'error'}>{errorMessage}</small>}
+      {helpText && <p className="help-block" data-test={'help'}>{helpText}</p>}
     </div>
   );
 };

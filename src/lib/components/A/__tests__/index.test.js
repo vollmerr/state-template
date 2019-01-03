@@ -24,6 +24,11 @@ describe('A', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('should render children if no `text`', () => {
+    wrapper.setProps({ text: '', children: 'children...' });
+    expect(wrapper.text()).toEqual('children...');
+  });
+
   describe('external links', () => {
     it('should use an `a` tag', () => {
       const tag = wrapper.type();

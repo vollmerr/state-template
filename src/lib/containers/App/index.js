@@ -60,7 +60,7 @@ App.propTypes = {
   contactLink: T.shape({
     text: T.string.isRequired,
     href: T.string.isRequired,
-  }).isRequired,
+  }),
   fixedHeader: T.bool,
 };
 
@@ -69,6 +69,7 @@ App.defaultProps = {
   brandingLogo: {
     src: odiLogo,
     alt: 'Office of Digital Innovation logo',
+    href: 'https://cdt.ca.gov/',
   },
   contactLink: {
     text: 'Contact Us',
