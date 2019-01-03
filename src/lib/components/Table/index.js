@@ -11,7 +11,7 @@ import TableHeader from './TableHeader';
 class Table extends React.Component {
   buildColumns = columns => columns.map(x => ({
     ...x,
-    style: {
+    headerStyle: {
       ...x.style,
       minWidth: x.minWidth ? `${x.minWidth}px` : '100px',
       maxWidth: x.maxWidth ? `${x.maxWidth}px` : 'auto',

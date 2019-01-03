@@ -33,7 +33,7 @@ const A = (props) => {
     Tag = Link;
   }
 
-  return <Tag {...aProps}>{text}</Tag>;
+  return <Tag {...aProps}>{text || children}</Tag>;
 };
 
 A.propTypes = {
@@ -42,12 +42,16 @@ A.propTypes = {
   /** Path for external links (open in new tab) */
   href: T.string,
   /** Content to display as a link */
-  text: T.string.isRequired,
+  text: T.string,
+  /** Children */
+  children: T.node,
 };
 
 A.defaultProps = {
   to: '',
   href: '',
+  text: '',
+  children: null,
 };
 
 export default A;
