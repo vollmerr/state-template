@@ -22,9 +22,13 @@ import Container from './components/Layout/Container';
 import MainContent from './components/Layout/MainContent';
 import MainPrimary from './components/Layout/MainPrimary';
 import Section from './components/Layout/Section';
+// nav
+import NavTabs from './components/Nav/NavTabs';
 // overlay
 import Overlay from './components/Overlay';
+// panel
 import Panel from './components/Panel';
+// table
 import Table from './components/Table';
 
 // ////////////////////////////////////// containers
@@ -82,6 +86,7 @@ export {
   MainContent,
   MainPrimary,
   Section,
+  NavTabs,
   Overlay,
   Panel,
   Table,

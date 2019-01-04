@@ -35,6 +35,23 @@
 </div>
 ```
 
+### with icon
+
+```jsx
+const iconProps = {
+  name: 'plus-mark',
+};
+
+<div className={'btn-row'}>
+  <Button text={'button'} iconProps={iconProps} />
+  <Button text={'default button'} variant={'default'} iconProps={iconProps} />
+  <Button text={'primary button'} variant={'primary'} iconProps={iconProps} />
+  <Button text={'secondary button'} variant={'secondary'} iconProps={iconProps} />
+  <Button text={'highlight button'} variant={'highlight'} iconProps={iconProps} />
+  <Button text={'standout button'} variant={'standout'} iconProps={iconProps} />
+</div>
+```
+
 ### passed props
 Other properties get passed down to the button component, such as onChange handlers, id, etc.
 

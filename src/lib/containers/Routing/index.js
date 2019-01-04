@@ -1,6 +1,8 @@
 import React from 'react';
 import T from 'prop-types';
-import { withRouter, Route } from 'react-router-dom';
+import {
+  withRouter, Route, Switch, Redirect,
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { routeProp } from '../../utils/propTypes';
@@ -34,9 +36,16 @@ export class Routing extends React.PureComponent {
   render() {
     const { routes } = this.props;
 
-    return routes.map(route => (
-      <Route {...route} />
-    ));
+    return (
+      <Switch>
+        {
+          routes.map(route => (
+            <Route {...route} />
+          ))
+        }
+        <Redirect to={'/'} />
+      </Switch>
+    );
   }
 }
 

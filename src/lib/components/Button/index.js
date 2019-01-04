@@ -2,6 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import T from 'prop-types';
 
+import Icon from '../Icon';
+
 /**
  * Buttons come in various styles and inherit
  * all properties of a standard html button.
@@ -13,6 +15,8 @@ const Button = (props) => {
     text,
     className,
     tag: Tag,
+    children,
+    iconProps,
     ...rest
   } = props;
 
@@ -22,7 +26,12 @@ const Button = (props) => {
     { active: isActive, [`btn-${variant}`]: variant },
   ]);
 
-  return <Tag className={btnClass} {...rest}>{text}</Tag>;
+  return (
+    <Tag className={btnClass} {...rest}>
+      {iconProps && <Icon {...iconProps} />}
+      {text || children}
+    </Tag>
+  );
 };
 
 Button.propTypes = {
@@ -35,8 +44,8 @@ Button.propTypes = {
     'highlight',
     'standout',
   ]),
-  /** Text to display */
-  text: T.string.isRequired,
+  /** Text to display, mutually exclusive with `children` */
+  text: T.node,
   /** Button type */
   type: T.oneOf([
     'button',
@@ -47,13 +56,20 @@ Button.propTypes = {
   className: T.string,
   /** HTML tag to use */
   tag: T.oneOfType([T.func, T.string]),
+  /** Children to render, mutually exclusive with `text` */
+  children: T.node,
+  /** Icon to display */
+  iconProps: T.shape({ ...Icon.propTypes }),
 };
 
 Button.defaultProps = {
   variant: '',
+  text: null,
   type: 'button',
   className: '',
   tag: 'button',
+  children: null,
+  iconProps: null,
 };
 
 export default Button;
