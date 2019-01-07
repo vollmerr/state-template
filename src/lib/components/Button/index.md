@@ -14,11 +14,11 @@
 ```jsx
 <div className={'btn-row'}>
   <Button text={'button'} />
-  <Button text={'default button'} variant={'default'} isActive />
-  <Button text={'primary button'} variant={'primary'} isActive />
-  <Button text={'secondary button'} variant={'secondary'} isActive />
-  <Button text={'highlight button'} variant={'highlight'} isActive />
-  <Button text={'standout button'} variant={'standout'} isActive />
+  <Button text={'default button'} variant={'default'} active />
+  <Button text={'primary button'} variant={'primary'} active />
+  <Button text={'secondary button'} variant={'secondary'} active />
+  <Button text={'highlight button'} variant={'highlight'} active />
+  <Button text={'standout button'} variant={'standout'} active />
 </div>
 ```
 

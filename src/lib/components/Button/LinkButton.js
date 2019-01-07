@@ -34,6 +34,9 @@ const LinkButton = (props) => {
     };
   }
 
+  // clear type to render as anchor (css issues..)
+  btnProps.type = '';
+
   return <Button {...btnProps} />;
 };
 

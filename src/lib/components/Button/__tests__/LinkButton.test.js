@@ -46,10 +46,14 @@ describe('LinkButton', () => {
   });
 
   it('should pass additional props', () => {
-    wrapper.setProps({ id: 'testId', type: 'submit', variant: 'primary' });
+    wrapper.setProps({ id: 'testId', variant: 'primary' });
     const button = wrapper.find(Button);
     expect(button.prop('id')).toBe('testId');
-    expect(button.prop('type')).toBe('submit');
     expect(button.prop('variant')).toBe('primary');
+  });
+
+  it('should clear the type from being a button', () => {
+    const button = wrapper.find(Button);
+    expect(button.prop('type')).toBe('');
   });
 });

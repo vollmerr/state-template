@@ -11,7 +11,7 @@ import Icon from '../Icon';
 const Button = (props) => {
   const {
     variant,
-    isActive,
+    active,
     text,
     className,
     tag: Tag,
@@ -23,7 +23,7 @@ const Button = (props) => {
   const btnClass = classNames([
     'btn',
     className,
-    { active: isActive, [`btn-${variant}`]: variant },
+    { active, [`btn-${variant}`]: variant },
   ]);
 
   return (
@@ -44,10 +44,13 @@ Button.propTypes = {
     'highlight',
     'standout',
   ]),
+  /** Style as active */
+  active: T.bool,
   /** Text to display, mutually exclusive with `children` */
   text: T.node,
   /** Button type */
   type: T.oneOf([
+    '',
     'button',
     'submit',
     'reset',
@@ -64,6 +67,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   variant: '',
+  active: false,
   text: null,
   type: 'button',
   className: '',

@@ -2,12 +2,14 @@
 
 exports[`LinkButton should render correctly 1`] = `
 <Button
+  active={false}
   className=""
   href="http://www.google.com"
+  iconProps={null}
   tag="a"
   target="_blank"
   text="test text"
-  type="button"
+  type=""
   variant=""
 />
 `;

@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 import { globalActions, Button } from '../../lib';
 
-import Page from '../Page';
-
 export class StatusMessages extends React.Component {
   registerMessage = () => {
     const { registerMessage } = this.props;
@@ -18,10 +16,11 @@ export class StatusMessages extends React.Component {
 
   render() {
     return (
-      <Page title={'Status Messages'}>
+      <>
+        <h2>Status Messages</h2>
         <p>This example shows how to register status messages.</p>
         <Button onClick={this.registerMessage} text={'register a message'} />
-      </Page>
+      </>
     );
   }
 }

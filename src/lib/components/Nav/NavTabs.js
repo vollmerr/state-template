@@ -16,6 +16,8 @@ const NavTabs = (props) => {
     location,
     routes,
     className,
+    defaultPath,
+    staticContext, // pull out so not passed on
     ...rest
   } = props;
 
@@ -23,6 +25,9 @@ const NavTabs = (props) => {
     'nav nav-tabs m-b-md',
     className,
   ]);
+
+  // redirect to `defaultPath` route, or base path if none provided
+  const redirectPath = defaultPath ? `${match.path}${defaultPath}` : match.path;
 
   return (
     <>
@@ -48,7 +53,7 @@ const NavTabs = (props) => {
             <Route {...route} path={`${match.path}${route.path}`} />
           ))
         }
-        <Redirect to={match.path} />
+        <Redirect to={redirectPath} />
       </Switch>
     </>
   );
@@ -63,10 +68,13 @@ NavTabs.propTypes = {
   routes: T.array.isRequired,
   /** additional class name to attach to top level div */
   className: T.string,
+  /** Default path to redirect to */
+  defaultPath: T.string,
 };
 
 NavTabs.defaultProps = {
   className: '',
+  defaultPath: '',
 };
 
 export default withRouter(NavTabs);

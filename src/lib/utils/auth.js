@@ -47,44 +47,36 @@ export function validToken(token) {
 /**
  * Authenticates a user
  * Checks local storage for token first
- * @param {Object} action   - redux action to dispatch (must have 'type')
- * @param {Number} maxTries - max tries to re attempt authenicating on fail
+ * @param {Object} url      - url to call for authentication
+ * @param {Object} options  - options to pass to api call (method, headers, etc)
+ * @param {string} tokenKey - key in response jwt is stored on
  */
 export function* authenticate({
   url,
   options = {},
   tokenKey = 'id_token',
-  maxTries = 3,
 }) {
   let token = getToken();
-  let tries = 0;
-  let error = new Error('Failed to authenticate');
 
   // if valid local token use that
   if (validToken(token)) {
     return decode(token);
   }
 
-  // otherwise try getting one a few times
-  while (tries < maxTries && !validToken(token)) {
-    try {
-      const newOptions = {
-        method: 'get',
-        ...options,
-        headers: {
-          ...options.headers || { 'Content-Type': 'application/json' },
-        },
-      };
-      const response = yield call(request, url, newOptions);
-      token = response[tokenKey];
-      // set token into local storage for future authentication caching
-      setToken(token);
-      return decode(token);
-    } catch (err) {
-      error = err;
-      tries += 1;
-    }
+  try {
+    const newOptions = {
+      method: 'get',
+      ...options,
+      headers: {
+        ...options.headers || { 'Content-Type': 'application/json' },
+      },
+    };
+    const response = yield call(request, url, newOptions);
+    token = response[tokenKey];
+    // set token into local storage for future authentication caching
+    setToken(token);
+    return decode(token);
+  } catch (err) {
+    throw err;
   }
-
-  throw error;
 }

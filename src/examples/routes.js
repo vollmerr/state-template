@@ -1,7 +1,14 @@
 import Tables from './Tables';
-import StatusMessages from './StatusMessages';
+import Status from './Status';
 
 export const routesByKey = {
+  status: {
+    key: 'status',
+    name: 'Status',
+    path: '/status',
+    icon: 'ca-gov-icon-home',
+    component: Status,
+  },
   tables: {
     key: 'tables',
     name: 'Tables',
@@ -9,14 +16,6 @@ export const routesByKey = {
     exact: true,
     icon: 'ca-gov-icon-home',
     component: Tables,
-  },
-  statusMessages: {
-    key: 'statusMessages',
-    name: 'Status Messages',
-    path: '/statusMessages',
-    exact: true,
-    icon: 'ca-gov-icon-home',
-    component: StatusMessages,
   },
 };
 
