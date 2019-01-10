@@ -21,8 +21,8 @@ const FieldSelect = (props) => {
 
   const cn = classNames([
     'select',
+    'field-select',
     { multiple },
-    { disabled },
   ]);
 
   return (

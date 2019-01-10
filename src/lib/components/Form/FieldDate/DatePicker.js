@@ -55,7 +55,7 @@ class DatePicker extends Component {
     const { displayText } = this.state;
 
     return (
-      <div className="fieldDate has-feedback">
+      <div className="field-date has-feedback">
         {/* field that will be displayed */}
         <input
           ref={this.displayRef}

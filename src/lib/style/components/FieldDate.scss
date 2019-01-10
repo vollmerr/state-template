@@ -221,13 +221,22 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     cursor: help;
 }
 
-.fieldDate {
+.field-date {
   input {
     cursor: pointer;
   }
+
   .form-control-feedback {
     top: 0;
     cursor:pointer;
     pointer-events: none;
+  }
+}
+
+.disabled {
+  .field-date {
+    input {
+      background: $disabled-bg;
+    }
   }
 }

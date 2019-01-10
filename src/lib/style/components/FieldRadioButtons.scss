@@ -1,19 +1,26 @@
 .disabled {
-  color: $disabled-fg;
+  .field-radio {
+    color: $disabled-fg;
 
-  * {
-    cursor: not-allowed;
-  }
+    .btn {
+      background: $disabled-bg;
+    }
 
-  .check-icon-radio {
-    border-color: $disabled-accent;
-  }
+    * {
+      cursor: not-allowed;
+    }
 
-  input[type="radio"]:checked {
-    + .check-icon-radio > i,
-    + .btn {
-      background: $disabled-fg;
-      color: $disabled-bg;
+    .check-icon-radio {
+      border-color: $disabled-accent;
+      background: $disabled-bg;
+    }
+
+    input[type="radio"]:checked {
+      + .check-icon-radio > i,
+      + .btn {
+        background: $disabled-fg;
+        color: $disabled-bg;
+      }
     }
   }
 }

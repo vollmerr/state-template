@@ -12,6 +12,7 @@ const FieldWrapper = (props) => {
     className,
     children,
     required,
+    disabled,
   } = props;
 
   const { touched, error } = meta;
@@ -25,13 +26,17 @@ const FieldWrapper = (props) => {
     'form-group',
     className,
     { 'has-error': errorMessage },
+    { disabled },
   ]);
 
   return (
     <div className={cn}>
       {label && (
         <label className="control-label" data-test={'label'}>
-          {required && <span className="required-label" data-test={'required'}>* </span>}
+          {
+            required
+            && !disabled
+            && <span className="required-label" data-test={'required'}>* </span>}
           {label}
         </label>
       )}
@@ -51,6 +56,7 @@ FieldWrapper.propTypes = {
   className: T.string,
   children: T.element.isRequired,
   required: T.bool,
+  disabled: T.bool,
 };
 
 FieldWrapper.defaultProps = {
@@ -58,6 +64,7 @@ FieldWrapper.defaultProps = {
   helpText: '',
   className: '',
   required: false,
+  disabled: false,
 };
 
 export default FieldWrapper;

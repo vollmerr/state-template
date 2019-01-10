@@ -16,8 +16,10 @@
   select {
     padding-left: 10px;
   }
+}
 
-  &.disabled {
+.disabled {
+  .field-select {
     select {
       background: $disabled-bg;
       cursor: not-allowed;

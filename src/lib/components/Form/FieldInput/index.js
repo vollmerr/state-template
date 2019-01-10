@@ -14,7 +14,7 @@ const FieldInput = (props) => {
 
   return (
     <FieldWrapper {...props}>
-      <Control type={type} className="form-control" id={name} disabled={disabled} {...input} />
+      <Control type={type} className="form-control field-input" id={name} disabled={disabled} {...input} />
     </FieldWrapper>
   );
 };

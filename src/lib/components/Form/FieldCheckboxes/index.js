@@ -1,6 +1,5 @@
 import React from 'react';
 import T from 'prop-types';
-import classNames from 'classnames';
 
 import { isEmptyCheck } from '../../../utils/validate';
 
@@ -15,13 +14,9 @@ export const FieldCheckboxes = (props) => {
     input, options, variant, disabled,
   } = props;
 
-  const cn = classNames([
-    { disabled },
-  ]);
-
   return (
     <FieldWrapper {...props}>
-      <div className={cn}>
+      <div className={'field-check'}>
         {
           options.filter(x => !x.hidden).map(option => (
             <Checkbox

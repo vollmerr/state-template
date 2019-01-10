@@ -35,7 +35,7 @@ exports[`FieldCheckboxes should render correctly 1`] = `
   variant={null}
 >
   <div
-    className=""
+    className="field-check"
   >
     <Checkbox
       disabled={false}

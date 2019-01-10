@@ -25,7 +25,6 @@ const RadioButton = ({
   let cn = classNames([
     'check',
     className,
-    { disabled },
   ]);
 
   if (variant) {

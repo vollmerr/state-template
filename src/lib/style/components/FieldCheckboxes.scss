@@ -1,18 +1,25 @@
 .disabled {
-  color: $disabled-fg;
+  .field-check {
+    color: $disabled-fg;
 
-  * {
-    cursor: not-allowed;
-  }
+    .btn {
+      background: $disabled-bg;
+    }
 
-  .check-icon-checkbox {
-    border-color: $disabled-accent;
-  }
+    * {
+      cursor: not-allowed;
+    }
 
-  input[type="checkbox"]:checked {
-    + .check-icon-checkbox > i,
-    + .btn {
-      background: $disabled-fg;
+    .check-icon-checkbox {
+      border-color: $disabled-accent;
+      background: $disabled-bg;
+    }
+
+    input[type="checkbox"]:checked {
+      + .check-icon-checkbox > i,
+      + .btn {
+        background: $disabled-fg;
+      }
     }
   }
 }
