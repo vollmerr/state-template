@@ -1,13 +1,17 @@
 ```jsx
+const initialValues = {
+  radioButton: 'value2',
+  requiredRadioButton: 'value2',
+  disabledRadioButton: 'value2',
+};
 
-
-<ExampleForm form={'radioButton'}>
+<ExampleForm form={'radioButton'} initialValues={initialValues}>
   <FieldRadioButtons 
     name={'radioButton'}
     label={'Radio Button'}
     options={[
-      { value: 'value 1', label: 'label 1' },
-      { value: 'value 2', label: 'label 2' },
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
     ]}
     helpText={'This is the `helpText` content...'}
   />
@@ -16,8 +20,8 @@
     name={'requiredRadioButton'}
     label={'Required Radio Button'}
     options={[
-      { value: 'value 1', label: 'label 1' },
-      { value: 'value 2', label: 'label 2' },
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
     ]}
   />
   <FieldRadioButtons 
@@ -25,8 +29,8 @@
     name={'disabledRadioButton'}
     label={'Disabled Radio Button'}
     options={[
-      { value: 'value 1', label: 'label 1' },
-      { value: 'value 2', label: 'label 2' },
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
     ]}
   />
 </ExampleForm>
@@ -35,14 +39,20 @@
 ### highlight variant
 
 ```jsx
-<ExampleForm form={'radioButtonPrimary'}>
+const initialValues = {
+  primaryRadioButton: 'value2',
+  requiredPrimaryRadioButton: 'value2',
+  disabledPrimaryRadioButton: 'value2',
+};
+
+<ExampleForm form={'radioButtonPrimary'} initialValues={initialValues}>
   <FieldRadioButtons 
     variant={'highlight'}
     name={'primaryRadioButton'}
     label={'Primary Radio Button'}
     options={[
-      { value: 'value 1', label: 'label 1' },
-      { value: 'value 2', label: 'label 2' },
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
     ]}
     helpText={'This is the `helpText` content...'}
   />
@@ -52,8 +62,8 @@
     name={'requiredPrimaryRadioButton'}
     label={'Required Primary Radio Button'}
     options={[
-      { value: 'value 1', label: 'label 1' },
-      { value: 'value 2', label: 'label 2' },
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
     ]}
   />
   <FieldRadioButtons 
@@ -62,8 +72,8 @@
     name={'disabledPrimaryRadioButton'}
     label={'Disabled Primary Radio Button'}
     options={[
-      { value: 'value 1', label: 'label 1' },
-      { value: 'value 2', label: 'label 2' },
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
     ]}
   />
 </ExampleForm>

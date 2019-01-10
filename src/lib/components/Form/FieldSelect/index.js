@@ -1,5 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
+import classNames from 'classnames';
 
 import { isEmptyRadio } from '../../../utils/validate';
 
@@ -13,16 +14,20 @@ const FieldSelect = (props) => {
     input, options, disabled, multiple,
   } = props;
 
-  let labelClass = 'select';
   if (multiple) {
     // expects array as default if multiple is used
     input.value = input.value || [];
-    labelClass += ' multiple';
   }
+
+  const cn = classNames([
+    'select',
+    { multiple },
+    { disabled },
+  ]);
 
   return (
     <FieldWrapper {...props}>
-      <label className={labelClass}>
+      <label className={cn}>
         <select {...input} multiple={multiple} disabled={disabled}>
           <option disabled hidden style={{ display: 'none' }} value={''} />
           {

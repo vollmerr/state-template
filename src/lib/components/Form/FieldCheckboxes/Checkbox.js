@@ -5,9 +5,12 @@ import T from 'prop-types';
 const Checkbox = ({
   input, value, label, variant, disabled,
 }) => {
-  const checked = input.value.includes(value);
+  const normalizedValue = Array.isArray(input.value)
+    ? input.value
+    : [input.value];
+  const checked = normalizedValue.includes(value);
   const onChange = (event) => {
-    const newValue = [...input.value];
+    const newValue = [...normalizedValue];
     if (newValue[0] === '') {
       newValue.shift();
     }

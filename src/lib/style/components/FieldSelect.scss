@@ -14,11 +14,17 @@
   }
 
   select {
-    &:disabled {
-      background: $disabled-color;
+    padding-left: 10px;
+  }
+
+  &.disabled {
+    select {
+      background: $disabled-bg;
       cursor: not-allowed;
     }
 
-    padding-left: 10px;
+    &::after {
+      display: none;
+    }
   }
 }

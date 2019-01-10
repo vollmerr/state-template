@@ -1,16 +1,18 @@
 .disabled {
+  color: $disabled-fg;
+
   * {
     cursor: not-allowed;
   }
 
   .check-icon-checkbox {
-    border-color: $disabled-color;
+    border-color: $disabled-accent;
   }
 
-  .btn {
-    background: $disabled-color;
-    &:hover {
-      color: inherit;
+  input[type="checkbox"]:checked {
+    + .check-icon-checkbox > i,
+    + .btn {
+      background: $disabled-fg;
     }
   }
 }

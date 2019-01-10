@@ -1,16 +1,19 @@
 .disabled {
+  color: $disabled-fg;
+
   * {
     cursor: not-allowed;
   }
 
   .check-icon-radio {
-    border-color: $disabled-color;
+    border-color: $disabled-accent;
   }
 
-  .btn {
-    background: $disabled-color;
-    &:hover {
-      color: inherit;
+  input[type="radio"]:checked {
+    + .check-icon-radio > i,
+    + .btn {
+      background: $disabled-fg;
+      color: $disabled-bg;
     }
   }
 }

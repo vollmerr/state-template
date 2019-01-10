@@ -12,7 +12,7 @@ const RadioButton = ({
   className,
   inline,
 }) => {
-  const checked = input.value.includes(value);
+  const checked = input.value === value;
   const onChange = () => input.onChange(value);
   const inputProps = {
     disabled,
@@ -25,6 +25,7 @@ const RadioButton = ({
   let cn = classNames([
     'check',
     className,
+    { disabled },
   ]);
 
   if (variant) {

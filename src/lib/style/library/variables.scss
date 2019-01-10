@@ -20,7 +20,9 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$disabled-color:        #d6d6d6 !default; // BPA
+$disabled-bg:           $gray-lighter !default; // BPA
+$disabled-fg:           $gray !default; // BPA
+$disabled-accent:       #ccc !default; // BPA
 
 $brand-primary:         #046B99 !default; // BPA
 $brand-success:         #5cb85c !default;
