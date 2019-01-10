@@ -3,9 +3,9 @@ import T from 'prop-types';
 
 // individual checkbox, applies state-template styling
 const Checkbox = ({
-  input, value, label, variant, disabled, // eslint-disable-line react/prop-types
+  input, value, label, variant, disabled,
 }) => {
-  const checked = input.value.toString().indexOf(value) !== -1;
+  const checked = input.value.includes(value);
   const onChange = (event) => {
     const newValue = [...input.value];
     if (newValue[0] === '') {

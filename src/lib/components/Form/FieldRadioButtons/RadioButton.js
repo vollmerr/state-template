@@ -12,7 +12,7 @@ const RadioButton = ({
   className,
   inline,
 }) => {
-  const checked = input.value.toString().indexOf(value) !== -1;
+  const checked = input.value.includes(value);
   const onChange = () => input.onChange(value);
   const inputProps = {
     disabled,
