@@ -2,6 +2,7 @@ import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
+import classNames from 'classnames';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
@@ -42,14 +43,25 @@ class Table extends React.Component {
   )
 
   renderTable = ({ searchProps, baseProps }) => {
-    const { title, rowEvents, defaultSorted } = this.props;
+    const {
+      title,
+      menu,
+      rowEvents,
+      defaultSorted,
+      rowClasses,
+      className,
+    } = this.props;
     const { columns, ...rest } = baseProps;
     const pagination = this.buildPagination(baseProps);
     const mappedColumns = this.buildColumns(columns);
+    const cn = classNames([
+      className,
+      { 'with-events': rowEvents },
+    ]);
 
     return (
-      <>
-        <TableHeader title={title} {...searchProps} />
+      <div className={cn}>
+        <TableHeader title={title} menu={menu} {...searchProps} />
         <BootstrapTable
           hover
           condensed
@@ -59,9 +71,10 @@ class Table extends React.Component {
           noDataIndication={'No Entries'}
           defaultSorted={defaultSorted}
           columns={mappedColumns}
+          rowClasses={rowClasses}
           {...rest}
         />
-      </>
+      </div>
     );
   }
 

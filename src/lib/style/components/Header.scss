@@ -1,3 +1,19 @@
-.global-header.fixed {
-  z-index: $zindex-navbar-fixed;
+.global-header {
+  &.fixed {
+    z-index: $zindex-navbar-fixed;
+  }
+
+  &.right {
+    // align header icons to right in desktop view
+    @media (min-width: 768px) {
+      .top-level-nav {
+        justify-content: flex-end;
+
+        .nav-item {
+          flex: 0 1 100px;
+        }
+      }
+    }
+  }
 }
+

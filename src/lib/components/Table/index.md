@@ -39,24 +39,30 @@
   />
 ```
 
-### row event handlers
+### row event handlers and styling
 
 ```jsx
   const clickRow =  (e, row, rowIndex) => {
-    alert('clicked on row: ', JSON.stringify(row, null, 2));
+    alert(`clicked on row: ${JSON.stringify(row, null, 2)}`);
   };
+
+  const rowClasses = (row, rowIndex) => {
+    return rowIndex === 1 ? 'selected' : null;
+  }
 
   <Table 
     title={'Table With Row Events'}
     data={[
       { id: 'row1Id', col1: 'row 1 col 1', col2: 'row 1 col 2' },
       { id: 'row2Id', col1: 'row 2 col 1', col2: 'row 2 col 2' },
+      { id: 'row3Id', col1: 'row 3 col 1', col2: 'row 3 col 2' },
     ]}
     columns={[
       { dataField: 'col1', text: 'column 1', sort: true }, 
       { dataField: 'col2', text: 'column 2' },
     ]}
     rowEvents={{ onClick: clickRow }}
+    rowClasses={rowClasses}
   />
 ```
 
@@ -80,3 +86,25 @@
   />
 ```
 
+### with menu
+
+```jsx
+  const menu = (
+    <div className={'btn-row'}>
+      <Button text={'new'} onClick={() => {}} variant={'primary'} />
+      <Button text={'edit'} onClick={() => {}} variant={'default'} />
+    </div>
+  );
+
+  <Table 
+    data={[
+      { id: 'row1Id', col1: 'row 1 col 1', col2: 'row 1 col 2' },
+      { id: 'row2Id', col1: 'row 2 col 1', col2: 'row 2 col 2' },
+    ]}
+    columns={[
+      { dataField: 'col1', text: 'column 1', sort: true }, 
+      { dataField: 'col2', text: 'column 2' },
+    ]}
+    menu={menu}
+  />
+```

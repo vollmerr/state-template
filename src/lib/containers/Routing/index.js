@@ -34,7 +34,7 @@ export class Routing extends React.PureComponent {
   }
 
   render() {
-    const { routes } = this.props;
+    const { routes, redirect } = this.props;
 
     return (
       <Switch>
@@ -43,20 +43,17 @@ export class Routing extends React.PureComponent {
             <Route {...route} />
           ))
         }
-        <Redirect to={'/'} />
+        <Redirect to={redirect} />
       </Switch>
     );
   }
 }
 
 Routing.propTypes = {
-  contactLink: T.string,
+  contactLink: T.object.isRequired,
   routes: T.arrayOf(routeProp).isRequired,
   updateRouting: T.func.isRequired,
-};
-
-Routing.defaultProps = {
-  contactLink: '/help',
+  redirect: T.string.isRequired,
 };
 
 export const mapDispatchToProps = dispatch => ({

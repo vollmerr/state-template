@@ -24,3 +24,15 @@
     }
   }
 }
+
+.has-error {
+  .field-radio {
+    .check-icon-radio {
+      border-color: $brand-danger;
+    }
+
+    .btn {
+      border-color: $brand-danger;
+    }
+  }
+}

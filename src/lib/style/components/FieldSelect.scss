@@ -30,3 +30,12 @@
     }
   }
 }
+
+
+.has-error {
+  .field-select {
+    &.select {
+      border-color: $brand-danger;
+    }
+  }
+}

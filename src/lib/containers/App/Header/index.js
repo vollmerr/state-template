@@ -32,6 +32,7 @@ class Header extends React.PureComponent {
   render() {
     const {
       fixed,
+      align,
       brandingLogo,
       isMobileOpen,
       isSettingsOpen,
@@ -40,7 +41,11 @@ class Header extends React.PureComponent {
     } = this.props;
 
     const filteredRoutes = routes.filter(x => !x.hidden);
-    const cn = classNames(['global-header', { fixed }]);
+    const cn = classNames([
+      'global-header',
+      { fixed },
+      align,
+    ]);
 
     return (
       <header role="banner" id="header" className={cn}>
@@ -76,6 +81,7 @@ class Header extends React.PureComponent {
 
 Header.propTypes = {
   fixed: T.bool.isRequired,
+  align: T.oneOf(['center', 'left', 'right']).isRequired,
   brandingLogo: T.shape({
     src: T.string.isRequired,
     alt: T.string.isRequired,

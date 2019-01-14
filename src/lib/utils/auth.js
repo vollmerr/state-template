@@ -45,6 +45,14 @@ export function validToken(token) {
 }
 
 /**
+ * Decode the token in local storage
+ */
+export function decodeToken() {
+  const token = getToken();
+  return decode(token);
+}
+
+/**
  * Authenticates a user
  * Checks local storage for token first
  * @param {Object} url      - url to call for authentication

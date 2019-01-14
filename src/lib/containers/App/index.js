@@ -34,14 +34,25 @@ export class App extends React.Component {
 
   render() {
     const {
-      routes, router: Router, brandingLogo, fixedHeader, contactLink,
+      routes,
+      router: Router,
+      redirect,
+      brandingLogo,
+      fixedHeader,
+      alignHeader,
+      contactLink,
     } = this.props;
 
     return (
       <Router>
         <>
-          <Header brandingLogo={brandingLogo} fixed={fixedHeader} contactLink={contactLink} />
-          <Routing routes={routes} />
+          <Header
+            brandingLogo={brandingLogo}
+            fixed={fixedHeader}
+            align={alignHeader}
+            contactLink={contactLink}
+          />
+          <Routing routes={routes} redirect={redirect} contactLink={contactLink} />
           <Footer contactLink={contactLink} />
           <StatusMessage />
         </>
@@ -53,6 +64,7 @@ export class App extends React.Component {
 App.propTypes = {
   router: T.func,
   routes: T.arrayOf(routeProp).isRequired,
+  redirect: T.string,
   brandingLogo: T.shape({
     src: T.string.isRequired,
     alt: T.string.isRequired,
@@ -62,10 +74,12 @@ App.propTypes = {
     href: T.string.isRequired,
   }),
   fixedHeader: T.bool,
+  alignHeader: T.oneOf(['center', 'left', 'right']),
 };
 
 App.defaultProps = {
   router: HashRouter,
+  redirect: '/',
   brandingLogo: {
     src: odiLogo,
     alt: 'Office of Digital Innovation logo',
@@ -76,6 +90,7 @@ App.defaultProps = {
     href: 'https://cdt.ca.gov/support/',
   },
   fixedHeader: true,
+  alignHeader: 'center',
 };
 
 export default App;
