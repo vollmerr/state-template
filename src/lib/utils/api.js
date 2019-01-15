@@ -45,7 +45,16 @@ export function parseJSON(response) {
  * @return {object}           The response data
  */
 export function request(url, options) {
-  return fetch(url, options)
+  // config settings to send api
+  const newOptions = {
+    ...options,
+    headers: {
+      ...options.headers || { 'Content-Type': 'application/json' },
+      'Access-Control-Expose-Headers': 'Content-Disposition',
+    },
+  };
+
+  return fetch(url, newOptions)
     .then(checkStatus)
     .then(parseJSON);
 }
@@ -63,11 +72,9 @@ export function requestWithToken(url, options = {}) {
   // config settings to send api
   const newOptions = {
     ...options,
-    method: options.method || 'get',
     headers: {
       Authorization: `Bearer ${token}`,
       ...options.headers || { 'Content-Type': 'application/json' },
-      'Access-Control-Expose-Headers': 'Content-Disposition',
     },
   };
 

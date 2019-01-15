@@ -75,6 +75,7 @@ class DatePicker extends Component {
           value={displayText}
           onChange={() => {}}
           name={input.name}
+          autoComplete={'off'}
         />
         {!disabled && <span className="ca-gov-icon-calendar form-control-feedback" />}
         {/* date picker */}
