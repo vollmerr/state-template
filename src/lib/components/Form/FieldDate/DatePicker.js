@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Pikaday from 'pikaday';
 
+import { isValid } from '../../../utils/date';
+
 class DatePicker extends Component {
   constructor(props, context) {
     super(props, context);
@@ -17,15 +19,24 @@ class DatePicker extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // handle form resets
-    if (!nextProps.input.value) {
-      this.setState({ displayText: '' });
+    const { input } = this.props;
+    // update displayed text when value changes
+    if (input.value !== nextProps.input.value) {
+      const displayText = this.getDate(nextProps.input.value).slice(0, 10);
+      this.setState({ displayText });
     }
+  }
+
+  getDate = (date) => {
+    if (isValid(date)) {
+      return new Date(date).toISOString();
+    }
+    return '';
   }
 
   onSelect = (date) => {
     const { input } = this.props;
-    const newDate = new Date(date).toISOString();
+    const newDate = this.getDate(date);
     // update redux-form
     input.onChange(newDate);
     // update display field
@@ -63,6 +74,7 @@ class DatePicker extends Component {
           disabled={disabled}
           value={displayText}
           onChange={() => {}}
+          name={input.name}
         />
         {!disabled && <span className="ca-gov-icon-calendar form-control-feedback" />}
         {/* date picker */}
@@ -70,11 +82,6 @@ class DatePicker extends Component {
           ref={this.pickerRef}
           {...props}
           className="hidden"
-        />
-        {/* handle dispatching to redux-form */}
-        <input
-          className="hidden"
-          name={input.name}
         />
       </div>
     );

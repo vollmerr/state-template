@@ -1,4 +1,6 @@
 .select {
+  height: 36px; // match input fields height...
+
   &.multiple {
     &:after {
       display: none;
@@ -16,6 +18,7 @@
   select {
     padding-left: 10px;
     background: #fff;
+    height: 35px; // match input fields height...
   }
 }
 

@@ -1,5 +1,9 @@
 ```jsx
-<ExampleForm form={'date'}>
+const initialValues = {
+  date: '2019-01-02',
+};
+
+<ExampleForm form={'date'} initialValues={initialValues} >
   <FieldDate
     name={'date'}
     label={'Date'}
