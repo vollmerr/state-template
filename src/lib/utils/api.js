@@ -44,7 +44,7 @@ export function parseJSON(response) {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           The response data
  */
-export function request(url, options) {
+export function request(url, options = {}) {
   // config settings to send api
   const newOptions = {
     ...options,

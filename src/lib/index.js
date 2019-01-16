@@ -51,6 +51,7 @@ import * as statusSelectors from './containers/Status/selectors';
 import * as api from './utils/api';
 import * as auth from './utils/auth';
 import configureStore from './utils/configureStore';
+import * as date from './utils/date';
 import * as fieldOptions from './utils/fieldOptions';
 import * as pdf from './utils/pdf';
 import * as serviceWorker from './utils/serviceWorker';
@@ -101,6 +102,7 @@ export {
   api,
   auth,
   configureStore,
+  date,
   fieldOptions,
   pdf,
   serviceWorker,
