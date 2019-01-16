@@ -1,6 +1,8 @@
 import React from 'react';
 import T from 'prop-types';
 import { HashRouter } from 'react-router-dom';
+import classNames from 'classnames';
+import debounce from 'lodash.debounce';
 
 import { routeProp } from '../../utils/propTypes';
 import StatusMessage from '../Status/StatusMessage';
@@ -20,8 +22,15 @@ import '../../style/style.scss';
  * application that is using this project.
  */
 export class App extends React.Component {
+  state = { returnTopVisible: false }
+
   componentDidMount() {
+    window.addEventListener('scroll', debounce(this.onScroll, 200));
     this.setSettings();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll');
   }
 
   // set setttings user has set (in SettingsBar)
@@ -30,6 +39,35 @@ export class App extends React.Component {
     if (localStorage.getItem('highContrast')) {
       document.getElementsByTagName('html')[0].classList.add('high-contrast');
     }
+  }
+
+  onScroll = () => {
+    const { returnTopVisible } = this.state;
+    const isVisible = window.scrollY > 130;
+
+    if (returnTopVisible !== isVisible) {
+      this.setState({ returnTopVisible: isVisible });
+    }
+  }
+
+  onClickReturnTop = () => {
+    window.scroll(0, 0);
+  }
+
+  renderReturnTop = () => {
+    const { returnTopVisible } = this.state;
+    const cn = classNames([
+      'return-top',
+      { 'is-visible': returnTopVisible },
+    ]);
+
+    return (
+      <button
+        type={'button'}
+        className={cn}
+        onClick={this.onClickReturnTop}
+      />
+    );
   }
 
   render() {
@@ -55,6 +93,7 @@ export class App extends React.Component {
           <Routing routes={routes} redirect={redirect} contactLink={contactLink} />
           <Footer contactLink={contactLink} />
           <StatusMessage />
+          {this.renderReturnTop()}
         </>
       </Router>
     );

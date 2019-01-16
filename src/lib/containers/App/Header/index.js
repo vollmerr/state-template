@@ -3,6 +3,7 @@ import T from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import classNames from 'classnames';
+import debounce from 'lodash.debounce';
 
 import Overlay from '../../../components/Overlay';
 import { routeProp } from '../../../utils/propTypes';
@@ -19,6 +20,25 @@ import SettingsBar from './SettingsBar';
 import UtilityHeader from './UtilityHeader';
 
 class Header extends React.PureComponent {
+  state = { compact: false }
+
+  componentDidMount() {
+    window.addEventListener('scroll', debounce(this.onScroll, 200));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll');
+  }
+
+  onScroll = () => {
+    const { compact } = this.state;
+    const isCompact = window.scrollY > 130;
+
+    if (compact !== isCompact) {
+      this.setState({ compact: isCompact });
+    }
+  }
+
   toggleMobileOpen = () => {
     const { isMobileOpen, updateDisplay } = this.props;
     updateDisplay({ isMobileOpen: !isMobileOpen });
@@ -39,11 +59,13 @@ class Header extends React.PureComponent {
       routes,
       contactLink,
     } = this.props;
+    const { compact } = this.state;
 
     const filteredRoutes = routes.filter(x => !x.hidden);
     const cn = classNames([
       'global-header',
       { fixed },
+      { compact },
       align,
     ]);
 

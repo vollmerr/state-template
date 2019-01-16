@@ -1,6 +1,6 @@
 {
   "name": "state-template",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -63,6 +63,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "jwt-decode": "^2.2.0",
+    "lodash.debounce": "^4.0.8",
     "pikaday": "^1.8.0",
     "prop-types": "^15.6.2",
     "react-bootstrap-table-next": "^2.0.1",

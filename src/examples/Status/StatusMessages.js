@@ -10,7 +10,7 @@ export class StatusMessages extends React.Component {
     registerMessage({
       key, // unique identifier for message
       children: `message ${key}`,
-      variant: 'primary',
+      variant: 'standout',
     });
   }
 
