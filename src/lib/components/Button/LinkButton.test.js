@@ -2,9 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Link } from 'react-router-dom';
 
-import { LinkButton as fromLib } from '../../..';
-import LinkButton from '../LinkButton';
-import Button from '..';
+import { LinkButton as fromLib } from '../..';
+import LinkButton from './LinkButton';
+import Button from '.';
 
 const props = {
   text: 'test text',

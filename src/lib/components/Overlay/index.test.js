@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Overlay as fromLib } from '../../..';
-import Overlay from '..';
+import { Overlay as fromLib } from '../..';
+import Overlay from '.';
 
 const props = {
   show: true,

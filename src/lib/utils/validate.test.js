@@ -1,4 +1,4 @@
-import * as validate from '../validate';
+import * as validate from './validate';
 
 const emptyVals = [
   [],

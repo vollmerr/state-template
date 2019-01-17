@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Card as fromLib } from '../../..';
-import Card from '..';
+import { Card as fromLib } from '../..';
+import Card from '.';
 
 const TestHeader = () => <div>in header...</div>;
 const TestChild = () => <div>test children...</div>;

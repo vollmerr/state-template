@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Icon as fromLib } from '../../..';
-import Icon from '..';
+import { Icon as fromLib } from '../..';
+import Icon from '.';
 
 const props = {
   name: 'test text',
