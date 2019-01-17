@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import FieldWrapper from '../FieldWrapper';
+import FieldWrapper from './FieldWrapper';
 
 const Child = () => <input name={'test input'} />;
 const props = {
