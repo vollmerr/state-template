@@ -2,8 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Link } from 'react-router-dom';
 
-import { A as fromLib } from '../../..';
-import A from '..';
+import { A as fromLib } from '../..';
+import A from '.';
 
 const props = {
   href: 'http://www.google.com',

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { Field } from 'redux-form';
 
-import withField from '../withField';
+import withField from './withField';
 
 const { testUtils } = global;
 

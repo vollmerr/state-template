@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Button as fromLib } from '../../..';
-import Button from '..';
+import { Button as fromLib } from '../..';
+import Button from '.';
 
 const props = {
   text: 'test text',

@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Button from '../../Button';
-import { Panel as fromLib } from '../../..';
-import Panel from '..';
+import Button from '../Button';
+import { Panel as fromLib } from '../..';
+import Panel from '.';
 
 const props = {
   title: 'test title',

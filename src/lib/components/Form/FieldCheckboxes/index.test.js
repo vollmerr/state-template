@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Checkbox from '../Checkbox';
-import { FieldCheckboxes } from '..';
+import Checkbox from './Checkbox';
+import { FieldCheckboxes } from '.';
 
 const { testUtils } = global;
 
