@@ -15,7 +15,7 @@ export const FieldCheckboxes = (props) => {
   } = props;
 
   return (
-    <FieldWrapper {...props}>
+    <FieldWrapper {...props} data-test={'field-checkboxes'}>
       <div className={'field-check'}>
         {
           options.filter(x => !x.hidden).map(option => (

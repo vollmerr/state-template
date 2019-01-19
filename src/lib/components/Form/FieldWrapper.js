@@ -13,6 +13,7 @@ const FieldWrapper = (props) => {
     children,
     required,
     disabled,
+    ...rest
   } = props;
 
   const { touched, error } = meta;
@@ -30,7 +31,7 @@ const FieldWrapper = (props) => {
   ]);
 
   return (
-    <div className={cn}>
+    <div className={cn} {...rest}>
       {label && (
         <label className="control-label" data-test={'label'}>
           {

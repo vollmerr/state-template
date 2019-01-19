@@ -20,14 +20,18 @@ import SettingsBar from './SettingsBar';
 import UtilityHeader from './UtilityHeader';
 
 class Header extends React.PureComponent {
-  state = { compact: false }
+  constructor(props) {
+    super(props);
+    this.state = { compact: false };
+    this.scrollEvent = debounce(this.onScroll, 200);
+  }
 
   componentDidMount() {
-    window.addEventListener('scroll', debounce(this.onScroll, 200));
+    window.addEventListener('scroll', this.scrollEvent);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll');
+    window.removeEventListener('scroll', this.scrollEvent);
   }
 
   onScroll = () => {

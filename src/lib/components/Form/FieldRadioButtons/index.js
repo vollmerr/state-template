@@ -15,7 +15,7 @@ const FieldRadioButtons = (props) => {
   } = props;
 
   return (
-    <FieldWrapper {...props}>
+    <FieldWrapper {...props} data-test={'field-radio-buttons'}>
       <div className={'field-radio'}>
         {
           options.filter(x => !x.hidden).map(option => (

@@ -90,10 +90,10 @@
 
 ```jsx
   const menu = (
-    <div className={'btn-row'}>
+    <ButtonRow>
       <Button text={'new'} onClick={() => {}} variant={'primary'} />
       <Button text={'edit'} onClick={() => {}} variant={'default'} />
-    </div>
+    </ButtonRow>
   );
 
   <Table 

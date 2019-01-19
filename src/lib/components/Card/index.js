@@ -22,7 +22,7 @@ const Card = (props) => {
   ]);
 
   return (
-    <div className={cn} {...rest}>
+    <div className={cn} {...rest} data-test={'card'}>
       {
         onDismiss
         && (

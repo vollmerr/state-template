@@ -22,15 +22,19 @@ import '../../style/style.scss';
  * application that is using this project.
  */
 export class App extends React.Component {
-  state = { returnTopVisible: false }
+  constructor(props) {
+    super(props);
+    this.state = { returnTopVisible: false };
+    this.scrollEvent = debounce(this.onScroll, 200);
+  }
 
   componentDidMount() {
-    window.addEventListener('scroll', debounce(this.onScroll, 200));
+    window.addEventListener('scroll', this.scrollEvent);
     this.setSettings();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll');
+    window.removeEventListener('scroll', this.scrollEvent);
   }
 
   // set setttings user has set (in SettingsBar)

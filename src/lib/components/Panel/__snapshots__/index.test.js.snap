@@ -3,6 +3,7 @@
 exports[`Panel should render correctly 1`] = `
 <div
   className="panel panel-default"
+  data-test="panel"
 >
   <div
     className="panel-heading"

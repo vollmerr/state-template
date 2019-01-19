@@ -4,6 +4,7 @@ import A from './components/A';
 // banner
 import BannerPrimary from './components/Banner/BannerPrimary';
 // button
+import ButtonRow from './components/Button/ButtonRow';
 import Button from './components/Button';
 import LinkButton from './components/Button/LinkButton';
 // card
@@ -73,6 +74,7 @@ export {
   // components
   A,
   BannerPrimary,
+  ButtonRow,
   Button,
   LinkButton,
   Card,

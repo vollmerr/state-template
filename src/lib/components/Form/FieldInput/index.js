@@ -13,7 +13,7 @@ const FieldInput = (props) => {
   const Control = type === 'textarea' ? 'textarea' : 'input';
 
   return (
-    <FieldWrapper {...props}>
+    <FieldWrapper {...props} data-test={'field-input'}>
       <Control type={type} className="form-control field-input" id={name} disabled={disabled} {...input} />
     </FieldWrapper>
   );

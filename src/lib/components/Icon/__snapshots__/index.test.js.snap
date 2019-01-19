@@ -3,5 +3,6 @@
 exports[`Icon should render correctly 1`] = `
 <span
   className="ca-gov-icon-test text"
+  data-test="icon"
 />
 `;

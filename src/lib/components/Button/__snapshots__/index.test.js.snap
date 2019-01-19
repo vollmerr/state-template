@@ -3,6 +3,7 @@
 exports[`Button should render correctly 1`] = `
 <button
   className="btn"
+  data-test="button"
   type="button"
 >
   test text

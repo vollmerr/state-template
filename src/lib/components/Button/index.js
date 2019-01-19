@@ -27,7 +27,7 @@ const Button = (props) => {
   ]);
 
   return (
-    <Tag className={btnClass} {...rest}>
+    <Tag className={btnClass} {...rest} data-test={'button'}>
       {iconProps && <><Icon {...iconProps} />{' '}</>}
       {text || children}
     </Tag>

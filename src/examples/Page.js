@@ -17,7 +17,7 @@ const Page = ({ children, title, bannerSrc }) => (
           </Container>
         </Section>
         <Section>
-          <Container>
+          <Container id={'example'}>
             {children}
           </Container>
         </Section>

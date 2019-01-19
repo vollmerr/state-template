@@ -3,6 +3,7 @@
 exports[`FieldCheckboxes should render correctly 1`] = `
 <FieldWrapper
   className=""
+  data-test="field-checkboxes"
   disabled={false}
   helpText=""
   input={

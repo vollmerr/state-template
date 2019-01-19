@@ -60,7 +60,7 @@ class Table extends React.Component {
     ]);
 
     return (
-      <div className={cn}>
+      <div className={cn} data-test={'table'}>
         <TableHeader title={title} menu={menu} {...searchProps} />
         <BootstrapTable
           hover

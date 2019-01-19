@@ -8,6 +8,7 @@ const BannerPrimary = ({ src }) => (
       backgroundImage: `url(${src})`,
       height: '450px',
     }}
+    data-test={'banner'}
   />
 );
 

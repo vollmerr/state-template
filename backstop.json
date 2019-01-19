@@ -1,0 +1,56 @@
+{
+  "id": "",
+  "viewports": [
+    {
+      "label": "mobile",
+      "width": 375,
+      "height": 812
+    },
+    {
+      "label": "desktop",
+      "width": 1024,
+      "height": 812
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    { "label": "A", "url": "http://localhost:6060/#!/A" },
+    { "label": "BannerPrimary", "url": "http://localhost:6060/#!/BannerPrimary" },
+    { "label": "ButtonRow", "url": "http://localhost:6060/#!/ButtonRow" },
+    { "label": "Button", "url": "http://localhost:6060/#!/Button" },
+    { "label": "LinkButton", "url": "http://localhost:6060/#!/LinkButton" },
+    { "label": "Card", "url": "http://localhost:6060/#!/Card" },
+    { "label": "FieldCheckboxes", "url": "http://localhost:6060/#!/FieldCheckboxes" },
+    { "label": "FieldDate", "url": "http://localhost:6060/#!/FieldDate" },
+    { "label": "FieldInput", "url": "http://localhost:6060/#!/FieldInput" },
+    { "label": "FieldRadioButtons", "url": "http://localhost:6060/#!/FieldRadioButtons" },
+    { "label": "FieldSelect", "url": "http://localhost:6060/#!/FieldSelect" },
+    { "label": "FieldTime", "url": "http://localhost:6060/#!/FieldTime" },
+    { "label": "Icon", "url": "http://localhost:6060/#!/Icon" },
+    { "label": "Overlay", "url": "http://localhost:6060/#!/Overlay" },
+    { "label": "Panel", "url": "http://localhost:6060/#!/Panel" },
+    { "label": "Table", "url": "http://localhost:6060/#!/Table" },
+    { "label": "App", "url": "http://localhost:6060/#!/App" },
+    { "label": "ErrorSection", "url": "http://localhost:6060/#!/ErrorSection" },
+    { "label": "StatusMessage", "url": "http://localhost:6060/#!/StatusMessage",
+      "clickSelector": "[data-preview=StatusMessage] [data-test=button]"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

@@ -3,8 +3,8 @@ import T from 'prop-types';
 import { Link } from 'react-router-dom';
 
 /**
- * Anchor tag that handles internal and external links
- * opens external links in a new window
+ * Anchor tag that handles internal and external links.
+ * Opens external links in a new window.
  */
 const A = (props) => {
   const {
@@ -33,7 +33,7 @@ const A = (props) => {
     Tag = Link;
   }
 
-  return <Tag {...aProps}>{text || children}</Tag>;
+  return <Tag {...aProps} data-test={'link'}>{text || children}</Tag>;
 };
 
 A.propTypes = {

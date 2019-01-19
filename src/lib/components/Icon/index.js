@@ -21,7 +21,7 @@ const Icon = (props) => {
     `ca-gov-icon-${name}`,
   ]);
 
-  return <Tag className={cn} {...rest} />;
+  return <Tag className={cn} {...rest} data-test={'icon'} />;
 };
 
 Icon.propTypes = {

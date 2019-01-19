@@ -1,7 +1,15 @@
+import A from './A';
 import Tables from './Tables';
 import Status from './Status';
 
 export const routesByKey = {
+  A: {
+    key: 'A',
+    name: 'Anchors',
+    path: '/A',
+    icon: 'ca-gov-icon-home',
+    component: A,
+  },
   status: {
     key: 'status',
     name: 'Status',

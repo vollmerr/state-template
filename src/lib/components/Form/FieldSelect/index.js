@@ -26,7 +26,7 @@ const FieldSelect = (props) => {
   ]);
 
   return (
-    <FieldWrapper {...props}>
+    <FieldWrapper {...props} data-test={'field-select'}>
       <label className={cn}>
         <select {...input} multiple={multiple} disabled={disabled}>
           <option disabled hidden style={{ display: 'none' }} value={''} />

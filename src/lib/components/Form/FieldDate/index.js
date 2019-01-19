@@ -12,7 +12,7 @@ const FieldDate = (props) => {
   const { input, disabled, minDate } = props;
 
   return (
-    <FieldWrapper {...props}>
+    <FieldWrapper {...props} data-test={'field-date'}>
       <DatePicker input={input} disabled={disabled} minDate={minDate} />
     </FieldWrapper>
   );

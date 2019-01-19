@@ -3,6 +3,7 @@
 exports[`BannerPrimary should render correctly 1`] = `
 <div
   className="header-primary-banner hidden-print hidden-xs"
+  data-test="banner"
   style={
     Object {
       "backgroundImage": "url(imgSrc.png)",

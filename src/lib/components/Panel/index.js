@@ -22,7 +22,7 @@ const Panel = (props) => {
   ]);
 
   return (
-    <div className={cn} {...rest}>
+    <div className={cn} {...rest} data-test={'panel'}>
       <div className="panel-heading">
         <h2>
           {icon && <span className={`${icon} m-r-sm`} />}

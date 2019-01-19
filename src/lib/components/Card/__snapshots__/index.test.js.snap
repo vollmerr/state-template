@@ -3,6 +3,7 @@
 exports[`Card should render correctly 1`] = `
 <div
   className="card  card-default"
+  data-test="card"
 >
   <Icon
     className="dismiss-icon"
