@@ -11,11 +11,11 @@ import RadioButton from './RadioButton';
 // displays error if validation fails
 const FieldRadioButtons = (props) => {
   const {
-    input, options, variant, disabled,
+    input, options, variant, disabled, ...rest
   } = props;
 
   return (
-    <FieldWrapper {...props} data-test={'field-radio-buttons'}>
+    <FieldWrapper data-test={'field-radio-buttons'} disabled={disabled} {...rest}>
       <div className={'field-radio'}>
         {
           options.filter(x => !x.hidden).map(option => (

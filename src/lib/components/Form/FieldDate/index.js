@@ -9,10 +9,12 @@ import DatePicker from './DatePicker';
 
 // Date picker for redux-form using pikaday library
 const FieldDate = (props) => {
-  const { input, disabled, minDate } = props;
+  const {
+    input, disabled, minDate, ...rest
+  } = props;
 
   return (
-    <FieldWrapper {...props} data-test={'field-date'}>
+    <FieldWrapper data-test={'field-date'} disabled={disabled} {...rest}>
       <DatePicker input={input} disabled={disabled} minDate={minDate} />
     </FieldWrapper>
   );

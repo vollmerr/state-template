@@ -6,13 +6,6 @@ exports[`FieldCheckboxes should render correctly 1`] = `
   data-test="field-checkboxes"
   disabled={false}
   helpText=""
-  input={
-    Object {
-      "name": "testName",
-      "onChange": [MockFunction],
-      "value": "test value",
-    }
-  }
   label="test label"
   meta={
     Object {
@@ -20,20 +13,7 @@ exports[`FieldCheckboxes should render correctly 1`] = `
       "touched": false,
     }
   }
-  options={
-    Array [
-      Object {
-        "label": "l1",
-        "value": "v1",
-      },
-      Object {
-        "label": "l2",
-        "value": "v2",
-      },
-    ]
-  }
   required={false}
-  variant={null}
 >
   <div
     className="field-check"

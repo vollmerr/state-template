@@ -11,11 +11,11 @@ import Checkbox from './Checkbox';
 // displays error if validation fails
 export const FieldCheckboxes = (props) => {
   const {
-    input, options, variant, disabled,
+    input, options, variant, disabled, ...rest
   } = props;
 
   return (
-    <FieldWrapper {...props} data-test={'field-checkboxes'}>
+    <FieldWrapper data-test={'field-checkboxes'} disabled={disabled} {...rest}>
       <div className={'field-check'}>
         {
           options.filter(x => !x.hidden).map(option => (

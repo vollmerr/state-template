@@ -11,7 +11,7 @@ import withField from '../withField';
 // displays error if validation fails
 const FieldSelect = (props) => {
   const {
-    input, options, disabled, multiple,
+    input, options, disabled, multiple, ...rest
   } = props;
 
   if (multiple) {
@@ -26,7 +26,7 @@ const FieldSelect = (props) => {
   ]);
 
   return (
-    <FieldWrapper {...props} data-test={'field-select'}>
+    <FieldWrapper data-test={'field-select'} disabled={disabled} {...rest}>
       <label className={cn}>
         <select {...input} multiple={multiple} disabled={disabled}>
           <option disabled hidden style={{ display: 'none' }} value={''} />

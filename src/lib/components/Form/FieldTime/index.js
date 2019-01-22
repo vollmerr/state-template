@@ -9,10 +9,10 @@ import TimePicker from './TimePicker';
 
 // Date picker for redux-form using pikaday library
 const FieldTime = (props) => {
-  const { input, disabled } = props;
+  const { input, disabled, ...rest } = props;
 
   return (
-    <FieldWrapper {...props} data-test={'field-time'}>
+    <FieldWrapper data-test={'field-time'} disabled={disabled} {...rest}>
       <TimePicker input={input} disabled={disabled} />
     </FieldWrapper>
   );

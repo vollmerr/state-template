@@ -8,12 +8,14 @@ import withField from '../withField';
 
 // input field that applies state-template styling
 const FieldInput = (props) => {
-  const { input, type, disabled } = props;
+  const {
+    input, type, disabled, ...rest
+  } = props;
   const { name } = input;
   const Control = type === 'textarea' ? 'textarea' : 'input';
 
   return (
-    <FieldWrapper {...props} data-test={'field-input'}>
+    <FieldWrapper data-test={'field-input'} disabled={disabled} {...rest}>
       <Control type={type} className="form-control field-input" id={name} disabled={disabled} {...input} />
     </FieldWrapper>
   );

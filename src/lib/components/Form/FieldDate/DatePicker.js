@@ -49,7 +49,7 @@ class DatePicker extends Component {
     this.picker = new Pikaday({
       field: this.pickerRef.current,
       onSelect: this.onSelect,
-      minDate,
+      // minDate,
       yearRange: [new Date().getFullYear(), new Date().getFullYear() + 30],
       trigger: this.displayRef.current,
     });
@@ -81,7 +81,6 @@ class DatePicker extends Component {
         {/* date picker */}
         <input
           ref={this.pickerRef}
-          {...props}
           className="hidden"
         />
       </div>
