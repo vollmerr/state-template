@@ -9,7 +9,11 @@ const ButtonRow = ({ className, children, ...rest }) => {
     className,
   ]);
 
-  return <div className={cn} data-test={'button-row'} {...rest}>{children}</div>;
+  return (
+    <div data-test={'button-row'} className={cn} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 ButtonRow.propTypes = {

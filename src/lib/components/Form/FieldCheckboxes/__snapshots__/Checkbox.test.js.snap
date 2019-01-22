@@ -3,6 +3,7 @@
 exports[`Checkbox should render correctly 1`] = `
 <label
   className="form-check-inline p-l-md m-l-0 m-r-md"
+  data-test="field-checkbox"
 >
   <input
     checked={false}

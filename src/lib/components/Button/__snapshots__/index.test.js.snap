@@ -6,6 +6,6 @@ exports[`Button should render correctly 1`] = `
   data-test="button"
   type="button"
 >
-  test text
+  children...
 </button>
 `;

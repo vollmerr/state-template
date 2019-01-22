@@ -7,16 +7,21 @@ import FieldWrapper from '../FieldWrapper';
 import withField from '../withField';
 
 // input field that applies state-template styling
-const FieldInput = (props) => {
+export const FieldInput = (props) => {
   const {
-    input, type, disabled, ...rest
+    input, type, disabled, tag: Tag, ...rest
   } = props;
   const { name } = input;
-  const Control = type === 'textarea' ? 'textarea' : 'input';
 
   return (
     <FieldWrapper data-test={'field-input'} disabled={disabled} {...rest}>
-      <Control type={type} className="form-control field-input" id={name} disabled={disabled} {...input} />
+      <Tag
+        id={name}
+        type={type}
+        className="form-control field-input"
+        disabled={disabled}
+        {...input}
+      />
     </FieldWrapper>
   );
 };
@@ -24,13 +29,16 @@ const FieldInput = (props) => {
 FieldInput.propTypes = {
   /** Input from redux-form's Field, attaches name, value, etc  */
   input: T.object.isRequired,
-  /** Type of input */
-  type: T.oneOf(['text', 'textarea']),
+  /** HTML tag to use */
+  tag: T.oneOfType([T.func, T.string]),
+  /** type to use */
+  type: T.string,
   /** Disable the input */
   disabled: T.bool,
 };
 
 FieldInput.defaultProps = {
+  tag: 'input',
   type: 'text',
   disabled: false,
 };

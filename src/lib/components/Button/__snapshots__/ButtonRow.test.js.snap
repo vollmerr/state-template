@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonRow should render correctly 1`] = `
+<div
+  className="btn-row"
+  data-test="button-row"
+>
+  <Button1 />
+  <Button2 />
+</div>
+`;

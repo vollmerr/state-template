@@ -24,5 +24,10 @@
     name={'disabledInput'}
     label={'Disabled Input'}
   />
+  <FieldInput 
+    name={'textareaInput'}
+    label={'Textarea Input'}
+    tag={'textarea'}
+  />
 </ExampleForm>
 ```

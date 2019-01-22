@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldDate should render correctly 1`] = `
+<FieldWrapper
+  className=""
+  data-test="field-date"
+  disabled={false}
+  helpText=""
+  label="test label"
+  meta={
+    Object {
+      "error": null,
+      "touched": false,
+    }
+  }
+  required={false}
+>
+  <DatePicker
+    disabled={false}
+    input={
+      Object {
+        "name": "testName",
+        "onChange": [MockFunction],
+        "value": "test value",
+      }
+    }
+    minDate="1900-01-02"
+  />
+</FieldWrapper>
+`;

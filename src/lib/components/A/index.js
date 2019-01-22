@@ -33,7 +33,7 @@ const A = (props) => {
     Tag = Link;
   }
 
-  return <Tag {...aProps} data-test={'link'}>{text || children}</Tag>;
+  return <Tag data-test={'link'} {...aProps}>{text || children}</Tag>;
 };
 
 A.propTypes = {

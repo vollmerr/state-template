@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.0.33
+
+- 
+
 ## v0.0.32 (2019-01-16)
 
 - fix empty options being passed to api util 'request'

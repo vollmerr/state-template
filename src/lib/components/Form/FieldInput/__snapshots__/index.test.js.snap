@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldInput should render correctly 1`] = `
+<FieldWrapper
+  className=""
+  data-test="field-input"
+  disabled={false}
+  helpText=""
+  label="test label"
+  meta={
+    Object {
+      "error": null,
+      "touched": false,
+    }
+  }
+  required={false}
+>
+  <input
+    className="form-control field-input"
+    disabled={false}
+    id="testName"
+    name="testName"
+    onChange={[MockFunction]}
+    type="text"
+    value="test value"
+  />
+</FieldWrapper>
+`;

@@ -1,7 +1,8 @@
 export const isValid = (date) => {
-  const d = new Date(date);
-
-  if (!date || Number.isNaN(d)) {
+  if (
+    !date
+    || Number.isNaN(Number(new Date(date)))
+  ) {
     return false;
   }
 

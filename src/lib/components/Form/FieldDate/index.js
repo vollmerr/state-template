@@ -8,7 +8,7 @@ import withField from '../withField';
 import DatePicker from './DatePicker';
 
 // Date picker for redux-form using pikaday library
-const FieldDate = (props) => {
+export const FieldDate = (props) => {
   const {
     input, disabled, minDate, ...rest
   } = props;

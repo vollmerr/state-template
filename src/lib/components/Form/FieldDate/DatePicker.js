@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import T from 'prop-types';
 import Pikaday from 'pikaday';
 
 import { isValid } from '../../../utils/date';
+import Icon from '../../Icon';
 
+// Date picker that uses pikaday...
 class DatePicker extends Component {
   constructor(props, context) {
     super(props, context);
@@ -20,10 +23,13 @@ class DatePicker extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { input } = this.props;
-    // update displayed text when value changes
-    if (input.value !== nextProps.input.value) {
-      const displayText = this.getDate(nextProps.input.value).slice(0, 10);
+    const newValue = nextProps.input.value;
+    if (input.value !== newValue) {
+      // update displayed text when value changes
+      const displayText = this.getDate(newValue).slice(0, 10);
       this.setState({ displayText });
+      // update date in picker
+      this.picker.setDate(newValue);
     }
   }
 
@@ -54,14 +60,12 @@ class DatePicker extends Component {
       trigger: this.displayRef.current,
     });
 
-    if (input.value) {
-      this.picker.setDate(input.value);
-    }
+    this.picker.setDate(input.value);
   }
 
   render() {
     const {
-      input, minDate, disabled, ...rest
+      input, disabled, minDate, ...rest
     } = this.props;
     const { displayText } = this.state;
 
@@ -70,23 +74,40 @@ class DatePicker extends Component {
         {/* field that will be displayed */}
         <input
           ref={this.displayRef}
-          className="form-control"
+          className={'form-control'}
           disabled={disabled}
           value={displayText}
           onChange={() => {}}
           name={input.name}
           autoComplete={'off'}
         />
-        {!disabled && <span className="ca-gov-icon-calendar form-control-feedback" />}
+        {
+          !disabled
+          && <Icon name={'calendar'} className={'form-control-feedback'} />
+        }
         {/* date picker */}
         <input
           ref={this.pickerRef}
           {...rest}
-          className="hidden"
+          className={'hidden'}
         />
       </div>
     );
   }
 }
+
+DatePicker.propsTypes = {
+  /** redux-form input object */
+  input: T.object.isRequired,
+  /** picker is disabled */
+  disabled: T.bool,
+  /** min date to select from */
+  minDate: T.oneOfType([T.string, T.instanceOf(Date)]),
+};
+
+DatePicker.defaultProps = {
+  disabled: false,
+  minDate: null,
+};
 
 export default DatePicker;

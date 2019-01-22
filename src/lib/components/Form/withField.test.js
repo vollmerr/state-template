@@ -46,9 +46,14 @@ describe('withField', () => {
     expect(wrapper.prop('validate')).toBeFalsy();
   });
 
-  it('should not add empty validation if not required', () => {
+  it('should not add empty validation if not `required`', () => {
     wrapper.setProps({ required: false });
     const validations = wrapper.prop('validate');
     expect(validations.every(x => x !== emptyValidator)).toBeTruthy();
+  });
+
+  it('should not throw an error if no `validate` passed', () => {
+    wrapper.setProps({ validate: undefined });
+    expect(wrapper.prop('validate')).toBeInstanceOf(Array);
   });
 });
