@@ -2,7 +2,10 @@
 
 ## v0.0.33
 
-- 
+- Use 'tag' prop instead of 'type' for textarea in FieldInput
+- add 'ButtonRow' component
+- fix removing 'onScroll' event listeners
+- pass remaining props to field components instead of all props
 
 ## v0.0.32 (2019-01-16)
 
