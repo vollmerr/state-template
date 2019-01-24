@@ -1,7 +1,6 @@
 .global-header {
-  &.fixed {
-    z-index: $zindex-navbar-fixed;
-  }
+  width: 100%;
+  z-index: $zindex-popover; // highest z index defined...
 
   &.right {
     // align header icons to right in desktop view

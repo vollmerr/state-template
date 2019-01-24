@@ -2,7 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Button from '.';
+import Button from './Button';
 
 /**
  * A `Button` specialized for links. Buttons with a `to`

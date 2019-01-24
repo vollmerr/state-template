@@ -1,6 +1,8 @@
 // ////////////////////////////////////// components
 // a
 import A from './components/A';
+// app
+import App from './components/App';
 // banner
 import BannerPrimary from './components/Banner/BannerPrimary';
 // button
@@ -8,7 +10,7 @@ import ButtonRow from './components/Button/ButtonRow';
 import Button from './components/Button';
 import LinkButton from './components/Button/LinkButton';
 // card
-import Card from './components/Card';
+import Card from './components/Card/Card';
 // form
 import FieldCheckboxes from './components/Form/FieldCheckboxes';
 import FieldDate from './components/Form/FieldDate';
@@ -29,24 +31,26 @@ import NavTabs from './components/Nav/NavTabs';
 import Overlay from './components/Overlay';
 // panel
 import Panel from './components/Panel';
+// routing
+import Routing from './components/Routing';
 // table
 import Table from './components/Table';
 
 // ////////////////////////////////////// containers
 // app
-import App from './containers/App';
-import * as appActions from './containers/App/actions';
-import * as appSelectors from './containers/App/selectors';
+// import App from './containers/App';
+// import * as appActions from './containers/App/actions';
+// import * as appSelectors from './containers/App/selectors';
 // router
-import Routing from './containers/Routing';
-import * as routingActions from './containers/Routing/actions';
-import * as routingSelectors from './containers/Routing/selectors';
+// import Routing from './containers/Routing';
+// import * as routingActions from './containers/Routing/actions';
+// import * as routingSelectors from './containers/Routing/selectors';
 // status
-import Status from './containers/Status';
-import ErrorSection from './containers/Status/ErrorSection';
-import LoadingSection from './containers/Status/LoadingSection';
-import * as statusActions from './containers/Status/actions';
-import * as statusSelectors from './containers/Status/selectors';
+// import Status from './containers/Status';
+// import ErrorSection from './containers/Status/ErrorSection';
+// import LoadingSection from './containers/Status/LoadingSection';
+// import * as statusActions from './containers/Status/actions';
+// import * as statusSelectors from './containers/Status/selectors';
 
 // ////////////////////////////////////// utils
 import * as api from './utils/api';
@@ -58,17 +62,17 @@ import * as pdf from './utils/pdf';
 import * as serviceWorker from './utils/serviceWorker';
 import * as validate from './utils/validate';
 
-const globalActions = {
-  ...appActions,
-  ...routingActions,
-  ...statusActions,
-};
+// const globalActions = {
+//   ...appActions,
+//   ...routingActions,
+//   ...statusActions,
+// };
 
-const globalSelectors = {
-  ...appSelectors,
-  ...routingSelectors,
-  ...statusSelectors,
-};
+// const globalSelectors = {
+//   ...appSelectors,
+//   ...routingSelectors,
+//   ...statusSelectors,
+// };
 
 export {
   // components
@@ -95,11 +99,11 @@ export {
   Table,
   // containers
   Routing,
-  Status,
-  ErrorSection,
-  LoadingSection,
-  globalActions,
-  globalSelectors,
+  // Status,
+  // ErrorSection,
+  // LoadingSection,
+  // globalActions,
+  // globalSelectors,
   // utils
   api,
   auth,

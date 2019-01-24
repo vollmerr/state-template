@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Wrapper from './Wrapper';
+import LayoutBase from './LayoutBase';
 
 const Container = props => (
-  <Wrapper baseClass={'container'} {...props} />
+  <LayoutBase baseClass={'container'} {...props} />
 );
 
 export default Container;
