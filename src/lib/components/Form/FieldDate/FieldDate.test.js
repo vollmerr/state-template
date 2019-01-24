@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import DatePicker from './DatePicker';
-import { FieldDate } from '.';
+import { FieldDate } from './FieldDate';
 
 const { testUtils } = global;
 

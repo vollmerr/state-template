@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { FieldInput } from '.';
+import { FieldInput } from './FieldInput';
 
 const { testUtils } = global;
 
