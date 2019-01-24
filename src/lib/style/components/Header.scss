@@ -1,6 +1,10 @@
 .global-header {
   width: 100%;
-  z-index: $zindex-popover; // highest z index defined...
+  z-index: $zindex-navbar-fixed;
+
+  + .header-overlay {
+    z-index: $zindex-navbar-fixed - 1;
+  }
 
   &.right {
     // align header icons to right in desktop view

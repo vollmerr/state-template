@@ -22,8 +22,7 @@ module.exports = {
   webpackConfig: getWebpack(),
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, '.js');
-    const dir = path.dirname(componentPath);
-    return `import ${name} from '${dir}';`;
+    return `import { ${name} } from 'state-template';`;
   },
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.js?$/, '.md');

@@ -131,6 +131,7 @@ class Header extends React.PureComponent {
           isMobile
           show={isMobileOpen}
           onClick={this.toggleMobileOpen}
+          className={'header-overlay'}
         />
       </>
     );

@@ -4,8 +4,8 @@
 
   const store = { 
     messages: { 
-      byId: [],
-      allIds: {},
+      byId: {},
+      allIds: [],
     },
   };
 

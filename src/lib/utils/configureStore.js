@@ -15,7 +15,7 @@ const registerReducers = reducers => combineReducers({
 const registerSagas = sagas => function* rootSaga() {
   yield all([
     fork(messagesSaga),
-    sagas.map(x => fork(x)),
+    ...sagas.map(x => fork(x)),
   ]);
 };
 

@@ -12,6 +12,7 @@ const Overlay = (props) => {
     onClick,
     onKeyPress,
     isMobile,
+    className,
     ...rest
   } = props;
 
@@ -20,15 +21,17 @@ const Overlay = (props) => {
   }
 
   const overlayProps = {
+    ...rest,
     onClick,
     role: 'presentation',
     onKeyPress: onKeyPress || onClick,
-    className: classNames({
-      overlay: true,
-      'mobile-only': isMobile,
-    }),
-    ...rest,
+    className: classNames([
+      'overlay',
+      className,
+      { 'mobile-only': isMobile },
+    ]),
   };
+  console.log('overlayProps', overlayProps);
 
   return <div {...overlayProps} />;
 };
@@ -42,12 +45,15 @@ Overlay.propTypes = {
   onKeyPress: T.func,
   /** If should only render in mobile viewport */
   isMobile: T.bool,
+  /** Class name to attach */
+  className: T.string,
 };
 
 Overlay.defaultProps = {
   onClick: undefined,
   onKeyPress: undefined,
   isMobile: false,
+  className: '',
 };
 
 export default Overlay;
