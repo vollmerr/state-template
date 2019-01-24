@@ -19,6 +19,10 @@
     <p>overstated card</p>
   </Card>
 
+  <Card variant={'standout'}>
+    <p>standout card</p>
+  </Card>
+
   <Card variant={'primary'}>
     <p>primary card</p>
   </Card>

@@ -1,8 +1,2 @@
-import ErrorBoundary from './ErrorBoundary';
-import ErrorMessage from './ErrorMessage';
-
-export {
-  ErrorMessage,
-};
-
-export default ErrorBoundary;
+export { default } from './ErrorBoundary';
+export { default as ErrorMessage } from './ErrorMessage';

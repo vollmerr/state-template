@@ -1,5 +1,1 @@
-import NavTabs from './NavTabs';
-
-export {
-  NavTabs,
-};
+export { default as NavTabs } from './NavTabs';

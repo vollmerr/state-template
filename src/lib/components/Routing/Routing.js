@@ -1,6 +1,8 @@
 import React from 'react';
 import T from 'prop-types';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import {
+  Route, Switch, Redirect, withRouter,
+} from 'react-router-dom';
 
 import * as propUtils from '../../utils/propTypes';
 
@@ -33,4 +35,4 @@ Routing.defaultProps = {
   redirect: null,
 };
 
-export default Routing;
+export default withRouter(Routing);

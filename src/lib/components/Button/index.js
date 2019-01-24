@@ -1,10 +1,3 @@
-import Button from './Button';
-import ButtonRow from './ButtonRow';
-import LinkButton from './LinkButton';
-
-export {
-  ButtonRow,
-  LinkButton,
-};
-
-export default Button;
+export { default } from './Button';
+export { default as ButtonRow } from './ButtonRow';
+export { default as LinkButton } from './LinkButton';

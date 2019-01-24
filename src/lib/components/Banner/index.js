@@ -1,5 +1,1 @@
-import BannerPrimary from './BannerPrimary';
-
-export {
-  BannerPrimary,
-};
+export { default as BannerPrimary } from './BannerPrimary';

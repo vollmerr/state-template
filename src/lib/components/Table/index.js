@@ -1,8 +1,2 @@
-import Table from './Table';
-import TableHeader from './TableHeader';
-
-export {
-  TableHeader,
-};
-
-export default Table;
+export { default } from './Table';
+export { default as TableHeader } from './TableHeader';

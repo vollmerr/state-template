@@ -1,3 +1,1 @@
-import Routing from './Routing';
-
-export default Routing;
+export { default } from './Routing';

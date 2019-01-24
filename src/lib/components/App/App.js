@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import debounce from 'lodash.debounce';
 
 import * as propUtils from '../../utils/propTypes';
-// import StatusMessage from '../Status/StatusMessage';
 import ErrorBoundary from '../ErrorBoundary';
+import Messages from '../Messages';
 
 import Routing from '../Routing';
 import Header from '../Header';
@@ -123,8 +123,8 @@ export class App extends React.Component {
           {this.renderHeader()}
           {this.renderRouting()}
           {this.renderFooter()}
-          {/* <StatusMessage /> */}
           {this.renderReturnTop()}
+          <Messages />
         </ErrorBoundary>
       </Router>
     );

@@ -1,8 +1,2 @@
-import Checkbox from './Checkbox';
-import FieldCheckboxes from './FieldCheckboxes';
-
-export {
-  Checkbox,
-};
-
-export default FieldCheckboxes;
+export { default as Checkbox } from './Checkbox';
+export { default } from './FieldCheckboxes';

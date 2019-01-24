@@ -1,8 +1,2 @@
-import FieldRadioButtons from './FieldRadioButtons';
-import RadioButton from './RadioButton';
-
-export {
-  RadioButton,
-};
-
-export default FieldRadioButtons;
+export { default } from './FieldRadioButtons';
+export { default as RadioButton } from './RadioButton';

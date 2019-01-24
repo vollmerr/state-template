@@ -1,0 +1,2 @@
+export const REGISTER_MESSAGE = 'ST/Status/REGISTER_MESSAGE';
+export const CLEAR_MESSAGE = 'ST/Status/CLEAR_MESSAGE';

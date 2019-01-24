@@ -1,8 +1,2 @@
-import Loading from './Loading';
-import LoadingIndicator from './LoadingIndicator';
-
-export {
-  LoadingIndicator,
-};
-
-export default Loading;
+export { default } from './Loading';
+export { default as LoadingIndicator } from './LoadingIndicator';

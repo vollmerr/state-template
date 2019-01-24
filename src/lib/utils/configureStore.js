@@ -4,13 +4,19 @@ import { reducer as formReducer } from 'redux-form';
 import { fork, all } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
 
+import { messagesReducer, messagesSaga } from '../components/Messages';
+
 const registerReducers = reducers => combineReducers({
   form: formReducer,
+  messages: messagesReducer,
   ...reducers,
 });
 
 const registerSagas = sagas => function* rootSaga() {
-  yield all(sagas.map(x => fork(x)));
+  yield all([
+    fork(messagesSaga),
+    sagas.map(x => fork(x)),
+  ]);
 };
 
 // configure store to register reducers and sagas in combination

@@ -47,6 +47,7 @@ Card.propTypes = {
     'default',
     'understated',
     'overstated',
+    'standout',
     'primary',
     'danger',
     'inverted',

@@ -1,15 +1,15 @@
 ```jsx
-  const faker = require('faker');
   const { connect } = require('react-redux');
-  const { globalActions } = require('state-template');
+  const { messagesActions } = require('state-template');
 
   const store = { 
-    status: { 
-      messages: {},
+    messages: { 
+      byId: [],
+      allIds: {},
     },
   };
 
-  class StatusMessageExample extends React.Component {
+  class MessagesExample extends React.Component {
     constructor(props) {
       super(props);
       // THIS IS NORMALLY NOT NEEDED, USE ARROW SYNTAX INSTEAD...
@@ -23,7 +23,7 @@
 
       return () => registerMessage({
         variant,
-        key: faker.random.uuid(),
+        id: Math.random(),
         header: 'optional header...',
         children: `variant: ${variant}`,
         footer: 'optional footer...',
@@ -35,7 +35,7 @@
       // NORMALLY IN THE GLOBAL APP.
       return (
         <>
-          <StatusMessage />
+          <Messages />
           <Button text={'default message'} onClick={this.getMessage('default')} />
           <Button text={'understated message'} onClick={this.getMessage('understated')} />
           <Button text={'overstated message'} onClick={this.getMessage('overstated')} />
@@ -49,10 +49,10 @@
   }
 
   const mapDispatchToProps = dispatch => ({
-    registerMessage: props => dispatch(globalActions.registerMessage(props)),
+    registerMessage: props => dispatch(messagesActions.registerMessage(props)),
   });
 
-  const WithRedux = connect(null, mapDispatchToProps)(StatusMessageExample);
+  const WithRedux = connect(null, mapDispatchToProps)(MessagesExample);
 
   <ExampleRedux store={store}>
     <WithRedux />

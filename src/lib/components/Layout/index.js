@@ -1,13 +1,5 @@
-import Container from './Container';
-import MainContent from './MainContent';
-import MainPrimary from './MainPrimary';
-import Section from './Section';
-import LayoutBase from './LayoutBase';
-
-export {
-  Container,
-  MainContent,
-  MainPrimary,
-  Section,
-  LayoutBase,
-};
+export { default as Container } from './Container';
+export { default as MainContent } from './MainContent';
+export { default as MainPrimary } from './MainPrimary';
+export { default as Section } from './Section';
+export { default as LayoutBase } from './LayoutBase';

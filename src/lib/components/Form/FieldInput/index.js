@@ -1,3 +1,1 @@
-import FieldInput from './FieldInput';
-
-export default FieldInput;
+export { default } from './FieldInput';

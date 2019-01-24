@@ -1,3 +1,1 @@
-import FieldSelect from './FieldSelect';
-
-export default FieldSelect;
+export { default } from './FieldSelect';

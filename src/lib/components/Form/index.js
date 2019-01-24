@@ -1,24 +1,8 @@
-import FieldCheckboxes, { Checkbox } from './FieldCheckboxes';
-import FieldDate, { DatePicker } from './FieldDate';
-import FieldInput from './FieldInput';
-import FieldRadioButtons, { RadioButton } from './FieldRadioButtons';
-import FieldSelect from './FieldSelect';
-import FieldTime, { TimePicker } from './FieldTime';
-
-import FieldWrapper from './FieldWrapper';
-import withField from './withField';
-
-export {
-  FieldCheckboxes,
-  Checkbox,
-  FieldDate,
-  DatePicker,
-  FieldInput,
-  FieldRadioButtons,
-  RadioButton,
-  FieldSelect,
-  FieldTime,
-  TimePicker,
-  FieldWrapper,
-  withField,
-};
+export { default as FieldCheckboxes, Checkbox } from './FieldCheckboxes';
+export { default as FieldDate, DatePicker } from './FieldDate';
+export { default as FieldInput } from './FieldInput';
+export { default as FieldRadioButtons, RadioButton } from './FieldRadioButtons';
+export { default as FieldSelect } from './FieldSelect';
+export { default as FieldTime, TimePicker } from './FieldTime';
+export { default as FieldWrapper } from './FieldWrapper';
+export { default as withField } from './withField';
