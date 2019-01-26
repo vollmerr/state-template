@@ -72,27 +72,44 @@ export class App extends React.Component {
   renderHeader = () => {
     const {
       renderHeader,
-      headerProps,
-      routingProps,
+      fixedHeader,
+      alignHeader,
+      brandingLogo,
+      routes,
+      contactLink,
     } = this.props;
 
     if (renderHeader) {
       return renderHeader(this.props);
     }
 
-    return <Header {...routingProps} {...headerProps} />;
+    const headerProps = {
+      fixed: fixedHeader,
+      align: alignHeader,
+      brandingLogo,
+      routes,
+      contactLink,
+    };
+
+    return <Header {...headerProps} />;
   }
 
   // renders default routing if no `renderRouting` passed
   renderRouting = () => {
     const {
       renderRouting,
-      routingProps,
+      routes,
+      redirect,
     } = this.props;
 
     if (renderRouting) {
       return renderRouting(this.props);
     }
+
+    const routingProps = {
+      routes,
+      redirect,
+    };
 
     return <Routing {...routingProps} />;
   }
@@ -101,21 +118,22 @@ export class App extends React.Component {
   renderFooter = () => {
     const {
       renderFooter,
-      footerProps,
-      routingProps,
+      contactLink,
     } = this.props;
 
     if (renderFooter) {
       return renderFooter(this.props);
     }
 
-    return <Footer {...routingProps} {...footerProps} />;
+    const footerProps = {
+      contactLink,
+    };
+
+    return <Footer {...footerProps} />;
   }
 
   render() {
-    const {
-      router: Router,
-    } = this.props;
+    const { router: Router } = this.props;
 
     return (
       <Router>
@@ -138,32 +156,36 @@ App.propTypes = {
   renderRouting: T.func,
   /** Render a custom footer */
   renderFooter: T.func,
-  /** react-router-dom router type */
+  /** Fix header to top */
+  fixedHeader: T.bool,
+  /** Align header nav to right */
+  alignHeader: T.oneOf(['center', 'left', 'right']),
+  /** Custom header branding logo */
+  brandingLogo: propUtils.brandingLogo,
+  /** Routes to render and build nav from */
+  routes: T.arrayOf(propUtils.route),
+  /** Redirect route if no matching route */
+  redirect: T.string,
+  /** Link to use for all 'contact us' links */
+  contactLink: propUtils.contactLink,
+  // /** History to use for managing routing */
+  // history: T.object,
+  /** react-router-dom router to use */
   router: T.func,
-  /** Props to pass to header */
-  headerProps: T.shape({
-    fixed: T.bool,
-    align: T.oneOf(['center', 'left', 'right']),
-    brandingLogo: propUtils.brandingLogo,
-  }),
-  /** Props to pass to routing */
-  routingProps: T.shape({
-    routes: T.arrayOf(propUtils.route),
-    redirect: T.string,
-    contactLink: propUtils.contactLink,
-  }),
-  /** Props to pass to footer (current none) */
-  footerProps: T.object,
 };
 
 App.defaultProps = {
   renderHeader: null,
   renderRouting: null,
   renderFooter: null,
+  fixedHeader: true,
+  alignHeader: 'right',
+  brandingLogo: propUtils.brandingLogoDefault,
+  routes: [],
+  redirect: null,
+  contactLink: propUtils.contactLinkDefault,
+  // history: null,
   router: HashRouter,
-  headerProps: {},
-  routingProps: {},
-  footerProps: {},
 };
 
 export default App;

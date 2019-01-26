@@ -12,8 +12,8 @@ class SettingsBar extends React.PureComponent {
   }
 
   updateFont = ({ amount }) => {
-    const current = document.body.style.zoom || 1;
-    document.body.style.zoom = Number(current) + amount;
+    const current = Number(document.body.style.zoom) || 1;
+    document.body.style.zoom = current + amount;
     localStorage.setItem('zoom', document.body.style.zoom);
   }
 

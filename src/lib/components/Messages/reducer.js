@@ -1,5 +1,3 @@
-import { handleActions } from 'redux-actions';
-
 import * as C from './constants';
 
 export const initialState = {
@@ -33,7 +31,10 @@ const clearMessage = (state, action) => {
   });
 };
 
-export default handleActions({
-  [C.REGISTER_MESSAGE]: registerMessage,
-  [C.CLEAR_MESSAGE]: clearMessage,
-}, initialState);
+const messagesReducer = (state = initialState, action) => {
+  if (action.type === C.REGISTER_MESSAGE) return registerMessage(state, action);
+  if (action.type === C.CLEAR_MESSAGE) return clearMessage(state, action);
+  return state;
+};
+
+export default messagesReducer;

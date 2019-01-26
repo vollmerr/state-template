@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import debounce from 'lodash.debounce';
 
 import * as propUtils from '../../utils/propTypes';
-import odiLogo from '../../images/office-of-digital-innovation-logo.png';
 import Overlay from '../Overlay';
 
 import Branding from './Branding';
@@ -154,15 +153,8 @@ Header.propTypes = {
 Header.defaultProps = {
   fixed: true,
   align: 'center',
-  brandingLogo: {
-    src: odiLogo,
-    alt: 'Office of Digital Innovation logo',
-    href: 'https://cdt.ca.gov/',
-  },
-  contactLink: {
-    text: 'Contact Us',
-    href: 'https://cdt.ca.gov/support/',
-  },
+  brandingLogo: propUtils.brandingLogoDefault,
+  contactLink: propUtils.contactLinkDefault,
   routes: [],
 };
 

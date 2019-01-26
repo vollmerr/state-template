@@ -23,26 +23,19 @@
     },
   ];
 
-  const headerProps = {
-    fixed: false,
-    align: 'right',
-  };
-
-  const routingProps = {
+  const props = {
+    fixedHeader: false,
+    alignHeader: 'right',
     routes,
-    redirect: '/',
     contactLink: {
       text: 'Contact Link!',
       href: 'https://cdt.ca.gov/support/',
-    }
+    },
+    router: MemoryRouter,
   };
 
   <div style={{ overflow: 'auto', display: 'grid' }}>
-    <App 
-      router={MemoryRouter} 
-      headerProps={headerProps}
-      routingProps={routingProps}
-    />
+    <App {...props} />
   </div>
 ```
 
@@ -56,9 +49,9 @@
   const renderFooter = (props) => <footer>custom footer</footer>;
 
   <App
-    router={MemoryRouter} 
     renderHeader={renderHeader}
     renderRouting={renderRouting}
     renderFooter={renderFooter}
+    router={MemoryRouter}
   />
 ```

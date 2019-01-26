@@ -31,7 +31,6 @@ const Overlay = (props) => {
       { 'mobile-only': isMobile },
     ]),
   };
-  console.log('overlayProps', overlayProps);
 
   return <div {...overlayProps} />;
 };

@@ -7,9 +7,44 @@ import * as actions from './actions';
 import * as selectors from './selectors';
 import Card from '../Card';
 
-class Messages extends React.Component { // eslint-disable-line
+class Messages extends React.Component {
+  constructor(props) {
+    super(props);
+    this.timers = {};
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { messages } = this.props;
+    const nextMessages = nextProps.messages;
+
+    if (nextMessages.length && messages.length !== nextMessages.length) {
+      this.setTimer(nextMessages[nextMessages.length - 1].id);
+    }
+  }
+
+  setTimer = (id) => {
+    const { clearMessage, delay } = this.props;
+
+    this.timers[id] = setTimeout(() => {
+      clearMessage(id);
+    }, delay);
+  }
+
+  clearTimer = (id) => {
+    if (this.timers[id]) {
+      clearTimeout(this.timers[id]);
+      delete this.timers[id];
+    }
+  }
+
+  onDismiss = (id) => {
+    const { clearMessage } = this.props;
+    clearMessage(id);
+    this.clearTimer(id);
+  }
+
   render() {
-    const { messages, onDismiss } = this.props;
+    const { messages } = this.props;
 
     if (!messages.length) {
       return null;
@@ -19,7 +54,7 @@ class Messages extends React.Component { // eslint-disable-line
       <div className={'status-messages'}>
         {
           messages.map(x => (
-            <Card key={x.id} {...x} onDismiss={() => onDismiss(x.id)} />
+            <Card key={x.id} {...x} onDismiss={() => this.onDismiss(x.id)} />
           ))
         }
       </div>
@@ -29,7 +64,12 @@ class Messages extends React.Component { // eslint-disable-line
 
 Messages.propTypes = {
   messages: T.array.isRequired,
-  onDismiss: T.func.isRequired,
+  clearMessage: T.func.isRequired,
+  delay: T.number,
+};
+
+Messages.defaultProps = {
+  delay: 4000,
 };
 
 export const mapStateToProps = createStructuredSelector({
@@ -37,7 +77,7 @@ export const mapStateToProps = createStructuredSelector({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  onDismiss: id => dispatch(actions.clearMessage(id)),
+  clearMessage: id => dispatch(actions.clearMessage(id)),
 });
 
 const withRedux = connect(mapStateToProps, mapDispatchToProps)(Messages);

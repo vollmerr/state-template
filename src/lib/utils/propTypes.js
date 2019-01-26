@@ -1,4 +1,5 @@
 import T from 'prop-types';
+import odiLogo from '../images/office-of-digital-innovation-logo.png';
 
 export const route = T.shape({
   /** Unique identifier for route */
@@ -26,6 +27,11 @@ export const contactLink = T.shape({
   href: T.string,
 });
 
+export const contactLinkDefault = {
+  text: 'Contact Us',
+  href: 'https://cdt.ca.gov/support/',
+};
+
 export const brandingLogo = T.shape({
   /** Source of image */
   src: T.string.isRequired,
@@ -36,3 +42,9 @@ export const brandingLogo = T.shape({
   /** External link to navigate to */
   href: T.string,
 });
+
+export const brandingLogoDefault = {
+  src: odiLogo,
+  alt: 'Office of Digital Innovation logo',
+  href: 'https://cdt.ca.gov/',
+};

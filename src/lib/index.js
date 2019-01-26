@@ -56,10 +56,11 @@ export { default as Icon } from './components/Icon';
 // Layout
 export {
   Container,
+  LayoutBase,
   MainContent,
   MainPrimary,
+  Page,
   Section,
-  LayoutBase,
 } from './components/Layout';
 // Loading
 export { default as Loading } from './components/Loading';
@@ -69,7 +70,6 @@ export {
   messagesActions,
   messagesConstants,
   messagesReducer,
-  messagesSaga,
   messagesSelectors,
 } from './components/Messages';
 // NavTabs
