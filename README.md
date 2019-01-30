@@ -19,4 +19,4 @@ This project currently contains dependencies upon several libraries for certain 
 Form fields are designed for use with redux-form. There is currently no plan of changing this.
 
 ### Message System
-The message system (`/components/Messages`) currently uses redux, react-redux, reselect, and redux-actions to perform all its functionality and provide hooks into the system. This is subject to change for future versions, but currently relies on these libraries being present. The Message container is currently included as part of the base App, and does not need to be added elsewhere.
+The message system (`/components/Messages`) currently uses redux, react-redux, and reselect to perform all its functionality and provide hooks into the system. This is subject to change for future versions, but currently relies on these libraries being present. The Message container is currently included as part of the base App, and does not need to be added elsewhere.
