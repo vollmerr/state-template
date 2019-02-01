@@ -5,17 +5,23 @@ import {
 } from 'react-router-dom';
 
 import * as propUtils from '../../utils/propTypes';
+import ErrorBoundary from '../ErrorBoundary';
 
 export class Routing extends React.PureComponent {
+  renderRoute = (route) => {
+    const { component: C, ...rest } = route;
+    const render = props => <ErrorBoundary><C {...props} /></ErrorBoundary>;
+
+    return <Route render={render} {...rest} />;
+  }
+
   render() {
     const { routes, redirect } = this.props;
 
     return (
       <Switch>
         {
-          routes.map(route => (
-            <Route {...route} />
-          ))
+          routes.map(route => this.renderRoute(route))
         }
         {redirect && <Redirect to={redirect} />}
       </Switch>

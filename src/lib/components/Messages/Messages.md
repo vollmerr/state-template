@@ -1,41 +1,42 @@
 ```jsx
-  const { connect } = require('react-redux');
-  const { messagesActions } = require('state-template');
-
-  const store = { 
-    messages: { 
-      byId: {},
-      allIds: [],
-    },
-  };
-
-  class MessagesExample extends React.Component {
+  class ExampleMessages extends React.Component {
     constructor(props) {
       super(props);
-      // THIS IS NORMALLY NOT NEEDED, USE ARROW SYNTAX INSTEAD...
+      this.state = { 
+        messages: [],
+      };
+      // binding due to compilier not being able to use arrow functions...
       this.getMessage = this.getMessage.bind(this);
+      this.clearMessage = this.clearMessage.bind(this);
     }
 
-    // write this as getMessage = () => { ... } instead normally...
-    // must be this way due to compilier
     getMessage(variant) {
-      const { registerMessage } = this.props;
+      return () => {
+        const { messages } = this.state;
 
-      return () => registerMessage({
-        variant,
-        id: Math.random(),
-        header: 'optional header...',
-        children: `variant: ${variant}`,
-        footer: 'optional footer...',
-      });
+        const newMessage = {
+          variant,
+          id: Math.random(),
+          header: 'optional header...',
+          children: `variant: ${variant}`,
+          footer: 'optional footer...',
+        };
+  
+        this.setState({ messages: [...messages, newMessage] });
+      }
+    }
+
+    clearMessage(id) {
+      const { messages } = this.state;
+      const newMessages = messages.filter(x => x.id !== id);
+      this.setState({ messages: newMessages })
     }
 
     render() {
-      // YOU DO NOT NEED <StatusMessage /> AS IT IS
-      // NORMALLY IN THE GLOBAL APP.
+      const { messages } = this.state;
+
       return (
         <>
-          <Messages />
           <Button text={'default message'} onClick={this.getMessage('default')} />
           <Button text={'understated message'} onClick={this.getMessage('understated')} />
           <Button text={'overstated message'} onClick={this.getMessage('overstated')} />
@@ -43,18 +44,11 @@
           <Button text={'primary message'} onClick={this.getMessage('primary')} />
           <Button text={'danger message'} onClick={this.getMessage('danger')} />
           <Button text={'inverted message'} onClick={this.getMessage('inverted')} />
+          <Messages messages={messages} clearMessage={this.clearMessage} />
         </>
       );
     }
   }
 
-  const mapDispatchToProps = dispatch => ({
-    registerMessage: props => dispatch(messagesActions.registerMessage(props)),
-  });
-
-  const WithRedux = connect(null, mapDispatchToProps)(MessagesExample);
-
-  <ExampleRedux store={store}>
-    <WithRedux />
-  </ExampleRedux>
+  <ExampleMessages />
 ```

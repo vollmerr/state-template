@@ -13,10 +13,13 @@ Use `npm run visual` to run visual regression tests. A html page will open with 
 Use `npm run visual:update` to udpate the reference snapshots. These snapshots are stored in backstop_data/bitmaps_reference.
 
 ## Caveats
-This project currently contains dependencies upon several libraries for certain funcitonality as described below.
+This project currently contains dependencies upon several libraries for certain funcitonality, this is subject to change in future releases (they will most liekly just get pulled out into a sperate project).
 
-### Form Fields
-Form fields are designed for use with redux-form. There is currently no plan of changing this.
+The following table describes components/utils that rely on subject to change libraries:
 
-### Message System
-The message system (`/components/Messages`) currently uses redux, react-redux, and reselect to perform all its functionality and provide hooks into the system. This is subject to change for future versions, but currently relies on these libraries being present. The Message container is currently included as part of the base App, and does not need to be added elsewhere.
+name | packages
+---|---
+Form fields | redux-form
+Async | redux, redux-saga, redux-actions, reselect
+Messages | redux, redux-saga, redux-actions, reselect
+configureStore util | redux-form, redux-saga, Messages packages

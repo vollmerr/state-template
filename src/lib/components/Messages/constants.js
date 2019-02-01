@@ -1,2 +1,2 @@
-export const REGISTER_MESSAGE = 'ST/Status/REGISTER_MESSAGE';
-export const CLEAR_MESSAGE = 'ST/Status/CLEAR_MESSAGE';
+export const REGISTER_MESSAGE = 'ST/Messages/REGISTER_MESSAGE';
+export const CLEAR_MESSAGE = 'ST/Messages/CLEAR_MESSAGE';

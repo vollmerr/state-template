@@ -4,11 +4,13 @@ import { reducer as formReducer } from 'redux-form';
 import { fork, all } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
 
+import { asyncReducer } from '../components/Async';
 import { messagesReducer } from '../components/Messages';
 
 const registerReducers = reducers => combineReducers({
   form: formReducer,
   messages: messagesReducer,
+  async: asyncReducer,
   ...reducers,
 });
 

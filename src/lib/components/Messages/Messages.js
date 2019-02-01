@@ -1,10 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 
-import * as actions from './actions';
-import * as selectors from './selectors';
 import Card from '../Card';
 
 class Messages extends React.Component {
@@ -72,14 +68,4 @@ Messages.defaultProps = {
   delay: 4000,
 };
 
-export const mapStateToProps = createStructuredSelector({
-  messages: selectors.getMessages(),
-});
-
-export const mapDispatchToProps = dispatch => ({
-  clearMessage: id => dispatch(actions.clearMessage(id)),
-});
-
-const withRedux = connect(mapStateToProps, mapDispatchToProps)(Messages);
-
-export default withRedux;
+export default Messages;

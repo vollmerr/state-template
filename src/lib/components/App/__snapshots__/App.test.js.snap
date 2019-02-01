@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App render should render correctly 1`] = `
+<HashRouter>
+  <ErrorBoundary>
+    <Header
+      align="right"
+      brandingLogo={
+        Object {
+          "alt": "Office of Digital Innovation logo",
+          "href": "https://cdt.ca.gov/",
+          "src": "office-of-digital-innovation-logo.png",
+        }
+      }
+      contactLink={
+        Object {
+          "href": "https://cdt.ca.gov/support/",
+          "text": "Contact Us",
+        }
+      }
+      fixed={true}
+      routes={Array []}
+    />
+    <withRouter(Routing)
+      redirect={null}
+      routes={Array []}
+    />
+    <Footer
+      contactLink={
+        Object {
+          "href": "https://cdt.ca.gov/support/",
+          "text": "Contact Us",
+        }
+      }
+    />
+    <button
+      className="return-top"
+      onClick={[Function]}
+      type="button"
+    />
+  </ErrorBoundary>
+</HashRouter>
+`;

@@ -1,13 +1,10 @@
 import React from 'react';
 import T from 'prop-types';
 
-import LoadingIndicator from './LoadingIndicator';
-
 /**
- * Displays a blocking loading indicator
- * over content if past the delay
+ * Indicates content is loading
  */
-class Loading extends React.Component {
+class LoadingIndicator extends React.Component {
   constructor(props) {
     super(props);
     this.state = { delayReached: false };
@@ -57,13 +54,31 @@ class Loading extends React.Component {
     const { children, isLoading } = this.props;
     const { delayReached } = this.state;
 
-    const show = isLoading && delayReached;
+    const show = Boolean(isLoading && delayReached);
 
-    return <LoadingIndicator show={show}>{children}</LoadingIndicator>;
+    return (
+      <div className={'loading-indicator'}>
+        <div className={'loading-content'}>
+          {children}
+          {
+            show
+            && (
+              <>
+                <div className={'loading-overlay'} />
+                <div className={'uil-ripple-css'}>
+                  <div />
+                  <div />
+                </div>
+              </>
+            )
+          }
+        </div>
+      </div>
+    );
   }
 }
 
-Loading.propTypes = {
+LoadingIndicator.propTypes = {
   /** Display loading indicator if true */
   isLoading: T.oneOfType([
     T.number,
@@ -75,9 +90,9 @@ Loading.propTypes = {
   delay: T.number,
 };
 
-Loading.defaultProps = {
+LoadingIndicator.defaultProps = {
   children: null,
   delay: 200,
 };
 
-export default Loading;
+export default LoadingIndicator;

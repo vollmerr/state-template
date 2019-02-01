@@ -24,14 +24,23 @@ export {
 export { default as A } from './components/A';
 // App
 export { default } from './components/App';
+// Async
+export {
+  default as Async,
+  ConnectedAsync,
+  ErrorMessage,
+  LoadingIndicator,
+  asyncActions,
+  asyncConstants,
+  asyncReducer,
+  asyncSelectors,
+} from './components/Async';
 // Banner
 export { BannerPrimary } from './components/Banner';
 // Button
 export { default as Button, ButtonRow, LinkButton } from './components/Button';
 // Card
 export { default as Card } from './components/Card';
-// ErrorBoundary
-export { default as ErrorBoundary } from './components/ErrorBoundary';
 // Footer
 export { default as Footer } from './components/Footer';
 // Form
@@ -62,11 +71,10 @@ export {
   Page,
   Section,
 } from './components/Layout';
-// Loading
-export { default as Loading } from './components/Loading';
 // Messages
 export {
   default as Messages,
+  ConnectedMessages,
   messagesActions,
   messagesConstants,
   messagesReducer,

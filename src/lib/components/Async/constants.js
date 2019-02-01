@@ -1,0 +1,3 @@
+export const SET_ERROR = 'ST/Async/SET_ERROR';
+export const INCREASE_LOADING = 'ST/Async/INCREASE_LOADING';
+export const DECREASE_LOADING = 'ST/Async/DECREASE_LOADING';

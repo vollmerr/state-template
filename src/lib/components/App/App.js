@@ -5,9 +5,8 @@ import classNames from 'classnames';
 import debounce from 'lodash.debounce';
 
 import * as propUtils from '../../utils/propTypes';
-import ErrorBoundary from '../ErrorBoundary';
-import Messages from '../Messages';
 
+import ErrorBoundary from '../ErrorBoundary';
 import Routing from '../Routing';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -142,7 +141,6 @@ export class App extends React.Component {
           {this.renderRouting()}
           {this.renderFooter()}
           {this.renderReturnTop()}
-          <Messages />
         </ErrorBoundary>
       </Router>
     );
@@ -168,8 +166,6 @@ App.propTypes = {
   redirect: T.string,
   /** Link to use for all 'contact us' links */
   contactLink: propUtils.contactLink,
-  // /** History to use for managing routing */
-  // history: T.object,
   /** react-router-dom router to use */
   router: T.func,
 };
@@ -184,7 +180,6 @@ App.defaultProps = {
   routes: [],
   redirect: null,
   contactLink: propUtils.contactLinkDefault,
-  // history: null,
   router: HashRouter,
 };
 

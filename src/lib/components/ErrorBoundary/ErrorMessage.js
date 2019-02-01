@@ -1,15 +1,22 @@
 import React from 'react';
+import T from 'prop-types';
 
-import Button from '../Button';
-
-const ErrorMessage = ({ error, btnProps }) => (
-  <div className={'row'}>
-    <div className={'col col-xs-12 text-center'}>
+const ErrorMessage = ({ error }) => (
+  <div className={'error-message'}>
+    <div className={'text-center'}>
       <h2>Sorry, something went wrong!</h2>
-      <p>{error}</p>
-      {btnProps && <Button {...btnProps} />}
+      <p>{error && error.toString()}</p>
     </div>
   </div>
 );
+
+ErrorMessage.propTypes = {
+  /** Error to render */
+  error: T.string,
+};
+
+ErrorMessage.defaultProps = {
+  error: null,
+};
 
 export default ErrorMessage;
