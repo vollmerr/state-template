@@ -63,7 +63,7 @@ Button.propTypes = {
   className: T.string,
 
   /** HTML tag to render as */
-  tag: T.oneOfType([T.func, T.string]),
+  tag: T.node,
 
   /** Content to render */
   children: T.node,

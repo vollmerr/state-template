@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import T from 'prop-types';
 import Pikaday from 'pikaday';
 
-import { isValid } from '../../../utils/date';
-import Icon from '../../Icon';
+import { isValid } from '../../utils/date';
+import Icon from '../Icon';
 
 // Date picker that uses pikaday...
 class DatePicker extends Component {

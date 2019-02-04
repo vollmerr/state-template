@@ -26,7 +26,7 @@ const LayoutBase = (props) => {
 LayoutBase.propTypes = {
   baseClass: T.string,
   children: T.node.isRequired,
-  tag: T.oneOfType([T.string, T.element]),
+  tag: T.node,
   className: T.string,
 };
 

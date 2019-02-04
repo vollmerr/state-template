@@ -1,10 +1,10 @@
 import React from 'react';
 import T from 'prop-types';
 
-import { isEmptyTime } from '../../../utils/validate';
+import { isEmptyTime } from '../../utils/validate';
+import withField from '../../utils/withField';
 
 import FieldWrapper from '../FieldWrapper';
-import withField from '../withField';
 import TimePicker from './TimePicker';
 
 // Date picker for redux-form using pikaday library
@@ -21,6 +21,7 @@ const FieldTime = (props) => {
 FieldTime.propTypes = {
   /** Input from redux-form's Field, attaches name, value, etc  */
   input: T.object.isRequired,
+
   /** Disable the input */
   disabled: T.bool,
 };

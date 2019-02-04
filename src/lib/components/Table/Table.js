@@ -1,4 +1,5 @@
 import React from 'react';
+import T from 'prop-types';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
@@ -92,5 +93,59 @@ class Table extends React.Component {
     );
   }
 }
+
+Table.propTypes = {
+  /** Title to render */
+  title: T.string,
+
+  /** Data to build rows from */
+  data: T.arrayOf(
+    T.shape({
+      id: T.string.isRequired,
+    }),
+  ).isRequired,
+
+  /** Column definintions */
+  columns: T.arrayOf(
+    T.shape({
+      dataField: T.string.isRequired,
+      text: T.string.isRequired,
+      sort: T.bool,
+      formatter: T.func,
+    }),
+  ).isRequired,
+
+  /** Events to attach to rows */
+  rowEvents: T.shape({
+    onClick: T.func,
+  }),
+
+  /** Builds additional class name for given row */
+  rowClasses: T.func,
+
+  /** Menu to render */
+  menu: T.node,
+
+  /** Default columns as being sorted */
+  defaultSorted: T.arrayOf(
+    T.shape({
+      dataField: T.string.isRequired,
+      order: T.string.isRequired,
+    }),
+  ),
+
+  /** Additional class name to attach to table */
+  className: T.string,
+};
+
+Table.defaultProps = {
+  title: '',
+  rowEvents: null,
+  rowClasses: null,
+  menu: null,
+  defaultSorted: null,
+  className: null,
+};
+
 
 export default Table;

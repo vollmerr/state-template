@@ -32,6 +32,7 @@ export class Routing extends React.PureComponent {
 Routing.propTypes = {
   /** Routes to render */
   routes: T.arrayOf(propUtils.route),
+
   /** Redirect if no matching path */
   redirect: T.string,
 };

@@ -2,10 +2,10 @@ import React from 'react';
 import T from 'prop-types';
 import classNames from 'classnames';
 
-import { isEmptyRadio } from '../../../utils/validate';
+import { isEmptyRadio } from '../../utils/validate';
+import withField from '../../utils/withField';
 
 import FieldWrapper from '../FieldWrapper';
-import withField from '../withField';
 
 // select with optional help text and label
 // displays error if validation fails
@@ -44,6 +44,7 @@ export const FieldSelect = (props) => {
 FieldSelect.propTypes = {
   /** Input from redux-form's Field, attaches name, value, etc */
   input: T.object.isRequired,
+
   /** Options to select from */
   options: T.arrayOf(
     T.shape({
@@ -51,8 +52,10 @@ FieldSelect.propTypes = {
       value: T.string.isRequired,
     }),
   ).isRequired,
+
   /** Disable the input */
   disabled: T.bool,
+
   /** Allow multiple selecting */
   multiple: T.bool,
 };

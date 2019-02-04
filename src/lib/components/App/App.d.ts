@@ -22,16 +22,16 @@ export interface AppProps {
     | 'right';
 
   /** Custom header branding logo */
-  brandingLogo?: types.brandingLogo;
+  brandingLogo?: types.BrandingLogo;
 
   /** Routes to render and build nav from */
-  routes?: Array<types.route>;
+  routes?: Array<types.Route>;
 
   /** Redirect route if no matching route */
   redirect?: string;
 
   /** Link to use for all 'contact us' links */
-  contactLink?: types.contactLink;
+  contactLink?: types.ContactLink;
 
   /** react-router-dom router to use */
   router?: Router.BrowserRouter

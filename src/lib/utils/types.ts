@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export interface route {
+export interface Route {
   /** Unique identifier for route */
   key: string;
 
@@ -23,7 +23,7 @@ export interface route {
   component: (props: any) => React.ReactNode;
 }
 
-export interface contactLink {
+export interface ContactLink {
   /** Text to render */
   text: string;
 
@@ -34,7 +34,7 @@ export interface contactLink {
   href?: string,
 }
 
-export interface brandingLogo {
+export interface BrandingLogo {
   /** Source of image */
   src: string;
 
@@ -48,7 +48,7 @@ export interface brandingLogo {
   href?: string;
 }
 
-export interface option {
+export interface Option {
   /** Label to render for option */
   label: string;
 

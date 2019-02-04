@@ -1,11 +1,11 @@
 import React from 'react';
 import T from 'prop-types';
 
-import { isEmptyCheck } from '../../../utils/validate';
-import * as propTypes from '../../../utils/propTypes';
+import { isEmptyCheck } from '../../utils/validate';
+import * as propTypes from '../../utils/propTypes';
+import withField from '../../utils/withField';
 
 import FieldWrapper from '../FieldWrapper';
-import withField from '../withField';
 import Checkbox from './Checkbox';
 
 // group of checkboxes with optional help text and label

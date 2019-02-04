@@ -10,8 +10,8 @@ const props = {
   input: testUtils.getInputProp(),
   meta: testUtils.getMetaProp(),
   label: 'test label',
-  disabled: false,
   minDate: '1900-01-02',
+  disabled: false,
 };
 
 let wrapper;

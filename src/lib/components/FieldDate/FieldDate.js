@@ -1,10 +1,10 @@
 import React from 'react';
 import T from 'prop-types';
 
-import { isInvalidDate } from '../../../utils/validate';
+import { isInvalidDate } from '../../utils/validate';
+import withField from '../../utils/withField';
 
 import FieldWrapper from '../FieldWrapper';
-import withField from '../withField';
 import DatePicker from './DatePicker';
 
 // Date picker for redux-form using pikaday library
@@ -23,15 +23,17 @@ export const FieldDate = (props) => {
 FieldDate.propTypes = {
   /** Input from redux-form's Field, attaches name, value, etc  */
   input: T.object.isRequired,
-  /** Disable the input */
-  disabled: T.bool,
+
   /** Minimum date able to select */
   minDate: T.oneOfType([T.string, T.instanceOf(Date)]),
+
+  /** Disable the input */
+  disabled: T.bool,
 };
 
 FieldDate.defaultProps = {
-  disabled: false,
   minDate: null,
+  disabled: false,
 };
 
 const withReduxField = withField(isInvalidDate);

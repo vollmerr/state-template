@@ -140,12 +140,16 @@ class Header extends React.PureComponent {
 Header.propTypes = {
   /** Keeps header fixed to the top */
   fixed: T.bool,
+
   /** Aligns navigation items */
   align: T.oneOf(['center', 'left', 'right']),
+
   /** Branding logo */
   brandingLogo: propUtils.brandingLogo,
+
   /** Contact us link */
   contactLink: propUtils.contactLink,
+
   /** Routes for navigation items */
   routes: T.arrayOf(propUtils.route),
 };

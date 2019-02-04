@@ -61,16 +61,22 @@ RadioButton.propTypes = {
     '',
     'highlight',
   ]),
+
   /** Input from redux-form's Field, attaches name, value, etc */
   input: T.object.isRequired,
+
   /** Label of radio button */
   label: T.string.isRequired,
+
   /** Value of radio button */
   value: T.string.isRequired,
+
   /** Disable the input */
   disabled: T.bool,
+
   /** Class name to attach to top level label */
   className: T.string,
+
   /** Display inline */
   inline: T.bool,
 };

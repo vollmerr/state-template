@@ -1,10 +1,10 @@
 import React from 'react';
 import T from 'prop-types';
 
-import { isEmptyRadio } from '../../../utils/validate';
+import { isEmptyRadio } from '../../utils/validate';
+import withField from '../../utils/withField';
 
 import FieldWrapper from '../FieldWrapper';
-import withField from '../withField';
 import RadioButton from './RadioButton';
 
 // group of radio buttons with optional help text and label
@@ -40,8 +40,10 @@ FieldRadioButtons.propTypes = {
     '',
     'highlight',
   ]),
+
   /** Input from redux-form's Field, attaches name, value, etc */
   input: T.object.isRequired,
+
   /** Options to select from */
   options: T.arrayOf(
     T.shape({
@@ -49,6 +51,7 @@ FieldRadioButtons.propTypes = {
       value: T.string.isRequired,
     }),
   ).isRequired,
+
   /** Disable the input */
   disabled: T.bool,
 };

@@ -38,12 +38,16 @@ const Overlay = (props) => {
 Overlay.propTypes = {
   /** Display the overlay */
   show: T.bool.isRequired,
+
   /** Click handler for overlay */
   onClick: T.func,
+
   /** Key Press handler for overlay */
   onKeyPress: T.func,
+
   /** If should only render in mobile viewport */
   isMobile: T.bool,
+
   /** Class name to attach */
   className: T.string,
 };

@@ -54,7 +54,13 @@ Panel.propTypes = {
   children: T.node.isRequired,
 
   /** Style to apply */
-  variant: T.oneOf(['default', 'primary', 'overstated', 'understated', 'standout']),
+  variant: T.oneOf([
+    'default',
+    'primary',
+    'overstated',
+    'understated',
+    'standout',
+  ]),
 
   /** Icon to render to left of title in panel heading */
   icon: T.string,
