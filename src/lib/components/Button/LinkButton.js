@@ -43,6 +43,7 @@ const LinkButton = (props) => {
 LinkButton.propTypes = {
   /** Path for internal links */
   to: T.string,
+
   /** Path for external links (open in new tab) */
   href: T.string,
 };

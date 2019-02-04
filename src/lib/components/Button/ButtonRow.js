@@ -17,7 +17,10 @@ const ButtonRow = ({ className, children, ...rest }) => {
 };
 
 ButtonRow.propTypes = {
+  /** Style class name to attach to button */
   className: T.string,
+
+  /** Content to render */
   children: T.node.isRequired,
 };
 

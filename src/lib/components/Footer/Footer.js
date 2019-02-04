@@ -72,6 +72,7 @@ class Footer extends React.PureComponent {
 }
 
 Footer.propTypes = {
+  /** Link to use for 'contact us' link */
   contactLink: propUtils.contactLink.isRequired,
 };
 

@@ -150,22 +150,31 @@ export class App extends React.Component {
 App.propTypes = {
   /** Render a custom header */
   renderHeader: T.func,
+
   /** Render custom routing */
   renderRouting: T.func,
+
   /** Render a custom footer */
   renderFooter: T.func,
+
   /** Fix header to top */
   fixedHeader: T.bool,
+
   /** Align header nav to right */
   alignHeader: T.oneOf(['center', 'left', 'right']),
+
   /** Custom header branding logo */
   brandingLogo: propUtils.brandingLogo,
+
   /** Routes to render and build nav from */
   routes: T.arrayOf(propUtils.route),
+
   /** Redirect route if no matching route */
   redirect: T.string,
+
   /** Link to use for all 'contact us' links */
   contactLink: propUtils.contactLink,
+
   /** react-router-dom router to use */
   router: T.func,
 };

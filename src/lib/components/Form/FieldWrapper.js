@@ -2,7 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 import classNames from 'classnames';
 
-// wrapper around fields to display an optional label and help block.
+// wrapper around fields to render an optional label and help block.
 // Handles displaying errors if vlaidation has failed
 const FieldWrapper = (props) => {
   const {
@@ -51,12 +51,25 @@ const FieldWrapper = (props) => {
 };
 
 FieldWrapper.propTypes = {
+  /** Label to display above input */
   label: T.string,
+
+  /** Meta information, such as errors and touched */
   meta: T.object.isRequired,
+
+  /** Help text to render under input */
   helpText: T.string,
+
+  /** Style class name to attach to button */
   className: T.string,
+
+  /** Content to render */
   children: T.element.isRequired,
+
+  /** The field should use the default required validation */
   required: T.bool,
+
+  /** Disable the input */
   disabled: T.bool,
 };
 

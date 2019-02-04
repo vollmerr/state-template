@@ -39,11 +39,14 @@ const A = (props) => {
 A.propTypes = {
   /** Path for internal links */
   to: T.string,
+
   /** Path for external links (open in new tab) */
   href: T.string,
-  /** Content to display as a link */
+
+  /** Render content using shorthand */
   text: T.string,
-  /** Children */
+
+  /** Render content */
   children: T.node,
 };
 

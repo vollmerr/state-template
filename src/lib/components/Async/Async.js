@@ -30,19 +30,24 @@ class Async extends React.Component { // eslint-disable-line react/prefer-statel
 }
 
 Async.propTypes = {
-  /** Content to display */
+  /** Content to render */
   children: T.node,
+
   /** Error to render */
   error: T.string,
+
   /** Action to remove the error */
   onDismiss: T.func,
+
   /** Props to pass to `Button` in error message */
   btnProps: T.object,
-  /** Display loading indicator if true */
+
+  /** Render loading indicator if true */
   isLoading: T.oneOfType([
     T.number,
     T.bool,
   ]).isRequired,
+
   /** Delay until showing the loading indicator */
   delay: T.number,
 };

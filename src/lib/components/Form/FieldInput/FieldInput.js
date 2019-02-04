@@ -29,7 +29,7 @@ export const FieldInput = (props) => {
 FieldInput.propTypes = {
   /** Input from redux-form's Field, attaches name, value, etc  */
   input: T.object.isRequired,
-  /** HTML tag to use */
+  /** HTML tag to render as */
   tag: T.oneOfType([T.func, T.string]),
   /** type to use */
   type: T.string,

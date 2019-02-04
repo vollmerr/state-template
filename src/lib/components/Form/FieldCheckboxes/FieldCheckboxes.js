@@ -2,6 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 
 import { isEmptyCheck } from '../../../utils/validate';
+import * as propTypes from '../../../utils/propTypes';
 
 import FieldWrapper from '../FieldWrapper';
 import withField from '../withField';
@@ -39,15 +40,13 @@ FieldCheckboxes.propTypes = {
     '',
     'primary',
   ]),
+
   /** Input from redux-form's Field, attaches name, value, etc */
   input: T.object.isRequired,
+
   /** Options to select from */
-  options: T.arrayOf(
-    T.shape({
-      label: T.string.isRequired,
-      value: T.string.isRequired,
-    }),
-  ).isRequired,
+  options: T.arrayOf(propTypes.option).isRequired,
+
   /** Disable the input */
   disabled: T.bool,
 };

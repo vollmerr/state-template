@@ -44,10 +44,13 @@ Button.propTypes = {
     'highlight',
     'standout',
   ]),
+
   /** Style as active */
   active: T.bool,
-  /** Text to display, mutually exclusive with `children` */
+
+  /** Content to render, mutually exclusive with `children` */
   text: T.node,
+
   /** Button type */
   type: T.oneOf([
     '',
@@ -55,13 +58,17 @@ Button.propTypes = {
     'submit',
     'reset',
   ]),
+
   /** Style class name to attach to button */
   className: T.string,
-  /** HTML tag to use */
+
+  /** HTML tag to render as */
   tag: T.oneOfType([T.func, T.string]),
-  /** Children to render, mutually exclusive with `text` */
+
+  /** Content to render */
   children: T.node,
-  /** Icon to display */
+
+  /** Icon to render */
   iconProps: T.shape({ ...Icon.propTypes }),
 };
 

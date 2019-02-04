@@ -73,10 +73,12 @@ class TableHeader extends React.Component {
 }
 
 TableHeader.propTypes = {
-  /* Title of table to display */
+  /* Title of table to render */
   title: T.string,
+
   /* Menu of actions to take against table */
   menu: T.node,
+
   /* Search handler provided by ToolkitProvider */
   onSearch: T.func,
 };

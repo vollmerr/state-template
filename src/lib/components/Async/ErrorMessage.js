@@ -47,10 +47,13 @@ class ErrorMessage extends React.Component {
 ErrorMessage.propTypes = {
   /** Content to render when no error */
   children: T.node.isRequired,
+
   /** Provided by redux, error to render */
   error: T.string,
+
   /** Action to remove the error */
   onDismiss: T.func.isRequired,
+
   /** Props to pass to `Button` in error message */
   btnProps: T.object,
 };

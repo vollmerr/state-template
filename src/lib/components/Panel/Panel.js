@@ -44,16 +44,21 @@ const Panel = (props) => {
 };
 
 Panel.propTypes = {
-  /** Title to display in panel heading */
+  /** Title to render in panel heading */
   title: T.string.isRequired,
+
   /** Props to pass to Button in panel  heading */
   buttonProps: T.object,
+
   /** Content to render in panel body */
   children: T.node.isRequired,
+
   /** Style to apply */
   variant: T.oneOf(['default', 'primary', 'overstated', 'understated', 'standout']),
-  /** Icon to display to left of title in panel heading */
+
+  /** Icon to render to left of title in panel heading */
   icon: T.string,
+
   /** Class names to attach to the top level div */
   className: T.string,
 };

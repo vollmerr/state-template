@@ -84,8 +84,10 @@ LoadingIndicator.propTypes = {
     T.number,
     T.bool,
   ]).isRequired,
-  /** Content to display */
+
+  /** Content to render */
   children: T.node,
+
   /** Delay until showing the loading indicator */
   delay: T.number,
 };

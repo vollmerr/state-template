@@ -3,7 +3,7 @@ import T from 'prop-types';
 import classNames from 'classnames';
 
 /**
- * The `Icon` is used to display a state template icon,
+ * The `Icon` is used to render a state template icon,
  * automatically prefixing all icons with the correct class names.
  * See http://template.webstandards.ca.gov/sample/icon-fonts.html
  * for the full list of avaiable icon names.
@@ -27,9 +27,11 @@ const Icon = (props) => {
 Icon.propTypes = {
   /** Name of icon to use (auto prefixes with ca-gov-icon-) */
   name: T.string.isRequired,
+
   /** Class names to attach to the top level div */
   className: T.string,
-  /** HTML tag to use  */
+
+  /** HTML tag to render as  */
   tag: T.node,
 };
 

@@ -52,13 +52,17 @@ Card.propTypes = {
     'danger',
     'inverted',
   ]),
+
   /** Header to render */
   header: T.node,
+
   /** Footer to render */
   footer: T.node,
+
   /** Content to render */
   children: T.node,
-  /** Style class name to attach to button */
+
+  /** Style class name to attach */
   className: T.string,
 };
 

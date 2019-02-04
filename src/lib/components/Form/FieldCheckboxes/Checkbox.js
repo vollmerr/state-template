@@ -61,12 +61,16 @@ Checkbox.propTypes = {
     '',
     'primary',
   ]),
+
   /** Input from redux-form's Field, attaches name, value, etc  */
   input: T.object.isRequired,
+
   /** Value of checkbox */
   value: T.string.isRequired,
-  /** Label to display for this checkbox */
+
+  /** Label to render for this checkbox */
   label: T.string.isRequired,
+
   /** Disable the input */
   disabled: T.bool,
 };
