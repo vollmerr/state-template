@@ -1,6 +1,6 @@
 # Change Log
 
-## v0.1.1 (2019-01-01)
+## v0.1.1 (2019-01-04)
 
 - bug fixes
   - fix first click on zoom setting not calculating correct
