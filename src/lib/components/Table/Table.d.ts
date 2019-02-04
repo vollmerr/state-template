@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as types from '../../utils/types';
 
 export type Row = {
-  id: string;
+  id: string | number;
 }
 
 export type Column = {

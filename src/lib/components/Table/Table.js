@@ -101,7 +101,7 @@ Table.propTypes = {
   /** Data to build rows from */
   data: T.arrayOf(
     T.shape({
-      id: T.string.isRequired,
+      id: T.oneOfType([T.string, T.number]).isRequired,
     }),
   ).isRequired,
 
