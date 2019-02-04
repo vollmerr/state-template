@@ -3,14 +3,15 @@
 @import "sections/global";
 
 @import "components/App";
+@import "components/ErrorMessage.scss";
 @import "components/FieldCheckboxes";
 @import "components/FieldDate";
 @import "components/FieldInput";
 @import "components/FieldRadioButtons";
 @import "components/FieldSelect";
 @import "components/Header";
-@import "components/LoadingMessage";
+@import "components/LoadingIndicator";
 @import "components/Overlay";
-@import "components/StatusMessage";
+@import "components/Messages";
 @import "components/Table";
 @import "components/TimePicker";

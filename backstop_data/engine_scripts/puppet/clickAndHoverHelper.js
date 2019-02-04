@@ -1,8 +1,10 @@
 module.exports = async (page, scenario) => {
-  var hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
-  var clickSelector = scenario.clickSelectors || scenario.clickSelector;
-  var scrollToSelector = scenario.scrollToSelector;
-  var postInteractionWait = scenario.postInteractionWait; // selector [str] | ms [int]
+  const hoverSelector = scenario.hoverSelectors || scenario.hoverSelector;
+  const clickSelector = scenario.clickSelectors || scenario.clickSelector;
+  const clickSelectorAll = scenario.clickSelectorAll;
+
+  const scrollToSelector = scenario.scrollToSelector;
+  const postInteractionWait = scenario.postInteractionWait; // selector [str] | ms [int]
 
   if (hoverSelector) {
     for (const hoverSelectorIndex of [].concat(hoverSelector)) {
@@ -18,13 +20,25 @@ module.exports = async (page, scenario) => {
     }
   }
 
+  if (clickSelectorAll) {
+    for (const clickSelectorIndex of [].concat(clickSelectorAll)) {
+      await page.waitFor(clickSelectorIndex);
+      await page.evaluate((selector) => {
+        const elements = document.querySelectorAll(selector);
+        for (const e of elements) {
+          e.click();
+        }
+      }, clickSelectorIndex);
+    }
+  }
+
   if (postInteractionWait) {
     await page.waitFor(postInteractionWait);
   }
 
   if (scrollToSelector) {
     await page.waitFor(scrollToSelector);
-    await page.evaluate(scrollToSelector => {
+    await page.evaluate((scrollToSelector) => {
       document.querySelector(scrollToSelector).scrollIntoView();
     }, scrollToSelector);
   }

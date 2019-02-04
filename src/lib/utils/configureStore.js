@@ -4,30 +4,18 @@ import { reducer as formReducer } from 'redux-form';
 import { fork, all } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
 
-import appReducer from '../containers/App/reducer';
-// import authReducer from '../containers/Auth/reducer';
-import statusReducer from '../containers/Status/reducer';
-import routingReducer from '../containers/Routing/reducer';
-// import authSaga from '../containers/Auth/saga';
-import statusSaga from '../containers/Status/saga';
-
-const globalReducer = combineReducers({
-  app: appReducer,
-  routing: routingReducer,
-  // auth: authReducer,
-  status: statusReducer,
-});
+import { asyncReducer } from '../components/Async';
+import { messagesReducer } from '../components/Messages';
 
 const registerReducers = reducers => combineReducers({
   form: formReducer,
-  global: globalReducer,
+  messages: messagesReducer,
+  async: asyncReducer,
   ...reducers,
 });
 
 const registerSagas = sagas => function* rootSaga() {
   yield all([
-    // fork(authSaga),
-    fork(statusSaga),
     ...sagas.map(x => fork(x)),
   ]);
 };
@@ -35,10 +23,15 @@ const registerSagas = sagas => function* rootSaga() {
 // configure store to register reducers and sagas in combination
 // with our reducers and sags, and add dev tools
 const configureStore = (options = {}) => {
-  const { initialState = {}, reducers = {}, sagas = [] } = options;
+  const {
+    initialState = {},
+    reducers = {},
+    sagas = [],
+    middleware = [],
+  } = options;
 
   const sagaMiddleware = createSagaMiddleware();
-  const middlewares = [sagaMiddleware];
+  const middlewares = [sagaMiddleware, ...middleware];
 
   const rootReducer = registerReducers(reducers);
   const rootSaga = registerSagas(sagas);

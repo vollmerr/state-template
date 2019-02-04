@@ -62,12 +62,16 @@ const NavTabs = (props) => {
 NavTabs.propTypes = {
   /** match objected supplied by withRouter */
   match: T.object.isRequired,
+
   /** location objected supplied by withRouter */
   location: T.object.isRequired,
+
   /** routes to render and display as nav tabs */
   routes: T.array.isRequired,
+
   /** additional class name to attach to top level div */
   className: T.string,
+
   /** Default path to redirect to */
   defaultPath: T.string,
 };

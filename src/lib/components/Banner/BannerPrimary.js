@@ -13,6 +13,7 @@ const BannerPrimary = ({ src }) => (
 );
 
 BannerPrimary.propTypes = {
+  /** Image source */
   src: T.string.isRequired,
 };
 

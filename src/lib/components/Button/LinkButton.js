@@ -2,7 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import Button from '.';
+import Button from './Button';
 
 /**
  * A `Button` specialized for links. Buttons with a `to`
@@ -43,6 +43,7 @@ const LinkButton = (props) => {
 LinkButton.propTypes = {
   /** Path for internal links */
   to: T.string,
+
   /** Path for external links (open in new tab) */
   href: T.string,
 };

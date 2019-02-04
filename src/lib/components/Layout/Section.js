@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import T from 'prop-types';
 
-import Wrapper from './Wrapper';
+import LayoutBase from './LayoutBase';
 
 const Section = (props) => {
   const { variant, ...rest } = props;
@@ -12,7 +12,7 @@ const Section = (props) => {
   ]);
 
   return (
-    <Wrapper baseClass={baseClass} {...rest} />
+    <LayoutBase baseClass={baseClass} {...rest} />
   );
 };
 

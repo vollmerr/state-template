@@ -7,6 +7,8 @@ import MockDate from 'mockdate';
 
 import * as testUtils from './lib/utils/testUtils';
 
+jest.mock('lodash.debounce');
+
 // configure react v16 for enzzyme testing
 configure({ adapter: new Adapter() });
 // hard code dates (snapshots...)

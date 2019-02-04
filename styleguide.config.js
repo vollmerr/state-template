@@ -10,8 +10,7 @@ const getWebpack = () => {
 module.exports = {
   skipComponentsWithoutExample: true,
   components: [
-    'src/lib/components/**/*.js',
-    'src/lib/containers/**/*.js',
+    'src/lib/components/**/[A-Z]*.js',
   ],
   require: [
     path.join(__dirname, 'src/lib/style/core/css/cagov.core.css'),
@@ -21,4 +20,11 @@ module.exports = {
     Wrapper: path.join(__dirname, 'src/styleguidist/Wrapper'),
   },
   webpackConfig: getWebpack(),
+  getComponentPathLine(componentPath) {
+    const name = path.basename(componentPath, '.js');
+    return `import { ${name} } from 'state-template';`;
+  },
+  getExampleFilename(componentPath) {
+    return componentPath.replace(/\.js?$/, '.md');
+  },
 };

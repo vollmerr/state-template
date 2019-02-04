@@ -1,8 +1,34 @@
 # Change Log
 
-## v0.0.33
+## v0.1.1 (2019-01-04)
 
-- 
+- bug fixes
+  - fix first click on zoom setting not calculating correct
+  - add missing 'standout' variant for Card
+- components
+  - routing now wraps routes in ErrorBoundary
+  - all containers removed. Remaining are Async and Messages (both were in Status) in their own component folders, use ConnectedAsync and ConnectedMessages for connected to redux.
+  - add Page component
+  - add typescript definition files
+- stlying:
+  - messages, errors, overlay, header
+- utils:
+  - allow middleware to be passed to configureStore
+- internal:
+  - change exporting format and folder structure
+  - now export all components in index.js
+  - change doc file location computation
+  - add script for updating example with build
+  - bump package versions
+  - add example project as folder
+  - add clickSelectorAll for backstop to click all elements
+
+## v0.0.33 
+
+- Use 'tag' prop instead of 'type' for textarea in FieldInput
+- add 'ButtonRow' component
+- fix removing 'onScroll' event listeners
+- pass remaining props to field components instead of all props
 
 ## v0.0.32 (2019-01-16)
 

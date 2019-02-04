@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render correctly 1`] = `
+<Fragment>
+  <footer
+    className="global-footer"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="three-quarters"
+        >
+          <ul
+            className="footer-links"
+          >
+            <li>
+              <a
+                href="http://www.ca.gov/Use"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Conditions of Use
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://www.ca.gov/Privacy"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://www.ca.gov/Accessibility"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Accessibility
+              </a>
+            </li>
+            <li>
+              <A
+                href="http://www.google.com"
+                text="link text"
+                to=""
+              />
+            </li>
+          </ul>
+        </div>
+        <div
+          className="quarter text-right"
+        >
+          <ul
+            className="socialsharer-container"
+          >
+            <li>
+              <a
+                href="https://www.flickr.com/groups/californiagovernment"
+              >
+                <span
+                  aria-hidden="true"
+                  className="ca-gov-icon-flickr"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Flickr
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.pinterest.com/cagovernment/"
+              >
+                <span
+                  aria-hidden="true"
+                  className="ca-gov-icon-pinterest"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Pinterest
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/cagovernment"
+              >
+                <span
+                  aria-hidden="true"
+                  className="ca-gov-icon-twitter"
+                />
+                <span
+                  className="sr-only"
+                >
+                  Twitter
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/user/californiagovernment"
+              >
+                <span
+                  aria-hidden="true"
+                  className="ca-gov-icon-youtube"
+                />
+                <span
+                  className="sr-only"
+                >
+                  YouTube
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div
+      className="copyright"
+    >
+      <div
+        className="container"
+      >
+        Copyright © 2000
+      </div>
+    </div>
+  </footer>
+  <div
+    className="decoration-last"
+  >
+     
+  </div>
+</Fragment>
+`;

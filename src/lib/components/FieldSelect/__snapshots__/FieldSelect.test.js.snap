@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldSelect should render correctly 1`] = `
+<FieldWrapper
+  className=""
+  data-test="field-select"
+  disabled={false}
+  helpText=""
+  label="test label"
+  meta={
+    Object {
+      "error": null,
+      "touched": false,
+    }
+  }
+  required={false}
+>
+  <label
+    className="select field-select"
+  >
+    <select
+      disabled={false}
+      multiple={false}
+      name="testName"
+      onChange={[MockFunction]}
+      value="test value"
+    >
+      <option
+        disabled={true}
+        hidden={true}
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        value=""
+      />
+      <option
+        key="v1"
+        value="v1"
+      >
+        l1
+      </option>
+      <option
+        key="v2"
+        value="v2"
+      >
+        l2
+      </option>
+    </select>
+  </label>
+</FieldWrapper>
+`;
