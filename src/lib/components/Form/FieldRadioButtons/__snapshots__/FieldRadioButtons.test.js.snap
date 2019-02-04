@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldRadioButtons should render correctly 1`] = `
+<FieldWrapper
+  className=""
+  data-test="field-radio-buttons"
+  disabled={false}
+  helpText=""
+  label="test label"
+  meta={
+    Object {
+      "error": null,
+      "touched": false,
+    }
+  }
+  required={false}
+>
+  <div
+    className="field-radio"
+  >
+    <RadioButton
+      className=""
+      disabled={false}
+      inline={false}
+      input={
+        Object {
+          "name": "testName",
+          "onChange": [MockFunction],
+          "value": "test value",
+        }
+      }
+      key="v1"
+      label="l1"
+      value="v1"
+      variant=""
+    />
+    <RadioButton
+      className=""
+      disabled={false}
+      inline={false}
+      input={
+        Object {
+          "name": "testName",
+          "onChange": [MockFunction],
+          "value": "test value",
+        }
+      }
+      key="v2"
+      label="l2"
+      value="v2"
+      variant=""
+    />
+  </div>
+</FieldWrapper>
+`;

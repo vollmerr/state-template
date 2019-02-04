@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly 1`] = `
+<Fragment>
+  <header
+    className="global-header fixed center"
+    role="banner"
+  >
+    <UtilityHeader
+      contactLink={
+        Object {
+          "href": "https://cdt.ca.gov/support/",
+          "text": "Contact Us",
+        }
+      }
+      toggleSettingsOpen={[Function]}
+    />
+    <SettingsBar
+      isSettingsOpen={false}
+      toggleSettingsOpen={[Function]}
+    />
+    <Branding
+      alt="Office of Digital Innovation logo"
+      href="https://cdt.ca.gov/"
+      src="office-of-digital-innovation-logo.png"
+      to=""
+    />
+    <MobileControls
+      routes={Array []}
+      toggleMobileOpen={[Function]}
+    />
+    <div
+      className="navigation-search"
+    >
+      <Navigation
+        isMobileOpen={false}
+        routes={Array []}
+        toggleMobileOpen={[Function]}
+      />
+      <div
+        className="search-container"
+        id="head-search"
+      >
+        <Search />
+      </div>
+    </div>
+    <div
+      className="header-decoration"
+    />
+  </header>
+  <Overlay
+    className="header-overlay"
+    isMobile={true}
+    onClick={[Function]}
+    show={false}
+  />
+</Fragment>
+`;

@@ -9,7 +9,7 @@ import RadioButton from './RadioButton';
 
 // group of radio buttons with optional help text and label
 // displays error if validation fails
-const FieldRadioButtons = (props) => {
+export const FieldRadioButtons = (props) => {
   const {
     input, options, variant, disabled, ...rest
   } = props;

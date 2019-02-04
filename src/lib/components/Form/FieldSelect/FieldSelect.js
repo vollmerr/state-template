@@ -7,9 +7,9 @@ import { isEmptyRadio } from '../../../utils/validate';
 import FieldWrapper from '../FieldWrapper';
 import withField from '../withField';
 
-// group of radio buttons with optional help text and label
+// select with optional help text and label
 // displays error if validation fails
-const FieldSelect = (props) => {
+export const FieldSelect = (props) => {
   const {
     input, options, disabled, multiple, ...rest
   } = props;
