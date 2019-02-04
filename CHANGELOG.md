@@ -9,6 +9,7 @@
   - routing now wraps routes in ErrorBoundary
   - all containers removed. Remaining are Async and Messages (both were in Status) in their own component folders, use ConnectedAsync and ConnectedMessages for connected to redux.
   - add Page component
+  - add typescript definition files
 - stlying:
   - messages, errors, overlay, header
 - utils:
