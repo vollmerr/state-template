@@ -35,18 +35,20 @@ const Checkbox = ({
     name: input.name,
   };
 
+  const id = `${input.name}-${value}`;
+
   if (variant) {
     return (
-      <label data-test={'field-checkbox'} className={'check'}>
-        <input className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
+      <label data-test={'field-checkbox'} className={'check'} htmlFor={id}>
+        <input id={id} name={input.name} className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
         <span className={`btn btn-md btn-block color-white--checked bg-${variant}--checked rounded-0`}>{label}</span>
       </label>
     );
   }
 
   return (
-    <label data-test={'field-checkbox'} className={'form-check-inline p-l-md m-l-0 m-r-md'}>
-      <input className={'hidden-up pos-abs'} {...inputProps} />
+    <label data-test={'field-checkbox'} className={'form-check-inline p-l-md m-l-0 m-r-md'} htmlFor={id}>
+      <input id={id} name={input.name} className={'hidden-up pos-abs'} {...inputProps} />
       <div className={'check-icon-checkbox'}>
         <i className={'ca-gov-icon-check-mark'} />
       </div>

@@ -9,32 +9,37 @@
 const path = require('path');
 const cp = require('child_process');
 const os = require('os');
-const chalk = require('chalk');
+const chalk = require('chalk'); // eslint-disable-line
+
+const { files } = require('../package.json');
 
 const rootPath = path.resolve(__dirname, '..');
-const buildPath = path.join(rootPath, 'dist');
-const npmPath = path.join(rootPath, '/example/node_modules/state-template/dist');
-
-console.log(`
-  state-template dist being copied from\n
-  ${chalk.magenta(buildPath)}\n
-  to\n
-  ${chalk.magenta(npmPath)}\n
-`);
-
 const isWindows = os.platform().startsWith('win');
+const children = {};
 
-let child;
-if (isWindows) {
-  child = cp.spawn('xcopy', ['/y', '/E', '/I', buildPath, npmPath]);
-} else {
-  child = cp.spawn('cp', ['-r', buildPath, npmPath]);
-}
+// go through every 'file' that will get exported in publish
+files.forEach((file) => {
+  const buildPath = path.join(rootPath, file);
+  const npmPath = path.join(rootPath, `/example/node_modules/state-template/${file}`);
 
-child.on('close', (code) => {
-  if (!code) {
-    console.log(chalk.green('successfully copied'));
+  if (isWindows) {
+    if (file.match(/.*\..*$/)) {
+      // is a single file, use <name>* syntax for destination
+      children[file] = cp.spawn('xcopy', ['/y', buildPath, `${npmPath}*`]);
+    } else {
+      // is a folder, recursive things...
+      children[file] = cp.spawn('xcopy', ['/y', '/e', '/i', buildPath, npmPath]);
+    }
   } else {
-    console.log(chalk.red('failed to copy - exit code', code));
+    // why is linux so much better...
+    children[file] = cp.spawn('cp', ['-r', buildPath, npmPath]);
   }
+
+  children[file].on('close', (code) => {
+    if (!code) {
+      console.log(chalk.green(`successfully copied ${file}`));
+    } else {
+      console.log(chalk.red(`failed to copy ${file} - exit code ${code}`));
+    }
+  });
 });

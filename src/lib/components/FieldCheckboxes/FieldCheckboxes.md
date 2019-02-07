@@ -1,8 +1,8 @@
 ```jsx
 const initialValues = {
-  checkbox: 'value2',
-  requiredCheckbox: 'value2',
-  disabledCheckbox: 'value2',
+  checkbox: ['value2'],
+  requiredCheckbox: ['value2'],
+  disabledCheckbox: ['value2'],
 };
 
 <ExampleForm form={'checkbox'} initialValues={initialValues}>
@@ -41,9 +41,9 @@ const initialValues = {
 
 ```jsx
 const initialValues = {
-  primaryCheckbox: 'value2',
-  requiredPrimaryCheckbox: 'value2',
-  disabledPrimaryCheckbox: 'value2',
+  primaryCheckbox: ['value2'],
+  requiredPrimaryCheckbox: ['value2'],
+  disabledPrimaryCheckbox: ['value2'],
 };
 
 <ExampleForm form={'checkboxPrimary'} initialValues={initialValues}>

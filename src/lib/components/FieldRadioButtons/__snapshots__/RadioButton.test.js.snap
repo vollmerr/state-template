@@ -3,11 +3,13 @@
 exports[`RadioButton should render correctly 1`] = `
 <label
   className="p-l-md m-l-0 m-r-md form-check"
+  htmlFor="testName-v1"
 >
   <input
     checked={false}
     className="hidden-up pos-abs"
     disabled={false}
+    id="testName-v1"
     name="testName"
     onChange={[Function]}
     type="radio"

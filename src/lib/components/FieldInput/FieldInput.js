@@ -14,7 +14,7 @@ export const FieldInput = (props) => {
   const { name } = input;
 
   return (
-    <FieldWrapper data-test={'field-input'} disabled={disabled} {...rest}>
+    <FieldWrapper data-test={'field-input'} name={name} disabled={disabled} {...rest}>
       <Tag
         id={name}
         type={type}

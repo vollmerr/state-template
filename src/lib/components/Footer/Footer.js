@@ -30,25 +30,25 @@ class Footer extends React.PureComponent {
               <div className="quarter text-right">
                 <ul className="socialsharer-container">
                   <li>
-                    <a href="https://www.flickr.com/groups/californiagovernment">
+                    <a href="https://www.flickr.com/groups/californiagovernment" {...externalLink}>
                       <span className="ca-gov-icon-flickr" aria-hidden="true" />
                       <span className="sr-only">Flickr</span>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.pinterest.com/cagovernment/">
+                    <a href="https://www.pinterest.com/cagovernment/" {...externalLink}>
                       <span className="ca-gov-icon-pinterest" aria-hidden="true" />
                       <span className="sr-only">Pinterest</span>
                     </a>
                   </li>
                   <li>
-                    <a href="https://twitter.com/cagovernment">
+                    <a href="https://twitter.com/cagovernment" {...externalLink}>
                       <span className="ca-gov-icon-twitter" aria-hidden="true" />
                       <span className="sr-only">Twitter</span>
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.youtube.com/user/californiagovernment">
+                    <a href="https://www.youtube.com/user/californiagovernment" {...externalLink}>
                       <span className="ca-gov-icon-youtube" aria-hidden="true" />
                       <span className="sr-only">YouTube</span>
                     </a>

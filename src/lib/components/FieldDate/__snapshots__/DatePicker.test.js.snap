@@ -8,6 +8,7 @@ exports[`DatePicker should render correctly 1`] = `
     autoComplete="off"
     className="form-control"
     disabled={false}
+    id="testName"
     name="testName"
     onChange={[Function]}
     value="2001-05-08"

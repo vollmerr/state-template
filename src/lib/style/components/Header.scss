@@ -1,9 +1,21 @@
-.global-header {
+header.global-header {
   width: 100%;
-  z-index: $zindex-navbar-fixed;
+  z-index: $zindex-navbar;
 
   + .header-overlay {
-    z-index: $zindex-navbar-fixed - 1;
+    z-index: $zindex-navbar - 1;
+  }
+
+  &.fixed {
+    z-index: $zindex-navbar-fixed;
+
+    + .header-overlay {
+      z-index: $zindex-navbar-fixed - 1;
+
+      + .main-content {
+        padding-top: 127px;
+      }
+    }
   }
 
   &.right {

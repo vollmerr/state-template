@@ -1,5 +1,12 @@
 # Change Log
 
+## v0.1.2 (2019-01-07)
+
+- fix accessibility on forms, add "for" attribute on all labels and id on inputs
+- fix accessibility on links, add rel="noopener noreferrer" to all external
+- fix header/loading z-index
+- extract message from error messages to render
+
 ## v0.1.1 (2019-01-04)
 
 - bug fixes

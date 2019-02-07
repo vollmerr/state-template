@@ -6,6 +6,7 @@ import FieldWrapper from './FieldWrapper';
 const Child = () => <input name={'test input'} />;
 const props = {
   label: 'test label',
+  name: 'testName',
   meta: { touched: true, error: 'test error' },
   helpText: 'test help text',
   required: true,

@@ -8,6 +8,7 @@ const FieldWrapper = (props) => {
   const {
     label,
     meta,
+    name,
     helpText,
     className,
     children,
@@ -33,19 +34,19 @@ const FieldWrapper = (props) => {
   return (
     <div className={cn} {...rest}>
       {label && (
-        <label className="control-label" data-test={'label'}>
+        <label data-test={'label'} className={'control-label'} htmlFor={name}>
           {
             required
             && !disabled
-            && <span className="required-label" data-test={'required'}>* </span>}
+            && <span data-test={'required'} className={'required-label'}>* </span>}
           {label}
         </label>
       )}
 
       {children}
 
-      {errorMessage && <small className="feedback" data-test={'error'}>{errorMessage}</small>}
-      {helpText && <p className="help-block" data-test={'help'}>{helpText}</p>}
+      {errorMessage && <small data-test={'error'} className={'feedback'}>{errorMessage}</small>}
+      {helpText && <p data-test={'help'} className={'help-block'}>{helpText}</p>}
     </div>
   );
 };
@@ -56,6 +57,9 @@ FieldWrapper.propTypes = {
 
   /** Meta information, such as errors and touched */
   meta: T.object.isRequired,
+
+  /** Name of field */
+  name: T.string.isRequired,
 
   /** Help text to render under input */
   helpText: T.string,

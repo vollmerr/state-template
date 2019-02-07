@@ -4,6 +4,7 @@ exports[`A should render correctly 1`] = `
 <a
   data-test="link"
   href="http://www.google.com"
+  rel="noopener noreferrer"
   target="_blank"
 >
   link text

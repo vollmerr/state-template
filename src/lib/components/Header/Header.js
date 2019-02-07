@@ -93,7 +93,7 @@ class Header extends React.PureComponent {
 
     return (
       <>
-        <header role={'banner'} className={cn}>
+        <header role={'banner'} className={cn} data-test={'header'}>
           <UtilityHeader
             toggleSettingsOpen={this.toggleSettingsOpen}
             contactLink={contactLink}

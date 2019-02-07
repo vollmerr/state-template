@@ -23,6 +23,7 @@ const A = (props) => {
       ...rest,
       href,
       target: '_blank',
+      rel: 'noopener noreferrer',
     };
   } else {
     // is internal link

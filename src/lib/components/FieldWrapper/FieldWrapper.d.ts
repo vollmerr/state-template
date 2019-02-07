@@ -8,6 +8,9 @@ export interface FieldWrapperProps {
   /** Meta information, such as errors and touched */
   meta: ReduxForm.WrappedFieldMetaProps;
 
+  /** Name of field */
+  name: string;
+
   /** Help text to render under input */
   helpText?: string;
 

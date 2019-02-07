@@ -13,13 +13,15 @@ exports[`FieldSelect should render correctly 1`] = `
       "touched": false,
     }
   }
+  name="testName"
   required={false}
 >
-  <label
+  <div
     className="select field-select"
   >
     <select
       disabled={false}
+      id="testName"
       multiple={false}
       name="testName"
       onChange={[MockFunction]}
@@ -48,6 +50,6 @@ exports[`FieldSelect should render correctly 1`] = `
         l2
       </option>
     </select>
-  </label>
+  </div>
 </FieldWrapper>
 `;

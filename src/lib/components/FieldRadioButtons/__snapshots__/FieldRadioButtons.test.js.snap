@@ -13,6 +13,7 @@ exports[`FieldRadioButtons should render correctly 1`] = `
       "touched": false,
     }
   }
+  name="testName"
   required={false}
 >
   <div

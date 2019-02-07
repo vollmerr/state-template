@@ -29,11 +29,13 @@ class ErrorMessage extends React.Component {
     const { error, children } = this.props;
 
     if (error) {
+      const errorMessage = error.message || error;
+
       return (
         <div className={'error-message'}>
           <div className={'text-center'}>
             <h2>Sorry, something went wrong!</h2>
-            <p>{error}</p>
+            <p>{errorMessage}</p>
             {this.renderDismissBtn()}
           </div>
         </div>

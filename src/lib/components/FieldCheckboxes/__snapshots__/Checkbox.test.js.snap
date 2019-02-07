@@ -4,11 +4,13 @@ exports[`Checkbox should render correctly 1`] = `
 <label
   className="form-check-inline p-l-md m-l-0 m-r-md"
   data-test="field-checkbox"
+  htmlFor="testName-v1"
 >
   <input
     checked={false}
     className="hidden-up pos-abs"
     disabled={false}
+    id="testName-v1"
     name="testName"
     onChange={[Function]}
     type="checkbox"

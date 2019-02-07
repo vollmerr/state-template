@@ -12,7 +12,7 @@ const FieldTime = (props) => {
   const { input, disabled, ...rest } = props;
 
   return (
-    <FieldWrapper data-test={'field-time'} disabled={disabled} {...rest}>
+    <FieldWrapper data-test={'field-time'} name={input.name} disabled={disabled} {...rest}>
       <TimePicker input={input} disabled={disabled} />
     </FieldWrapper>
   );

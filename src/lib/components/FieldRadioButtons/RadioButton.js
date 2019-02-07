@@ -22,6 +22,8 @@ const RadioButton = ({
     name: input.name,
   };
 
+  const id = `${input.name}-${value}`;
+
   let cn = classNames([
     'check',
     className,
@@ -29,8 +31,8 @@ const RadioButton = ({
 
   if (variant) {
     return (
-      <label className={cn}>
-        <input className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
+      <label className={cn} htmlFor={id}>
+        <input id={id} className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
         <span className={`btn btn-lg btn-block bg-${variant}--checked rounded-0`}>
           <div>{label}</div>
         </span>
@@ -45,8 +47,8 @@ const RadioButton = ({
   ]);
 
   return (
-    <label className={cn}>
-      <input className={'hidden-up pos-abs'} {...inputProps} />
+    <label className={cn} htmlFor={id}>
+      <input id={id} className={'hidden-up pos-abs'} {...inputProps} />
       <div className={'check-icon-radio'}>
         <i />
       </div>

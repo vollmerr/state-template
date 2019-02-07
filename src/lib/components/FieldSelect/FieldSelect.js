@@ -26,9 +26,9 @@ export const FieldSelect = (props) => {
   ]);
 
   return (
-    <FieldWrapper data-test={'field-select'} disabled={disabled} {...rest}>
-      <label className={cn}>
-        <select {...input} multiple={multiple} disabled={disabled}>
+    <FieldWrapper data-test={'field-select'} name={input.name} disabled={disabled} {...rest}>
+      <div className={cn}>
+        <select id={input.name} multiple={multiple} disabled={disabled} {...input}>
           <option disabled hidden style={{ display: 'none' }} value={''} />
           {
             options.filter(x => !x.hidden).map(option => (
@@ -36,7 +36,7 @@ export const FieldSelect = (props) => {
             ))
           }
         </select>
-      </label>
+      </div>
     </FieldWrapper>
   );
 };

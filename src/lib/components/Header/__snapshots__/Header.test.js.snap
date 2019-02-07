@@ -4,6 +4,7 @@ exports[`Header should render correctly 1`] = `
 <Fragment>
   <header
     className="global-header fixed center"
+    data-test="header"
     role="banner"
   >
     <UtilityHeader

@@ -68,6 +68,7 @@ class DatePicker extends Component {
       input, disabled, minDate, ...rest
     } = this.props;
     const { displayText } = this.state;
+    const { name } = input;
 
     return (
       <div className="field-date has-feedback">
@@ -78,7 +79,8 @@ class DatePicker extends Component {
           disabled={disabled}
           value={displayText}
           onChange={() => {}}
-          name={input.name}
+          id={name}
+          name={name}
           autoComplete={'off'}
         />
         {

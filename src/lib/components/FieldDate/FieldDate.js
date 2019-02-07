@@ -12,9 +12,10 @@ export const FieldDate = (props) => {
   const {
     input, disabled, minDate, ...rest
   } = props;
+  const { name } = input;
 
   return (
-    <FieldWrapper data-test={'field-date'} disabled={disabled} {...rest}>
+    <FieldWrapper data-test={'field-date'} name={name} disabled={disabled} {...rest}>
       <DatePicker input={input} disabled={disabled} minDate={minDate} />
     </FieldWrapper>
   );
