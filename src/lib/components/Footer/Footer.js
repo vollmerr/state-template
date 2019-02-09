@@ -8,7 +8,7 @@ const externalLink = {
   rel: 'noopener noreferrer',
 };
 
-class Footer extends React.PureComponent {
+class Footer extends React.Component {
   getCopyRight = () => `Copyright \u00A9 ${new Date().getFullYear()}`
 
   render() {

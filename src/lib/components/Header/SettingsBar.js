@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SettingsBar extends React.PureComponent {
+class SettingsBar extends React.Component {
   setHighContrast = () => {
     document.getElementsByTagName('html')[0].classList.add('high-contrast');
     localStorage.setItem('highContrast', 'on');

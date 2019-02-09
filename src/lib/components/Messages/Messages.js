@@ -14,12 +14,13 @@ class Messages extends React.Component {
     const nextMessages = nextProps.messages;
 
     if (nextMessages.length && messages.length !== nextMessages.length) {
-      this.setTimer(nextMessages[nextMessages.length - 1].id);
+      this.setTimer(nextMessages[nextMessages.length - 1]);
     }
   }
 
-  setTimer = (id) => {
-    const { clearMessage, delay } = this.props;
+  setTimer = (message) => {
+    const { clearMessage } = this.props;
+    const { id, delay = 4000 } = message;
 
     this.timers[id] = setTimeout(() => {
       clearMessage(id);
@@ -61,11 +62,6 @@ class Messages extends React.Component {
 Messages.propTypes = {
   messages: T.array.isRequired,
   clearMessage: T.func.isRequired,
-  delay: T.number,
-};
-
-Messages.defaultProps = {
-  delay: 4000,
 };
 
 export default Messages;

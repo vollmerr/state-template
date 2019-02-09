@@ -1,6 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
-import { HashRouter } from 'react-router-dom';
+import { Router as DefaultRouter } from 'react-router-dom';
 import classNames from 'classnames';
 import debounce from 'lodash.debounce';
 
@@ -132,10 +132,10 @@ export class App extends React.Component {
   }
 
   render() {
-    const { router: Router } = this.props;
+    const { history, router: Router } = this.props;
 
     return (
-      <Router>
+      <Router history={history}>
         <ErrorBoundary>
           {this.renderHeader()}
           {this.renderRouting()}
@@ -175,8 +175,11 @@ App.propTypes = {
   /** Link to use for all 'contact us' links */
   contactLink: propUtils.contactLink,
 
-  /** react-router-dom router to use */
+  /** Router to use */
   router: T.func,
+
+  /** History type to use */
+  history: T.object.isRequired,
 };
 
 App.defaultProps = {
@@ -189,7 +192,7 @@ App.defaultProps = {
   routes: [],
   redirect: null,
   contactLink: propUtils.contactLinkDefault,
-  router: HashRouter,
+  router: DefaultRouter,
 };
 
 export default App;

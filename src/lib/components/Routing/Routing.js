@@ -7,7 +7,7 @@ import {
 import * as propUtils from '../../utils/propTypes';
 import ErrorBoundary from '../ErrorBoundary';
 
-export class Routing extends React.PureComponent {
+export class Routing extends React.Component {
   renderRoute = (route) => {
     const { component: C, ...rest } = route;
     const render = props => <ErrorBoundary><C {...props} /></ErrorBoundary>;

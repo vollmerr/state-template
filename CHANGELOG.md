@@ -1,5 +1,15 @@
 # Change Log
 
+## v0.1.3
+
+- add history util. defaults to browser history
+- App now requires history be passed, Router defaults to react-router-dom's
+- fix Messages styling to be centered
+- change all components from PureComponent to Component
+- bump package versions
+- add history as dependency
+- add example robots.txt file
+
 ## v0.1.2 (2019-01-07)
 
 - fix accessibility on forms, add "for" attribute on all labels and id on inputs

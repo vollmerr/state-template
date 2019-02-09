@@ -3,11 +3,15 @@ import { shallow } from 'enzyme';
 
 import App from './App';
 
+const props = {
+  history: {},
+};
+
 let wrapper;
 let instance;
 describe('App', () => {
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = shallow(<App {...props} />);
     instance = wrapper.instance();
   });
 

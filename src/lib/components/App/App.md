@@ -1,5 +1,5 @@
 ```jsx
-  const { MemoryRouter } = require('react-router-dom');
+  const { createMemoryHistory } = require('history');
 
   const Home = () => <div>in Home</div>;
   const Help = () => <div>in Help</div>;
@@ -31,7 +31,7 @@
       text: 'Contact Link!',
       href: 'https://cdt.ca.gov/support/',
     },
-    router: MemoryRouter,
+    history: createMemoryHistory(),
   };
 
   <div style={{ overflow: 'auto', display: 'grid' }}>
@@ -42,7 +42,7 @@
 ### custom header, routing, and footer
 
 ```jsx
-  const { MemoryRouter } = require('react-router-dom');
+  const { createMemoryHistory } = require('history');
 
   const renderHeader = (props) => <header>custom header</header>;
   const renderRouting = (props) => <div>custom routing</div>;
@@ -52,6 +52,6 @@
     renderHeader={renderHeader}
     renderRouting={renderRouting}
     renderFooter={renderFooter}
-    router={MemoryRouter}
+    history={createMemoryHistory()}
   />
 ```

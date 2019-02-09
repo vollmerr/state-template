@@ -9,7 +9,7 @@ import { Button } from '../lib';
  * that need redux-form. It is not included as part
  * of the library.
  */
-export class ExampleForm extends React.PureComponent {
+export class ExampleForm extends React.Component {
   static propTypes = {
     handleSubmit: T.func.isRequired,
     reset: T.func.isRequired,

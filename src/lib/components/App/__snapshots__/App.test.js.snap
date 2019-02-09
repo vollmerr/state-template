@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App render should render correctly 1`] = `
-<HashRouter>
+<Router
+  history={Object {}}
+>
   <ErrorBoundary>
     <Header
       align="right"
@@ -39,5 +41,5 @@ exports[`App render should render correctly 1`] = `
       type="button"
     />
   </ErrorBoundary>
-</HashRouter>
+</Router>
 `;

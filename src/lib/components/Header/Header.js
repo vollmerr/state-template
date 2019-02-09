@@ -18,7 +18,7 @@ import UtilityHeader from './UtilityHeader';
  * compacting on scroll, opening settings, and
  * generating navigation.
  */
-class Header extends React.PureComponent {
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

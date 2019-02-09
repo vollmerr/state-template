@@ -3,6 +3,7 @@ import * as api from './utils/api';
 import * as auth from './utils/auth';
 import configureStore from './utils/configureStore';
 import * as date from './utils/date';
+import history from './utils/history';
 import * as fieldOptions from './utils/fieldOptions';
 import * as pdf from './utils/pdf';
 import * as serviceWorker from './utils/serviceWorker';
@@ -14,6 +15,7 @@ export {
   auth,
   configureStore,
   date,
+  history,
   fieldOptions,
   pdf,
   serviceWorker,

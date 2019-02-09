@@ -1,5 +1,5 @@
 ```jsx
-class ExampleOverlay extends React.PureComponent {
+class ExampleOverlay extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isOpen: false }

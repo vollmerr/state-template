@@ -14,7 +14,7 @@
     "redux-form": "^8.1.0",
     "redux-saga": "^1.0.0",
     "reselect": "^4.0.0",
-    "state-template": "0.0.32"
+    "state-template": "0.1.2"
   },
   "scripts": {
     "start:local": "env-cmd .env.local react-scripts start",
@@ -29,7 +29,7 @@
     "test:watch": "react-scripts test --watch",
     "eject:cra": "react-scripts eject",
     "eject:example": "node ./scripts/eject.js",
-    "postinstall": "node ./node_modules/state-template/fixPikaday.js"
+    "postinstall": "node ./node_modules/state-template/scripts/fixPikaday.js"
   },
   "browserslist": [
     ">0.2%",
