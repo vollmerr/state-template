@@ -44,6 +44,7 @@
     { "label": "Panel", "url": "http://localhost:6060/#!/Panel" },
     { "label": "Table", "url": "http://localhost:6060/#!/Table" }
   ],
+  "misMatchThreshold": 0,
   "paths": {
     "bitmaps_reference": "backstop_data/bitmaps_reference",
     "bitmaps_test": "backstop_data/bitmaps_test",
