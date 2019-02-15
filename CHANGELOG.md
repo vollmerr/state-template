@@ -1,6 +1,14 @@
 # Change Log
 
-## v0.1.3
+## v0.1.4 (2019-02-14)
+
+- fix checkbox field styling
+- bump package versions
+- update fix pikaday script to only run once, add to postinstall
+- add state template font to example and docs / update in visual tests
+- add delay to visual regression tests (for transitions)
+ 
+## v0.1.3 (2019-02-08)
 
 - add history util. defaults to browser history
 - App now requires history be passed, Router defaults to react-router-dom's

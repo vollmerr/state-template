@@ -13,16 +13,20 @@ const fixPikaday = () => {
   const pikaday = path.resolve('node_modules', 'pikaday', 'pikaday.js');
   // read pikaday file
   const data = fs.readFileSync(pikaday, 'utf-8');
-  // fix it... comment out moment requires
-  const fixedData = data.replace(/try { moment =/g, '// try { moment =');
-  // write it back...
-  fs.writeFileSync(pikaday, fixedData, 'utf-8');
+  const momentRegex = / {2}try { moment =/g;
+  // not already commented
+  if (momentRegex.test(data)) {
+    // fix it... comment out moment requires
+    const fixedData = data.replace(momentRegex, '  // try { moment =');
+    // write it back...
+    fs.writeFileSync(pikaday, fixedData, 'utf-8');
 
-  console.log(`
-    Commented out pikaday.js requiring moment.js to ignore warnings...
+    console.log(`
+      Commented out pikaday.js requiring moment.js to ignore warnings...
 
-    WATCH FOR UPDATES TO pikaday.js !!!
-  `);
+      WATCH FOR UPDATES TO pikaday.js !!!
+    `);
+  }
 };
 
 fixPikaday();

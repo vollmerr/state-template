@@ -27,4 +27,15 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.js?$/, '.md');
   },
+  template: {
+    head: {
+      links: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700',
+        },
+      ],
+    },
+  },
 };
