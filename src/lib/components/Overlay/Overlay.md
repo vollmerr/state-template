@@ -1,4 +1,6 @@
 ```jsx
+import { Button } from 'state-template';
+
 class ExampleOverlay extends React.Component {
   constructor(props) {
     super(props);

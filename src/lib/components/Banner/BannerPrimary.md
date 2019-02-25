@@ -1,5 +1,5 @@
 ```jsx
-  const src = goldenGate; // point to image location here
+const src = goldenGate; // point to image location here
 
-  <BannerPrimary src={src} />
+<BannerPrimary src={src} />
 ```

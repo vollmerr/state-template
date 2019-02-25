@@ -1,6 +1,4 @@
 ```jsx
-
-
 <ExampleForm form={'select'}>
   <FieldSelect 
     name={'select'}

@@ -1,3 +1,3 @@
 ```jsx
-  <Footer contactLink={{ to: '/', text: 'Contact Link!' }}/>
+<Footer contactLink={{ to: '/', text: 'Contact Link!' }}/>
 ```
