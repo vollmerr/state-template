@@ -1,4 +1,6 @@
 ```jsx
+import { ButtonRow } from 'state-template';
+
 <ButtonRow>
   <Button text={'button'} />
   <Button text={'default button'} variant={'default'} />
@@ -12,6 +14,8 @@
 ### active
 
 ```jsx
+import { ButtonRow } from 'state-template';
+
 <ButtonRow>
   <Button text={'button'} />
   <Button text={'default button'} variant={'default'} active />
@@ -25,6 +29,8 @@
 ### disabled
 
 ```jsx
+import { ButtonRow } from 'state-template';
+
 <ButtonRow>
   <Button text={'button'} disabled />
   <Button text={'default button'} variant={'default'} disabled />
@@ -38,6 +44,8 @@
 ### with icon
 
 ```jsx
+import { ButtonRow } from 'state-template';
+
 const iconProps = {
   name: 'plus-mark',
 };
@@ -56,6 +64,8 @@ const iconProps = {
 Other properties get passed down to the button component, such as onChange handlers, id, etc.
 
 ```jsx
+import { ButtonRow } from 'state-template';
+
 <ButtonRow>
   <Button text={'click me'} onClick={() => alert('You Clicked Me!!')} variant={'default'} />
   <Button text={'other props'} id={'ButtonId'} style={{ fontSize: '20px' }} variant={'primary'} />

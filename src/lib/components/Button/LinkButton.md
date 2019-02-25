@@ -1,6 +1,8 @@
 ### internal
 
 ```jsx
+import { ButtonRow } from 'state-template';
+
 <ButtonRow>
   <LinkButton text={'link'} to={'/'} />
   <LinkButton text={'default link'} to={'/'} variant={'default'} />
@@ -15,6 +17,8 @@
 External links open in a new tab.
 
 ```jsx
+import { ButtonRow } from 'state-template';
+
 <ButtonRow>
   <LinkButton text={'link'} href={'http://www.google.com'} />
   <LinkButton text={'default link'} href={'http://www.google.com'} variant={'default'} />
