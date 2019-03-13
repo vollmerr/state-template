@@ -29,4 +29,8 @@ const fixPikaday = () => {
   }
 };
 
-fixPikaday();
+try {
+  fixPikaday();
+} catch (err) {
+  console.warn('failed to fix pikaday.js');
+}
