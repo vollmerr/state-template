@@ -73,6 +73,7 @@ export class App extends React.Component {
       renderHeader,
       fixedHeader,
       alignHeader,
+      headerTitle,
       brandingLogo,
       routes,
       contactLink,
@@ -85,6 +86,7 @@ export class App extends React.Component {
     const headerProps = {
       fixed: fixedHeader,
       align: alignHeader,
+      title: headerTitle,
       brandingLogo,
       routes,
       contactLink,
@@ -163,6 +165,9 @@ App.propTypes = {
   /** Align header nav to right */
   alignHeader: T.oneOf(['center', 'left', 'right']),
 
+  /** Title to render in header in place of the home link */
+  headerTitle: T.string,
+
   /** Custom header branding logo */
   brandingLogo: propUtils.brandingLogo,
 
@@ -188,6 +193,7 @@ App.defaultProps = {
   renderFooter: null,
   fixedHeader: true,
   alignHeader: 'right',
+  headerTitle: null,
   brandingLogo: propUtils.brandingLogoDefault,
   routes: [],
   redirect: null,

@@ -9,7 +9,12 @@ import FieldWrapper from '../FieldWrapper';
 // input field that applies state-template styling
 export const FieldInput = (props) => {
   const {
-    input, type, disabled, tag: Tag, ...rest
+    input,
+    type,
+    disabled,
+    tag: Tag,
+    autoComplete,
+    ...rest
   } = props;
   const { name } = input;
 
@@ -20,6 +25,7 @@ export const FieldInput = (props) => {
         type={type}
         className="form-control field-input"
         disabled={disabled}
+        autoComplete={autoComplete}
         {...input}
       />
     </FieldWrapper>
@@ -30,20 +36,24 @@ FieldInput.propTypes = {
   /** Input from redux-form's Field, attaches name, value, etc  */
   input: T.object.isRequired,
 
-  /** HTML tag to render as */
-  tag: T.node,
-
   /** Input type to use */
   type: T.string,
 
   /** Disable the input */
   disabled: T.bool,
+
+  /** HTML tag to render as */
+  tag: T.node,
+
+  /** HTML auto complete */
+  autoComplete: T.oneOf(['on', 'off']),
 };
 
 FieldInput.defaultProps = {
-  tag: 'input',
   type: 'text',
   disabled: false,
+  tag: 'input',
+  autoComplete: 'on',
 };
 
 const withReduxField = withField(isEmptyText);

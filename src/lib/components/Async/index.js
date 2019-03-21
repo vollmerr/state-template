@@ -2,12 +2,14 @@ import * as asyncActions from './actions';
 import * as asyncConstants from './constants';
 import asyncReducer from './reducer';
 import * as asyncSelectors from './selectors';
+import withAsync from './withAsync';
 
 export {
   asyncActions,
   asyncConstants,
   asyncReducer,
   asyncSelectors,
+  withAsync,
 };
 
 export { default } from './Async';

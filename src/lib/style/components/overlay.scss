@@ -11,6 +11,10 @@
   z-index: $zindex-modal-background;
   cursor: pointer;
 
+  &.transparent {
+    background: transparent;
+  }
+
   &.mobile-only {
     @media (min-width: $screen-sm-min) {
       display: none;

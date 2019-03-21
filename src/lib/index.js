@@ -38,6 +38,7 @@ export {
   asyncConstants,
   asyncReducer,
   asyncSelectors,
+  withAsync,
 } from './components/Async';
 // Banner
 export { BannerPrimary } from './components/Banner';

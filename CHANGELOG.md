@@ -1,5 +1,19 @@
 # Change Log
 
+## v0.1.6 
+
+- copy all src files on build
+- add test setup to example
+- add optional title to utility header
+- add withAsync util for hadnling loading/errors in sagas
+- pass autocomplete to FieldInput
+- remove Access-Control-Expose-Headers header from api request util
+- add api util for checking if should fetch
+
+## v0.1.5 (2019-02-14)
+
+- bump package versions
+
 ## v0.1.4 (2019-02-14)
 
 - fix checkbox field styling

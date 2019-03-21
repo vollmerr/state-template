@@ -12,6 +12,7 @@ const Overlay = (props) => {
     onClick,
     onKeyPress,
     isMobile,
+    transparent,
     className,
     ...rest
   } = props;
@@ -28,6 +29,7 @@ const Overlay = (props) => {
     className: classNames([
       'overlay',
       className,
+      { transparent },
       { 'mobile-only': isMobile },
     ]),
   };
@@ -48,6 +50,9 @@ Overlay.propTypes = {
   /** If should only render in mobile viewport */
   isMobile: T.bool,
 
+  /** If should only render as transparent overlay */
+  transparent: T.bool,
+
   /** Class name to attach */
   className: T.string,
 };
@@ -56,6 +61,7 @@ Overlay.defaultProps = {
   onClick: undefined,
   onKeyPress: undefined,
   isMobile: false,
+  transparent: false,
   className: '',
 };
 

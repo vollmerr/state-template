@@ -49,8 +49,10 @@ export function request(url, options = {}) {
   const newOptions = {
     ...options,
     headers: {
-      ...options.headers || { 'Content-Type': 'application/json' },
-      'Access-Control-Expose-Headers': 'Content-Disposition',
+      ...options.headers || {
+        'Content-Type': 'application/json',
+        'Access-Control-Expose-Headers': 'Content-Disposition',
+      },
     },
   };
 
@@ -80,3 +82,13 @@ export function requestWithToken(url, options = {}) {
 
   return request(url, newOptions);
 }
+
+export const shouldFetch = (lastFetched, cacheTime = 300000) => {
+  const date = new Date(lastFetched);
+  // invalid date, fetch...
+  if (!lastFetched || Number.isNaN(date)) {
+    return true;
+  }
+  // check if set amount of time has passed
+  return Date.now() + cacheTime < lastFetched;
+};

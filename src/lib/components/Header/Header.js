@@ -75,6 +75,7 @@ class Header extends React.Component {
       brandingLogo,
       routes,
       contactLink,
+      title,
     } = this.props;
 
     const {
@@ -97,6 +98,7 @@ class Header extends React.Component {
           <UtilityHeader
             toggleSettingsOpen={this.toggleSettingsOpen}
             contactLink={contactLink}
+            title={title}
           />
 
           <SettingsBar
@@ -150,6 +152,9 @@ Header.propTypes = {
   /** Contact us link */
   contactLink: propUtils.contactLink,
 
+  /** Title */
+  title: T.string,
+
   /** Routes for navigation items */
   routes: T.arrayOf(propUtils.route),
 };
@@ -159,6 +164,7 @@ Header.defaultProps = {
   align: 'center',
   brandingLogo: propUtils.brandingLogoDefault,
   contactLink: propUtils.contactLinkDefault,
+  title: null,
   routes: [],
 };
 

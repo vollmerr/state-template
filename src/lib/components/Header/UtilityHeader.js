@@ -7,7 +7,7 @@ import govLogo from '../../images/Ca-Gov-Logo-Gold.svg';
 
 import A from '../A';
 
-const UtilityHeader = ({ toggleSettingsOpen, contactLink }) => (
+const UtilityHeader = ({ toggleSettingsOpen, contactLink, title }) => (
   <div className="utility-header">
     <div className="container">
       <div className="group">
@@ -19,10 +19,16 @@ const UtilityHeader = ({ toggleSettingsOpen, contactLink }) => (
               </div>
             </li>
             <li>
-              <Link to={'/'}>
-                <span className="ca-gov-icon-home" aria-hidden="true" />
-                <span className="sr-only">Home</span>
-              </Link>
+              {
+                title
+                  ? <div className="header-title">{title}</div>
+                  : (
+                    <Link to={'/'}>
+                      <span className="ca-gov-icon-home" aria-hidden="true" />
+                      <span className="sr-only">Home</span>
+                    </Link>
+                  )
+              }
             </li>
             {/* <li><a className="ca-gov-icon-facebook" title="Share via Facebook">
             <span className="sr-only">Facebook</span></a></li>
@@ -57,6 +63,11 @@ Settings
 UtilityHeader.propTypes = {
   toggleSettingsOpen: T.func.isRequired,
   contactLink: propUtils.contactLink.isRequired,
+  title: T.string,
+};
+
+UtilityHeader.defaultProps = {
+  title: null,
 };
 
 export default UtilityHeader;

@@ -17,6 +17,7 @@ exports[`FieldInput should render correctly 1`] = `
   required={false}
 >
   <input
+    autoComplete="on"
     className="form-control field-input"
     disabled={false}
     id="testName"

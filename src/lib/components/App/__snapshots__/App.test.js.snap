@@ -22,6 +22,7 @@ exports[`App render should render correctly 1`] = `
       }
       fixed={true}
       routes={Array []}
+      title={null}
     />
     <withRouter(Routing)
       redirect={null}

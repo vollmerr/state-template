@@ -18,10 +18,13 @@ const Branding = ({
 Branding.propTypes = {
   /** Source of image */
   src: T.string.isRequired,
+
   /** Alt description of image */
   alt: T.string.isRequired,
+
   /** Internal link to navigate to */
   to: T.string,
+
   /** External link to navigate to */
   href: T.string,
 };

@@ -94,5 +94,12 @@ describe('App', () => {
     it('should render correctly', () => {
       expect(wrapper).toMatchSnapshot();
     });
+
+    it('should allow a custom router to be used that is passed the history', () => {
+      const CustomRouter = () => <div>in custom routing...</div>;
+      wrapper.setProps({ router: CustomRouter });
+      expect(wrapper.find(CustomRouter).length).toBe(1);
+      expect(wrapper.find(CustomRouter).prop('history')).toBe(props.history);
+    });
   });
 });

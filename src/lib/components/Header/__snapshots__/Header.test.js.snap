@@ -14,6 +14,7 @@ exports[`Header should render correctly 1`] = `
           "text": "Contact Us",
         }
       }
+      title={null}
       toggleSettingsOpen={[Function]}
     />
     <SettingsBar
@@ -54,6 +55,7 @@ exports[`Header should render correctly 1`] = `
     isMobile={true}
     onClick={[Function]}
     show={false}
+    transparent={false}
   />
 </Fragment>
 `;

@@ -7,10 +7,12 @@ import Section from './Section';
 import MainContent from './MainContent';
 import MainPrimary from './MainPrimary';
 
-const Page = ({ children, title, bannerSrc }) => (
+const Page = ({
+  children, title, bannerSrc, className,
+}) => (
   <>
     {bannerSrc && <BannerPrimary src={bannerSrc} />}
-    <MainContent>
+    <MainContent className={className}>
       <MainPrimary>
         {
           title && (
@@ -32,14 +34,24 @@ const Page = ({ children, title, bannerSrc }) => (
 );
 
 Page.propTypes = {
+  /** Banner image src */
   bannerSrc: T.string,
-  title: T.string.isRequired,
+
+  /** Page title  */
+  title: T.string,
+
+  /** Page content */
   children: T.node,
+
+  /** Class name to attach to main content */
+  className: T.string,
 };
 
-Page.defuaultProps = {
+Page.defaultProps = {
   bannerSrc: null,
+  title: null,
   children: null,
+  className: null,
 };
 
 export default Page;
