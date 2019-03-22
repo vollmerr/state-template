@@ -13,6 +13,7 @@ backstop_data/html_report
 # production
 build
 dist
+styleguide
 
 # misc
 .DS_Store
