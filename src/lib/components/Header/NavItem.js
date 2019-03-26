@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
+import A from '../A';
 
 /**
  * A single navigation item
@@ -11,6 +13,7 @@ import { Link, withRouter } from 'react-router-dom';
 const NavItem = ({
   name,
   path,
+  href,
   icon,
   toggleMobileOpen,
   hash,
@@ -27,14 +30,15 @@ const NavItem = ({
 
   return (
     <li className={`nav-item ${activeClass}`}>
-      <Link
+      <A
         to={path}
+        href={href}
         className={'first-level-link'}
         onClick={mappedOnClick}
       >
         <span className={icon} aria-hidden={'true'} />
         {name}
-      </Link>
+      </A>
     </li>
   );
 };

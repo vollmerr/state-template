@@ -21,6 +21,12 @@ const routes = [
     icon: 'ca-gov-icon-question-line',
     component: Help,
   },
+  {
+    key: 'external',
+    name: 'External Link',
+    href: 'https://www.google.com',
+    icon: 'ca-gov-icon-globe',
+  },
 ];
 
 const props = {

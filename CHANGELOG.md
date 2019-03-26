@@ -1,6 +1,15 @@
 # Change Log
 
-## v0.1.6 
+## v0.1.8 (2019-03-25)
+
+- allow external links to be passed as routes for navigation
+- issue with backstop? start over on reference images...
+
+## v0.1.7 (2019-03-22)
+
+- no changes, just issue with publishing...
+
+## v0.1.6 (2019-03-20)
 
 - copy all src files on build
 - add test setup to example

@@ -8,8 +8,11 @@ export const route = T.shape({
   /** Name of path */
   name: T.string.isRequired,
 
-  /** URL path to route */
-  path: T.string.isRequired,
+  /** URL path to route (required for internal links) */
+  path: T.string,
+
+  /** URL path to route (required for external links) */
+  href: T.string,
 
   /** If route should be hidden from navigation menus */
   hidden: T.bool,
@@ -20,8 +23,8 @@ export const route = T.shape({
   /** Icon to display in avigation menus */
   icon: T.string,
 
-  /** Component to render */
-  component: T.func.isRequired,
+  /** Component to render (required for internal links) */
+  component: T.func,
 });
 
 export const contactLink = T.shape({

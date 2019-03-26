@@ -10,8 +10,10 @@ import ErrorBoundary from '../ErrorBoundary';
 export class Routing extends React.Component {
   renderRoute = (route) => {
     const { component: C, ...rest } = route;
-    const render = props => <ErrorBoundary><C {...props} /></ErrorBoundary>;
+    // do not render if no component provided
+    if (!C) { return null; }
 
+    const render = props => <ErrorBoundary><C {...props} /></ErrorBoundary>;
     return <Route render={render} {...rest} />;
   }
 
