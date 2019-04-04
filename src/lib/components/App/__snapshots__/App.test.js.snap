@@ -36,7 +36,8 @@ exports[`App render should render correctly 1`] = `
         }
       }
     />
-    <button
+    <span
+      aria-hidden={true}
       className="return-top"
       onClick={[Function]}
       type="button"

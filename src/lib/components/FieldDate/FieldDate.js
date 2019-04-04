@@ -1,41 +1,125 @@
 import React from 'react';
 import T from 'prop-types';
+import Pikaday from 'pikaday';
 
 import { isInvalidDate } from '../../utils/validate';
-import withField from '../../utils/withField';
-
-import FieldWrapper from '../FieldWrapper';
-import DatePicker from './DatePicker';
+import { isValid } from '../../utils/date';
+import { withField } from '../Field';
+import Icon from '../Icon';
 
 // Date picker for redux-form using pikaday library
-export const FieldDate = (props) => {
-  const {
-    input, disabled, minDate, ...rest
-  } = props;
-  const { name } = input;
+export class FieldDate extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      displayText: '',
+    };
+    this.pickerRef = React.createRef();
+    this.displayRef = React.createRef();
+    this.picker = null;
+  }
 
-  return (
-    <FieldWrapper data-test={'field-date'} name={name} disabled={disabled} {...rest}>
-      <DatePicker input={input} disabled={disabled} minDate={minDate} />
-    </FieldWrapper>
-  );
-};
+  componentDidMount() {
+    this.initPikaday();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { value } = this.props;
+    if (value !== nextProps.value) {
+      // update displayed text when value changes
+      const displayText = this.getDate(nextProps.value).slice(0, 10);
+      this.setState({ displayText });
+      // update date in picker
+      this.picker.setDate(nextProps.value);
+    }
+  }
+
+  getDate = (date) => {
+    if (isValid(date)) {
+      return new Date(date).toISOString();
+    }
+    return '';
+  }
+
+  onSelect = (date) => {
+    const { onChange } = this.props;
+    const newDate = this.getDate(date);
+    // update passed in value
+    if (onChange) {
+      onChange(newDate);
+    }
+    // update display field
+    this.setState({ displayText: newDate.slice(0, 10) });
+  }
+
+  initPikaday = () => {
+    const { value, minDate } = this.props;
+
+    this.picker = new Pikaday({
+      minDate,
+      field: this.pickerRef.current,
+      onSelect: this.onSelect,
+      yearRange: [new Date().getFullYear(), new Date().getFullYear() + 30],
+      trigger: this.displayRef.current,
+    });
+
+    this.picker.setDate(value);
+  }
+
+  render() {
+    const { disabled, minDate, ...rest } = this.props;
+    const { displayText } = this.state;
+
+    return (
+      <div data-test={'field--date'} className={'field-date has-feedback'}>
+        {/* field that will be displayed */}
+        <input
+          {...rest}
+          disabled={disabled}
+          ref={this.displayRef}
+          className={'form-control'}
+          value={displayText}
+          onChange={() => {}}
+          onBlur={() => {}}
+          onFocus={() => {}}
+          autoComplete={'off'}
+        />
+
+        {
+          !disabled
+          && <Icon name={'calendar'} className={'form-control-feedback'} />
+        }
+
+        {/* date picker */}
+        <input
+          type={'hidden'}
+          ref={this.pickerRef}
+          disabled={disabled}
+        />
+      </div>
+    );
+  }
+}
 
 FieldDate.propTypes = {
-  /** Input from redux-form's Field, attaches name, value, etc  */
-  input: T.object.isRequired,
+  /** Value of date selected */
+  value: T.string,
 
   /** Minimum date able to select */
   minDate: T.oneOfType([T.string, T.instanceOf(Date)]),
 
   /** Disable the input */
   disabled: T.bool,
+
+  /** Called when date changes */
+  onChange: T.func,
 };
 
 FieldDate.defaultProps = {
+  value: null,
   minDate: null,
   disabled: false,
+  onChange: null,
 };
 
-const withReduxField = withField(isInvalidDate);
-export default withReduxField(FieldDate);
+export default withField(isInvalidDate)(FieldDate);

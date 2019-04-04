@@ -8,7 +8,6 @@ import * as fieldOptions from './utils/fieldOptions';
 import * as pdf from './utils/pdf';
 import * as serviceWorker from './utils/serviceWorker';
 import * as validate from './utils/validate';
-import withField from './utils/withField';
 
 export {
   api,
@@ -20,7 +19,6 @@ export {
   pdf,
   serviceWorker,
   validate,
-  withField,
 };
 
 // /////////////////////////////////////// COMPONENTS
@@ -49,13 +47,12 @@ export { default as Card } from './components/Card';
 // Footer
 export { default as Footer } from './components/Footer';
 // Form
+export { withField, withFieldWrapper, withReduxForm } from './components/Field';
 export { default as FieldCheckboxes, Checkbox } from './components/FieldCheckboxes';
-export { default as FieldDate, DatePicker } from './components/FieldDate';
+export { default as FieldDate } from './components/FieldDate';
 export { default as FieldInput } from './components/FieldInput';
 export { default as FieldRadioButtons, RadioButton } from './components/FieldRadioButtons';
 export { default as FieldSelect } from './components/FieldSelect';
-export { default as FieldTime, TimePicker } from './components/FieldTime';
-export { default as FieldWrapper } from './components/FieldWrapper';
 // Header
 export { default as Header } from './components/Header';
 // Icon

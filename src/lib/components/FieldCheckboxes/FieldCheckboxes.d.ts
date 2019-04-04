@@ -3,19 +3,16 @@ import * as ReduxForm from 'redux-form';
 
 import * as types from '../../utils/types';
 
-export interface FieldCheckboxesProps {
+export interface FieldCheckboxesProps extends HTMLInputElement {
   /** Use style variant */
   variant?: ''
     | 'primary';
 
-  /** Input from redux-form's Field, attaches name, value, etc */
-  input: ReduxForm.WrappedFieldInputProps;
-
   /** Options to select from */
   options: Array<types.Option>;
 
-  /** Disable the input */
-  disabled?: boolean;
+  /** aria-label for checkbox group */
+  label: String;
 }
 
 declare class FieldCheckboxes extends React.Component<FieldCheckboxesProps, {}> {}

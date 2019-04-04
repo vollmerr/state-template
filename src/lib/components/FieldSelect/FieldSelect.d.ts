@@ -3,15 +3,12 @@ import * as ReduxForm from 'redux-form';
 
 import * as types from '../../utils/types';
 
-export interface FieldSelectProps {
-  /** Input from redux-form's Field, attaches name, value, etc */
-  input: ReduxForm.WrappedFieldInputProps;
+export interface FieldSelectProps extends HTMLInputElement {
+  /** Value of option */
+  value: any;
 
   /** Options to select from */
   options: Array<types.Option>;
-
-  /** Disable the input */
-  disabled?: boolean;
 
   /** Allow multiple selecting */
   multiple?: boolean,

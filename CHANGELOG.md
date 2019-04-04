@@ -1,5 +1,17 @@
 # Change Log
 
+## v0.1.9 (2019-04-04)
+
+- update / add missing ts definitions
+- bump package versions
+- hard code react-styleguidist version (9.0.5 broken)
+- remove FieldTime, FieldWrapper components
+- refactor field HOCs (withField)
+- fix accessibility issues
+  - 'back to top' button -> span
+  - aria label to Table search
+  - aria desc/label for field components
+
 ## v0.1.8 (2019-03-25)
 
 - allow external links to be passed as routes for navigation

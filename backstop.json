@@ -32,7 +32,6 @@
     { "label": "FieldInput", "url": "http://localhost:6060/#!/FieldInput", "delay": 1000 },
     { "label": "FieldRadioButtons", "url": "http://localhost:6060/#!/FieldRadioButtons", "delay": 1000 },
     { "label": "FieldSelect", "url": "http://localhost:6060/#!/FieldSelect", "delay": 1000 },
-    { "label": "FieldTime", "url": "http://localhost:6060/#!/FieldTime", "delay": 1000 },
     { "label": "Header", "url": "http://localhost:6060/#!/Header", "delay": 1000 },
     { "label": "Icon", "url": "http://localhost:6060/#!/Icon", "delay": 1000 },
     { "label": "ConnectedMessages", "url": "http://localhost:6060/#!/ConnectedMessages",

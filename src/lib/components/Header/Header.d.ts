@@ -17,6 +17,9 @@ export interface HeaderProps {
   /** Link to use for 'contact us' link */
   contactLink?: types.ContactLink;
 
+  /** Title to render in place of the home link */
+  title: string;
+
   /** Routes for navigation items */
   routes?: Array<types.Route>;
 }

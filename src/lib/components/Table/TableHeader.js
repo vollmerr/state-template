@@ -51,7 +51,12 @@ class TableHeader extends React.Component {
       return (
         <div className={className}>
           <div className={'form-group has-feedback'}>
-            <input className={'form-control'} placeholder={'Search'} onInput={e => onSearch(e.target.value)} />
+            <input
+              className={'form-control'}
+              placeholder={'Search'}
+              aria-label={`Search ${title || ''}`}
+              onInput={e => onSearch(e.target.value)}
+            />
             <span className={'ca-gov-icon-search-right form-control-feedback'} />
           </div>
         </div>

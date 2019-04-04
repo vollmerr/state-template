@@ -13,6 +13,9 @@ export interface OverlayProps {
   /** If should only render in mobile viewport */
   isMobile?: boolean;
 
+  /** If should only render as transparent overlay */
+  transparent: boolean;
+
   /** Class name to attach */
   className?: string;
 }

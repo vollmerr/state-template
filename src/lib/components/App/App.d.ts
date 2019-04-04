@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Router from 'react-router-dom';
+import * as History from 'history';
 
 import * as types from '../../utils/types';
 
@@ -21,6 +22,9 @@ export interface AppProps {
     | 'left'
     | 'right';
 
+  /** Title to render in header in place of the home link */
+  headerTitle: string;
+
   /** Custom header branding logo */
   brandingLogo?: types.BrandingLogo;
 
@@ -38,6 +42,9 @@ export interface AppProps {
     | Router.HashRouter
     | Router.MemoryRouter
     | Router.StaticRouter;
+
+  /** History type to use */
+  history: History.History;
 }
 
 declare class App extends React.Component<AppProps, {}> {}

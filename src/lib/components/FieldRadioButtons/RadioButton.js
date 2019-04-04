@@ -2,27 +2,34 @@ import React from 'react';
 import T from 'prop-types';
 import classNames from 'classnames';
 
-// individual radio button, applies state-template styling
-const RadioButton = ({
-  input,
-  value,
-  label,
-  variant,
-  disabled,
-  className,
-  inline,
-}) => {
-  const checked = input.value === value;
-  const onChange = () => input.onChange(value);
-  const inputProps = {
-    disabled,
-    checked,
-    onChange,
-    type: 'radio',
-    name: input.name,
-  };
+import * as propUtils from '../../utils/propTypes';
 
-  const id = `${input.name}-${value}`;
+// individual radio button, applies state-template styling
+const RadioButton = (props) => {
+  const {
+    name,
+    value,
+    option,
+    inline,
+    variant,
+    disabled,
+    onChange,
+    className,
+    'aria-invalid': ariaInvalid,
+    'aria-describedby': ariaDescribedby,
+  } = props;
+
+  const id = `${name}-${option.value}`;
+  const inputProps = {
+    id,
+    name,
+    disabled,
+    type: 'radio',
+    checked: value === option.value,
+    onChange: () => onChange(option.value),
+    'aria-invalid': ariaInvalid,
+    'aria-describedby': ariaDescribedby,
+  };
 
   let cn = classNames([
     'check',
@@ -31,10 +38,10 @@ const RadioButton = ({
 
   if (variant) {
     return (
-      <label className={cn} htmlFor={id}>
-        <input id={id} className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
+      <label data-test={'field--radio-button'} className={cn} htmlFor={id}>
+        <input className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
         <span className={`btn btn-lg btn-block bg-${variant}--checked rounded-0`}>
-          <div>{label}</div>
+          <div>{option.label}</div>
         </span>
       </label>
     );
@@ -47,47 +54,57 @@ const RadioButton = ({
   ]);
 
   return (
-    <label className={cn} htmlFor={id}>
+    <label data-test={'field--radio-button'} className={cn} htmlFor={id}>
       <input id={id} className={'hidden-up pos-abs'} {...inputProps} />
-      <div className={'check-icon-radio'}>
+      <div className={'check-icon-radio'} aria-hidden>
         <i />
       </div>
-      <div>{label}</div>
+      <div>{option.label}</div>
     </label>
   );
 };
 
 RadioButton.propTypes = {
+  /** Name of field */
+  name: T.string.isRequired,
+
+  /** Value of radio button */
+  value: T.string.isRequired,
+
+  /** Option to select */
+  option: propUtils.option.isRequired,
+
+  /** Display inline */
+  inline: T.bool,
+
   /** Use style variant */
   variant: T.oneOf([
     '',
     'highlight',
   ]),
 
-  /** Input from redux-form's Field, attaches name, value, etc */
-  input: T.object.isRequired,
-
-  /** Label of radio button */
-  label: T.string.isRequired,
-
-  /** Value of radio button */
-  value: T.string.isRequired,
-
   /** Disable the input */
   disabled: T.bool,
+
+  /** Called when radio button changes */
+  onChange: T.func.isRequired,
 
   /** Class name to attach to top level label */
   className: T.string,
 
-  /** Display inline */
-  inline: T.bool,
+  /** Accessible indicator for errors existing */
+  'aria-invalid': T.string.isRequired,
+
+  /** Accessible indicator of related information */
+  'aria-describedby': T.string,
 };
 
 RadioButton.defaultProps = {
+  inline: false,
   variant: '',
   disabled: false,
   className: '',
-  inline: false,
+  'aria-describedby': null,
 };
 
 export default RadioButton;

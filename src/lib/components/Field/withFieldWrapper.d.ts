@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReduxForm from 'redux-form';
 
-export interface FieldWrapperProps {
+export interface WrappedFieldProps {
   /** Label to display above input */
   label?: string;
 
@@ -27,6 +27,6 @@ export interface FieldWrapperProps {
   disabled?: boolean;
 }
 
-declare class FieldWrapper extends React.Component<FieldWrapperProps, {}> {}
+declare class FieldWrapper extends React.Component<WrappedFieldProps, {}> {}
 
 export default FieldWrapper;
