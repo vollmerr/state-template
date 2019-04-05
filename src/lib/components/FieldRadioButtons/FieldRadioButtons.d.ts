@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReduxForm from 'redux-form';
 
 import * as types from '../../utils/types';
 
@@ -11,8 +10,8 @@ export interface FieldRadioButtonsProps extends HTMLInputElement {
   /** Options to select from */
   options: Array<types.Option>;
 
-  /** Label to display to radio button group */
-  label: String;
+  /** aria-label for radio button group */
+  label: T.string.isRequired;
 }
 
 declare class FieldRadioButtons extends React.Component<FieldRadioButtonsProps, {}> {}

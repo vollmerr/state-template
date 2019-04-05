@@ -1,52 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldCheckboxes should render correctly 1`] = `
-<FieldWrapper
-  className=""
-  data-test="field-checkboxes"
-  disabled={false}
-  helpText=""
-  label="test label"
-  meta={
-    Object {
-      "error": null,
-      "touched": false,
-    }
-  }
-  name="testName"
-  required={false}
+<div
+  aria-label="test-label"
+  className="field-check"
+  data-test="field--checkboxes"
+  role="group"
 >
-  <div
-    className="field-check"
-  >
-    <Checkbox
-      disabled={false}
-      input={
-        Object {
-          "name": "testName",
-          "onChange": [MockFunction],
-          "value": "test value",
-        }
+  <Checkbox
+    aria-describedby={null}
+    aria-invalid="false"
+    disabled={false}
+    key="value-1"
+    label={null}
+    name="test-name"
+    onChange={[MockFunction]}
+    option={
+      Object {
+        "label": "label-1",
+        "value": "value-1",
       }
-      key="v1"
-      label="l1"
-      value="v1"
-      variant={null}
-    />
-    <Checkbox
-      disabled={false}
-      input={
-        Object {
-          "name": "testName",
-          "onChange": [MockFunction],
-          "value": "test value",
-        }
+    }
+    value="value-2"
+    variant={null}
+  />
+  <Checkbox
+    aria-describedby={null}
+    aria-invalid="false"
+    disabled={false}
+    key="value-2"
+    label={null}
+    name="test-name"
+    onChange={[MockFunction]}
+    option={
+      Object {
+        "label": "label-2",
+        "value": "value-2",
       }
-      key="v2"
-      label="l2"
-      value="v2"
-      variant={null}
-    />
-  </div>
-</FieldWrapper>
+    }
+    value="value-2"
+    variant={null}
+  />
+</div>
 `;

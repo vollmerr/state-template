@@ -3,14 +3,13 @@ import { shallow } from 'enzyme';
 
 import { FieldDate } from './FieldDate';
 
-const { testUtils } = global;
-
 const props = {
-  input: testUtils.getInputProp(),
-  meta: testUtils.getMetaProp(),
+  name: 'test-name',
   label: 'test label',
+  value: '2020-05-03',
   minDate: '1900-01-02',
   disabled: false,
+  onChange: jest.fn(),
 };
 
 let wrapper;
@@ -26,14 +25,13 @@ describe('FieldDate', () => {
   });
 
   it('should format and update the displayed date when a new value is recieved', () => {
-    const input = { ...props.input, value: new Date('2011-09-01T08:00:00.000Z') };
-    instance.componentWillReceiveProps({ ...props, input });
+    instance.componentWillReceiveProps({ ...props, value: new Date('2011-09-01T08:00:00.000Z') });
     expect(wrapper.state('displayText')).toBe('2011-09-01');
   });
 
   it('should hide the calender icon when disabled', () => {
     wrapper.setProps({ disabled: true });
-    expect(wrapper.find(Icon).length).toBe(0);
+    expect(wrapper.find('[data-test="field--date-icon"]').length).toBe(0);
   });
 
   it('should handle invalid dates', () => {

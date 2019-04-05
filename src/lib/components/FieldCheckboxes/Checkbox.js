@@ -99,7 +99,7 @@ Checkbox.propTypes = {
   onChange: T.func.isRequired,
 
   /** Accessible indicator for errors existing */
-  'aria-invalid': T.string.isRequired,
+  'aria-invalid': T.string,
 
   /** Accessible indicator of related information */
   'aria-describedby': T.string,
@@ -109,6 +109,7 @@ Checkbox.defaultProps = {
   variant: '',
   disabled: false,
   label: null,
+  'aria-invalid': 'false',
   'aria-describedby': null,
 };
 

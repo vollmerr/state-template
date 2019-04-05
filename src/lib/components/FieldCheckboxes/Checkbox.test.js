@@ -3,14 +3,18 @@ import { shallow } from 'enzyme';
 
 import Checkbox, { handleChange } from './Checkbox';
 
-const { testUtils } = global;
-
 const props = {
-  input: testUtils.getInputProp(),
-  value: 'v1',
-  label: 'test label',
+  name: 'test-name',
+  value: 'value-1',
+  option: {
+    label: 'label-1',
+    value: 'value-1',
+  },
   variant: null,
   disabled: false,
+  onChange: jest.fn(),
+  'aria-invalid': 'false',
+  'aria-describedby': 'aria-desc-id',
 };
 
 let wrapper;
@@ -30,12 +34,12 @@ describe('Checkbox', () => {
   });
 
   it('should be `checked` for matching string values', () => {
-    wrapper.setProps({ input: testUtils.getInputProp({ value: props.value }) });
+    wrapper.setProps({ value: props.value });
     expect(wrapper.find('checked')).toBeTruthy();
   });
 
   it('should be `checked` for matching values in an array', () => {
-    wrapper.setProps({ input: testUtils.getInputProp({ value: [props.value] }) });
+    wrapper.setProps({ value: [props.value] });
     expect(wrapper.find('checked')).toBeTruthy();
   });
 

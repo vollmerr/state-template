@@ -83,11 +83,18 @@ export class FieldDate extends React.Component {
           onBlur={() => {}}
           onFocus={() => {}}
           autoComplete={'off'}
+          data-test={'field--date-control'}
         />
 
         {
           !disabled
-          && <Icon name={'calendar'} className={'form-control-feedback'} />
+          && (
+            <Icon
+              data-test={'field--date-icon'}
+              name={'calendar'}
+              className={'form-control-feedback'}
+            />
+          )
         }
 
         {/* date picker */}

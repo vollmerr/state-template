@@ -1,6 +1,6 @@
 # Change Log
 
-## v0.1.9 (2019-04-04)
+## v0.2.0 (2019-04-04)
 
 - update / add missing ts definitions
 - bump package versions

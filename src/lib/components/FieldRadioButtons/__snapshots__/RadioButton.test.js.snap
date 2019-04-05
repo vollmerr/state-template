@@ -2,25 +2,29 @@
 
 exports[`RadioButton should render correctly 1`] = `
 <label
-  className="p-l-md m-l-0 m-r-md form-check"
-  htmlFor="testName-v1"
+  className="p-l-md m-l-0 m-r-md test-class form-check"
+  data-test="field--radio-button"
+  htmlFor="test-name-value-1"
 >
   <input
-    checked={false}
+    aria-describedby="aria-desc-id"
+    aria-invalid="false"
+    checked={true}
     className="hidden-up pos-abs"
     disabled={false}
-    id="testName-v1"
-    name="testName"
+    id="test-name-value-1"
+    name="test-name"
     onChange={[Function]}
     type="radio"
   />
   <div
+    aria-hidden={true}
     className="check-icon-radio"
   >
     <i />
   </div>
   <div>
-    test label
+    label-1
   </div>
 </label>
 `;

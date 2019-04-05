@@ -45,7 +45,7 @@ FieldRadioButtons.propTypes = {
   /** Options to select from */
   options: T.arrayOf(propUtils.option).isRequired,
 
-  /** Label to display to radio button group */
+  /** aria-label for radio button group */
   label: T.string.isRequired,
 };
 

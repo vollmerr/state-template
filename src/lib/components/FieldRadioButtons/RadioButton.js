@@ -93,7 +93,7 @@ RadioButton.propTypes = {
   className: T.string,
 
   /** Accessible indicator for errors existing */
-  'aria-invalid': T.string.isRequired,
+  'aria-invalid': T.string,
 
   /** Accessible indicator of related information */
   'aria-describedby': T.string,
@@ -104,6 +104,7 @@ RadioButton.defaultProps = {
   variant: '',
   disabled: false,
   className: '',
+  'aria-invalid': 'false',
   'aria-describedby': null,
 };
 
