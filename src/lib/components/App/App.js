@@ -59,7 +59,8 @@ export class App extends React.Component {
     ]);
 
     return (
-      <button
+      <span
+        aria-hidden
         type={'button'}
         className={cn}
         onClick={this.onClickReturnTop}

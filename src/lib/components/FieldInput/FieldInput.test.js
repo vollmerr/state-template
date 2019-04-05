@@ -3,13 +3,10 @@ import { shallow } from 'enzyme';
 
 import { FieldInput } from './FieldInput';
 
-const { testUtils } = global;
-
 const props = {
-  input: testUtils.getInputProp(),
-  meta: testUtils.getMetaProp(),
-  label: 'test label',
-  disabled: false,
+  name: 'test-name',
+  label: 'test-label',
+  onChange: jest.fn(),
 };
 
 let wrapper;
@@ -22,8 +19,13 @@ describe('FieldInput', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should render a `textarea` type', () => {
+  it('should render custom `tag`s', () => {
     wrapper.setProps({ tag: 'textarea' });
     expect(wrapper.find('textarea').length).toBe(1);
+  });
+
+  it('should pass addtional props', () => {
+    wrapper.setProps({ disabled: true });
+    expect(wrapper.prop('disabled')).toBe(true);
   });
 });

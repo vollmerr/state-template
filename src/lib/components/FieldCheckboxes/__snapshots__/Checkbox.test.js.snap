@@ -3,25 +3,28 @@
 exports[`Checkbox should render correctly 1`] = `
 <label
   className="form-check-inline p-l-md m-l-0 m-r-md"
-  data-test="field-checkbox"
-  htmlFor="testName-v1"
+  data-test="field--checkbox"
+  htmlFor="test-name-value-1"
 >
   <input
-    checked={false}
+    aria-describedby="aria-desc-id"
+    aria-invalid="false"
+    checked={true}
     className="hidden-up pos-abs"
     disabled={false}
-    id="testName-v1"
-    name="testName"
+    id="test-name-value-1"
+    name="test-name"
     onChange={[Function]}
     type="checkbox"
   />
   <div
+    aria-hidden={true}
     className="check-icon-checkbox"
   >
     <i
       className="ca-gov-icon-check-mark"
     />
   </div>
-  test label
+  label-1
 </label>
 `;

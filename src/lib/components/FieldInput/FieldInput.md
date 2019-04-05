@@ -4,6 +4,7 @@
     name={'input'}
     label={'Input'}
     helpText={'This is the `helpText` content...'}
+    onChange={(e,v) => { console.log('changing...', e, v) }}
   />
   <FieldInput 
     required

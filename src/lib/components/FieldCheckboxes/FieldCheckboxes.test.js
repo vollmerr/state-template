@@ -4,17 +4,16 @@ import { shallow } from 'enzyme';
 import Checkbox from './Checkbox';
 import { FieldCheckboxes } from './FieldCheckboxes';
 
-const { testUtils } = global;
-
 const props = {
-  input: testUtils.getInputProp(),
-  meta: testUtils.getMetaProp(),
-  label: 'test label',
+  name: 'test-name',
   variant: null,
   options: [
-    { value: 'v1', label: 'l1' },
-    { value: 'v2', label: 'l2' },
+    { value: 'value-1', label: 'label-1' },
+    { value: 'value-2', label: 'label-2' },
   ],
+  label: 'test-label',
+  value: 'value-2',
+  onChange: jest.fn(),
   disabled: false,
 };
 
@@ -29,6 +28,15 @@ describe('FieldCheckboxes', () => {
   });
 
   it('should render all the options as `Checkbox`s', () => {
+    expect(wrapper.find(Checkbox).length).toBe(props.options.length);
+  });
+
+  it('should hide `hidden` options', () => {
+    const options = [
+      ...props.options,
+      { value: 'value-3', label: 'label-3', hidden: true },
+    ];
+    wrapper.setProps({ options });
     expect(wrapper.find(Checkbox).length).toBe(props.options.length);
   });
 });

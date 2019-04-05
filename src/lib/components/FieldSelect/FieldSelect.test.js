@@ -3,16 +3,13 @@ import { shallow } from 'enzyme';
 
 import { FieldSelect } from './FieldSelect';
 
-const { testUtils } = global;
-
 const props = {
-  input: testUtils.getInputProp(),
-  meta: testUtils.getMetaProp(),
-  label: 'test label',
+  value: 'value-2',
   options: [
-    { value: 'v1', label: 'l1' },
-    { value: 'v2', label: 'l2' },
+    { value: 'value-1', label: 'label-1' },
+    { value: 'value-2', label: 'label-2' },
   ],
+  multiple: false,
   disabled: false,
 };
 
@@ -36,7 +33,12 @@ describe('FieldSelect', () => {
   });
 
   it('should default empty values to an empty array if `multiple`', () => {
-    wrapper.setProps({ multiple: true, input: testUtils.getInputProp({ value: '' }) });
+    wrapper.setProps({ value: '', multiple: true });
     expect(wrapper.find('select').prop('value')).toEqual([]);
+  });
+
+  it('should pass additional props to the `select`', () => {
+    wrapper.setProps({ disabled: true });
+    expect(wrapper.find('select').prop('disabled')).toBe(true);
   });
 });
