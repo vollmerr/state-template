@@ -4,13 +4,22 @@ import { shallow } from 'enzyme';
 import { FieldSelect } from './FieldSelect';
 
 const props = {
-  value: 'value-2',
+  'aria-describedby': 'aria-desc-id',
+  'aria-invalid': 'false',
+  className: 'test-classname',
+  disabled: false,
+  id: 'test-id',
+  label: 'test-label',
+  multiple: false,
+  name: 'test-name',
+  onBlur: jest.fn(),
+  onChange: jest.fn(),
+  onFocus: jest.fn(),
   options: [
-    { value: 'value-1', label: 'label-1' },
+    { value: 'value-1', label: 'label-1', className: 'option-class' },
     { value: 'value-2', label: 'label-2' },
   ],
-  multiple: false,
-  disabled: false,
+  value: 'value-1',
 };
 
 let wrapper;

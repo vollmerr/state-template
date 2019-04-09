@@ -5,16 +5,23 @@ import Checkbox from './Checkbox';
 import { FieldCheckboxes } from './FieldCheckboxes';
 
 const props = {
+  'aria-describedby': 'aria-desc-id',
+  'aria-invalid': 'false',
+  className: 'test-classname',
+  disabled: false,
+  id: 'test-id',
+  inline: false,
+  label: 'test-label',
   name: 'test-name',
-  variant: null,
+  onBlur: jest.fn(),
+  onChange: jest.fn(),
+  onFocus: jest.fn(),
   options: [
     { value: 'value-1', label: 'label-1' },
     { value: 'value-2', label: 'label-2' },
   ],
-  label: 'test-label',
-  value: 'value-2',
-  onChange: jest.fn(),
-  disabled: false,
+  value: 'value-1',
+  variant: null,
 };
 
 let wrapper;

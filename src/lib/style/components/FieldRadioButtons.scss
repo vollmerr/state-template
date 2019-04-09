@@ -1,5 +1,5 @@
 .disabled {
-  .field-radio {
+  .field__radio-buttons {
     color: $disabled-fg;
 
     .btn {
@@ -26,7 +26,7 @@
 }
 
 .has-error {
-  .field-radio {
+  .field__radio-buttons {
     .check-icon-radio {
       border-color: $brand-danger;
     }

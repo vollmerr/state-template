@@ -2,8 +2,8 @@
 
 exports[`Checkbox should render correctly 1`] = `
 <label
-  className="form-check-inline p-l-md m-l-0 m-r-md"
-  data-test="field--checkbox"
+  className="p-l-md m-l-0 m-r-md option-class form-check"
+  data-test="field__checkbox"
   htmlFor="test-name-value-1"
 >
   <input
@@ -14,7 +14,9 @@ exports[`Checkbox should render correctly 1`] = `
     disabled={false}
     id="test-name-value-1"
     name="test-name"
+    onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     type="checkbox"
   />
   <div

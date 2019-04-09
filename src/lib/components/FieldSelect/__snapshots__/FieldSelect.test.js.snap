@@ -2,13 +2,21 @@
 
 exports[`FieldSelect should render correctly 1`] = `
 <div
-  className="select field-select"
-  data-test="field--select"
+  className="select field__select test-classname"
+  data-test="field__select"
 >
   <select
+    aria-describedby="aria-desc-id"
+    aria-invalid="false"
     disabled={false}
+    id="test-id"
+    label="test-label"
     multiple={false}
-    value="value-2"
+    name="test-name"
+    onBlur={[MockFunction]}
+    onChange={[MockFunction]}
+    onFocus={[MockFunction]}
+    value="value-1"
   >
     <option
       disabled={true}

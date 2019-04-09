@@ -37,6 +37,50 @@ const initialValues = {
 </ExampleForm>
 ```
 
+### inline
+
+```jsx
+const initialValues = {
+  inlineCheckbox: 'value2',
+};
+
+<ExampleForm form={'inlineCheckbox'} initialValues={initialValues}>
+  <FieldCheckboxes 
+    inline
+    name={'inlineCheckbox'}
+    label={'Inline Checkbox'}
+    options={[
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
+      { value: 'value3', label: 'label 3' },
+    ]}
+  />
+</ExampleForm>
+```
+
+
+### event handlers
+
+```jsx
+const initialValues = {
+  handlersCheckbox: 'value2',
+};
+
+<ExampleForm form={'handlersCheckbox'} initialValues={initialValues}>
+  <FieldCheckboxes 
+    name={'handlersCheckbox'}
+    label={'Event Handlers Checkbox'}
+    options={[
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
+    ]}
+    onBlur={(value) => { console.log('blurred: ', value) }}
+    onChange={(value) => { console.log('changed: ', value) }}
+    onFocus={(value) => { console.log('focused: ', value) }}
+  />
+</ExampleForm>
+```
+
 ### primary variant
 
 ```jsx

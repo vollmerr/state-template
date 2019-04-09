@@ -1,6 +1,7 @@
 import React from 'react';
 import T from 'prop-types';
 import Pikaday from 'pikaday';
+import classNames from 'classnames';
 
 import { isInvalidDate } from '../../utils/validate';
 import { isValid } from '../../utils/date';
@@ -67,11 +68,18 @@ export class FieldDate extends React.Component {
   }
 
   render() {
-    const { disabled, minDate, ...rest } = this.props;
+    const {
+      disabled, minDate, className, ...rest
+    } = this.props;
     const { displayText } = this.state;
 
+    const cn = classNames([
+      'field__date',
+      className,
+    ]);
+
     return (
-      <div data-test={'field--date'} className={'field-date has-feedback'}>
+      <div data-test={'field__date'} className={cn}>
         {/* field that will be displayed */}
         <input
           {...rest}
@@ -83,16 +91,16 @@ export class FieldDate extends React.Component {
           onBlur={() => {}}
           onFocus={() => {}}
           autoComplete={'off'}
-          data-test={'field--date-control'}
+          data-test={'field__date-control'}
         />
 
         {
           !disabled
           && (
             <Icon
-              data-test={'field--date-icon'}
               name={'calendar'}
-              className={'form-control-feedback'}
+              data-test={'field__date-icon'}
+              className={'field__date-icon'}
             />
           )
         }
@@ -109,24 +117,46 @@ export class FieldDate extends React.Component {
 }
 
 FieldDate.propTypes = {
-  /** Value of date selected */
-  value: T.string,
+  /** Accessible indicator of related information */
+  'aria-describedby': T.string,
 
-  /** Minimum date able to select */
-  minDate: T.oneOfType([T.string, T.instanceOf(Date)]),
+  /** Accessible indicator for errors existing */
+  'aria-invalid': T.string,
+
+  /** Class names to attach to the field wrapper */
+  className: T.string,
 
   /** Disable the input */
   disabled: T.bool,
 
-  /** Called when date changes */
+  /** Id of field */
+  id: T.string,
+
+  /** aria-label for the field */
+  label: T.string.isRequired,
+
+  /** Minimum date able to select */
+  minDate: T.oneOfType([T.string, T.instanceOf(Date)]),
+
+  /** Name of field */
+  name: T.string.isRequired,
+
+  /** Called when radio button changes */
   onChange: T.func,
+
+  /** Value of date selected */
+  value: T.string,
 };
 
 FieldDate.defaultProps = {
-  value: null,
-  minDate: null,
+  'aria-describedby': null,
+  'aria-invalid': 'false',
+  className: null,
   disabled: false,
+  id: null,
+  minDate: null,
   onChange: null,
+  value: null,
 };
 
 export default withField(isInvalidDate)(FieldDate);

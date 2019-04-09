@@ -3,44 +3,51 @@
 exports[`FieldRadioButtons should render correctly 1`] = `
 <div
   aria-label="test-label"
-  className="field-radio"
-  data-test="field--radio-buttons"
+  className="field__radio-buttons test-classname"
+  data-test="field__radio-buttons"
+  id="test-id"
   role="group"
 >
   <RadioButton
-    aria-describedby={null}
+    aria-describedby="aria-desc-id"
     aria-invalid="false"
-    className=""
+    className="option-class"
     disabled={false}
     inline={false}
     key="value-1"
+    label="label-1"
     name="test-name"
+    onBlur={[MockFunction]}
     onChange={[MockFunction]}
+    onFocus={[MockFunction]}
     option={
       Object {
+        "className": "option-class",
         "label": "label-1",
         "value": "value-1",
       }
     }
-    value="value-2"
+    value="value-1"
     variant={null}
   />
   <RadioButton
-    aria-describedby={null}
+    aria-describedby="aria-desc-id"
     aria-invalid="false"
-    className=""
     disabled={false}
     inline={false}
     key="value-2"
+    label="label-2"
     name="test-name"
+    onBlur={[MockFunction]}
     onChange={[MockFunction]}
+    onFocus={[MockFunction]}
     option={
       Object {
         "label": "label-2",
         "value": "value-2",
       }
     }
-    value="value-2"
+    value="value-1"
     variant={null}
   />
 </div>

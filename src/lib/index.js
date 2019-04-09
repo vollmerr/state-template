@@ -4,6 +4,7 @@ import * as auth from './utils/auth';
 import configureStore from './utils/configureStore';
 import * as date from './utils/date';
 import history from './utils/history';
+import * as normalize from './utils/normalize';
 import * as fieldOptions from './utils/fieldOptions';
 import * as pdf from './utils/pdf';
 import * as serviceWorker from './utils/serviceWorker';
@@ -15,6 +16,7 @@ export {
   configureStore,
   date,
   history,
+  normalize,
   fieldOptions,
   pdf,
   serviceWorker,

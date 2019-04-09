@@ -23,7 +23,7 @@
 }
 
 .disabled {
-  .field-select {
+  .field__select {
     select {
       background: $disabled-bg;
       cursor: not-allowed;
@@ -37,7 +37,7 @@
 
 
 .has-error {
-  .field-select {
+  .field__select {
     &.select {
       border-color: $brand-danger;
     }

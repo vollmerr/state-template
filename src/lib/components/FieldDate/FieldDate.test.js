@@ -4,12 +4,16 @@ import { shallow } from 'enzyme';
 import { FieldDate } from './FieldDate';
 
 const props = {
-  name: 'test-name',
-  label: 'test label',
-  value: '2020-05-03',
-  minDate: '1900-01-02',
+  'aria-describedby': 'aria-desc-id',
+  'aria-invalid': 'false',
+  className: 'test-classname',
   disabled: false,
+  id: 'test-id',
+  label: 'test-label',
+  minDate: '1900-01-02',
+  name: 'test-name',
   onChange: jest.fn(),
+  value: '2020-05-03',
 };
 
 let wrapper;
@@ -31,7 +35,7 @@ describe('FieldDate', () => {
 
   it('should hide the calender icon when disabled', () => {
     wrapper.setProps({ disabled: true });
-    expect(wrapper.find('[data-test="field--date-icon"]').length).toBe(0);
+    expect(wrapper.find('[data-test="field__date-icon"]').length).toBe(0);
   });
 
   it('should handle invalid dates', () => {

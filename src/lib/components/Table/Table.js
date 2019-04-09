@@ -64,8 +64,10 @@ class Table extends React.Component {
       <div className={cn} data-test={'table'}>
         <TableHeader title={title} menu={menu} {...searchProps} />
         <BootstrapTable
+          {...rest}
           hover
           condensed
+          bootstrap4
           bordered={false}
           pagination={pagination}
           rowEvents={rowEvents}
@@ -73,7 +75,6 @@ class Table extends React.Component {
           defaultSorted={defaultSorted}
           columns={mappedColumns}
           rowClasses={rowClasses}
-          {...rest}
         />
       </div>
     );

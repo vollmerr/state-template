@@ -10,9 +10,10 @@ import { withField } from '../Field';
 // displays error if validation fails
 export const FieldSelect = (props) => {
   const {
-    value,
-    options,
+    className,
     multiple,
+    options,
+    value,
     ...rest
   } = props;
 
@@ -20,12 +21,13 @@ export const FieldSelect = (props) => {
   const mappedValue = multiple && !value ? [] : value;
   const cn = classNames([
     'select',
-    'field-select',
+    'field__select',
     { multiple },
+    className,
   ]);
 
   return (
-    <div data-test={'field--select'} className={cn}>
+    <div data-test={'field__select'} className={cn}>
       <select multiple={multiple} value={mappedValue} {...rest}>
         <option disabled hidden style={{ display: 'none' }} value={''} />
         {
@@ -39,19 +41,57 @@ export const FieldSelect = (props) => {
 };
 
 FieldSelect.propTypes = {
-  /** Value of option */
-  value: T.any,
+  /** Accessible indicator of related information */
+  'aria-describedby': T.string,
+
+  /** Accessible indicator for errors existing */
+  'aria-invalid': T.string,
+
+  /** Class names to attach to the field wrapper */
+  className: T.string,
+
+  /** Disable the input */
+  disabled: T.bool,
+
+  /** Id of field */
+  id: T.string,
+
+  /** aria-label for the field */
+  label: T.string.isRequired,
+
+  /** Allow multiple selecting */
+  multiple: T.bool,
+
+  /** Name of field */
+  name: T.string.isRequired,
+
+  /** Called when radio button is blurred */
+  onBlur: T.func,
+
+  /** Called when radio button changes */
+  onChange: T.func,
+
+  /** Called when radio button is focused */
+  onFocus: T.func,
 
   /** Options to select from */
   options: T.arrayOf(propUtils.option).isRequired,
 
-  /** Allow multiple selecting */
-  multiple: T.bool,
+  /** Value of option */
+  value: T.any,
 };
 
 FieldSelect.defaultProps = {
-  value: null,
+  'aria-describedby': null,
+  'aria-invalid': 'false',
+  className: null,
+  disabled: false,
+  id: null,
   multiple: false,
+  onBlur: null,
+  onChange: null,
+  onFocus: null,
+  value: null,
 };
 
 export default withField(isEmptyRadio)(FieldSelect);
