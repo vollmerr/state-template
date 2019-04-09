@@ -12,6 +12,9 @@ export interface FieldCheckboxesProps extends HTMLInputElement {
 
   /** aria-label for checkbox group */
   label: String;
+
+  /** Display inline */
+  inline: T.bool,
 }
 
 declare class FieldCheckboxes extends React.Component<FieldCheckboxesProps, {}> {}

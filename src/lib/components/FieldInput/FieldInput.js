@@ -13,8 +13,8 @@ export const FieldInput = (props) => {
 
   return (
     <Tag
-      data-test={'field--input'}
-      className={'form-control field-input'}
+      data-test={'field__input'}
+      className={'form-control field__input'}
       {...rest}
     />
   );

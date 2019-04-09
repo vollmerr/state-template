@@ -71,7 +71,7 @@ export class FieldDate extends React.Component {
     const { displayText } = this.state;
 
     return (
-      <div data-test={'field--date'} className={'field-date has-feedback'}>
+      <div data-test={'field__date'} className={'field__date'}>
         {/* field that will be displayed */}
         <input
           {...rest}
@@ -83,16 +83,16 @@ export class FieldDate extends React.Component {
           onBlur={() => {}}
           onFocus={() => {}}
           autoComplete={'off'}
-          data-test={'field--date-control'}
+          data-test={'field__date-control'}
         />
 
         {
           !disabled
           && (
             <Icon
-              data-test={'field--date-icon'}
               name={'calendar'}
-              className={'form-control-feedback'}
+              data-test={'field__date-icon'}
+              className={'field__date-icon'}
             />
           )
         }

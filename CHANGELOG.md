@@ -1,5 +1,13 @@
 # Change Log
 
+## v0.2.1 (2019-04-09)
+
+- upgrade core to state template 5.0.6
+- radio/checkbox fields now vertical by default, allow inline
+- swap naming for data-test and classnames to BEM style
+- use boostrap 4 styling (Table, remove col-xs-*, etc)
+- add normalize utils for phone + zip
+
 ## v0.2.0 (2019-04-05)
 
 - update / add missing ts definitions

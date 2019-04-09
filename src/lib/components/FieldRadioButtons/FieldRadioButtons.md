@@ -36,6 +36,28 @@ const initialValues = {
 </ExampleForm>
 ```
 
+### inline
+
+```jsx
+const initialValues = {
+  inlineRadioButtons: 'value2',
+};
+
+<ExampleForm form={'inlineRadioButton'} initialValues={initialValues}>
+  <FieldRadioButtons 
+    inline
+    name={'inlineRadioButtons'}
+    label={'Inline Radio Buttons'}
+    options={[
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
+      { value: 'value3', label: 'label 3' },
+    ]}
+  />
+</ExampleForm>
+```
+
+
 ### highlight variant
 
 ```jsx

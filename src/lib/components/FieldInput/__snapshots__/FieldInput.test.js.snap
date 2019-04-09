@@ -2,8 +2,8 @@
 
 exports[`FieldInput should render correctly 1`] = `
 <input
-  className="form-control field-input"
-  data-test="field--input"
+  className="form-control field__input"
+  data-test="field__input"
   label="test-label"
   name="test-name"
   onChange={[MockFunction]}

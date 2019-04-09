@@ -20,12 +20,12 @@ export const FieldSelect = (props) => {
   const mappedValue = multiple && !value ? [] : value;
   const cn = classNames([
     'select',
-    'field-select',
+    'field__select',
     { multiple },
   ]);
 
   return (
-    <div data-test={'field--select'} className={cn}>
+    <div data-test={'field__select'} className={cn}>
       <select multiple={multiple} value={mappedValue} {...rest}>
         <option disabled hidden style={{ display: 'none' }} value={''} />
         {

@@ -3,8 +3,8 @@
 exports[`FieldRadioButtons should render correctly 1`] = `
 <div
   aria-label="test-label"
-  className="field-radio"
-  data-test="field--radio-buttons"
+  className="field__radio-buttons"
+  data-test="field__radio-buttons"
   role="group"
 >
   <RadioButton

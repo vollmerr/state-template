@@ -2,8 +2,8 @@
 
 exports[`FieldSelect should render correctly 1`] = `
 <div
-  className="select field-select"
-  data-test="field--select"
+  className="select field__select"
+  data-test="field__select"
 >
   <select
     disabled={false}

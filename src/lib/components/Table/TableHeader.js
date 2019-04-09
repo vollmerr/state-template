@@ -6,10 +6,10 @@ class TableHeader extends React.Component {
   renderMenu = () => {
     const { menu, title } = this.props;
 
-    let className = 'col-xs-12 col-sm-6';
+    let className = 'col-12 col-sm-6';
     // push menu above title if it exists
     if (title) {
-      className = 'col-xs-12';
+      className = 'col-12';
     }
 
     if (menu) {
@@ -29,7 +29,7 @@ class TableHeader extends React.Component {
 
     if (title) {
       return (
-        <div className={'col-xs-12 col-sm-6'}>
+        <div className={'col-12 col-sm-6'}>
           <h2>{title}</h2>
         </div>
       );
@@ -42,23 +42,21 @@ class TableHeader extends React.Component {
   renderSearch = () => {
     const { menu, title, onSearch } = this.props;
     // push menu above title if it exists
-    let className = 'col-xs-12 col-sm-6';
+    let className = 'col-12 col-sm-6';
     if (!title && !menu) {
-      className = 'col-xs-12 col-sm-6 col-sm-offset-6';
+      className = 'col-12 col-sm-6 col-sm-offset-6';
     }
 
     if (onSearch) {
       return (
         <div className={className}>
-          <div className={'form-group has-feedback'}>
-            <input
-              className={'form-control'}
-              placeholder={'Search'}
-              aria-label={`Search ${title || ''}`}
-              onInput={e => onSearch(e.target.value)}
-            />
-            <span className={'ca-gov-icon-search-right form-control-feedback'} />
-          </div>
+          <input
+            className={'form-control'}
+            placeholder={'Search'}
+            aria-label={`Search ${title || ''}`}
+            onInput={e => onSearch(e.target.value)}
+          />
+          <span className={'ca-gov-icon-search-right'} />
         </div>
       );
     }

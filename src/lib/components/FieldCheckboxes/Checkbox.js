@@ -1,5 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
+import classNames from 'classnames';
 
 import * as propUtils from '../../utils/propTypes';
 
@@ -27,9 +28,11 @@ const Checkbox = (props) => {
     name,
     value,
     option,
+    inline,
     variant,
     disabled,
     onChange,
+    className,
     'aria-invalid': ariaInvalid,
     'aria-describedby': ariaDescribedby,
   } = props;
@@ -48,9 +51,14 @@ const Checkbox = (props) => {
     'aria-describedby': ariaDescribedby,
   };
 
+  let cn = classNames([
+    'check',
+    className,
+  ]);
+
   if (variant) {
     return (
-      <label data-test={'field--checkbox'} className={'check'} htmlFor={id}>
+      <label data-test={'field__checkbox'} className={cn} htmlFor={id}>
         <input className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
         <span className={`btn btn-md btn-block color-white--checked bg-${variant}--checked rounded-0`}>
           {option.label}
@@ -59,8 +67,14 @@ const Checkbox = (props) => {
     );
   }
 
+  cn = classNames([
+    'p-l-md m-l-0 m-r-md',
+    className,
+    inline ? 'form-check-inline' : 'form-check',
+  ]);
+
   return (
-    <label data-test={'field--checkbox'} className={'form-check-inline p-l-md m-l-0 m-r-md'} htmlFor={id}>
+    <label data-test={'field__checkbox'} className={cn} htmlFor={id}>
       <input className={'hidden-up pos-abs'} {...inputProps} />
       <div className={'check-icon-checkbox'} aria-hidden>
         <i className={'ca-gov-icon-check-mark'} />
@@ -83,6 +97,9 @@ Checkbox.propTypes = {
   /** Option to select */
   option: propUtils.option.isRequired,
 
+  /** Display inline */
+  inline: T.bool,
+
   /** Use style variant */
   variant: T.oneOf([
     '',
@@ -98,6 +115,9 @@ Checkbox.propTypes = {
   /** Called when checkbox changes */
   onChange: T.func.isRequired,
 
+  /** Class name to attach to top level label */
+  className: T.string,
+
   /** Accessible indicator for errors existing */
   'aria-invalid': T.string,
 
@@ -106,9 +126,11 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
+  inline: false,
   variant: '',
   disabled: false,
   label: null,
+  className: null,
   'aria-invalid': 'false',
   'aria-describedby': null,
 };

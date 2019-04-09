@@ -38,7 +38,7 @@ const RadioButton = (props) => {
 
   if (variant) {
     return (
-      <label data-test={'field--radio-button'} className={cn} htmlFor={id}>
+      <label data-test={'field__radio-button'} className={cn} htmlFor={id}>
         <input className={'hidden-up pos-abs top-0 left-0'} {...inputProps} />
         <span className={`btn btn-lg btn-block bg-${variant}--checked rounded-0`}>
           <div>{option.label}</div>
@@ -54,7 +54,7 @@ const RadioButton = (props) => {
   ]);
 
   return (
-    <label data-test={'field--radio-button'} className={cn} htmlFor={id}>
+    <label data-test={'field__radio-button'} className={cn} htmlFor={id}>
       <input id={id} className={'hidden-up pos-abs'} {...inputProps} />
       <div className={'check-icon-radio'} aria-hidden>
         <i />

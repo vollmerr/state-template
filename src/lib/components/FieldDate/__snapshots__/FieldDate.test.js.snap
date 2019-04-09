@@ -2,13 +2,13 @@
 
 exports[`FieldDate should render correctly 1`] = `
 <div
-  className="field-date has-feedback"
-  data-test="field--date"
+  className="field__date"
+  data-test="field__date"
 >
   <input
     autoComplete="off"
     className="form-control"
-    data-test="field--date-control"
+    data-test="field__date-control"
     disabled={false}
     label="test label"
     name="test-name"
@@ -18,8 +18,8 @@ exports[`FieldDate should render correctly 1`] = `
     value="2020-05-02"
   />
   <Icon
-    className="form-control-feedback"
-    data-test="field--date-icon"
+    className="field__date-icon"
+    data-test="field__date-icon"
     name="calendar"
     tag="span"
   />

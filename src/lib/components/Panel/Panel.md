@@ -3,10 +3,6 @@
   <p>content goes here...</p>
 </Panel>
 
-<Panel title={'primary panel'} variant={'primary'}>
-  <p>content goes here...</p>
-</Panel>
-
 <Panel title={'overstated panel'} variant={'overstated'}>
   <p>content goes here...</p>
 </Panel>

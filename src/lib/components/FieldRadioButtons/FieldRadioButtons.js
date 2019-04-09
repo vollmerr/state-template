@@ -17,8 +17,8 @@ export const FieldRadioButtons = (props) => {
 
   return (
     <div
-      data-test={'field--radio-buttons'}
-      className={'field-radio'}
+      data-test={'field__radio-buttons'}
+      className={'field__radio-buttons'}
       role={'group'}
       aria-label={label}
     >

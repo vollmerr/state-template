@@ -3,7 +3,7 @@
 exports[`RadioButton should render correctly 1`] = `
 <label
   className="p-l-md m-l-0 m-r-md test-class form-check"
-  data-test="field--radio-button"
+  data-test="field__radio-button"
   htmlFor="test-name-value-1"
 >
   <input

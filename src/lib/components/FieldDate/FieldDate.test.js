@@ -31,7 +31,7 @@ describe('FieldDate', () => {
 
   it('should hide the calender icon when disabled', () => {
     wrapper.setProps({ disabled: true });
-    expect(wrapper.find('[data-test="field--date-icon"]').length).toBe(0);
+    expect(wrapper.find('[data-test="field__date-icon"]').length).toBe(0);
   });
 
   it('should handle invalid dates', () => {

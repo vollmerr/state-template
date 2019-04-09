@@ -17,8 +17,8 @@ export const FieldCheckboxes = (props) => {
 
   return (
     <div
-      data-test={'field--checkboxes'}
-      className={'field-check'}
+      data-test={'field__checkboxes'}
+      className={'field__checkboxes'}
       role={'group'}
       aria-label={label}
     >

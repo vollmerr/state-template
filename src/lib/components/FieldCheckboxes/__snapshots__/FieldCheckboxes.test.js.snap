@@ -3,14 +3,16 @@
 exports[`FieldCheckboxes should render correctly 1`] = `
 <div
   aria-label="test-label"
-  className="field-check"
-  data-test="field--checkboxes"
+  className="field__checkboxes"
+  data-test="field__checkboxes"
   role="group"
 >
   <Checkbox
     aria-describedby={null}
     aria-invalid="false"
+    className={null}
     disabled={false}
+    inline={false}
     key="value-1"
     label={null}
     name="test-name"
@@ -27,7 +29,9 @@ exports[`FieldCheckboxes should render correctly 1`] = `
   <Checkbox
     aria-describedby={null}
     aria-invalid="false"
+    className={null}
     disabled={false}
+    inline={false}
     key="value-2"
     label={null}
     name="test-name"
