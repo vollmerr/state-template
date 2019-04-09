@@ -1,5 +1,12 @@
 # Change Log
 
+## v0.2.2 (2019-04-09)
+
+- improved Field components definition files, order alphabetically
+- change way / more explicitly pass props to fields
+- remove header border on tables
+- export normalize utils
+
 ## v0.2.1 (2019-04-09)
 
 - upgrade core to state template 5.0.6

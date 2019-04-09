@@ -4,17 +4,21 @@ import { shallow } from 'enzyme';
 import Checkbox, { handleChange } from './Checkbox';
 
 const props = {
+  'aria-describedby': 'aria-desc-id',
+  'aria-invalid': 'false',
+  disabled: false,
+  inline: false,
   name: 'test-name',
-  value: 'value-1',
+  onBlur: jest.fn(),
+  onChange: jest.fn(),
+  onFocus: jest.fn(),
   option: {
     label: 'label-1',
     value: 'value-1',
+    className: 'option-class',
   },
+  value: 'value-1',
   variant: null,
-  disabled: false,
-  onChange: jest.fn(),
-  'aria-invalid': 'false',
-  'aria-describedby': 'aria-desc-id',
 };
 
 let wrapper;

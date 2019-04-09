@@ -32,7 +32,7 @@ const initialValues = {
       { value: 'value1', label: 'label 1' },
       { value: 'value2', label: 'label 2' },
     ]}
-  />
+  /> 
 </ExampleForm>
 ```
 
@@ -57,6 +57,27 @@ const initialValues = {
 </ExampleForm>
 ```
 
+### event handlers
+
+```jsx
+const initialValues = {
+  handlersRadioButtons: 'value2',
+};
+
+<ExampleForm form={'handlersRadioButton'} initialValues={initialValues}>
+  <FieldRadioButtons 
+    name={'handlersRadioButtons'}
+    label={'With Event Handlers'}
+    options={[
+      { value: 'value1', label: 'label 1' },
+      { value: 'value2', label: 'label 2' },
+    ]}
+    onBlur={(value) => { console.log('blurring: ', value); }}
+    onChange={(value) => { console.log('changing: ', value); }}
+    onFocus={(value) => { console.log('focusing: ', value); }}
+  />
+</ExampleForm>
+```
 
 ### highlight variant
 

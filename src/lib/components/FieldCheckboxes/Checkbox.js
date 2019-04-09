@@ -18,42 +18,54 @@ export const handleChange = ({ value, values, onChange }) => (event) => {
     // not checked, remove from array
     newValues.splice(newValues.indexOf(value), 1);
   }
-  // update in redux form
+
   return onChange(newValues);
 };
 
 // individual checkbox, applies state-template styling
 const Checkbox = (props) => {
   const {
-    name,
-    value,
-    option,
-    inline,
-    variant,
-    disabled,
-    onChange,
-    className,
-    'aria-invalid': ariaInvalid,
     'aria-describedby': ariaDescribedby,
+    'aria-invalid': ariaInvalid,
+    disabled,
+    inline,
+    name,
+    onBlur,
+    onChange,
+    onFocus,
+    option,
+    value,
+    variant,
   } = props;
 
   const values = Array.isArray(value) ? value : [value];
 
   const id = `${name}-${option.value}`;
   const inputProps = {
+    'aria-describedby': ariaDescribedby,
+    'aria-invalid': ariaInvalid,
+    checked: values.includes(option.value),
+    disabled,
     id,
     name,
-    disabled,
     type: 'checkbox',
-    checked: values.includes(option.value),
-    onChange: handleChange({ value: option.value, values, onChange }),
-    'aria-invalid': ariaInvalid,
-    'aria-describedby': ariaDescribedby,
   };
+
+  if (onBlur) {
+    inputProps.onBlur = () => onBlur(value);
+  }
+
+  if (onChange) {
+    inputProps.onChange = handleChange({ value: option.value, values, onChange });
+  }
+
+  if (onFocus) {
+    inputProps.onFocus = () => onFocus(value);
+  }
 
   let cn = classNames([
     'check',
-    className,
+    option.className,
   ]);
 
   if (variant) {
@@ -69,7 +81,7 @@ const Checkbox = (props) => {
 
   cn = classNames([
     'p-l-md m-l-0 m-r-md',
-    className,
+    option.className,
     inline ? 'form-check-inline' : 'form-check',
   ]);
 
@@ -85,8 +97,32 @@ const Checkbox = (props) => {
 };
 
 Checkbox.propTypes = {
+  /** Accessible indicator of related information */
+  'aria-describedby': T.string,
+
+  /** Accessible indicator for errors existing */
+  'aria-invalid': T.string,
+
+  /** Disable the input */
+  disabled: T.bool,
+
+  /** Display inline */
+  inline: T.bool,
+
   /** Name of field */
   name: T.string.isRequired,
+
+  /** Called when checkbox is blurred */
+  onBlur: T.func,
+
+  /** Called when checkbox is changed */
+  onChange: T.func,
+
+  /** Called when checkbox is focused */
+  onFocus: T.func,
+
+  /** Option to select */
+  option: propUtils.option.isRequired,
 
   /** Value of checkbox */
   value: T.oneOfType([
@@ -94,45 +130,21 @@ Checkbox.propTypes = {
     T.array,
   ]).isRequired,
 
-  /** Option to select */
-  option: propUtils.option.isRequired,
-
-  /** Display inline */
-  inline: T.bool,
-
   /** Use style variant */
   variant: T.oneOf([
-    '',
     'primary',
   ]),
-
-  /** Disable the input */
-  disabled: T.bool,
-
-  /** Label to render for this checkbox */
-  label: T.string,
-
-  /** Called when checkbox changes */
-  onChange: T.func.isRequired,
-
-  /** Class name to attach to top level label */
-  className: T.string,
-
-  /** Accessible indicator for errors existing */
-  'aria-invalid': T.string,
-
-  /** Accessible indicator of related information */
-  'aria-describedby': T.string,
 };
 
 Checkbox.defaultProps = {
-  inline: false,
-  variant: '',
-  disabled: false,
-  label: null,
-  className: null,
-  'aria-invalid': 'false',
   'aria-describedby': null,
+  'aria-invalid': 'false',
+  disabled: false,
+  inline: false,
+  onBlur: null,
+  onChange: null,
+  onFocus: null,
+  variant: null,
 };
 
 export default Checkbox;

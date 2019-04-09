@@ -7,33 +7,45 @@ import * as propUtils from '../../utils/propTypes';
 // individual radio button, applies state-template styling
 const RadioButton = (props) => {
   const {
-    name,
-    value,
-    option,
-    inline,
-    variant,
-    disabled,
-    onChange,
-    className,
-    'aria-invalid': ariaInvalid,
     'aria-describedby': ariaDescribedby,
+    'aria-invalid': ariaInvalid,
+    disabled,
+    inline,
+    name,
+    onBlur,
+    onChange,
+    onFocus,
+    option,
+    value,
+    variant,
   } = props;
 
   const id = `${name}-${option.value}`;
   const inputProps = {
+    'aria-describedby': ariaDescribedby,
+    'aria-invalid': ariaInvalid,
+    checked: value === option.value,
+    disabled,
     id,
     name,
-    disabled,
     type: 'radio',
-    checked: value === option.value,
-    onChange: () => onChange(option.value),
-    'aria-invalid': ariaInvalid,
-    'aria-describedby': ariaDescribedby,
   };
+
+  if (onBlur) {
+    inputProps.onBlur = () => onBlur(option.value);
+  }
+
+  if (onChange) {
+    inputProps.onChange = () => onChange(option.value);
+  }
+
+  if (onFocus) {
+    inputProps.onFocus = () => onFocus(option.value);
+  }
 
   let cn = classNames([
     'check',
-    className,
+    option.className,
   ]);
 
   if (variant) {
@@ -49,7 +61,7 @@ const RadioButton = (props) => {
 
   cn = classNames([
     'p-l-md m-l-0 m-r-md',
-    className,
+    option.className,
     inline ? 'form-check-inline' : 'form-check',
   ]);
 
@@ -65,47 +77,51 @@ const RadioButton = (props) => {
 };
 
 RadioButton.propTypes = {
-  /** Name of field */
-  name: T.string.isRequired,
-
-  /** Value of radio button */
-  value: T.string.isRequired,
-
-  /** Option to select */
-  option: propUtils.option.isRequired,
-
-  /** Display inline */
-  inline: T.bool,
-
-  /** Use style variant */
-  variant: T.oneOf([
-    '',
-    'highlight',
-  ]),
-
-  /** Disable the input */
-  disabled: T.bool,
-
-  /** Called when radio button changes */
-  onChange: T.func.isRequired,
-
-  /** Class name to attach to top level label */
-  className: T.string,
+  /** Accessible indicator of related information */
+  'aria-describedby': T.string,
 
   /** Accessible indicator for errors existing */
   'aria-invalid': T.string,
 
-  /** Accessible indicator of related information */
-  'aria-describedby': T.string,
+  /** Disable the input */
+  disabled: T.bool,
+
+  /** Display inline */
+  inline: T.bool,
+
+  /** Name of field */
+  name: T.string.isRequired,
+
+  /** Called when radio button is blurred */
+  onBlur: T.func,
+
+  /** Called when radio button changes */
+  onChange: T.func,
+
+  /** Called when radio button is focused */
+  onFocus: T.func,
+
+  /** Option to select */
+  option: propUtils.option.isRequired,
+
+  /** Value of radio button */
+  value: T.string.isRequired,
+
+  /** Use style variant */
+  variant: T.oneOf([
+    'highlight',
+  ]),
 };
 
 RadioButton.defaultProps = {
-  inline: false,
-  variant: '',
-  disabled: false,
-  className: '',
-  'aria-invalid': 'false',
   'aria-describedby': null,
+  'aria-invalid': 'false',
+  disabled: false,
+  inline: false,
+  onBlur: null,
+  onChange: null,
+  onFocus: null,
+  variant: null,
 };
 
 export default RadioButton;

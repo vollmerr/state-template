@@ -2,15 +2,18 @@
 
 exports[`FieldDate should render correctly 1`] = `
 <div
-  className="field__date"
+  className="field__date test-classname"
   data-test="field__date"
 >
   <input
+    aria-describedby="aria-desc-id"
+    aria-invalid="false"
     autoComplete="off"
     className="form-control"
     data-test="field__date-control"
     disabled={false}
-    label="test label"
+    id="test-id"
+    label="test-label"
     name="test-name"
     onBlur={[Function]}
     onChange={[Function]}

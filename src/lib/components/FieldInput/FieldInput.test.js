@@ -4,9 +4,18 @@ import { shallow } from 'enzyme';
 import { FieldInput } from './FieldInput';
 
 const props = {
-  name: 'test-name',
+  'aria-describedby': 'aria-desc-id',
+  'aria-invalid': 'false',
+  className: 'test-classname',
+  disabled: false,
+  id: 'test-id',
   label: 'test-label',
+  name: 'test-name',
+  onBlur: jest.fn(),
   onChange: jest.fn(),
+  onFocus: jest.fn(),
+  tag: 'input',
+  value: 'test-value',
 };
 
 let wrapper;

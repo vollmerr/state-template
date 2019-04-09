@@ -3,46 +3,49 @@
 exports[`FieldCheckboxes should render correctly 1`] = `
 <div
   aria-label="test-label"
-  className="field__checkboxes"
+  className="field__checkboxes test-classname"
   data-test="field__checkboxes"
+  id="test-id"
   role="group"
 >
   <Checkbox
-    aria-describedby={null}
+    aria-describedby="aria-desc-id"
     aria-invalid="false"
-    className={null}
     disabled={false}
     inline={false}
     key="value-1"
-    label={null}
+    label="label-1"
     name="test-name"
+    onBlur={[MockFunction]}
     onChange={[MockFunction]}
+    onFocus={[MockFunction]}
     option={
       Object {
         "label": "label-1",
         "value": "value-1",
       }
     }
-    value="value-2"
+    value="value-1"
     variant={null}
   />
   <Checkbox
-    aria-describedby={null}
+    aria-describedby="aria-desc-id"
     aria-invalid="false"
-    className={null}
     disabled={false}
     inline={false}
     key="value-2"
-    label={null}
+    label="label-2"
     name="test-name"
+    onBlur={[MockFunction]}
     onChange={[MockFunction]}
+    onFocus={[MockFunction]}
     option={
       Object {
         "label": "label-2",
         "value": "value-2",
       }
     }
-    value="value-2"
+    value="value-1"
     variant={null}
   />
 </div>

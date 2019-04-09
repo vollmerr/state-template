@@ -2,10 +2,17 @@
 
 exports[`FieldInput should render correctly 1`] = `
 <input
-  className="form-control field__input"
+  aria-describedby="aria-desc-id"
+  aria-invalid="false"
+  className="field__input form-control test-classname"
   data-test="field__input"
+  disabled={false}
+  id="test-id"
   label="test-label"
   name="test-name"
+  onBlur={[MockFunction]}
   onChange={[MockFunction]}
+  onFocus={[MockFunction]}
+  value="test-value"
 />
 `;

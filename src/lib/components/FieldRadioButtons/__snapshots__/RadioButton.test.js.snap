@@ -2,7 +2,7 @@
 
 exports[`RadioButton should render correctly 1`] = `
 <label
-  className="p-l-md m-l-0 m-r-md test-class form-check"
+  className="p-l-md m-l-0 m-r-md option-class form-check"
   data-test="field__radio-button"
   htmlFor="test-name-value-1"
 >
@@ -14,7 +14,9 @@ exports[`RadioButton should render correctly 1`] = `
     disabled={false}
     id="test-name-value-1"
     name="test-name"
+    onBlur={[Function]}
     onChange={[Function]}
+    onFocus={[Function]}
     type="radio"
   />
   <div
