@@ -1,5 +1,10 @@
 # Change Log
 
+## v0.2.3 (2019-04-16)
+
+- fix settings bar not toggling / update to new state template
+- bump package versions
+
 ## v0.2.2 (2019-04-09)
 
 - improved Field components definition files, order alphabetically
