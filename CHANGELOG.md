@@ -1,6 +1,6 @@
 # Change Log
 
-## v0.2.4 (2019-04-16)
+## v0.2.4 (2019-04-17)
 
 - add 'FieldFile' component for attaching files in forms (#9)
 - add button for displaying form values in docs
