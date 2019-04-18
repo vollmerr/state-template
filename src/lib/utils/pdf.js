@@ -1,3 +1,5 @@
+// TODO: deprecate..
+
 // convert from binary to array buffer
 export const base64ToArrayBuffer = (base64) => {
   const binaryString = window.atob(base64);

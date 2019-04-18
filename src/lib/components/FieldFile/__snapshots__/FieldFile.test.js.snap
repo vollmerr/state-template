@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldFile should render correctly 1`] = `
+<div
+  className="field__file test-classname"
+  data-test="field__file"
+>
+  <input
+    accept=".jpg, .jpeg, .png"
+    aria-describedby="aria-desc-id"
+    aria-invalid="false"
+    capture={null}
+    disabled={false}
+    files="test-value"
+    id="test-id"
+    multiple={false}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="test-placeholder"
+    type="file"
+  />
+  <label
+    className="form-control field__file-text"
+    htmlFor="test-name"
+  >
+    test-placeholder
+  </label>
+  <div
+    className="field__file-button"
+  >
+    upload-button-text
+  </div>
+</div>
+`;
