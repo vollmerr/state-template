@@ -6,6 +6,7 @@ import * as date from './utils/date';
 import history from './utils/history';
 import * as normalize from './utils/normalize';
 import * as fieldOptions from './utils/fieldOptions';
+import * as file from './utils/file';
 import * as pdf from './utils/pdf';
 import * as serviceWorker from './utils/serviceWorker';
 import * as validate from './utils/validate';
@@ -18,6 +19,7 @@ export {
   history,
   normalize,
   fieldOptions,
+  file,
   pdf,
   serviceWorker,
   validate,

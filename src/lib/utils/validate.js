@@ -52,3 +52,14 @@ export const isValidZip = zip => (
     ? undefined
     : 'Please enter a 5 digit zip code. Ex: 95628'
 );
+
+export const isEmptyFile = (value) => {
+  if (value) {
+    // multiple files || single file
+    if (value.length || value.name) {
+      return undefined;
+    }
+  }
+  // nada :(
+  return 'Required';
+};

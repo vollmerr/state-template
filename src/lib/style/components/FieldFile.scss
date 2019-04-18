@@ -1,0 +1,59 @@
+.field__file-label {
+  font-weight: 700;
+  margin-bottom: .3rem;
+}
+
+.field__file {
+  position: relative;
+
+  input {
+    &:active,
+    &:focus {
+      + .field__file-text {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+      }
+    }
+  }
+
+  .field__file-text {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .field__file-button {
+    position: absolute;
+    padding: 0 15px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: $btn-primary-bg;
+    color: $btn-primary-color;
+    line-height: 38px;
+  }
+
+  input {
+    z-index: -1;
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+.disabled {
+  .field__file {
+    .field__file-text {
+      color: $disabled-fg;
+      border-color: $disabled-accent;
+      background: $disabled-bg;
+    }
+
+    .field__file-button {
+      display: none;
+    }
+  }
+}
+

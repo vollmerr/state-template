@@ -2,10 +2,14 @@ import React from 'react';
 import T from 'prop-types';
 import classNames from 'classnames';
 
+import FieldLabel from './FieldLabel';
+import FieldError from './FieldError';
+import FieldHelp from './FieldHelp';
+
 // HOC that attaches a label, error message,
 // help block, and attaches props such as aria labels
 // Targeted use at redux form
-export const withFieldWrapper = (Component) => {
+export const withFieldWrapper = (Component, options = {}) => {
   const WrappedField = (props) => {
     const {
       meta,
@@ -17,6 +21,12 @@ export const withFieldWrapper = (Component) => {
       className,
       ...rest
     } = props;
+
+    const {
+      renderLabel,
+      renderError,
+      renderHelp,
+    } = options;
 
     const { touched, error } = meta;
     const { name } = input;
@@ -57,32 +67,42 @@ export const withFieldWrapper = (Component) => {
       'aria-describedby': ariaDescBy,
     };
 
+    const labelProps = {
+      label,
+      name,
+      required,
+    };
+
+    const errorProps = {
+      errorId,
+      errorMessage,
+    };
+
+    const helpProps = {
+      errorId,
+      helpText,
+    };
+
     return (
       <div className={cn}>
         {label && (
-          <label data-test={'label'} className={'control-label'} htmlFor={name}>
-            {
-              required
-              && !disabled
-              && <span data-test={'required'} className={'required-label'} aria-hidden>* </span>
-            }
-
-            {label}
-          </label>
+          renderLabel
+            ? renderLabel(labelProps)
+            : <FieldLabel {...labelProps} />
         )}
 
         <Component id={name} {...fieldProps} {...input} {...rest} />
 
         {errorMessage && (
-          <small data-test={'error'} className={'feedback'} id={errorId}>
-            {errorMessage}
-          </small>
+          renderError
+            ? renderError(errorProps)
+            : <FieldError {...errorProps} />
         )}
 
         {helpText && (
-          <p data-test={'help'} className={'help-block'} id={helpId}>
-            {helpText}
-          </p>
+          renderHelp
+            ? renderHelp(helpProps)
+            : <FieldHelp {...helpProps} />
         )}
       </div>
     );

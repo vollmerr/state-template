@@ -1,5 +1,13 @@
 # Change Log
 
+## v0.2.4 (2019-04-16)
+
+- add 'FieldFile' component for attaching files in forms (#9)
+- add button for displaying form values in docs
+- add 'file' util for handling file functionality, such as saving a file
+- allow passing custom rendering (and other options) to 'withField'
+- extract label, error message, and help block into their own components
+
 ## v0.2.3 (2019-04-16)
 
 - fix settings bar not toggling / update to new state template
