@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.2.5 (2019-04-17)
+
+- fix missing FieldFile export
+
 ## v0.2.4 (2019-04-17)
 
 - add 'FieldFile' component for attaching files in forms (#9)
