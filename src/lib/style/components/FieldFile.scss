@@ -6,7 +6,7 @@
 .field__file {
   position: relative;
 
-  input {
+  input:not(:disabled) {
     &:active,
     &:focus {
       + .field__file-text {
@@ -49,6 +49,7 @@
       color: $disabled-fg;
       border-color: $disabled-accent;
       background: $disabled-bg;
+      cursor: default;
     }
 
     .field__file-button {

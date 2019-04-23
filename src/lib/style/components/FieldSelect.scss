@@ -26,7 +26,6 @@
   .field__select {
     select {
       background: $disabled-bg;
-      cursor: not-allowed;
     }
 
     &::after {
