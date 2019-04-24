@@ -1,7 +1,6 @@
 ```jsx
 const initialValues = {
   radioButton: 'value2',
-  requiredRadioButton: 'value2',
   disabledRadioButton: 'value2',
 };
 

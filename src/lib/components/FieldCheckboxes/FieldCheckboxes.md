@@ -1,7 +1,6 @@
 ```jsx
 const initialValues = {
   checkbox: ['value2'],
-  requiredCheckbox: ['value2'],
   disabledCheckbox: ['value2'],
 };
 
