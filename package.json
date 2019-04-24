@@ -13,19 +13,17 @@
     "url": "URL_OF_YOUR_REPOSITORY"
   },
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "cross-env rimraf dist && npm run update:icons",
     "build": "cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "test": "react-scripts test --coverage --watchAll=false",
     "test:watch": "react-scripts test",
     "visual": "backstop test",
     "visual:update": "backstop approve",
-    "eject": "react-scripts eject",
     "docs": "styleguidist server",
     "docs:build": "styleguidist build",
     "prepare": "npm run build",
-    "preexample:update": "npm run build",
-    "example:update": "node ./scripts/updateExample.js",
-    "postinstall": "node ./scripts/fixPikaday.js"
+    "postinstall": "node ./scripts/fixPikaday.js",
+    "update:icons": "node ./scripts/updateIconList.js"
   },
   "peerDependencies": {
     "node-sass": "4.x",

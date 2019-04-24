@@ -1,5 +1,10 @@
 # state-template - Change Log
 
+## v0.2.7
+
+- update icon definitions on build
+- remove unused scripts
+
 ## v0.2.6 (2019-04-24)
 
 - update core font and images to state template 5.0.6
