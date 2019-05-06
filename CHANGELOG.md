@@ -4,6 +4,9 @@
 
 - update icon definitions on build
 - remove unused scripts
+- bump versions
+  - react-router-dom v5
+  - react-redux v7
 
 ## v0.2.6 (2019-04-24)
 
@@ -11,7 +14,7 @@
 - remove core state template js
 - fix disabled field styling / make consistent with bootstrap 4
 - bump package versions 
-  - react-scripts 2.1.8 -> 3.0.0
+  - react-scripts v3
 
 ## v0.2.5 (2019-04-17)
 
