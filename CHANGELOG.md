@@ -1,6 +1,11 @@
 # state-template - Change Log
 
-## v0.2.7
+## v0.2.8 (2019-05-06)
+
+- fix NavTabs to use bootstrap 4 classes
+- add docs for NavTabs
+
+## v0.2.7 (2019-05-06)
 
 - update icon definitions on build
 - remove unused scripts

@@ -35,12 +35,15 @@ const NavTabs = (props) => {
         {
           routes.map((route) => {
             const to = `${match.url}${route.path}`;
-            const isActive = location.pathname === to;
-            const activeClass = isActive ? 'active' : '';
+            const active = location.pathname === to;
+            const linkClass = classNames([
+              'nav-link',
+              { active },
+            ]);
 
             return (
-              <li key={route.key} role={'presentation'} className={activeClass}>
-                <A to={to}>{route.name}</A>
+              <li key={route.key} role={'presentation'} className={'nav-item'}>
+                <A to={to} className={linkClass}>{route.name}</A>
               </li>
             );
           })

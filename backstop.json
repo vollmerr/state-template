@@ -39,6 +39,7 @@
       "clickSelectorAll": "[data-preview=ConnectedMessages] [data-test=button]", "delay": 1000 },
     { "label": "Messages", "url": "http://localhost:6060/#!/Messages",
       "clickSelectorAll": "[data-preview=Messages] [data-test=button]", "delay": 1000 },
+    { "label": "NavTabs", "url": "http://localhost:6060/#!/NavTabs", "delay": 1000 },
     { "label": "Overlay", "url": "http://localhost:6060/#!/Overlay",
       "clickSelectorAll": "[data-preview=Overlay] [data-test=button]", "delay": 1000 },
     { "label": "Panel", "url": "http://localhost:6060/#!/Panel", "delay": 1000 },
