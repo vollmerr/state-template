@@ -6,6 +6,9 @@
 - add new `Tooltip` component
 - add optional `tooltip` property on field components to render a help icon with tooltip
 - update docs and visual tests to include new `Tooltip` component and examples of tooltips on fields
+- delegate yielding to saga in `withAsync` instead of relying on redux-saga to do so
+- change util `isInvalidDate` to `isValidDate` for consistency
+- moar tests
 
 ## v0.2.8 (2019-05-06)
 
