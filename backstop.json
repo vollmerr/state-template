@@ -43,7 +43,9 @@
     { "label": "Overlay", "url": "http://localhost:6060/#!/Overlay",
       "clickSelectorAll": "[data-preview=Overlay] [data-test=button]", "delay": 1000 },
     { "label": "Panel", "url": "http://localhost:6060/#!/Panel", "delay": 1000 },
-    { "label": "Table", "url": "http://localhost:6060/#!/Table", "delay": 1000 }
+    { "label": "Table", "url": "http://localhost:6060/#!/Table", "delay": 1000 },
+    { "label": "Tooltip", "url": "http://localhost:6060/#!/Tooltip",
+      "clickSelectorAll": "[data-preview=Tooltip] [data-test=button]", "delay": 1000 }
   ],
   "misMatchThreshold": 0,
   "paths": {

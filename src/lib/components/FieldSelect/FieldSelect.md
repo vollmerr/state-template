@@ -8,6 +8,7 @@
       { value: 'value 2', label: 'label 2' },
     ]}
     helpText={'This is the `helpText` content...'}
+    tooltip={'Example tooltip!'}
   />
   <FieldSelect 
     required

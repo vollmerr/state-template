@@ -13,6 +13,7 @@ const initialValues = {
       { value: 'value2', label: 'label 2' },
     ]}
     helpText={'This is the `helpText` content...'}
+    tooltip={'Example tooltip!'}
   />
   <FieldRadioButtons 
     required

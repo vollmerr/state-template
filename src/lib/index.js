@@ -90,3 +90,5 @@ export { default as Panel } from './components/Panel';
 export { default as Routing } from './components/Routing';
 // Table
 export { default as Table, TableHeader } from './components/Table';
+// Tooltip
+export { default as Tooltip } from './components/Tooltip';

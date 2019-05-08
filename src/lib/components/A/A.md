@@ -12,7 +12,7 @@ External links open in a new tab.
 ```
 
 ### shorthand
-You can use the shorthand `text` prop instead of passing children.
+You can use the shorthand `text` prop instead of passing `children`.
 
 ```jsx
 <p>This is an <A to={'/testPath'} text={'shorthand anchor'} /></p>

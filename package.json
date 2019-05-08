@@ -79,6 +79,7 @@
     "react-bootstrap-table-next": "^3.1.2",
     "react-bootstrap-table2-paginator": "^2.0.6",
     "react-bootstrap-table2-toolkit": "^1.4.2",
+    "react-tooltip": "^3.10.0",
     "redux-devtools-extension": "^2.13.8"
   },
   "browserslist": {

@@ -8,6 +8,7 @@ const initialValues = {
     name={'date'}
     label={'Date'}
     helpText={'This is the `helpText` content...'}
+    tooltip={'Example tooltip!'}
   />
   <FieldDate 
     required
