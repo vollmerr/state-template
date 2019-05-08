@@ -3,7 +3,7 @@ import T from 'prop-types';
 import Pikaday from 'pikaday';
 import classNames from 'classnames';
 
-import { isInvalidDate } from '../../utils/validate';
+import { isValidDate } from '../../utils/validate';
 import { isValid } from '../../utils/date';
 import { withField } from '../Field';
 import Icon from '../Icon';
@@ -159,4 +159,4 @@ FieldDate.defaultProps = {
   value: null,
 };
 
-export default withField(isInvalidDate)(FieldDate);
+export default withField(isValidDate)(FieldDate);

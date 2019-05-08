@@ -12,13 +12,14 @@ import FieldHelp from './FieldHelp';
 export const withFieldWrapper = (Component, options = {}) => {
   const WrappedField = (props) => {
     const {
-      meta,
+      className,
+      disabled,
+      helpText,
       input,
       label,
-      helpText,
+      meta,
       required,
-      disabled,
-      className,
+      tooltip,
       ...rest
     } = props;
 
@@ -71,6 +72,7 @@ export const withFieldWrapper = (Component, options = {}) => {
       label,
       name,
       required,
+      tooltip,
     };
 
     const errorProps = {
@@ -109,8 +111,14 @@ export const withFieldWrapper = (Component, options = {}) => {
   };
 
   WrappedField.propTypes = {
-    /** Meta information from redux-form's Field, such as errors and touched */
-    meta: T.object.isRequired,
+    /** Style class name to attach to button */
+    className: T.string,
+
+    /** Disable the input */
+    disabled: T.bool,
+
+    /** Help text to render under input */
+    helpText: T.string,
 
     /** Input from redux-form's Field, attaches name, value, etc  */
     input: T.object.isRequired,
@@ -118,25 +126,26 @@ export const withFieldWrapper = (Component, options = {}) => {
     /** Label to display above input */
     label: T.string,
 
-    /** Help text to render under input */
-    helpText: T.string,
+    /** Meta information from redux-form's Field, such as errors and touched */
+    meta: T.object.isRequired,
 
     /** The field should use the default required validation */
     required: T.bool,
 
-    /** Disable the input */
-    disabled: T.bool,
-
-    /** Style class name to attach to button */
-    className: T.string,
+    /** Tooltip to display */
+    tooltip: T.oneOfType([
+      T.string,
+      T.node,
+    ]),
   };
 
   WrappedField.defaultProps = {
-    label: '',
-    helpText: '',
     className: '',
-    required: false,
     disabled: false,
+    helpText: '',
+    label: '',
+    required: false,
+    tooltip: null,
   };
 
   return WrappedField;

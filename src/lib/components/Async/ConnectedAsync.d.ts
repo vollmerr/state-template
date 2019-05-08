@@ -1,18 +1,7 @@
 import * as React from 'react';
 
-import * as Button from '../Button/Button';
+import Async from './Async';
 
-export interface ConnectedAsyncProps {
-  /** Content to render */
-  children: React.ReactNode;
-
-  /** Props to pass to `Button` in error message */
-  btnProps?: Button.ButtonProps;
-
-  /** Delay until showing the loading indicator */
-  delay?: number;
-}
-
-declare class ConnectedAsync extends React.Component<ConnectedAsyncProps, {}> {}
+declare class ConnectedAsync extends Async {}
 
 export default ConnectedAsync;

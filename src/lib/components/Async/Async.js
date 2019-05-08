@@ -8,56 +8,55 @@ import LoadingIndicator from './LoadingIndicator';
  * Async sections have a loading indicator if they take too long
  * to load, and display an error message for errors
  */
-class Async extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  render() {
-    const {
-      children,
-      error,
-      onDismiss,
-      btnProps,
-      isLoading,
-      delay,
-    } = this.props;
+const Async = (props) => {
+  const {
+    children,
+    error,
+    onDismiss,
+    btnProps,
+    isLoading,
+    delay,
+  } = props;
 
-    return (
-      <ErrorMessage error={error} onDismiss={onDismiss} btnProps={btnProps}>
-        <LoadingIndicator isLoading={isLoading} delay={delay}>
-          {children}
-        </LoadingIndicator>
-      </ErrorMessage>
-    );
-  }
-}
+  return (
+    <ErrorMessage error={error} onDismiss={onDismiss} btnProps={btnProps}>
+      <LoadingIndicator isLoading={isLoading} delay={delay}>
+        {children}
+      </LoadingIndicator>
+    </ErrorMessage>
+  );
+};
 
 Async.propTypes = {
+  /** Props to pass to `Button` in error message */
+  btnProps: T.object,
+
   /** Content to render */
   children: T.node,
 
+  /** Delay until showing the loading indicator */
+  delay: T.number,
+
   /** Error to render */
   error: T.string,
-
-  /** Action to remove the error */
-  onDismiss: T.func,
-
-  /** Props to pass to `Button` in error message */
-  btnProps: T.object,
 
   /** Render loading indicator if true */
   isLoading: T.oneOfType([
     T.number,
     T.bool,
-  ]).isRequired,
+  ]),
 
-  /** Delay until showing the loading indicator */
-  delay: T.number,
+  /** Action to remove the error */
+  onDismiss: T.func,
 };
 
 Async.defaultProps = {
-  children: null,
-  error: null,
-  onDismiss: () => {},
   btnProps: undefined,
+  children: null,
   delay: 200,
+  error: null,
+  isLoading: false,
+  onDismiss: () => {},
 };
 
 export default Async;

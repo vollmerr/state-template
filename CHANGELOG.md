@@ -1,5 +1,15 @@
 # state-template - Change Log
 
+## v0.2.9 (2019-05-08)
+
+- add `react-tooltip` package for tooltips
+- add new `Tooltip` component
+- add optional `tooltip` property on field components to render a help icon with tooltip
+- update docs and visual tests to include new `Tooltip` component and examples of tooltips on fields
+- delegate yielding to saga in `withAsync` instead of relying on redux-saga to do so
+- change util `isInvalidDate` to `isValidDate` for consistency
+- moar tests (utils, Async) and improved ts definitions
+
 ## v0.2.8 (2019-05-06)
 
 - fix NavTabs to use bootstrap 4 classes

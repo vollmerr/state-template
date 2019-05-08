@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Async should render correctly 1`] = `
+<ErrorMessage
+  btnProps={
+    Object {
+      "onClick": [MockFunction],
+      "text": "test-button",
+    }
+  }
+  error="test-error"
+  onDismiss={[MockFunction]}
+>
+  <LoadingIndicator
+    delay={1000}
+    isLoading={false}
+  >
+    children...
+  </LoadingIndicator>
+</ErrorMessage>
+`;

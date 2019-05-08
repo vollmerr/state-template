@@ -21,6 +21,7 @@ const downloadButton = {
     accept={'.jpg, .jpeg, .png'}
     placeholder={'Custom Placeholder...'}
     btnText={'Custom Button Text'}
+    tooltip={'Example tooltip!'}
   />
   <FieldFile 
     required
