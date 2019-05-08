@@ -8,8 +8,7 @@ const action = {
   payload: 123,
 };
 
-const mockFunc = jest.fn();
-
+let mockFunc = jest.fn();
 function* mockSaga(payload) {
   yield mockFunc(payload);
 }
@@ -38,8 +37,9 @@ describe('withAsync', () => {
 
   it('should handle errors', () => {
     const error = new Error('test errorz!');
-    const errorSaga = () => { throw error; };
-    const saga = withAsync(errorSaga)(action);
+    mockFunc = () => { throw error; };
+
+    const saga = withAsync(mockSaga)(action);
     runSaga(saga);
     expect(actions.setError).toBeCalledWith(error);
   });
