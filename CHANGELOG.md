@@ -3,6 +3,8 @@
 ## v0.2.10 (2019-05-14)
 
 - improve print styling (mainly fields)
+- bump versions
+  - backstop v4 (update all ref images...)
 
 ## v0.2.9 (2019-05-08)
 
