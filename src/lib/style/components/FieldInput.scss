@@ -1,5 +1,7 @@
-.disabled {
-  .field__input {
-    background: $disabled-bg;
+@media screen {
+  .disabled {
+    .field__input {
+      background: $disabled-bg;
+    }
   }
 }

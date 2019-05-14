@@ -1,26 +1,44 @@
-.disabled {
-  .field__radio-buttons {
-    color: $disabled-fg;
+@media screen {
+  .disabled {
+    .field__radio-buttons {
+      color: $disabled-fg;
 
-    .btn {
-      background: $disabled-bg;
-    }
-
-    * {
-      cursor: default;
-    }
-
-    .check-icon-radio {
-      border-color: $disabled-accent;
-      background: $disabled-bg;
-    }
-
-    input[type="radio"]:checked {
-      + .check-icon-radio > i,
-      + .btn {
-        background: $disabled-fg;
-        color: $disabled-bg;
+      .btn {
+        background: $disabled-bg;
       }
+
+      * {
+        cursor: default;
+      }
+
+      .check-icon-radio {
+        border-color: $disabled-accent;
+        background: $disabled-bg;
+      }
+
+      input[type="radio"]:checked {
+        + .check-icon-radio > i,
+        + .btn {
+          background: $disabled-fg;
+          color: $disabled-bg;
+        }
+      }
+
+      input[type="radio"]:checked {
+        border: 5px solid $disabled-fg;
+      }
+    }
+  }
+}
+
+@media print {
+  input[type="radio"]:checked {
+    + .check-icon-radio > i {
+      border: 5px solid $brand-primary;
+    }
+
+    + .btn {
+      border: 1px solid $brand-primary;
     }
   }
 }

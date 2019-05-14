@@ -1,26 +1,40 @@
-.disabled {
-  .field__checkboxes {
-    color: $disabled-fg;
+@media screen {
+  .disabled {
+    .field__checkboxes {
+      color: $disabled-fg;
 
-    .btn {
-      background: $disabled-bg;
-    }
-
-    * {
-      cursor: default;
-    }
-
-    .check-icon-checkbox {
-      color: $disabled-bg;
-      border-color: $disabled-accent;
-      background: $disabled-bg;
-    }
-
-    input[type="checkbox"]:checked {
-      + .check-icon-checkbox > i,
-      + .btn {
-        background: $disabled-fg;
+      .btn {
+        background: $disabled-bg;
       }
+
+      * {
+        cursor: default;
+      }
+
+      .check-icon-checkbox {
+        color: $disabled-bg;
+        border-color: $disabled-accent;
+        background: $disabled-bg;
+      }
+
+      input[type="checkbox"]:checked {
+        + .check-icon-checkbox > i,
+        + .btn {
+          background: $disabled-fg;
+        }
+      }
+    }
+  }
+}
+
+@media print {
+  input[type="checkbox"]:checked {
+    + .check-icon-checkbox > i {
+      border: 10px solid $brand-primary;
+    }
+
+    + .btn {
+      border: 1px solid $brand-primary;
     }
   }
 }

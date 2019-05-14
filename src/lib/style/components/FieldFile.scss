@@ -43,18 +43,25 @@
   }
 }
 
-.disabled {
-  .field__file {
-    .field__file-text {
-      color: $disabled-fg;
-      border-color: $disabled-accent;
-      background: $disabled-bg;
-      cursor: default;
-    }
+@media screen {
+  .disabled {
+    .field__file {
+      .field__file-text {
+        color: $disabled-fg;
+        border-color: $disabled-accent;
+        background: $disabled-bg;
+        cursor: default;
+      }
 
-    .field__file-button {
-      display: none;
+      .field__file-button {
+        display: none;
+      }
     }
   }
 }
 
+@media print {
+  .field__file-button {
+    display: none;
+  }
+}

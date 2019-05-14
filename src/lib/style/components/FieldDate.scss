@@ -236,11 +236,13 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   }
 }
 
-.disabled {
-  .field__date {
-    input {
-      background: $disabled-bg;
-      cursor: default;
+@media screen {
+  .disabled {
+    .field__date {
+      input {
+        background: $disabled-bg;
+        cursor: default;
+      }
     }
   }
 }

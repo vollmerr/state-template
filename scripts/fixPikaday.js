@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const fixPikaday = () => {
-  const pikaday = path.resolve('node_modules', 'pikaday', 'pikaday.js');
+  const pikaday = path.resolve('.', 'node_modules', 'pikaday', 'pikaday.js');
   // read pikaday file
   const data = fs.readFileSync(pikaday, 'utf-8');
   const momentRegex = / {2}try { moment =/g;
