@@ -22,18 +22,25 @@
   }
 }
 
-.disabled {
-  .field__select {
-    select {
-      background: $disabled-bg;
-    }
+@media screen {
+  .disabled {
+    .field__select {
+      select {
+        background: $disabled-bg;
+      }
 
-    &::after {
-      display: none;
+      &::after {
+        display: none;
+      }
     }
   }
 }
 
+@media print {
+  &::after {
+    display: none;
+  }
+}
 
 .has-error {
   .field__select {

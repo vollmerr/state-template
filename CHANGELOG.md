@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.2.10 (2019-05-14)
+
+- improve print styling (mainly fields)
+
 ## v0.2.9 (2019-05-08)
 
 - add `react-tooltip` package for tooltips

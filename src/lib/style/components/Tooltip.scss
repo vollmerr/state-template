@@ -2,3 +2,9 @@
   font-size: inherit;
   font-weight: initial;
 }
+
+@media print {
+  .field__label-tooltip {
+    display: none;
+  }
+}
