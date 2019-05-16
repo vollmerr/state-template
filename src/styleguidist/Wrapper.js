@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 
 import { configureStore } from '../lib';
+
+import '../lib/style/core/css/cagov.core.min.css';
 import '../lib/style/core/css/colorscheme-oceanside.min.css';
 
 const initialState = {};

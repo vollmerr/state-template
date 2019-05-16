@@ -1,14 +1,16 @@
-.required-label {
-  color: #9F3123;
-}
+.field__label {
+  .required-label {
+    color: #9F3123;
+  }
 
-.field__label-tooltip {
-  margin-left: 8px;
+  .field__label-tooltip {
+    margin-left: 8px;
 
-  &:hover {
-    > .ca-gov-icon-question-fill {
-      color: $brand-primary;
-      cursor: pointer;
+    &:hover {
+      > .ca-gov-icon-question-fill {
+        color: $brand-primary;
+        cursor: pointer;
+      }
     }
   }
 }

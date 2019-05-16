@@ -23,7 +23,7 @@ const FieldFileLabel = (props) => {
   const tooltipId = `${name}-tooltip`;
 
   return (
-    <div data-test={'label'} className={'field__file-label'}>
+    <div data-test={'label'} className={'field__label field__file-label'}>
       {required && (
         <span data-test={'required'} className={'required-label'} aria-hidden>* </span>
       )}

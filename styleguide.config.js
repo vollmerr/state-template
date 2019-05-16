@@ -13,7 +13,6 @@ module.exports = {
     'src/lib/components/**/[A-Z]*.js',
   ],
   require: [
-    path.join(__dirname, 'src/lib/style/core/css/cagov.core.min.css'),
     path.join(__dirname, 'src/styleguidist/setup.js'),
   ],
   styleguideComponents: {

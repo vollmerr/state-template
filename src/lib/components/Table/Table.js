@@ -57,6 +57,7 @@ class Table extends React.Component {
     const mappedColumns = this.buildColumns(columns);
     const cn = classNames([
       className,
+      'st-table',
       { 'with-events': rowEvents },
     ]);
 
