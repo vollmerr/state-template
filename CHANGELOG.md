@@ -1,5 +1,10 @@
 # state-template - Change Log
 
+## v0.3.0
+
+- bump versions
+- fix not treeshaking in projects that use state-template
+
 ## v0.2.10 (2019-05-14)
 
 - improve print styling (mainly fields)
