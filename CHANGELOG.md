@@ -3,6 +3,7 @@
 ## v0.3.0
 
 - bump versions
+- remove outdated example folder in favor of using starter repo as the example
 - fix not treeshaking in projects that use state-template
 - fix print styling
   - hide date icon in FieldDate

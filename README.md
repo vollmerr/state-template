@@ -24,10 +24,10 @@ import { ButtonRow, Button } from 'state-template';
 ```
 
 ### Project Setup
-To get started using this package clone the starter kit:
+To get started using this package clone the [state-template-starter](https://github.com/vollmerr/state-template-starter):
 
 ```
-git clone https://odibpas.visualstudio.com/React-StateTemplate-StarterKit/_git/React-StateTemplate-StarterKit
+git clone https://github.com/vollmerr/state-template-starter
 ```
 
 ## Docs
