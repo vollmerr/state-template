@@ -1,6 +1,6 @@
 # state-template - Change Log
 
-## v0.3.0
+## v0.3.0 (2019-05-16)
 
 - bump versions
 - make node-sass a prod dependency so included in projects

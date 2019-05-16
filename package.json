@@ -27,7 +27,6 @@
     "update:icons": "node ./scripts/updateIconList.js"
   },
   "peerDependencies": {
-    "node-sass": "4.x",
     "react": "16.x",
     "react-dom": "16.x",
     "react-redux": "7.x",
