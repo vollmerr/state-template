@@ -4,6 +4,11 @@
 
 - bump versions
 - fix not treeshaking in projects that use state-template
+- fix print styling
+  - hide date icon in FieldDate
+- fix accessibility issues
+  - pass correct help id for help blocks in form fields
+  - FieldDate more accessible with keyboard navigation
 
 ## v0.2.10 (2019-05-14)
 

@@ -81,7 +81,7 @@ export const withFieldWrapper = (Component, options = {}) => {
     };
 
     const helpProps = {
-      errorId,
+      helpId,
       helpText,
     };
 
