@@ -19,7 +19,7 @@ const FieldLabel = (props) => {
   const tooltipId = `${name}-tooltip`;
 
   return (
-    <label data-test={'label'} className={'control-label'} htmlFor={name}>
+    <label data-test={'label'} className={'field__label control-label'} htmlFor={name}>
       {required && (
         <span data-test={'required'} className={'required-label'} aria-hidden>* </span>
       )}

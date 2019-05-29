@@ -246,3 +246,9 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     }
   }
 }
+
+@media print {
+  .field__date-icon {
+    display: none;
+  }
+}

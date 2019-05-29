@@ -8,7 +8,21 @@ import { isValid } from '../../utils/date';
 import { withField } from '../Field';
 import Icon from '../Icon';
 
+const keyCodes = {
+  enter: 13,
+  esc: 27,
+  pageUp: 33,
+  pageDown: 34,
+  end: 35,
+  home: 36,
+  left: 37,
+  up: 38,
+  right: 39,
+  down: 40,
+};
+
 // Date picker for redux-form using pikaday library
+// see https://whatsock.com/tsg/Coding%20Arena/ARIA%20Date%20Pickers/ARIA%20Date%20Picker%20(Basic)/demo.htm for accesibility needed
 export class FieldDate extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -27,30 +41,133 @@ export class FieldDate extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { value } = this.props;
     if (value !== nextProps.value) {
-      // update displayed text when value changes
-      const displayText = this.getDate(nextProps.value).slice(0, 10);
-      this.setState({ displayText });
-      // update date in picker
-      this.picker.setDate(nextProps.value);
+      this.updateDate(nextProps.value);
     }
   }
 
-  getDate = (date) => {
+  getDisplayDate = (date) => {
     if (isValid(date)) {
-      return new Date(date).toISOString();
+      return new Date(date).toISOString().slice(0, 10);
     }
     return '';
   }
 
-  onSelect = (date) => {
+  getPickerDate = (date) => {
+    if (isValid(date)) {
+      const d = new Date(date);
+      return new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+    }
+    return '';
+  }
+
+  setWeekStart = () => {
+    const selected = new Date(this.picker.getDate());
+    selected.setDate(selected.getDate() - selected.getDay());
+    this.updateDate(selected);
+  }
+
+  setWeekEnd = () => {
+    const selected = new Date(this.picker.getDate());
+    const dayOfMonth = selected.getDate();
+    const daysLeft = 6 - selected.getDay();
+    selected.setDate(dayOfMonth + daysLeft);
+    this.updateDate(selected);
+  }
+
+  setPrevMonth = () => {
+    const selected = new Date(this.picker.getDate());
+    const month = selected.getMonth();
+    const prevMonth = month === 1 ? 12 : month - 1;
+    selected.setMonth(prevMonth);
+    if (prevMonth === 12) {
+      selected.setFullYear(selected.getFullYear() - 1);
+    }
+    this.updateDate(selected);
+  }
+
+  setNextMonth = () => {
+    const selected = new Date(this.picker.getDate());
+    const month = selected.getMonth();
+    const nextMonth = month === 12 ? 1 : month + 1;
+    selected.setMonth(nextMonth);
+    if (nextMonth === 1) {
+      selected.setFullYear(selected.getFullYear() + 1);
+    }
+    this.updateDate(selected);
+  }
+
+  onChange = (event) => {
+    const { value } = event.target;
+    this.setState({ displayText: value });
+    this.updatePicker(value);
+  }
+
+  onClose = () => {
     const { onChange } = this.props;
-    const newDate = this.getDate(date);
+    const date = this.picker.getDate();
     // update passed in value
     if (onChange) {
-      onChange(newDate);
+      onChange(this.getDisplayDate(date));
     }
     // update display field
-    this.setState({ displayText: newDate.slice(0, 10) });
+    this.updateDisplay(date);
+  }
+
+  onKeyDown = (event) => {
+    const { value } = this.props;
+    const { keyCode } = event;
+
+    // enter => select date
+    if (keyCode === keyCodes.enter) {
+      event.preventDefault();
+      this.picker.hide();
+    }
+    // esc => no action / do not update (revert to what value was)
+    if (keyCode === keyCodes.esc) {
+      event.preventDefault();
+      this.updatePicker(value);
+      this.picker.hide();
+    }
+    // home => go to beggining of row
+    if (keyCode === keyCodes.home) {
+      this.setWeekStart();
+    }
+    // end => go to end of row
+    if (keyCode === keyCodes.end) {
+      this.setWeekEnd();
+    }
+    // pagedown => go to previous month
+    if (keyCode === keyCodes.pageDown) {
+      this.setPrevMonth();
+    }
+    // pageup => go to next month
+    if (keyCode === keyCodes.pageUp) {
+      this.setNextMonth();
+    }
+  }
+
+  onKeyUp = (event) => {
+    const { keyCode } = event;
+    // left, up, right, down => change date
+    if ([keyCodes.up, keyCodes.down, keyCodes.left, keyCodes.right].includes(keyCode)) {
+      event.preventDefault();
+      this.updateDisplay(this.picker.getDate());
+    }
+  }
+
+  updateDisplay = (value) => {
+    const displayText = this.getDisplayDate(value);
+    this.setState({ displayText });
+  }
+
+  updatePicker = (value) => {
+    const pickerValue = this.getPickerDate(value);
+    this.picker.setDate(pickerValue);
+  }
+
+  updateDate = (value) => {
+    this.updateDisplay(value);
+    this.updatePicker(value);
   }
 
   initPikaday = () => {
@@ -59,17 +176,24 @@ export class FieldDate extends React.Component {
     this.picker = new Pikaday({
       minDate,
       field: this.pickerRef.current,
+      onClose: this.onClose,
       onSelect: this.onSelect,
       yearRange: [new Date().getFullYear(), new Date().getFullYear() + 30],
       trigger: this.displayRef.current,
+      format: 'YYYY-MM-DD',
     });
 
-    this.picker.setDate(value);
+    this.updateDate(value);
   }
 
   render() {
     const {
-      disabled, minDate, className, ...rest
+      'aria-describedby': ariaDescBy,
+      className,
+      disabled,
+      minDate,
+      name,
+      ...rest
     } = this.props;
     const { displayText } = this.state;
 
@@ -78,21 +202,35 @@ export class FieldDate extends React.Component {
       className,
     ]);
 
+    const infoId = `${name}--date-info`;
+    const describedby = ariaDescBy ? `${ariaDescBy} ${infoId}` : infoId;
+
     return (
       <div data-test={'field__date'} className={cn}>
         {/* field that will be displayed */}
         <input
           {...rest}
+          autoComplete={'off'}
+          aria-describedby={describedby}
+          className={'form-control'}
+          data-test={'field__date-control'}
           disabled={disabled}
           ref={this.displayRef}
-          className={'form-control'}
+          name={name}
           value={displayText}
-          onChange={() => {}}
-          onBlur={() => {}}
+          onChange={this.onChange}
+          onBlur={this.onClose}
           onFocus={() => {}}
-          autoComplete={'off'}
-          data-test={'field__date-control'}
+          onKeyDown={this.onKeyDown}
+          onKeyUp={this.onKeyUp}
         />
+
+        <p id={infoId} className={'hidden'}>
+          Type a YYYY-MM-DD format date, hit escape to cancel.
+          Use the arrow keys for picking from the date picker.
+          Use page up and down for navigating months.
+          Use home and end for navigating weeks.
+        </p>
 
         {
           !disabled

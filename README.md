@@ -7,6 +7,7 @@
   - [Usage](#usage)
     - [Installation](#installation)
     - [Project Setup](#project-setup)
+    - [Styling](#styling)
   - [Docs](#docs)
   - [Testing](#testing)
     - [Unit Tests](#unit-tests)
@@ -24,10 +25,18 @@ import { ButtonRow, Button } from 'state-template';
 ```
 
 ### Project Setup
-To get started using this package clone the starter kit:
+To get started using this package clone the [state-template-starter](https://github.com/vollmerr/state-template-starter):
 
 ```
-git clone https://odibpas.visualstudio.com/React-StateTemplate-StarterKit/_git/React-StateTemplate-StarterKit
+git clone https://github.com/vollmerr/state-template-starter
+```
+
+### Styling
+This project does not include the state template stlying by default, it can be added by adding the following lines in the projects entry file, where 'oceanside' can be the name of the colorscheme to use:
+
+```
+import 'state-template/dist/style/core/css/cagov.core.min.css';
+import 'state-template/dist/style/core/css/colorscheme-oceanside.min.css';
 ```
 
 ## Docs

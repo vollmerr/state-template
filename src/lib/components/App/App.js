@@ -11,7 +11,6 @@ import Routing from '../Routing';
 import Header from '../Header';
 import Footer from '../Footer';
 
-import '../../style/core/css/cagov.core.min.css';
 import '../../style/style.scss';
 
 /**

@@ -1,5 +1,19 @@
 # state-template - Change Log
 
+## v0.3.0 (2019-05-16)
+
+- bump versions
+- make node-sass a prod dependency so included in projects
+- remove outdated example folder in favor of using starter repo as the example
+- remove importing core state template styling
+- fix not treeshaking in projects that use state-template
+- fix styling
+  - hide date icon in FieldDate on print
+  - make style more specific for stylesheet import order differring
+- fix accessibility issues
+  - pass correct help id for help blocks in form fields
+  - FieldDate more accessible with keyboard navigation
+
 ## v0.2.10 (2019-05-14)
 
 - improve print styling (mainly fields)

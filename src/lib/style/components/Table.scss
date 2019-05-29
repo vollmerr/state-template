@@ -1,67 +1,69 @@
-.table-header {
-  margin-bottom: 15px;
+.st-table {
+  .table-header {
+    margin-bottom: 15px;
 
-  h2 {
+    h2 {
+      margin: 0;
+    }
+
+    .ca-gov-icon-search-right {
+      position: absolute;
+      top: 8px;
+      right: 28px;
+      pointer-events: none;
+    }
+  }
+
+  .react-bootstrap-table {
+    overflow-x: auto;
+
+    .table {
+      table-layout: auto;
+      word-break: break-word;
+    }
+
+    th {
+      border-top: none;
+
+      span {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+    }
+  }
+
+  &.with-events {
+    tr {
+      cursor: pointer;
+
+      &.selected {
+        background: $gray-lighter;
+      }
+    }
+  }
+
+  .react-bootstrap-table-page-btns-ul {
     margin: 0;
-  }
 
-  .ca-gov-icon-search-right {
-    position: absolute;
-    top: 8px;
-    right: 28px;
-    pointer-events: none;
-  }
-}
+    .page-item .page-link {
+      color: $btn-primary-bg;
 
-.react-bootstrap-table {
-  overflow-x: auto;
-
-  .table {
-    table-layout: auto;
-    word-break: break-word;
-  }
-
-  th {
-    border-top: none;
-
-    span {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      &,
+      &:hover {
+        background-image: none;
+      }
     }
-  }
-}
 
-.with-events {
-  tr {
-    cursor: pointer;
-
-    &.selected {
-      background: $gray-lighter;
-    }
-  }
-}
-
-.react-bootstrap-table-page-btns-ul {
-  margin: 0;
-
-  .page-item .page-link {
-    color: $btn-primary-bg;
-
-    &,
-    &:hover {
-      background-image: none;
+    .active.page-item .page-link {
+      color: $btn-primary-color;
+      background: $btn-primary-bg;
+      border-color: $btn-primary-border;
     }
   }
 
-  .active.page-item .page-link {
-    color: $btn-primary-color;
-    background: $btn-primary-bg;
-    border-color: $btn-primary-border;
-  }
-}
-
-.react-bs-table-sizePerPage-dropdown {
-  .dropdown-menu {
-    bottom: 100%;
-    top: auto;
+  .react-bs-table-sizePerPage-dropdown {
+    .dropdown-menu {
+      bottom: 100%;
+      top: auto;
+    }
   }
 }
