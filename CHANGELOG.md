@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.3.1
+
+- allow passing custom helpId and errorId on form fields
+
 ## v0.3.0 (2019-05-16)
 
 - bump versions

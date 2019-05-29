@@ -14,7 +14,9 @@ export const withFieldWrapper = (Component, options = {}) => {
     const {
       className,
       disabled,
+      errorId: errorIdProp,
       helpText,
+      helpId: helpIdProp,
       input,
       label,
       meta,
@@ -31,8 +33,8 @@ export const withFieldWrapper = (Component, options = {}) => {
 
     const { touched, error } = meta;
     const { name } = input;
-    const errorId = `${name}--error`;
-    const helpId = `${name}--help`;
+    const errorId = errorIdProp || `${name}--error`;
+    const helpId = helpIdProp || `${name}--help`;
 
     let errorMessage = '';
     if (touched && error) {
@@ -117,8 +119,14 @@ export const withFieldWrapper = (Component, options = {}) => {
     /** Disable the input */
     disabled: T.bool,
 
+    /** Custom id to use for error message */
+    errorId: T.string,
+
     /** Help text to render under input */
     helpText: T.string,
+
+    /** Custom id to use for help block */
+    helpId: T.string,
 
     /** Input from redux-form's Field, attaches name, value, etc  */
     input: T.object.isRequired,
@@ -142,7 +150,9 @@ export const withFieldWrapper = (Component, options = {}) => {
   WrappedField.defaultProps = {
     className: '',
     disabled: false,
+    errorId: null,
     helpText: '',
+    helpId: null,
     label: '',
     required: false,
     tooltip: null,
