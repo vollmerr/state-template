@@ -1,5 +1,12 @@
 # state-template - Change Log
 
+## v0.3.1 (2019-05-29)
+
+- allow passing custom helpId and errorId on form fields
+- fix FieldDate keyboard events
+- fix print styling, remove using global color-adjust due to issues
+- bump versions
+
 ## v0.3.0 (2019-05-16)
 
 - bump versions

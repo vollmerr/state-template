@@ -28,13 +28,21 @@
 }
 
 @media print {
-  input[type="checkbox"]:checked {
+  input[type="checkbox"] {
     + .check-icon-checkbox > i {
-      border: 10px solid $brand-primary;
+      &::before {
+        display: none;
+      }
     }
 
-    + .btn {
-      border: 1px solid $brand-primary;
+    &:checked {
+      + .check-icon-checkbox > i {
+        border: 9px solid $brand-primary;
+      }
+
+      + .btn {
+        border: 1px solid $brand-primary;
+      }
     }
   }
 }

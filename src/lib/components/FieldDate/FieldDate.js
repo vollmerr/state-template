@@ -130,18 +130,22 @@ export class FieldDate extends React.Component {
     }
     // home => go to beggining of row
     if (keyCode === keyCodes.home) {
+      event.preventDefault();
       this.setWeekStart();
     }
     // end => go to end of row
     if (keyCode === keyCodes.end) {
+      event.preventDefault();
       this.setWeekEnd();
     }
     // pagedown => go to previous month
     if (keyCode === keyCodes.pageDown) {
+      event.preventDefault();
       this.setPrevMonth();
     }
     // pageup => go to next month
     if (keyCode === keyCodes.pageUp) {
+      event.preventDefault();
       this.setNextMonth();
     }
   }
