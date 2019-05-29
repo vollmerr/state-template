@@ -39,7 +39,9 @@ describe('FieldDate', () => {
   });
 
   it('should handle invalid dates', () => {
-    const date = instance.getDate('invalid date');
-    expect(date).toBe('');
+    const pickerDate = instance.getPickerDate('invalid date');
+    const displayDate = instance.getDisplayDate('invalid date');
+    expect(pickerDate).toBe('');
+    expect(displayDate).toBe('');
   });
 });

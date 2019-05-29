@@ -3,6 +3,7 @@
 ## v0.3.1
 
 - allow passing custom helpId and errorId on form fields
+- fix FieldDate keyboard events
 
 ## v0.3.0 (2019-05-16)
 
