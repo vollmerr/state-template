@@ -3,6 +3,7 @@
 ## v0.3.2
 
 - add license
+- add version to Footer
 
 ## v0.3.1 (2019-05-29)
 
