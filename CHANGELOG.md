@@ -1,5 +1,11 @@
 # state-template - Change Log
 
+## v0.3.2 (2019-06-04)
+
+- add license
+- add version to Footer
+- bump versions
+
 ## v0.3.1 (2019-05-29)
 
 - allow passing custom helpId and errorId on form fields

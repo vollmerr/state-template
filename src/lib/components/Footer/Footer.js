@@ -8,8 +8,19 @@ const externalLink = {
   rel: 'noopener noreferrer',
 };
 
+/**
+ * Renders a footer with links to policies and social media.
+ * Additionally renders a copyright for the current year and
+ * a version number as specified by the `REACT_APP_VERSION` variable
+ *
+ * To retrieve the variable from the package.json's version use
+ * `REACT_APP_VERSION=$npm_package_version`
+ * in the .env file
+ * */
 class Footer extends React.Component {
   getCopyRight = () => `Copyright \u00A9 ${new Date().getFullYear()}`
+
+  getVersion = () => (process.env.REACT_APP_VERSION ? `v${process.env.REACT_APP_VERSION}` : '')
 
   render() {
     const { contactLink } = this.props;
@@ -59,8 +70,9 @@ class Footer extends React.Component {
           </div>
 
           <div className="copyright">
-            <div className="container">
-              {this.getCopyRight()}
+            <div className="container d-flex justify-content-between">
+              <span>{this.getCopyRight()}</span>
+              <span>{this.getVersion()}</span>
             </div>
           </div>
         </footer>

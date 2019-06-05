@@ -135,9 +135,14 @@ exports[`Footer should render correctly 1`] = `
       className="copyright"
     >
       <div
-        className="container"
+        className="container d-flex justify-content-between"
       >
-        Copyright © 2000
+        <span>
+          Copyright © 2000
+        </span>
+        <span>
+          vTEST_REACT_APP_VERSION
+        </span>
       </div>
     </div>
   </footer>
