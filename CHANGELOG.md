@@ -4,6 +4,7 @@
 
 - add license
 - add version to Footer
+- bump versions
 
 ## v0.3.1 (2019-05-29)
 
