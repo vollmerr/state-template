@@ -1,6 +1,6 @@
 # state-template - Change Log
 
-## v0.3.2
+## v0.3.2 (2019-06-04)
 
 - add license
 - add version to Footer
