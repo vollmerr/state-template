@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page should render correctly 1`] = `
+<Fragment>
+  <BannerPrimary
+    src="test-banner-src"
+  />
+  <MainContent
+    className="test-class"
+  >
+    <MainPrimary>
+      <Section
+        variant="standout"
+      >
+        <Container>
+          <h1
+            className="m-b-0"
+          >
+            test-title
+          </h1>
+        </Container>
+      </Section>
+      <Section
+        variant={null}
+      >
+        <Container>
+          test-children
+        </Container>
+      </Section>
+    </MainPrimary>
+  </MainContent>
+</Fragment>
+`;

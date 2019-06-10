@@ -6,8 +6,8 @@ const LayoutBase = (props) => {
   const {
     baseClass,
     children,
-    tag: Tag,
     className,
+    tag: Tag,
     ...rest
   } = props;
 
@@ -26,14 +26,14 @@ const LayoutBase = (props) => {
 LayoutBase.propTypes = {
   baseClass: T.string,
   children: T.node.isRequired,
-  tag: T.node,
   className: T.string,
+  tag: T.node,
 };
 
 LayoutBase.defaultProps = {
   baseClass: '',
-  tag: 'div',
   className: '',
+  tag: 'div',
 };
 
 export default LayoutBase;
