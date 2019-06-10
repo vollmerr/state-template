@@ -10,7 +10,13 @@ const fs = require('fs');
 const path = require('path');
 
 const fixPikaday = () => {
-  const pikaday = path.resolve('.', 'node_modules', 'pikaday', 'pikaday.js');
+  // running from outside node modules
+  let pikaday = path.resolve('.', 'node_modules', 'pikaday', 'pikaday.js');
+  // doesnt exist, try running from inside node_modules
+  if (!fs.existsSync(pikaday)) {
+    pikaday = path.resolve('..', 'pikaday', 'pikaday.js');
+  }
+
   // read pikaday file
   const data = fs.readFileSync(pikaday, 'utf-8');
   const momentRegex = / {2}try { moment =/g;

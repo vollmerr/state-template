@@ -5,6 +5,7 @@
 - update core to state template 5.0.7
 - update dependency versions
 - add unit tests (Layout)
+- fix removing pikaday warning on postinstall
 
 ## v0.3.2 (2019-06-04)
 
