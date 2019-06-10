@@ -141,7 +141,7 @@ exports[`Footer should render correctly 1`] = `
           Copyright © 2000
         </span>
         <span>
-          vTEST_REACT_APP_VERSION
+          v0.0.1
         </span>
       </div>
     </div>

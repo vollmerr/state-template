@@ -7,3 +7,5 @@ import goldenGate from './images/goldenGate.jpg';
 global.ExampleForm = ExampleForm;
 global.ExampleRedux = ExampleRedux;
 global.goldenGate = goldenGate;
+
+process.env.REACT_APP_VERSION = '0.0.1';

@@ -11,7 +11,7 @@ exports[`App render should render correctly 1`] = `
         Object {
           "alt": "Office of Digital Innovation logo",
           "href": "https://cdt.ca.gov/",
-          "src": "office-of-digital-innovation-logo.png",
+          "src": "TEST_IMAGE",
         }
       }
       contactLink={

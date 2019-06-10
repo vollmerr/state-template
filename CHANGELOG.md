@@ -1,5 +1,15 @@
 # state-template - Change Log
 
+## v0.3.4 (2019-06-10)
+
+- remove react-scripts / add following:
+  - eslint packages
+  - webpack packages and config (for styleguidist server only)
+  - jest packages and config, updated test scripts
+- add new `lib/test` folder for test utilities
+- remove `.env` files in favour of hard coding in tests/docs
+- update tests
+
 ## v0.3.3 (2019-06-10)
 
 - update core to state template 5.0.7

@@ -24,7 +24,7 @@ exports[`Header should render correctly 1`] = `
     <Branding
       alt="Office of Digital Innovation logo"
       href="https://cdt.ca.gov/"
-      src="office-of-digital-innovation-logo.png"
+      src="TEST_IMAGE"
       to=""
     />
     <MobileControls
