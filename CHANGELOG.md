@@ -1,6 +1,6 @@
 # state-template - Change Log
 
-## v0.3.3
+## v0.3.3 (2019-06-10)
 
 - update core to state template 5.0.7
 - update dependency versions
