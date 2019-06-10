@@ -3,23 +3,24 @@
 ## v0.3.3
 
 - update core to state template 5.0.7
+- update dependency versions
 
 ## v0.3.2 (2019-06-04)
 
 - add license
 - add version to Footer
-- bump versions
+- update dependency versions
 
 ## v0.3.1 (2019-05-29)
 
 - allow passing custom helpId and errorId on form fields
 - fix FieldDate keyboard events
 - fix print styling, remove using global color-adjust due to issues
-- bump versions
+- update dependency versions
 
 ## v0.3.0 (2019-05-16)
 
-- bump versions
+- update dependency versions
 - make node-sass a prod dependency so included in projects
 - remove outdated example folder in favor of using starter repo as the example
 - remove importing core state template styling
@@ -34,7 +35,7 @@
 ## v0.2.10 (2019-05-14)
 
 - improve print styling (mainly fields)
-- bump versions
+- update dependency versions
   - backstop v4 (update all ref images...)
 
 ## v0.2.9 (2019-05-08)
@@ -56,7 +57,7 @@
 
 - update icon definitions on build
 - remove unused scripts
-- bump versions
+- update dependency versions
   - react-router-dom v5
   - react-redux v7
 
@@ -65,7 +66,7 @@
 - update core font and images to state template 5.0.6
 - remove core state template js
 - fix disabled field styling / make consistent with bootstrap 4
-- bump package versions 
+- update dependency versions 
   - react-scripts v3
 
 ## v0.2.5 (2019-04-17)
@@ -83,7 +84,7 @@
 ## v0.2.3 (2019-04-16)
 
 - fix settings bar not toggling / update to new state template
-- bump package versions
+- update dependency versions
 
 ## v0.2.2 (2019-04-09)
 
@@ -103,7 +104,7 @@
 ## v0.2.0 (2019-04-05)
 
 - update / add missing ts definitions
-- bump package versions
+- update dependency versions
 - hard code react-styleguidist version (9.0.5 broken)
 - remove FieldTime, FieldWrapper components
 - refactor field HOCs (withField)
@@ -133,12 +134,12 @@
 
 ## v0.1.5 (2019-02-14)
 
-- bump package versions
+- update dependency versions
 
 ## v0.1.4 (2019-02-14)
 
 - fix checkbox field styling
-- bump package versions
+- update dependency versions
 - update fix pikaday script to only run once, add to postinstall
 - add state template font to example and docs / update in visual tests
 - add delay to visual regression tests (for transitions)
@@ -149,7 +150,7 @@
 - App now requires history be passed, Router defaults to react-router-dom's
 - fix Messages styling to be centered
 - change all components from PureComponent to Component
-- bump package versions
+- update dependency versions
 - add history as dependency
 - add example robots.txt file
 
@@ -179,7 +180,7 @@
   - now export all components in index.js
   - change doc file location computation
   - add script for updating example with build
-  - bump package versions
+  - update dependency versions
   - add example project as folder
   - add clickSelectorAll for backstop to click all elements
 
