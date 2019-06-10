@@ -5,8 +5,9 @@ import { Section as fromLib } from '../..';
 import Section from './Section';
 
 const props = {
-  variant: 'standout',
+  children: 'test-children',
   className: 'test-class',
+  variant: 'standout',
 };
 
 let wrapper;

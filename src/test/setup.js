@@ -1,11 +1,9 @@
-// Create React App requires this file to be placed in this location, with this name.
-
 /* eslint-disable import/no-extraneous-dependencies */
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MockDate from 'mockdate';
 
-import * as testUtils from './lib/utils/testUtils';
+import * as testUtils from './testUtils';
 
 jest.mock('lodash.debounce');
 
@@ -16,3 +14,5 @@ MockDate.set('1/1/2000');
 
 // attach to global for easier access in tests
 global.testUtils = testUtils;
+
+process.env.REACT_APP_VERSION = '0.0.1';

@@ -5,5 +5,7 @@ exports[`Section should render correctly 1`] = `
   baseClass="section section-standout"
   className="test-class"
   tag="div"
-/>
+>
+  test-children
+</LayoutBase>
 `;
