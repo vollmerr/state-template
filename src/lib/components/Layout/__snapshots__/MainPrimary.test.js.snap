@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPrimary should render correctly 1`] = `
+<LayoutBase
+  baseClass="main-primary"
+  className="test-class"
+  tag="main"
+>
+  test-children
+</LayoutBase>
+`;

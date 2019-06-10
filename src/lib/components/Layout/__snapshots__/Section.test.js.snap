@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Section should render correctly 1`] = `
+<LayoutBase
+  baseClass="section section-standout"
+  className="test-class"
+  tag="div"
+/>
+`;

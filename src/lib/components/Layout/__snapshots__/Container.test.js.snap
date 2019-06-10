@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container should render correctly 1`] = `
+<LayoutBase
+  baseClass="container"
+  className="test-class"
+  tag="div"
+>
+  test-children
+</LayoutBase>
+`;

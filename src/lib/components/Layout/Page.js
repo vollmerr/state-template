@@ -8,10 +8,14 @@ import MainContent from './MainContent';
 import MainPrimary from './MainPrimary';
 
 const Page = ({
-  children, title, bannerSrc, className,
+  bannerSrc,
+  children,
+  className,
+  title,
 }) => (
   <>
     {bannerSrc && <BannerPrimary src={bannerSrc} />}
+
     <MainContent className={className}>
       <MainPrimary>
         {
@@ -23,6 +27,7 @@ const Page = ({
           </Section>
           )
         }
+
         <Section>
           <Container>
             {children}
@@ -37,21 +42,21 @@ Page.propTypes = {
   /** Banner image src */
   bannerSrc: T.string,
 
-  /** Page title  */
-  title: T.string,
-
   /** Page content */
   children: T.node,
 
   /** Class name to attach to main content */
   className: T.string,
+
+  /** Page title  */
+  title: T.string,
 };
 
 Page.defaultProps = {
   bannerSrc: null,
-  title: null,
   children: null,
   className: null,
+  title: null,
 };
 
 export default Page;

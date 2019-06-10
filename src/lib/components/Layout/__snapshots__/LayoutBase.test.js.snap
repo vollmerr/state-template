@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutBase should render correctly 1`] = `
+<div
+  className="test-baseclass test-class"
+>
+  test-children
+</div>
+`;
