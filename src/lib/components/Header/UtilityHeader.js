@@ -8,52 +8,36 @@ import govLogo from '../../images/Ca-Gov-Logo-Gold.svg';
 import A from '../A';
 
 const UtilityHeader = ({ toggleSettingsOpen, contactLink, title }) => (
-  <div className="utility-header">
-    <div className="container">
-      <div className="group">
-        <div className="half">
-          <ul className="utility-links social-media-links">
-            <li>
-              <div className="header-cagov-logo">
-                <a href="http://www.ca.gov/"><img src={govLogo} alt="Ca Gov Logo" /></a>
-              </div>
-            </li>
-            <li>
-              {
-                title
-                  ? <div className="header-title">{title}</div>
-                  : (
-                    <Link to={'/'}>
-                      <span className="ca-gov-icon-home" aria-hidden="true" />
-                      <span className="sr-only">Home</span>
-                    </Link>
-                  )
-              }
-            </li>
-            {/* <li><a className="ca-gov-icon-facebook" title="Share via Facebook">
-            <span className="sr-only">Facebook</span></a></li>
-            <li><a className="ca-gov-icon-twitter" title="Share via Twitter">
-            <span className="sr-only">Twitter</span></a></li>
-            <li><a className="ca-gov-icon-google-plus" title="Share via Google+">
-            <span className="sr-only">Google+</span></a></li>
-            <li><a className="ca-gov-icon-email" title="Share via email">
-            <span className="sr-only">Email</span></a></li> */}
-          </ul>
+  <div className={'utility-header'}>
+    <div className={'container'}>
+      <div className={'group flex-row'}>
+        <div className={'social-media-links'}>
+          <div className={'header-cagov-logo'}>
+            <a href={'http://www.ca.gov/'}>
+              <span className={'sr-only'}>CA.gov</span>
+              <img className={'pos-rel'} aria-hidden={'true'} src={govLogo} alt={'Ca Gov Logo'} />
+            </a>
+          </div>
+
+          {
+            title
+              ? <div className={'header-title'}>{title}</div>
+              : (
+                <Link to={'/'}>
+                  <span className={'ca-gov-icon-home'} aria-hidden={'true'} />
+                  <span className={'sr-only'}>Home</span>
+                </Link>
+              )
+          }
         </div>
 
-        <div className="half settings-links p-t-sm">
-          <ul className="utility-links">
-            <li>
-              <A {...contactLink} />
-            </li>
-            <li>
-              <button onClick={toggleSettingsOpen} type={'button'} className="btn btn-xs btn-primary" aria-expanded="false" aria-controls="siteSettings">
-                <span className="ca-gov-icon-gear" aria-hidden="true" />
-                {' '}
-Settings
-              </button>
-            </li>
-          </ul>
+        <div className={'settings-links'}>
+          <A {...contactLink} />
+          <button onClick={toggleSettingsOpen} type={'button'} className={'btn btn-xs btn-primary'} aria-expanded={'false'} aria-controls={'siteSettings'}>
+            <span className={'ca-gov-icon-gear'} aria-hidden={'true'} />
+            {' '}
+            Settings
+          </button>
         </div>
       </div>
     </div>

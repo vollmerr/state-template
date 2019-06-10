@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.3.3
+
+- update core to state template 5.0.7
+
 ## v0.3.2 (2019-06-04)
 
 - add license
