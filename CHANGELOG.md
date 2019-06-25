@@ -1,5 +1,13 @@
 # state-template - Change Log
 
+## v0.3.5 (2019-06-25)
+
+- fix readme
+- fix table header styling when no menu
+- add babel-eslint for linting
+- update dependency versions
+  - hard code react-styleguidist, issue with rendering form fields
+
 ## v0.3.4 (2019-06-10)
 
 - remove react-scripts / add following:

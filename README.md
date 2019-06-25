@@ -1,18 +1,18 @@
 # state-template
-[CA State Template](https://webstandards.ca.gov/state-template-v5/) (v5.0.6) styled react components.
+[CA State Template](https://webstandards.ca.gov/state-template-v5/) (v5.0.7) styled react components.
 
 [![npm version](https://img.shields.io/npm/v/state-template.svg?style=flat)](https://www.npmjs.com/package/state-template)
 
 - [state-template](#state-template)
-  - [Usage](#usage)
-    - [Installation](#installation)
-    - [Project Setup](#project-setup)
-    - [Styling](#styling)
-  - [Docs](#docs)
-  - [Testing](#testing)
-    - [Unit Tests](#unit-tests)
-    - [Visual Regression Tests](#visual-regression-tests)
-  - [Caveats](#caveats)
+  - [Usage](#Usage)
+    - [Installation](#Installation)
+    - [Project Setup](#Project-Setup)
+    - [Styling](#Styling)
+  - [Docs](#Docs)
+  - [Testing](#Testing)
+    - [Unit Tests](#Unit-Tests)
+    - [Visual Regression Tests](#Visual-Regression-Tests)
+  - [Caveats](#Caveats)
 
 ## Usage
 ### Installation
