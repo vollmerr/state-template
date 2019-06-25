@@ -3,6 +3,7 @@
 ## v0.3.5
 
 - fix readme
+- add babel-eslint for linting
 
 ## v0.3.4 (2019-06-10)
 
