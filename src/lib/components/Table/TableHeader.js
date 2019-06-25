@@ -44,7 +44,7 @@ class TableHeader extends React.Component {
     // push menu above title if it exists
     let className = 'col-12 col-sm-6';
     if (!title && !menu) {
-      className = 'col-12 col-sm-6 col-sm-offset-6';
+      className = 'col-12 col-sm-6 offset-sm-6';
     }
 
     if (onSearch) {

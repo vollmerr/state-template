@@ -4,6 +4,7 @@
 
 - fix readme
 - add babel-eslint for linting
+- fix table header styling when no menu
 
 ## v0.3.4 (2019-06-10)
 
