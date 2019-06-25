@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.3.5
+
+- fix readme
+
 ## v0.3.4 (2019-06-10)
 
 - remove react-scripts / add following:
