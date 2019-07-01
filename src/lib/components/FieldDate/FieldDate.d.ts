@@ -16,7 +16,7 @@ export interface FieldDateProps extends HTMLInputElement {
   /** Id of field */
   id?: string;
 
-  /** aria-label for the field */
+  /** Label for the field */
   label: string;
 
   /** Minimum date able to select */

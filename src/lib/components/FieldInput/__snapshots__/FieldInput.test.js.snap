@@ -13,6 +13,7 @@ exports[`FieldInput should render correctly 1`] = `
   onBlur={[MockFunction]}
   onChange={[MockFunction]}
   onFocus={[MockFunction]}
+  placeholder="Enter test-label"
   value="test-value"
 />
 `;

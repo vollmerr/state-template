@@ -10,6 +10,7 @@ const initialValues = {
     helpText={'This is the `helpText` content...'}
     onChange={(e,v) => { console.log('changing...', e, v) }}
     tooltip={'Example tooltip!'}
+    placeholder={'Custom Placeholder...'}
   />
   <FieldInput 
     required

@@ -13,6 +13,7 @@ const initialValues = {
     ]}
     helpText={'This is the `helpText` content...'}
     tooltip={'Example tooltip!'}
+    placeholder={'Custom placeholder'}
   />
   <FieldSelect 
     required

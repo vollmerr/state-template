@@ -21,7 +21,7 @@ export interface FieldRadioButtonsProps extends HTMLInputElement {
   /** Display inline */
   inline?: boolean;
 
-  /** aria-label for the field */
+  /** Label for the field */
   label: string;
 
   /** Name of field */

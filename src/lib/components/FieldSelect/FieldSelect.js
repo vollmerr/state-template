@@ -11,8 +11,10 @@ import { withField } from '../Field';
 export const FieldSelect = (props) => {
   const {
     className,
+    label,
     multiple,
     options,
+    placeholder,
     value,
     ...rest
   } = props;
@@ -29,7 +31,9 @@ export const FieldSelect = (props) => {
   return (
     <div data-test={'field__select'} className={cn}>
       <select multiple={multiple} value={mappedValue} className={'form-control'} {...rest}>
-        <option disabled hidden style={{ display: 'none' }} value={''} />
+        <option disabled hidden style={{ display: 'none' }} value={''}>
+          {placeholder || `Select ${label}`}
+        </option>
         {
           options.filter(x => !x.hidden).map(option => (
             <option key={option.value} value={option.value}>{option.label}</option>
@@ -56,7 +60,7 @@ FieldSelect.propTypes = {
   /** Id of field */
   id: T.string,
 
-  /** aria-label for the field */
+  /** Label for the field */
   label: T.string.isRequired,
 
   /** Allow multiple selecting */
@@ -77,6 +81,9 @@ FieldSelect.propTypes = {
   /** Options to select from */
   options: T.arrayOf(propUtils.option).isRequired,
 
+  /** Placeholder to display when no value */
+  placeholder: T.string,
+
   /** Value of option */
   value: T.any,
 };
@@ -91,6 +98,7 @@ FieldSelect.defaultProps = {
   onBlur: null,
   onChange: null,
   onFocus: null,
+  placeholder: '',
   value: null,
 };
 

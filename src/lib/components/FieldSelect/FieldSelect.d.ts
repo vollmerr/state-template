@@ -16,7 +16,7 @@ export interface FieldSelectProps extends HTMLSelectElement {
   /** Id of field */
   id?: string;
 
-  /** aria-label for the field */
+  /** Label for the field */
   label: string;
 
   /** Allow multiple selecting */
@@ -36,6 +36,9 @@ export interface FieldSelectProps extends HTMLSelectElement {
 
   /** Options to select from  */
   options: Array<types.Option>;
+
+  /** Placeholder to display when no value */
+  placeholder?: string;
 
   /** Value of the field */
   value?: string;

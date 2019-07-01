@@ -2,9 +2,10 @@
 
 ## v0.3.6
 
-- update dev dependency versions
-- fix inconsistent disabled field styling
-- fix only running lib's unit tests
+- (chore) update dev dependency versions
+- (fix) inconsistent disabled field styling
+- (fix) only running lib's unit tests
+- (feat) allow field placeholders / add default
 
 ## v0.3.5 (2019-06-25)
 
