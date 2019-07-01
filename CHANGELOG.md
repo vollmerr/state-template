@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.3.6
+
+- update dev dependency versions
+
 ## v0.3.5 (2019-06-25)
 
 - fix readme
