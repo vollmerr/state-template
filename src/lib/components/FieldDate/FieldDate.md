@@ -1,6 +1,7 @@
 ```jsx
 const initialValues = {
   date: '2019-01-02',
+  disabledDate: '01/02/1969',
 };
 
 <ExampleForm form={'date'} initialValues={initialValues} >

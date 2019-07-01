@@ -1,8 +1,6 @@
 @media screen {
   .disabled {
     .field__checkboxes {
-      color: $disabled-fg;
-
       .btn {
         background: $disabled-bg;
       }

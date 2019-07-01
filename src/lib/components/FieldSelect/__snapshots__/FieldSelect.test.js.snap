@@ -8,6 +8,7 @@ exports[`FieldSelect should render correctly 1`] = `
   <select
     aria-describedby="aria-desc-id"
     aria-invalid="false"
+    className="form-control"
     disabled={false}
     id="test-id"
     label="test-label"

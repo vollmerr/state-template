@@ -1,5 +1,9 @@
 ```jsx
-<ExampleForm form={'input'}>
+const initialValues = {
+  disabledInput: 'Example disabled input...',
+};
+
+<ExampleForm form={'input'} initialValues={initialValues}>
   <FieldInput
     name={'input'}
     label={'Input'}

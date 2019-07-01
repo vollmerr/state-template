@@ -1,8 +1,6 @@
 @media screen {
   .disabled {
     .field__radio-buttons {
-      color: $disabled-fg;
-
       .btn {
         background: $disabled-bg;
       }

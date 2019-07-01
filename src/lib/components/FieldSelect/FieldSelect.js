@@ -28,7 +28,7 @@ export const FieldSelect = (props) => {
 
   return (
     <div data-test={'field__select'} className={cn}>
-      <select multiple={multiple} value={mappedValue} {...rest}>
+      <select multiple={multiple} value={mappedValue} className={'form-control'} {...rest}>
         <option disabled hidden style={{ display: 'none' }} value={''} />
         {
           options.filter(x => !x.hidden).map(option => (

@@ -3,6 +3,7 @@
 ## v0.3.6
 
 - update dev dependency versions
+- fix inconsistent disabled field styling
 
 ## v0.3.5 (2019-06-25)
 
