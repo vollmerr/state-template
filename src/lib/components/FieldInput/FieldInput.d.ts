@@ -16,7 +16,7 @@ export interface FieldInputProps extends HTMLInputElement {
   /** Id of field */
   id?: string;
 
-  /** aria-label for the field */
+  /** Label for the field */
   label: string;
 
   /** Name of field */
@@ -33,6 +33,9 @@ export interface FieldInputProps extends HTMLInputElement {
 
   /** HTML tag to render as */
   tag?: string | React.ReactNode;
+
+  /** Placeholder to display when no value */
+  placeholder?: string;
 
   /** Value of the field */
   value?: string;

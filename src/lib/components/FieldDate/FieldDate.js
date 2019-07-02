@@ -196,7 +196,9 @@ export class FieldDate extends React.Component {
       className,
       disabled,
       minDate,
+      label,
       name,
+      placeholder,
       ...rest
     } = this.props;
     const { displayText } = this.state;
@@ -224,9 +226,10 @@ export class FieldDate extends React.Component {
           value={displayText}
           onChange={this.onChange}
           onBlur={this.onClose}
-          onFocus={() => {}}
+          onFocus={() => { }}
           onKeyDown={this.onKeyDown}
           onKeyUp={this.onKeyUp}
+          placeholder={placeholder || `Select ${label}`}
         />
 
         <p id={infoId} className={'hidden'}>
@@ -274,7 +277,7 @@ FieldDate.propTypes = {
   /** Id of field */
   id: T.string,
 
-  /** aria-label for the field */
+  /** Label for the field */
   label: T.string.isRequired,
 
   /** Minimum date able to select */
@@ -285,6 +288,9 @@ FieldDate.propTypes = {
 
   /** Called when radio button changes */
   onChange: T.func,
+
+  /** Placeholder to display when no value */
+  placeholder: T.string,
 
   /** Value of date selected */
   value: T.string,
@@ -298,6 +304,7 @@ FieldDate.defaultProps = {
   id: null,
   minDate: null,
   onChange: null,
+  placeholder: '',
   value: null,
 };
 

@@ -25,7 +25,7 @@ export interface FieldFileProps extends HTMLInputElement {
   /** Id of field */
   id?: string;
 
-  /** aria-label for the field */
+  /** Label for the field */
   label: string;
 
   /** Indicates that the user may choose more than one file */

@@ -1,6 +1,6 @@
 ```jsx
 const initialValues = {
-  date: '2019-01-02',
+  disabledDate: '01/02/1969',
 };
 
 <ExampleForm form={'date'} initialValues={initialValues} >
@@ -9,6 +9,7 @@ const initialValues = {
     label={'Date'}
     helpText={'This is the `helpText` content...'}
     tooltip={'Example tooltip!'}
+    placeholder={'Custom Placeholder...'}
   />
   <FieldDate 
     required

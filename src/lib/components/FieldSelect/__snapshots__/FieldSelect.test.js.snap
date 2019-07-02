@@ -8,9 +8,9 @@ exports[`FieldSelect should render correctly 1`] = `
   <select
     aria-describedby="aria-desc-id"
     aria-invalid="false"
+    className="form-control"
     disabled={false}
     id="test-id"
-    label="test-label"
     multiple={false}
     name="test-name"
     onBlur={[MockFunction]}
@@ -27,7 +27,9 @@ exports[`FieldSelect should render correctly 1`] = `
         }
       }
       value=""
-    />
+    >
+      Select test-label
+    </option>
     <option
       key="value-1"
       value="value-1"
