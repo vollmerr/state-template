@@ -3,6 +3,7 @@
 ## v0.3.7
 
 - (fix) revert having field placeholders / defaults, rely on help text instead
+- (fix) hide icons from screen reader
 
 ## v0.3.6 (2019-07-01)
 
