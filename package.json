@@ -1,6 +1,6 @@
 {
   "name": "state-template",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "sideEffects": false,

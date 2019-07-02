@@ -1,6 +1,10 @@
 # state-template - Change Log
 
-## v0.3.6
+## v0.3.7
+
+- (fix) revert having field placeholders / defaults, rely on help text instead
+
+## v0.3.6 (2019-07-01)
 
 - (chore) update dev dependency versions
 - (fix) inconsistent disabled field styling

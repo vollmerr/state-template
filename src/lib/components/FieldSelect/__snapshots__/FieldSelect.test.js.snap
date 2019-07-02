@@ -27,9 +27,7 @@ exports[`FieldSelect should render correctly 1`] = `
         }
       }
       value=""
-    >
-      Select test-label
-    </option>
+    />
     <option
       key="value-1"
       value="value-1"

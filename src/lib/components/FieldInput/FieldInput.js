@@ -9,8 +9,6 @@ import { withField } from '../Field';
 export const FieldInput = (props) => {
   const {
     className,
-    label,
-    placeholder,
     tag: Tag,
     ...rest
   } = props;
@@ -25,8 +23,6 @@ export const FieldInput = (props) => {
     <Tag
       data-test={'field__input'}
       className={cn}
-      label={label}
-      placeholder={placeholder || `Enter ${label}`}
       {...rest}
     />
   );
@@ -63,9 +59,6 @@ FieldInput.propTypes = {
   /** Called when radio button is focused */
   onFocus: T.func,
 
-  /** Placeholder to display when no value */
-  placeholder: T.string,
-
   /** HTML tag to render as */
   tag: T.node,
 
@@ -82,7 +75,6 @@ FieldInput.defaultProps = {
   onBlur: null,
   onChange: null,
   onFocus: null,
-  placeholder: '',
   tag: 'input',
   value: null,
 };
