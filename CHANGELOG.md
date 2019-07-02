@@ -4,6 +4,7 @@
 
 - (fix) revert having field placeholders / defaults, rely on help text instead
 - (fix) hide icons from screen reader
+- (fix) button with icon styling 
 
 ## v0.3.6 (2019-07-01)
 
