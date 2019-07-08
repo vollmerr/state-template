@@ -1,6 +1,6 @@
 # state-template - Change Log
 
-## v0.3.7
+## v0.3.7 (2019-07-08)
 
 - (fix) revert having field placeholders / defaults, rely on help text instead
 - (fix) hide icons from screen reader
