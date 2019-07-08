@@ -9,7 +9,6 @@ const initialValues = {
     label={'Date'}
     helpText={'This is the `helpText` content...'}
     tooltip={'Example tooltip!'}
-    placeholder={'Custom Placeholder...'}
   />
   <FieldDate 
     required

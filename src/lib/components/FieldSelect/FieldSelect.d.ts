@@ -37,9 +37,6 @@ export interface FieldSelectProps extends HTMLSelectElement {
   /** Options to select from  */
   options: Array<types.Option>;
 
-  /** Placeholder to display when no value */
-  placeholder?: string;
-
   /** Value of the field */
   value?: string;
 }

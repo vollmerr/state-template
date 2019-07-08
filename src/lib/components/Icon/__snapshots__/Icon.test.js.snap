@@ -2,6 +2,7 @@
 
 exports[`Icon should render correctly 1`] = `
 <span
+  aria-hidden={true}
   className="ca-gov-icon-test text"
   data-test="icon"
 />

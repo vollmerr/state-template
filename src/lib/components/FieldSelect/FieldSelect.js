@@ -14,7 +14,6 @@ export const FieldSelect = (props) => {
     label,
     multiple,
     options,
-    placeholder,
     value,
     ...rest
   } = props;
@@ -31,9 +30,7 @@ export const FieldSelect = (props) => {
   return (
     <div data-test={'field__select'} className={cn}>
       <select multiple={multiple} value={mappedValue} className={'form-control'} {...rest}>
-        <option disabled hidden style={{ display: 'none' }} value={''}>
-          {placeholder || `Select ${label}`}
-        </option>
+        <option disabled hidden style={{ display: 'none' }} value={''} />
         {
           options.filter(x => !x.hidden).map(option => (
             <option key={option.value} value={option.value}>{option.label}</option>
@@ -81,9 +78,6 @@ FieldSelect.propTypes = {
   /** Options to select from */
   options: T.arrayOf(propUtils.option).isRequired,
 
-  /** Placeholder to display when no value */
-  placeholder: T.string,
-
   /** Value of option */
   value: T.any,
 };
@@ -98,7 +92,6 @@ FieldSelect.defaultProps = {
   onBlur: null,
   onChange: null,
   onFocus: null,
-  placeholder: '',
   value: null,
 };
 

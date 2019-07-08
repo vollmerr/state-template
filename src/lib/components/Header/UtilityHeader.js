@@ -6,6 +6,7 @@ import * as propUtils from '../../utils/propTypes';
 import govLogo from '../../images/Ca-Gov-Logo-Gold.svg';
 
 import A from '../A';
+import Button from '../Button';
 
 const UtilityHeader = ({ toggleSettingsOpen, contactLink, title }) => (
   <div className={'utility-header'}>
@@ -33,11 +34,15 @@ const UtilityHeader = ({ toggleSettingsOpen, contactLink, title }) => (
 
         <div className={'settings-links'}>
           <A {...contactLink} />
-          <button onClick={toggleSettingsOpen} type={'button'} className={'btn btn-xs btn-primary'} aria-expanded={'false'} aria-controls={'siteSettings'}>
-            <span className={'ca-gov-icon-gear'} aria-hidden={'true'} />
-            {' '}
-            Settings
-          </button>
+          <Button
+            aria-expanded={'false'}
+            aria-controls={'siteSettings'}
+            className={'btn-xs'}
+            iconProps={{ name: 'gear' }}
+            onClick={toggleSettingsOpen}
+            text={'Settings'}
+            variant={'primary'}
+          />
         </div>
       </div>
     </div>

@@ -198,7 +198,6 @@ export class FieldDate extends React.Component {
       minDate,
       label,
       name,
-      placeholder,
       ...rest
     } = this.props;
     const { displayText } = this.state;
@@ -229,7 +228,6 @@ export class FieldDate extends React.Component {
           onFocus={() => { }}
           onKeyDown={this.onKeyDown}
           onKeyUp={this.onKeyUp}
-          placeholder={placeholder || `Select ${label}`}
         />
 
         <p id={infoId} className={'hidden'}>
@@ -289,9 +287,6 @@ FieldDate.propTypes = {
   /** Called when radio button changes */
   onChange: T.func,
 
-  /** Placeholder to display when no value */
-  placeholder: T.string,
-
   /** Value of date selected */
   value: T.string,
 };
@@ -304,7 +299,6 @@ FieldDate.defaultProps = {
   id: null,
   minDate: null,
   onChange: null,
-  placeholder: '',
   value: null,
 };
 

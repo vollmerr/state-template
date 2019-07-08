@@ -47,6 +47,7 @@ exports[`Footer should render correctly 1`] = `
             <li>
               <A
                 href="http://www.google.com"
+                iconProps={null}
                 text="link text"
                 to=""
               />

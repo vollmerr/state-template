@@ -43,9 +43,6 @@ export interface FieldFileProps extends HTMLInputElement {
   /** Called when the field is focused */
   onFocus?: (string: value?) => void;
 
-  /** Displayed when no file is selected */
-  placeholder?: string;
-
   /** Value of the field */
   value?: string;
 }
