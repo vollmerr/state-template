@@ -5,6 +5,7 @@
 - (fix) revert having field placeholders / defaults, rely on help text instead
 - (fix) hide icons from screen reader
 - (fix) button with icon styling 
+- (feat) allow icon props in A component
 
 ## v0.3.6 (2019-07-01)
 

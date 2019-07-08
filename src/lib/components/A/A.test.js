@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 import { Link } from 'react-router-dom';
 
 import { A as fromLib } from '../..';
+import Icon from '../Icon';
 import A from './A';
 
 const props = {
@@ -46,6 +47,13 @@ describe('A', () => {
       wrapper.setProps({ to: '/testPath', href: undefined });
       const tag = wrapper.type();
       expect(tag).toBe(Link);
+    });
+  });
+
+  describe('icon links', () => {
+    it('should render links as icons', () => {
+      wrapper.setProps({ iconProps: { name: 'test' }, text: null });
+      expect(wrapper.find(Icon).length).toBe(1);
     });
   });
 

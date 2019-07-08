@@ -17,3 +17,10 @@ You can use the shorthand `text` prop instead of passing `children`.
 ```jsx
 <p>This is an <A to={'/testPath'} text={'shorthand anchor'} /></p>
 ```
+
+### icon link
+You can render the links as an [Icon](#icon) using the `iconProps`.
+
+```jsx
+<A iconProps={{ name: 'home' }} />
+```
