@@ -1,6 +1,6 @@
 # state-template - Change Log
 
-## v0.4.0
+## v0.4.0 (2019-07-10)
 
 - (chore) update dev dependency versions
 - (fix) pass entire action to saga in withAsync
