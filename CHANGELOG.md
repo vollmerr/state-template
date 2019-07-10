@@ -2,8 +2,9 @@
 
 ## v0.4.0
 
-- (fix) pass entire action to saga in withAsync
 - (chore) update dev dependency versions
+- (fix) pass entire action to saga in withAsync
+- (fix) NavTab tab link styling
 
 ## v0.3.7 (2019-07-08)
 
