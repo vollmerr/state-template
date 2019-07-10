@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.4.0
+
+- (fix) pass entire action to saga in withAsync
+
 ## v0.3.7 (2019-07-08)
 
 - (fix) revert having field placeholders / defaults, rely on help text instead
