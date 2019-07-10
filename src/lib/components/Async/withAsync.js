@@ -7,7 +7,7 @@ export default saga => function* withAsync(action) {
   yield put(actions.increaseLoading());
 
   try {
-    yield* saga(action.payload);
+    yield* saga(action);
   } catch (error) {
     yield put(actions.setError(error));
   } finally {

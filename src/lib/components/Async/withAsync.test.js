@@ -29,10 +29,10 @@ describe('withAsync', () => {
     expect(actions.decreaseLoading).toBeCalled();
   });
 
-  it('should run the passed saga with the payload', () => {
+  it('should run the passed saga with the action', () => {
     const saga = withAsync(mockSaga)(action);
     runSaga(saga);
-    expect(mockFunc).toBeCalledWith(action.payload);
+    expect(mockFunc).toBeCalledWith(action);
   });
 
   it('should handle errors', () => {

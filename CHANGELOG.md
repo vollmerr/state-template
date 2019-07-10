@@ -1,5 +1,11 @@
 # state-template - Change Log
 
+## v0.4.0 (2019-07-10)
+
+- (chore) update dev dependency versions
+- (fix) pass entire action to saga in withAsync
+- (fix) NavTab tab link styling
+
 ## v0.3.7 (2019-07-08)
 
 - (fix) revert having field placeholders / defaults, rely on help text instead
