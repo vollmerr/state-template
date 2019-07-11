@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.4.1
+
+- (feat) hide `hidden` routes in NavTabs
+
 ## v0.4.0 (2019-07-10)
 
 - (chore) update dev dependency versions

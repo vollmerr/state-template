@@ -1,6 +1,8 @@
 ```jsx
 const Tab1 = () => <div>tab 1</div>;
 const Tab2 = () => <div>tab 2</div>;
+// can access hidden route, but not displayed in tab links
+const Hidden = () => <div>Hidden route</div>;
 
 const routes = [
   {
@@ -16,6 +18,14 @@ const routes = [
     path: '/tab-2',
     exact: true,
     component: Tab2,
+  },
+  {
+    hidden: true,
+    key: 'hidden',
+    name: 'Hidden',
+    path: '/hidden',
+    exact: true,
+    component: Hidden,
   },
 ];
 

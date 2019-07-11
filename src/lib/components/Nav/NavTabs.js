@@ -33,7 +33,7 @@ const NavTabs = (props) => {
     <>
       <div className={cn} {...rest}>
         {
-          routes.map((route) => {
+          routes.filter(x => !x.hidden).map((route) => {
             const to = `${match.url}${route.path}`;
             const active = location.pathname === to;
             const linkClass = classNames([
