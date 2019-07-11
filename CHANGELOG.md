@@ -3,6 +3,7 @@
 ## v0.4.1
 
 - (feat) hide `hidden` routes in NavTabs
+- (feat) include status as `data-status` attribute in Async
 
 ## v0.4.0 (2019-07-10)
 
