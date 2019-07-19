@@ -45,13 +45,16 @@ class Table extends React.Component {
 
   renderTable = ({ searchProps, baseProps }) => {
     const {
-      title,
-      menu,
-      rowEvents,
-      defaultSorted,
-      rowClasses,
       className,
+      defaultSorted,
+      hideSearch,
+      menu,
+      rowClasses,
+      rowEvents,
+      selectRow,
+      title,
     } = this.props;
+
     const { columns, ...rest } = baseProps;
     const pagination = this.buildPagination(baseProps);
     const mappedColumns = this.buildColumns(columns);
@@ -61,22 +64,25 @@ class Table extends React.Component {
       { 'with-events': rowEvents },
     ]);
 
+    const tableProps = {
+      ...rest,
+      bootstrap4: true,
+      bordered: false,
+      columns: mappedColumns,
+      condensed: true,
+      defaultSorted,
+      hover: true,
+      noDataIndication: 'No Entries',
+      pagination,
+      rowClasses,
+      rowEvents,
+      ...(selectRow && { selectRow }),
+    };
+
     return (
       <div className={cn} data-test={'table'}>
-        <TableHeader title={title} menu={menu} {...searchProps} />
-        <BootstrapTable
-          {...rest}
-          hover
-          condensed
-          bootstrap4
-          bordered={false}
-          pagination={pagination}
-          rowEvents={rowEvents}
-          noDataIndication={'No Entries'}
-          defaultSorted={defaultSorted}
-          columns={mappedColumns}
-          rowClasses={rowClasses}
-        />
+        <TableHeader title={title} menu={menu} hideSearch={hideSearch} {...searchProps} />
+        <BootstrapTable {...tableProps} />
       </div>
     );
   }
@@ -97,15 +103,8 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
-  /** Title to render */
-  title: T.string,
-
-  /** Data to build rows from */
-  data: T.arrayOf(
-    T.shape({
-      id: T.oneOfType([T.string, T.number]).isRequired,
-    }),
-  ).isRequired,
+  /** Additional class name to attach to table */
+  className: T.string,
 
   /** Column definintions */
   columns: T.arrayOf(
@@ -117,16 +116,12 @@ Table.propTypes = {
     }),
   ).isRequired,
 
-  /** Events to attach to rows */
-  rowEvents: T.shape({
-    onClick: T.func,
-  }),
-
-  /** Builds additional class name for given row */
-  rowClasses: T.func,
-
-  /** Menu to render */
-  menu: T.node,
+  /** Data to build rows from */
+  data: T.arrayOf(
+    T.shape({
+      id: T.oneOfType([T.string, T.number]).isRequired,
+    }),
+  ).isRequired,
 
   /** Default columns as being sorted */
   defaultSorted: T.arrayOf(
@@ -136,17 +131,36 @@ Table.propTypes = {
     }),
   ),
 
-  /** Additional class name to attach to table */
-  className: T.string,
+  /** Hides the search box */
+  hideSearch: T.bool,
+
+  /** Menu to render */
+  menu: T.node,
+
+  /** Builds additional class name for given row */
+  rowClasses: T.func,
+
+  /** Events to attach to rows */
+  rowEvents: T.shape({
+    onClick: T.func,
+  }),
+
+  /** Options for selecting rows */
+  selectRow: T.object,
+
+  /** Title to render */
+  title: T.string,
 };
 
 Table.defaultProps = {
-  title: '',
-  rowEvents: null,
-  rowClasses: null,
-  menu: null,
-  defaultSorted: null,
   className: null,
+  defaultSorted: null,
+  hideSearch: false,
+  menu: null,
+  rowClasses: null,
+  rowEvents: null,
+  selectRow: null,
+  title: '',
 };
 
 

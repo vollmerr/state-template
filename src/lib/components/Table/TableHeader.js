@@ -40,14 +40,17 @@ class TableHeader extends React.Component {
 
   // render search bar for filtering table
   renderSearch = () => {
-    const { menu, title, onSearch } = this.props;
+    const {
+      menu, title, onSearch, hideSearch,
+    } = this.props;
+
     // push menu above title if it exists
     let className = 'col-12 col-sm-6';
     if (!title && !menu) {
       className = 'col-12 col-sm-6 offset-sm-6';
     }
 
-    if (onSearch) {
+    if (onSearch && !hideSearch) {
       return (
         <div className={className}>
           <input
@@ -76,20 +79,24 @@ class TableHeader extends React.Component {
 }
 
 TableHeader.propTypes = {
-  /* Title of table to render */
-  title: T.string,
+  /** Hides the search box */
+  hideSearch: T.bool,
 
   /* Menu of actions to take against table */
   menu: T.node,
 
   /* Search handler provided by ToolkitProvider */
   onSearch: T.func,
+
+  /* Title of table to render */
+  title: T.string,
 };
 
 TableHeader.defaultProps = {
-  title: null,
+  hideSearch: false,
   menu: null,
   onSearch: null,
+  title: null,
 };
 
 export default TableHeader;
