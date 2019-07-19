@@ -5,6 +5,7 @@
 - (feat) hide `hidden` routes in NavTabs
 - (feat) include status as `data-status` attribute in Async
 - (feat) allow selecting rows and hiding search box in Table
+- (fix) Async's LoadingIndicator trying to update state when unmounted
 
 ## v0.4.0 (2019-07-10)
 
