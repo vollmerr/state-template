@@ -14,7 +14,7 @@ class LoadingIndicator extends React.Component {
   componentDidMount() {
     const { isLoading } = this.props;
     if (isLoading) {
-      this.setDelay();
+      this.setTimer();
     }
   }
 
@@ -22,32 +22,34 @@ class LoadingIndicator extends React.Component {
     const { isLoading } = this.props;
     // set a delay for displaying the loading indicator to avoid flashing
     if (isLoading !== prevProps.isLoading) {
+      this.clearDelayReached();
+
       if (isLoading) {
-        this.setDelay();
-      } else {
-        this.clearDelay();
+        this.setTimer();
       }
     }
   }
 
   componentWillUnmount() {
-    this.clearDelay();
+    this.clearTimer();
   }
 
-  setDelay = () => {
-    const { delay } = this.props;
-    if (delay) {
-      this.delayTimer = setTimeout(() => {
-        this.setState({ delayReached: true });
-      }, delay);
-    } else {
-      this.setState({ delayReached: true });
-    }
+  setDelayReached = () => {
+    this.setState({ delayReached: true });
   }
 
-  clearDelay = () => {
-    clearTimeout(this.delayTimer);
+  clearDelayReached = () => {
+    this.clearTimer();
     this.setState({ delayReached: false });
+  }
+
+  setTimer = () => {
+    const { delay } = this.props;
+    this.delayTimer = setTimeout(this.setDelayReached, delay);
+  }
+
+  clearTimer = () => {
+    clearTimeout(this.delayTimer);
   }
 
   render() {

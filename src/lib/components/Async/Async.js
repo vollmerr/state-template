@@ -7,6 +7,9 @@ import LoadingIndicator from './LoadingIndicator';
 /**
  * Async sections have a loading indicator if they take too long
  * to load, and display an error message for errors
+ *
+ * access the `data-status` attribute for the status of this
+ * component (error, loading, or loaded)
  */
 const Async = (props) => {
   const {
@@ -18,12 +21,24 @@ const Async = (props) => {
     delay,
   } = props;
 
+  let status;
+
+  if (error) {
+    status = 'error';
+  } else if (isLoading) {
+    status = 'loading';
+  } else {
+    status = 'loaded';
+  }
+
   return (
-    <ErrorMessage error={error} onDismiss={onDismiss} btnProps={btnProps}>
-      <LoadingIndicator isLoading={isLoading} delay={delay}>
-        {children}
-      </LoadingIndicator>
-    </ErrorMessage>
+    <div data-test={'async'} data-status={status}>
+      <ErrorMessage error={error} onDismiss={onDismiss} btnProps={btnProps}>
+        <LoadingIndicator isLoading={isLoading} delay={delay}>
+          {children}
+        </LoadingIndicator>
+      </ErrorMessage>
+    </div>
   );
 };
 

@@ -1,5 +1,13 @@
 # state-template - Change Log
 
+## v0.4.1
+
+- (feat) hide `hidden` routes in NavTabs
+- (feat) include status as `data-status` attribute in Async
+- (feat) allow selecting rows and hiding search box in Table
+- (fix) Async's LoadingIndicator trying to update state when unmounted
+- (chore) update dev dependency versions
+
 ## v0.4.0 (2019-07-10)
 
 - (chore) update dev dependency versions
