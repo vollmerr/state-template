@@ -48,7 +48,7 @@ class Messages extends React.Component {
     }
 
     return (
-      <div className={'status-messages'}>
+      <div data-test={'status-messages'} className={'status-messages'}>
         {
           messages.map(x => (
             <Card key={x.id} {...x} onDismiss={() => this.onDismiss(x.id)} />
