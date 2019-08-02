@@ -5,14 +5,15 @@
 - (chore) update core font and images to state template 5.0.10
 - (feat) add `inputRef` prop to field components (not checks or radios)
 - (feat) add data-test tag to status messages for testing purposes
+- (fix) FieldSelect focus styling to be consistent with other input fields
 
 ## v0.4.1 (2019-07-19)
 
+- (chore) update dev dependency versions
 - (feat) hide `hidden` routes in NavTabs
 - (feat) include status as `data-status` attribute in Async
 - (feat) allow selecting rows and hiding search box in Table
 - (fix) Async's LoadingIndicator trying to update state when unmounted
-- (chore) update dev dependency versions
 
 ## v0.4.0 (2019-07-10)
 
@@ -22,17 +23,17 @@
 
 ## v0.3.7 (2019-07-08)
 
+- (feat) allow icon props in A component
 - (fix) revert having field placeholders / defaults, rely on help text instead
 - (fix) hide icons from screen reader
 - (fix) button with icon styling 
-- (feat) allow icon props in A component
 
 ## v0.3.6 (2019-07-01)
 
 - (chore) update dev dependency versions
+- (feat) allow field placeholders / add default
 - (fix) inconsistent disabled field styling
 - (fix) only running lib's unit tests
-- (feat) allow field placeholders / add default
 
 ## v0.3.5 (2019-06-25)
 

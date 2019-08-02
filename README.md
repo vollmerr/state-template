@@ -70,3 +70,5 @@ This project currently contains dependencies upon several libraries for certain 
 
 - form fields require `redux-form` as their managment system and are not designed for use outside of it.
 - the `configureStore` util currently requires `redux`, `redux-saga`, and `redux-form`. It handles initializing them with any passed in reducers and sagas. This functionality is required for any redux connected component, such as ConnectedAsync, and form fields.
+
+This project also is currently only tested and maintained for the oceanside colorscheme. There are long term plans to allow other themes, but currently not all colors are applied correctly for other themes.
