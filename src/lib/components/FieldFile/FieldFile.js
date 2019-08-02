@@ -9,7 +9,10 @@ import FieldFileLabel from './FieldFileLabel';
 
 // file attachment field that applies state-template styling
 export class FieldFile extends React.PureComponent {
-  inputRef = React.createRef()
+  constructor(props, context) {
+    super(props, context);
+    this.inputRef = props.inputRef || React.createRef();
+  }
 
   componentWillReceiveProps(nextProps) {
     const { value } = nextProps;
@@ -47,14 +50,15 @@ export class FieldFile extends React.PureComponent {
 
   render() {
     const {
-      name,
-      className,
-      value, // will be passed as `files`, do not pass value
-      onChange,
-      onBlur,
-      onFocus,
       btnText,
+      className,
+      inputRef,
       label,
+      name,
+      onBlur,
+      onChange,
+      onFocus,
+      value, // will be passed as `files`, do not pass value
       ...rest
     } = this.props;
 
@@ -115,6 +119,11 @@ FieldFile.propTypes = {
   /** Id of field */
   id: T.string,
 
+  /** Ref to attach to input */
+  inputRef: T.shape({
+    current: T.object,
+  }),
+
   /** aria-label for the field */
   label: T.string.isRequired,
 
@@ -141,14 +150,15 @@ FieldFile.propTypes = {
 };
 
 FieldFile.defaultProps = {
-  accept: null,
   'aria-describedby': null,
   'aria-invalid': 'false',
+  accept: null,
   btnText: 'Choose File',
   capture: null,
   className: null,
   disabled: false,
   id: null,
+  inputRef: null,
   multiple: false,
   onBlur: null,
   onChange: null,

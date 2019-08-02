@@ -29,8 +29,9 @@ export class FieldDate extends React.Component {
     this.state = {
       displayText: '',
     };
+
     this.pickerRef = React.createRef();
-    this.displayRef = React.createRef();
+    this.displayRef = props.inputRef || React.createRef();
     this.picker = null;
   }
 
@@ -195,8 +196,9 @@ export class FieldDate extends React.Component {
       'aria-describedby': ariaDescBy,
       className,
       disabled,
-      minDate,
+      inputRef,
       label,
+      minDate,
       name,
       ...rest
     } = this.props;
@@ -275,6 +277,11 @@ FieldDate.propTypes = {
   /** Id of field */
   id: T.string,
 
+  /** Ref to attach to input */
+  inputRef: T.shape({
+    current: T.object,
+  }),
+
   /** Label for the field */
   label: T.string.isRequired,
 
@@ -297,6 +304,7 @@ FieldDate.defaultProps = {
   className: null,
   disabled: false,
   id: null,
+  inputRef: null,
   minDate: null,
   onChange: null,
   value: null,

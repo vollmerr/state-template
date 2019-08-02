@@ -10,7 +10,11 @@ const downloadButton = {
   },
 };
 
-<ExampleForm form={'file'} customButton={downloadButton}>
+// example `ref`, access using inputRef.current
+// this will be used internally instead of the displayRef
+const inputRef = React.createRef();
+
+<ExampleForm form={'file'} customButton={downloadButton} inputRef={inputRef}>
   <FieldFile
     name={'file'}
     label={'File'}
@@ -22,6 +26,7 @@ const downloadButton = {
     placeholder={'Custom Placeholder...'}
     btnText={'Custom Button Text'}
     tooltip={'Example tooltip!'}
+    inputRef={inputRef}
   />
   <FieldFile 
     required

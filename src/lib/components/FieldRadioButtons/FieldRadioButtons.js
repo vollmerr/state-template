@@ -35,8 +35,8 @@ export const FieldRadioButtons = (props) => {
 
   const wrapperProps = {
     'aria-label': label,
-    className: cn,
     'data-test': 'field__radio-buttons',
+    className: cn,
     id,
     role: 'group',
     ...rest,
@@ -66,7 +66,7 @@ export const FieldRadioButtons = (props) => {
             {...radioProps}
           />
         ))
-          }
+      }
     </div>
   );
 };

@@ -3,12 +3,17 @@ const initialValues = {
   disabledDate: '01/02/1969',
 };
 
-<ExampleForm form={'date'} initialValues={initialValues} >
+// example `ref`, access using inputRef.current
+// this will be used internally instead of the displayRef
+const inputRef = React.createRef();
+
+<ExampleForm form={'date'} initialValues={initialValues} inputRef={inputRef}>
   <FieldDate
     name={'date'}
     label={'Date'}
     helpText={'This is the `helpText` content...'}
     tooltip={'Example tooltip!'}
+    inputRef={inputRef}
   />
   <FieldDate 
     required

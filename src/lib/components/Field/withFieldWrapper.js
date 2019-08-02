@@ -15,8 +15,8 @@ export const withFieldWrapper = (Component, options = {}) => {
       className,
       disabled,
       errorId: errorIdProp,
-      helpText,
       helpId: helpIdProp,
+      helpText,
       input,
       label,
       meta,
@@ -64,10 +64,12 @@ export const withFieldWrapper = (Component, options = {}) => {
     }
 
     const fieldProps = {
-      label,
-      disabled,
-      'aria-invalid': ariaInvalid,
       'aria-describedby': ariaDescBy,
+      'aria-invalid': ariaInvalid,
+      disabled,
+      label,
+      ...input,
+      ...rest,
     };
 
     const labelProps = {
@@ -95,7 +97,7 @@ export const withFieldWrapper = (Component, options = {}) => {
             : <FieldLabel {...labelProps} />
         )}
 
-        <Component id={name} {...fieldProps} {...input} {...rest} />
+        <Component id={name} {...fieldProps} />
 
         {errorMessage && (
           renderError

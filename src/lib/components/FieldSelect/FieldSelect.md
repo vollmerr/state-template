@@ -3,7 +3,10 @@ const initialValues = {
   disabledSelect: 'value 1',
 };
 
-<ExampleForm form={'select'} initialValues={initialValues}>
+// example `ref`, access using inputRef.current
+const inputRef = React.createRef();
+
+<ExampleForm form={'select'} initialValues={initialValues} inputRef={inputRef}>
   <FieldSelect 
     name={'select'}
     label={'Select'}
@@ -13,6 +16,7 @@ const initialValues = {
     ]}
     helpText={'This is the `helpText` content...'}
     tooltip={'Example tooltip!'}
+    inputRef={inputRef}
   />
   <FieldSelect 
     required
