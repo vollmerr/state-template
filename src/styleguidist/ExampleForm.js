@@ -12,16 +12,18 @@ import { Button } from '../lib';
  */
 export class ExampleForm extends React.Component {
   static propTypes = {
-    handleSubmit: T.func.isRequired,
-    reset: T.func.isRequired,
-    formValues: T.object,
     children: T.node.isRequired,
     customButton: T.object,
+    formValues: T.object,
+    handleSubmit: T.func.isRequired,
+    inputRef: T.object,
+    reset: T.func.isRequired,
   }
 
   static defaultProps = {
-    formValues: {},
     customButton: null,
+    formValues: {},
+    inputRef: null,
   }
 
   state = { showValues: false }
