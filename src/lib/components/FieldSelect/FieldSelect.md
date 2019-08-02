@@ -1,4 +1,6 @@
 ```jsx
+import { FieldSelect } from 'state-template';
+
 const initialValues = {
   disabledSelect: 'value 1',
 };

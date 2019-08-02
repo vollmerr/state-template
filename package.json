@@ -1,6 +1,6 @@
 {
   "name": "state-template",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "sideEffects": false,
@@ -69,7 +69,7 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "react-styleguidist": "9.1.5",
+    "react-styleguidist": "9.1.13",
     "redux": "^4.0.4",
     "redux-actions": "^2.6.5",
     "redux-form": "^8.2.5",

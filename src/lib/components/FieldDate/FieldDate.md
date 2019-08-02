@@ -1,4 +1,6 @@
 ```jsx
+import { FieldDate } from 'state-template';
+
 const initialValues = {
   disabledDate: '01/02/1969',
 };

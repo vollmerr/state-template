@@ -1,4 +1,6 @@
 ```jsx
+import { FieldInput } from 'state-template';
+
 const initialValues = {
   disabledInput: 'Example disabled input...',
 };

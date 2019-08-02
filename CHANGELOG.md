@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.4.3 (2019-08-02)
+
+- (chore) update react-styleguidist v9.1.13
+  
 ## v0.4.2 (2019-08-02)
 
 - (chore) update dependency versions
