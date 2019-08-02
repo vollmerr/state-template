@@ -1,5 +1,5 @@
 # state-template
-[CA State Template](https://webstandards.ca.gov/state-template-v5/) (v5.0.7) styled react components.
+[CA State Template](https://webstandards.ca.gov/state-template-v5/) (v5.0.10) styled react components.
 
 [![npm version](https://img.shields.io/npm/v/state-template.svg?style=flat)](https://www.npmjs.com/package/state-template)
 

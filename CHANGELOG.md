@@ -2,6 +2,7 @@
 
 ## v0.4.2
 
+- (chore) update core font and images to state template 5.0.10
 - (feat) add `inputRef` prop to field components (not checks or radios)
 - (feat) add data-test tag to status messages for testing purposes
 
