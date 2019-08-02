@@ -10,6 +10,7 @@ export const FieldInput = (props) => {
   const {
     className,
     tag: Tag,
+    inputRef,
     ...rest
   } = props;
 
@@ -23,6 +24,7 @@ export const FieldInput = (props) => {
     <Tag
       data-test={'field__input'}
       className={cn}
+      ref={inputRef}
       {...rest}
     />
   );
@@ -43,6 +45,11 @@ FieldInput.propTypes = {
 
   /** Id of field */
   id: T.string,
+
+  /** Ref to attach to input */
+  inputRef: T.shape({
+    current: T.object,
+  }),
 
   /** Label for the field */
   label: T.string.isRequired,
@@ -72,6 +79,7 @@ FieldInput.defaultProps = {
   className: null,
   disabled: false,
   id: null,
+  inputRef: null,
   onBlur: null,
   onChange: null,
   onFocus: null,

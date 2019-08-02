@@ -25,6 +25,9 @@ export interface FieldFileProps extends HTMLInputElement {
   /** Id of field */
   id?: string;
 
+  /** Ref to attach to input */
+  inputRef?: React.Ref;
+
   /** Label for the field */
   label: string;
 
@@ -47,6 +50,6 @@ export interface FieldFileProps extends HTMLInputElement {
   value?: string;
 }
 
-declare class FieldFile extends React.Component<FieldFileProps, {}> {}
+declare class FieldFile extends React.Component<FieldFileProps, {}> { }
 
 export default FieldFile;

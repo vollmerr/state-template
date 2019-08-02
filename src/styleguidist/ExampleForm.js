@@ -30,6 +30,11 @@ export class ExampleForm extends React.Component {
     alert(JSON.stringify(values, null, 2));
   }
 
+  onFocusRef = () => {
+    const { inputRef } = this.props;
+    inputRef.current.focus();
+  }
+
   toggleValues = () => {
     this.setState(state => ({ showValues: !state.showValues }));
   }
@@ -41,8 +46,14 @@ export class ExampleForm extends React.Component {
 
   render() {
     const {
-      handleSubmit, children, reset, formValues, customButton,
+      children,
+      customButton,
+      formValues,
+      handleSubmit,
+      inputRef,
+      reset,
     } = this.props;
+
     const { showValues } = this.state;
 
     const valuesText = showValues ? 'Hide Values' : 'Show Values';
@@ -54,6 +65,7 @@ export class ExampleForm extends React.Component {
           <Button type={'submit'} text={'Submit'} variant={'primary'} />
           <Button text={'Reset'} onClick={reset} variant={'default'} />
           <Button text={valuesText} onClick={this.toggleValues} variant={'standout'} className={'float-right'} />
+          {inputRef && <Button text={'Focus `inputRef`'} onClick={this.onFocusRef} variant={'default'} className={'float-right'} />}
           {customButton && <Button {...customButton} className={'float-right'} onClick={this.clickCustomButton} />}
         </form>
 

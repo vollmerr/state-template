@@ -6,12 +6,12 @@ import Icon from '../Icon';
 
 const Card = (props) => {
   const {
-    variant,
-    header,
-    footer,
     children,
     className,
+    footer,
+    header,
     onDismiss,
+    variant,
     ...rest
   } = props;
 
@@ -42,6 +42,21 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
+  /** Content to render */
+  children: T.node,
+
+  /** Style class name to attach */
+  className: T.string,
+
+  /** Footer to render */
+  footer: T.node,
+
+  /** Header to render */
+  header: T.node,
+
+  /** Action to clear the message */
+  onDismiss: T.func,
+
   /** Use style variant */
   variant: T.oneOf([
     'default',
@@ -52,26 +67,15 @@ Card.propTypes = {
     'danger',
     'inverted',
   ]),
-
-  /** Header to render */
-  header: T.node,
-
-  /** Footer to render */
-  footer: T.node,
-
-  /** Content to render */
-  children: T.node,
-
-  /** Style class name to attach */
-  className: T.string,
 };
 
 Card.defaultProps = {
-  variant: 'default',
-  header: null,
-  footer: null,
   children: null,
   className: '',
+  footer: null,
+  header: null,
+  onDismiss: null,
+  variant: 'default',
 };
 
 export default Card;

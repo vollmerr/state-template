@@ -2,6 +2,7 @@
 
 ## v0.4.2
 
+- (feat) add `inputRef` prop to field components (not checks or radios)
 - (feat) add data-test tag to status messages for testing purposes
 
 ## v0.4.1 (2019-07-19)

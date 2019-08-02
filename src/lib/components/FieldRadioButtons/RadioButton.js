@@ -11,6 +11,7 @@ const RadioButton = (props) => {
     'aria-invalid': ariaInvalid,
     disabled,
     inline,
+    inputRef,
     name,
     onBlur,
     onChange,
@@ -28,6 +29,7 @@ const RadioButton = (props) => {
     disabled,
     id,
     name,
+    ref: inputRef,
     type: 'radio',
   };
 

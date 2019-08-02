@@ -3,13 +3,17 @@ const initialValues = {
   disabledInput: 'Example disabled input...',
 };
 
-<ExampleForm form={'input'} initialValues={initialValues}>
+// example `ref`, access using inputRef.current
+const inputRef = React.createRef();
+
+<ExampleForm form={'input'} initialValues={initialValues} inputRef={inputRef}>
   <FieldInput
     name={'input'}
     label={'Input'}
     helpText={'This is the `helpText` content...'}
     onChange={(e,v) => { console.log('changing...', e, v) }}
     tooltip={'Example tooltip!'}
+    inputRef={inputRef}
   />
   <FieldInput 
     required

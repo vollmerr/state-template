@@ -16,6 +16,9 @@ export interface FieldSelectProps extends HTMLSelectElement {
   /** Id of field */
   id?: string;
 
+  /** Ref to attach to input */
+  inputRef?: React.Ref;
+
   /** Label for the field */
   label: string;
 

@@ -1,6 +1,21 @@
 import * as React from 'react';
 
 export interface CardProps {
+  /** Content to render */
+  children?: React.ReactNode;
+
+  /** Style class name to attach */
+  className?: string;
+
+  /** Footer to render */
+  footer?: React.ReactNode;
+
+  /** Header to render */
+  header?: React.ReactNode;
+
+  /** Action to clear the message */
+  onDismiss?: () => void;
+
   /** Use style variant */
   variant?: 'default'
     | 'understated'
@@ -9,18 +24,6 @@ export interface CardProps {
     | 'primary'
     | 'danger'
     | 'inverted';
-
-  /** Header to render */
-  header?: React.ReactNode;
-
-  /** Footer to render */
-  footer?: React.ReactNode;
-
-  /** Content to render */
-  children?: React.ReactNode;
-
-  /** Style class name to attach */
-  className?: string;
 }
 
 declare class Card extends React.Component<CardProps, {}> {}
