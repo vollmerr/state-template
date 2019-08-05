@@ -3,6 +3,7 @@
 ## v0.4.3 (2019-08-02)
 
 - (chore) update react-styleguidist v9.1.13
+- (feat) pass `cellEdit` in Table to react-bootstrap-table-next
   
 ## v0.4.2 (2019-08-02)
 

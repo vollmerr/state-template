@@ -45,6 +45,7 @@ class Table extends React.Component {
 
   renderTable = ({ searchProps, baseProps }) => {
     const {
+      cellEdit,
       className,
       defaultSorted,
       hideSearch,
@@ -77,6 +78,7 @@ class Table extends React.Component {
       rowClasses,
       rowEvents,
       ...(selectRow && { selectRow }),
+      ...(cellEdit && { cellEdit }),
     };
 
     return (
@@ -103,6 +105,9 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
+  /** Options for editing cells */
+  cellEdit: T.object,
+
   /** Additional class name to attach to table */
   className: T.string,
 
@@ -153,6 +158,7 @@ Table.propTypes = {
 };
 
 Table.defaultProps = {
+  cellEdit: null,
   className: null,
   defaultSorted: null,
   hideSearch: false,

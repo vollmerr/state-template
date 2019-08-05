@@ -19,6 +19,9 @@ export type DefaultSort = {
 }
 
 export interface TableProps {
+  /** Options for editing cells */
+  cellEdit?: object;
+
   /** Additional class name to attach to table */
   className?: string;
 
