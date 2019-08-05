@@ -76,6 +76,7 @@ const rowFormat = (cell, row, rowIndex) => (
 );
 
 <Table 
+  hideSearch
   title={'Table With Custom Rendering'}
   data={[
     { id: 'row1Id', col1: 'row 1 col 1', col2: 'row 1 col 2' },
@@ -101,6 +102,33 @@ const menu = (
 );
 
 <Table 
+  data={[
+    { id: 'row1Id', col1: 'row 1 col 1', col2: 'row 1 col 2' },
+    { id: 'row2Id', col1: 'row 2 col 1', col2: 'row 2 col 2' },
+  ]}
+  columns={[
+    { dataField: 'col1', text: 'column 1', sort: true }, 
+    { dataField: 'col2', text: 'column 2' },
+  ]}
+  menu={menu}
+/>
+```
+
+### with menu and title, no search
+
+```jsx
+import { Button, ButtonRow } from 'state-template';
+
+const menu = (
+  <ButtonRow>
+    <Button text={'new'} onClick={() => {}} variant={'primary'} />
+    <Button text={'edit'} onClick={() => {}} variant={'default'} />
+  </ButtonRow>
+);
+
+<Table 
+  hideSearch
+  title={'TST'}
   data={[
     { id: 'row1Id', col1: 'row 1 col 1', col2: 'row 1 col 2' },
     { id: 'row2Id', col1: 'row 2 col 1', col2: 'row 2 col 2' },
