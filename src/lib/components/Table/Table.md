@@ -128,7 +128,7 @@ const menu = (
 
 <Table 
   hideSearch
-  title={'TST'}
+  title={'Table With No Search'}
   data={[
     { id: 'row1Id', col1: 'row 1 col 1', col2: 'row 1 col 2' },
     { id: 'row2Id', col1: 'row 2 col 1', col2: 'row 2 col 2' },

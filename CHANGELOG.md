@@ -4,6 +4,7 @@
 
 - (chore) update react-styleguidist v9.1.13
 - (feat) pass `cellEdit` in Table to react-bootstrap-table-next
+- (feat) allow ref to inner table and hide pagination in Table
 - (fix) Table header now pushes menu to right when hiding search
   
 ## v0.4.2 (2019-08-02)
