@@ -1,5 +1,5 @@
 .field__select.select {
-  height: 36px; // match input fields height...
+  height: $st-input-height;
 
   &:focus-within {
     border-color: #80bdff;
@@ -24,7 +24,7 @@
   select {
     padding-left: 10px;
     background: #fff;
-    height: 34px; // select height - 2 for border
+    height: $st-input-height - 2; // select height - 2 for border
   }
 }
 

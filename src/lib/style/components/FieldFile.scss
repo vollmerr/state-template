@@ -33,7 +33,7 @@
     pointer-events: none;
     background: $btn-primary-bg;
     color: $btn-primary-color;
-    line-height: 38px;
+    line-height: $st-input-height;
   }
 
   input {
