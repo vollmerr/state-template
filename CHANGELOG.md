@@ -7,6 +7,7 @@
 - (feat) pass `cellEdit` in Table to react-bootstrap-table-next
 - (feat) allow ref to inner table and hide pagination in Table
 - (feat) add FieldComboBox component for accessible combo box field
+- (feat) add options for yes/no fields in `fieldOptions` util
 - (fix) Table header now pushes menu to right when hiding search
 - (fix) FieldSelect height consistent with other fields / use scss variables
 - (refactor) use `componentDidUpdate` in place of deprecated `componentWillReceiveProps`

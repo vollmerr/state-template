@@ -2,7 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 import classNames from 'classnames';
 
-import { isEmptyText } from '../../utils/validate';
+import { isEmptyRadio } from '../../utils/validate';
 import { keyCodes } from '../../utils/aria';
 import * as propUtils from '../../utils/propTypes';
 import { withField } from '../Field';
@@ -399,4 +399,4 @@ FieldComboBox.defaultProps = {
   value: null,
 };
 
-export default withField(isEmptyText)(FieldComboBox);
+export default withField(isEmptyRadio)(FieldComboBox);

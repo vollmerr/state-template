@@ -1,5 +1,5 @@
 ```jsx
-import { FieldSelect } from 'state-template';
+import { FieldSelect, fieldOptions } from 'state-template';
 
 const initialValues = {
   disabledSelect: 'value 1',
@@ -12,10 +12,7 @@ const inputRef = React.createRef();
   <FieldSelect 
     name={'select'}
     label={'Select'}
-    options={[
-      { value: 'value 1', label: 'label 1' },
-      { value: 'value 2', label: 'label 2' },
-    ]}
+    options={fieldOptions.countyOptionsCA}
     helpText={'This is the `helpText` content...'}
     tooltip={'Example tooltip!'}
     inputRef={inputRef}
@@ -24,10 +21,7 @@ const inputRef = React.createRef();
     required
     name={'requiredSelect'}
     label={'Required Select'}
-    options={[
-      { value: 'value 1', label: 'label 1' },
-      { value: 'value 2', label: 'label 2' },
-    ]}
+    options={fieldOptions.yesNoOptions}
   />
   <FieldSelect
     name={'validationsSelect'}
