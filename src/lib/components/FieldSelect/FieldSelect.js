@@ -2,7 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 import classNames from 'classnames';
 
-import { isEmptyRadio } from '../../utils/validate';
+import { isEmptyText } from '../../utils/validate';
 import * as propUtils from '../../utils/propTypes';
 import { withField } from '../Field';
 
@@ -108,4 +108,4 @@ FieldSelect.defaultProps = {
   value: null,
 };
 
-export default withField(isEmptyRadio)(FieldSelect);
+export default withField(isEmptyText)(FieldSelect);

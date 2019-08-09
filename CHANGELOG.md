@@ -1,10 +1,11 @@
 # state-template - Change Log
 
-## v0.4.3 (2019-08-02)
+## v0.4.3 (2019-08-09)
 
 - (chore) update react-styleguidist v9.1.13
 - (feat) pass `cellEdit` in Table to react-bootstrap-table-next
 - (feat) allow ref to inner table and hide pagination in Table
+- (feat) add FieldComboBox component for accessible combo box field
 - (fix) Table header now pushes menu to right when hiding search
 - (fix) FieldSelect height consistent with other fields / use scss variables
   

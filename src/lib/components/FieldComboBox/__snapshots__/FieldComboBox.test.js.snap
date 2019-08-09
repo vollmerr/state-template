@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldComboBox should render correctly 1`] = `
+<div
+  className="field__combo-box test-classname"
+  data-test="field__combo-box"
+>
+  <div
+    aria-expanded={false}
+    aria-haspopup="listbox"
+    aria-owns="test-id-listbox"
+    id="test-id-combobox"
+    role="combobox"
+  >
+    <input
+      aria-controls="test-id-listbox"
+      className="form-control"
+      disabled={false}
+      id="test-id"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      type="text"
+    />
+    <Icon
+      className="field__combo-box-icon"
+      data-test="field__combo-box-icon"
+      name="triangle-down"
+      onClick={[Function]}
+      tag="span"
+    />
+  </div>
+  <input
+    disabled={false}
+    name="test-name"
+    type="hidden"
+  />
+</div>
+`;

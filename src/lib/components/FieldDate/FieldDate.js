@@ -4,22 +4,10 @@ import Pikaday from 'pikaday';
 import classNames from 'classnames';
 
 import { isValidDate } from '../../utils/validate';
+import { keyCodes } from '../../utils/aria';
 import { isValid } from '../../utils/date';
 import { withField } from '../Field';
 import Icon from '../Icon';
-
-const keyCodes = {
-  enter: 13,
-  esc: 27,
-  pageUp: 33,
-  pageDown: 34,
-  end: 35,
-  home: 36,
-  left: 37,
-  up: 38,
-  right: 39,
-  down: 40,
-};
 
 // Date picker for redux-form using pikaday library
 // see https://whatsock.com/tsg/Coding%20Arena/ARIA%20Date%20Pickers/ARIA%20Date%20Picker%20(Basic)/demo.htm for accesibility needed
@@ -250,7 +238,7 @@ export class FieldDate extends React.Component {
           )
         }
 
-        {/* date picker */}
+        {/* redux-form field */}
         <input
           type={'hidden'}
           ref={this.pickerRef}
