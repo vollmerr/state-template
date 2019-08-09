@@ -63,3 +63,8 @@ export const countyOptionsCA = countiesCA.map(x => ({
   value: x,
   label: x,
 }));
+
+export const yesNoOptions = [
+  { value: true, label: 'Yes' },
+  { value: false, label: 'No' },
+];

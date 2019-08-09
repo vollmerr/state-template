@@ -19,6 +19,9 @@ export type DefaultSort = {
 }
 
 export interface TableProps {
+  /** Options for editing cells */
+  cellEdit?: object;
+
   /** Additional class name to attach to table */
   className?: string;
 
@@ -30,6 +33,12 @@ export interface TableProps {
 
   /** Default columns as being sorted */
   defaultSorted?: Array<DefaultSort>;
+
+  /** Hides the pagination / puts all rows on single page */
+  hidePagination?: boolean;
+
+  /** Hides the search box */
+  hideSearch?: boolean;
 
   /** Menu to render */
   menu?: React.ReactNode;
@@ -45,6 +54,9 @@ export interface TableProps {
 
   /** Title to render */
   title?: string;
+
+  /** Ref to attach to table */
+  tableRef?: React.Ref;
 }
 
 declare class Table extends React.Component<TableProps, {}> {}

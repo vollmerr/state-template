@@ -1,4 +1,6 @@
 ```jsx
+import { FieldCheckboxes } from 'state-template';
+
 const initialValues = {
   checkbox: ['value2'],
   disabledCheckbox: ['value2'],
@@ -40,6 +42,8 @@ const initialValues = {
 ### inline
 
 ```jsx
+import { FieldCheckboxes } from 'state-template';
+
 const initialValues = {
   inlineCheckbox: 'value2',
 };
@@ -62,6 +66,8 @@ const initialValues = {
 ### event handlers
 
 ```jsx
+import { FieldCheckboxes } from 'state-template';
+
 const initialValues = {
   handlersCheckbox: 'value2',
 };
@@ -84,6 +90,8 @@ const initialValues = {
 ### primary variant
 
 ```jsx
+import { FieldCheckboxes } from 'state-template';
+
 const initialValues = {
   primaryCheckbox: ['value2'],
   requiredPrimaryCheckbox: ['value2'],

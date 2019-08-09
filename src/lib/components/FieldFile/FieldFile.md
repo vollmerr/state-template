@@ -1,5 +1,5 @@
 ```jsx
-const { file } = require('../../index');
+import { FieldFile, file } from 'state-template';
 
 const downloadButton = {
   text: 'download `File`',

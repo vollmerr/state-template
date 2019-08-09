@@ -53,6 +53,7 @@ export { default as Footer } from './components/Footer';
 // Form
 export { withField, withFieldWrapper, withReduxForm } from './components/Field';
 export { default as FieldCheckboxes, Checkbox } from './components/FieldCheckboxes';
+export { default as FieldComboBox } from './components/FieldComboBox';
 export { default as FieldDate } from './components/FieldDate';
 export { default as FieldFile } from './components/FieldFile';
 export { default as FieldInput } from './components/FieldInput';

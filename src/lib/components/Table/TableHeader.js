@@ -4,12 +4,18 @@ import T from 'prop-types';
 class TableHeader extends React.Component {
   // render menu for actions against table
   renderMenu = () => {
-    const { menu, title } = this.props;
+    const { menu, title, hideSearch } = this.props;
 
     let className = 'col-12 col-sm-6';
-    // push menu above title if it exists
+
     if (title) {
-      className = 'col-12';
+      if (hideSearch) {
+        // put menu to right of title if no search
+        className = 'col-6 order-12 d-flex flex-row-reverse';
+      } else {
+        // push menu above title if it exists
+        className = 'col-12';
+      }
     }
 
     if (menu) {
@@ -25,11 +31,18 @@ class TableHeader extends React.Component {
 
   // render title of table
   renderTitle = () => {
-    const { title } = this.props;
+    const { title, hideSearch } = this.props;
+
+    let className = 'col-12 col-sm-6';
+
+    if (hideSearch) {
+      // allow menu to float to right if no search
+      className = 'col-6';
+    }
 
     if (title) {
       return (
-        <div className={'col-12 col-sm-6'}>
+        <div className={className}>
           <h2>{title}</h2>
         </div>
       );

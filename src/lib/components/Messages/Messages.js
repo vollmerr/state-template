@@ -9,12 +9,11 @@ class Messages extends React.Component {
     this.timers = {};
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     const { messages } = this.props;
-    const nextMessages = nextProps.messages;
-
-    if (nextMessages.length && messages.length !== nextMessages.length) {
-      this.setTimer(nextMessages[nextMessages.length - 1]);
+    // have new message, set timer for it
+    if (messages.length && messages.length !== prevProps.messages.length) {
+      this.setTimer(messages[messages.length - 1]);
     }
   }
 

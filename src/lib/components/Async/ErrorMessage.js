@@ -30,7 +30,7 @@ class ErrorMessage extends React.Component {
 
     if (error) {
       const errorMessage = error.message || error;
-
+      console.log('error: ', error);
       return (
         <div className={'error-message'}>
           <div className={'text-center'}>

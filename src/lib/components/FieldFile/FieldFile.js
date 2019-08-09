@@ -14,8 +14,8 @@ export class FieldFile extends React.PureComponent {
     this.inputRef = props.inputRef || React.createRef();
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { value } = nextProps;
+  componentDidUpdate() {
+    const { value } = this.props;
     // handle resetting the form
     if (!value) {
       this.inputRef.current.value = '';

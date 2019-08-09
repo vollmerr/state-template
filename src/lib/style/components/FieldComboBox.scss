@@ -1,0 +1,35 @@
+.field__combo-box {
+  position: relative;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid $st-field-border-color;
+    overflow: auto;
+    max-height: 300px;
+    position: absolute;
+    width: 100%;
+    background: white;
+    z-index: $zindex-dropdown;
+
+    li {
+      padding: 5px 10px;
+      cursor: pointer;
+      border: 1px solid transparent;
+
+      &:hover {
+        border: 1px solid $brand-primary;
+      }
+    }
+  }
+
+  .field__combo-box-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    padding: 7px 6px;
+    border-left: 1px solid $st-field-border-color;
+  }
+}

@@ -29,7 +29,7 @@ describe('FieldDate', () => {
   });
 
   it('should format and update the displayed date when a new value is recieved', () => {
-    instance.componentWillReceiveProps({ ...props, value: new Date('2011-09-01T08:00:00.000Z') });
+    wrapper.setProps({ ...props, value: new Date('2011-09-01T08:00:00.000Z') });
     expect(wrapper.state('displayText')).toBe('2011-09-01');
   });
 

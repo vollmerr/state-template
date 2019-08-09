@@ -1,3 +1,4 @@
+@import "library/bootstrap";
 @import "library/variables";
 
 @import "sections/global";
@@ -6,6 +7,7 @@
 @import "components/Button";
 @import "components/ErrorMessage";
 @import "components/FieldCheckboxes";
+@import "components/FieldComboBox";
 @import "components/FieldDate";
 @import "components/FieldFile";
 @import "components/FieldRadioButtons";

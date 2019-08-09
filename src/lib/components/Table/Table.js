@@ -45,14 +45,17 @@ class Table extends React.Component {
 
   renderTable = ({ searchProps, baseProps }) => {
     const {
+      cellEdit,
       className,
       defaultSorted,
+      hidePagination,
       hideSearch,
       menu,
       rowClasses,
       rowEvents,
       selectRow,
       title,
+      tableRef,
     } = this.props;
 
     const { columns, ...rest } = baseProps;
@@ -73,10 +76,12 @@ class Table extends React.Component {
       defaultSorted,
       hover: true,
       noDataIndication: 'No Entries',
-      pagination,
       rowClasses,
       rowEvents,
+      ...(!hidePagination && { pagination }),
       ...(selectRow && { selectRow }),
+      ...(cellEdit && { cellEdit }),
+      ...(tableRef && { ref: tableRef }),
     };
 
     return (
@@ -103,6 +108,9 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
+  /** Options for editing cells */
+  cellEdit: T.object,
+
   /** Additional class name to attach to table */
   className: T.string,
 
@@ -131,6 +139,9 @@ Table.propTypes = {
     }),
   ),
 
+  /** Hides the pagination / puts all rows on single page */
+  hidePagination: T.bool,
+
   /** Hides the search box */
   hideSearch: T.bool,
 
@@ -150,17 +161,25 @@ Table.propTypes = {
 
   /** Title to render */
   title: T.string,
+
+  /** Ref to attach to table */
+  tableRef: T.shape({
+    current: T.object,
+  }),
 };
 
 Table.defaultProps = {
+  cellEdit: null,
   className: null,
   defaultSorted: null,
+  hidePagination: false,
   hideSearch: false,
   menu: null,
   rowClasses: null,
   rowEvents: null,
   selectRow: null,
   title: '',
+  tableRef: null,
 };
 
 

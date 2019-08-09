@@ -1,4 +1,6 @@
 ```jsx
+import { FieldRadioButtons } from 'state-template';
+
 const initialValues = {
   radioButton: 'value2',
   disabledRadioButton: 'value2',
@@ -39,6 +41,8 @@ const initialValues = {
 ### inline
 
 ```jsx
+import { FieldRadioButtons } from 'state-template';
+
 const initialValues = {
   inlineRadioButtons: 'value2',
 };
@@ -60,6 +64,8 @@ const initialValues = {
 ### event handlers
 
 ```jsx
+import { FieldRadioButtons } from 'state-template';
+
 const initialValues = {
   handlersRadioButtons: 'value2',
 };
@@ -82,6 +88,8 @@ const initialValues = {
 ### highlight variant
 
 ```jsx
+import { FieldRadioButtons } from 'state-template';
+
 const initialValues = {
   primaryRadioButton: 'value2',
   requiredPrimaryRadioButton: 'value2',
