@@ -34,10 +34,10 @@ export class FieldComboBox extends React.Component {
     document.body.addEventListener('click', this.checkHide);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     const { value } = this.props;
     // handle reset form (no value, set display as no value)
-    if (value && !nextProps.value) {
+    if (!value && prevProps.value) {
       this.setDisplayValue('');
     }
   }

@@ -9,6 +9,7 @@
 - (feat) add FieldComboBox component for accessible combo box field
 - (fix) Table header now pushes menu to right when hiding search
 - (fix) FieldSelect height consistent with other fields / use scss variables
+- (refactor) use `componentDidUpdate` in place of deprecated `componentWillReceiveProps`
 
 ## v0.4.2 (2019-08-02)
 

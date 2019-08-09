@@ -27,10 +27,10 @@ export class FieldDate extends React.Component {
     this.initPikaday();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     const { value } = this.props;
-    if (value !== nextProps.value) {
-      this.updateDate(nextProps.value);
+    if (value !== prevProps.value) {
+      this.updateDate(value);
     }
   }
 
