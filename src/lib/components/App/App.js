@@ -184,7 +184,7 @@ App.propTypes = {
   router: T.func,
 
   /** History type to use */
-  history: T.object.isRequired,
+  history: T.shape({ push: T.func.isRequired }).isRequired,
 };
 
 App.defaultProps = {

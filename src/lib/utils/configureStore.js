@@ -7,16 +7,16 @@ import createSagaMiddleware from 'redux-saga';
 import { asyncReducer } from '../components/Async';
 import { messagesReducer } from '../components/Messages';
 
-const registerReducers = reducers => combineReducers({
+const registerReducers = (reducers) => combineReducers({
   form: formReducer,
   messages: messagesReducer,
   async: asyncReducer,
   ...reducers,
 });
 
-const registerSagas = sagas => function* rootSaga() {
+const registerSagas = (sagas) => function* rootSaga() {
   yield all([
-    ...sagas.map(x => fork(x)),
+    ...sagas.map((x) => fork(x)),
   ]);
 };
 

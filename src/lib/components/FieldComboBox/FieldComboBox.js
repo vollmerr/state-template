@@ -97,7 +97,7 @@ export class FieldComboBox extends React.Component {
     const { options, onShow } = this.props;
 
     const value = this.inputRef.current.value.toLowerCase();
-    const filteredList = options.filter(x => (
+    const filteredList = options.filter((x) => (
       !x.hidden && x.label.toLowerCase().indexOf(value) > -1
     ));
 
@@ -273,7 +273,7 @@ export class FieldComboBox extends React.Component {
       <div data-test={'field__combo-box'} className={cn} ref={this.wrapperRef}>
         <div
           aria-expanded={showListbox}
-          aria-haspopup='listbox'
+          aria-haspopup={'listbox'}
           aria-owns={listboxId}
           id={`${id}-combobox`}
           role={'combobox'}
@@ -282,7 +282,7 @@ export class FieldComboBox extends React.Component {
             aria-controls={listboxId}
             className={'form-control'}
             id={id}
-            type='text'
+            type={'text'}
             onKeyUp={this.checkKey}
             onKeyDown={this.setActiveItem}
             onFocus={this.checkSelection}
@@ -309,7 +309,7 @@ export class FieldComboBox extends React.Component {
             aria-label={label}
             className={'field__combo-box--listbox'}
             id={listboxId}
-            role='listbox'
+            role={'listbox'}
             ref={this.listboxRef}
           >
             {filteredList.map((option, i) => {

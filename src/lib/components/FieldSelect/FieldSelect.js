@@ -37,9 +37,9 @@ export const FieldSelect = (props) => {
         ref={inputRef}
         {...rest}
       >
-        <option disabled hidden style={{ display: 'none' }} value={''} />
+        <option disabled hidden value={''}>{null}</option>
         {
-          options.filter(x => !x.hidden).map(option => (
+          options.filter((x) => !x.hidden).map((option) => (
             <option key={option.value} value={option.value}>{option.label}</option>
           ))
         }
@@ -91,7 +91,7 @@ FieldSelect.propTypes = {
   options: T.arrayOf(propUtils.option).isRequired,
 
   /** Value of option */
-  value: T.any,
+  value: T.oneOfType([T.string, T.bool, T.number]),
 };
 
 FieldSelect.defaultProps = {

@@ -49,7 +49,7 @@ class Messages extends React.Component {
     return (
       <div data-test={'status-messages'} className={'status-messages'}>
         {
-          messages.map(x => (
+          messages.map((x) => (
             <Card key={x.id} {...x} onDismiss={() => this.onDismiss(x.id)} />
           ))
         }
@@ -59,7 +59,12 @@ class Messages extends React.Component {
 }
 
 Messages.propTypes = {
-  messages: T.array.isRequired,
+  messages: T.arrayOf(
+    T.shape({
+      id: T.oneOfType([T.string, T.number]),
+      ...Card.propTypes,
+    }),
+  ).isRequired,
   clearMessage: T.func.isRequired,
 };
 

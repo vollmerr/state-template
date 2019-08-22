@@ -8,7 +8,7 @@ export type Row = {
 
 export type Column = {
   dataField: string;
-  formatter?:  (cell: object, row: object, rowIndex: number) => React.ReactNode;
+  formatter?: (cell: object, row: object, rowIndex: number) => React.ReactNode;
   sort?: boolean;
   text: string;
 }
@@ -40,6 +40,9 @@ export interface TableProps {
   /** Hides the search box */
   hideSearch?: boolean;
 
+  /* Key that will be used as the unique identifier in columns */
+  keyField?: string;
+
   /** Menu to render */
   menu?: React.ReactNode;
 
@@ -49,16 +52,19 @@ export interface TableProps {
   /** Events to attach to rows */
   rowEvents?: object;
 
+  /* Display the search box */
+  search: boolean;
+
   /** Options for selecting rows */
   selectRow?: object;
 
-  /** Title to render */
-  title?: string;
-
   /** Ref to attach to table */
   tableRef?: React.Ref;
+
+  /** Title to render */
+  title?: string;
 }
 
-declare class Table extends React.Component<TableProps, {}> {}
+declare class Table extends React.Component<TableProps, {}> { }
 
 export default Table;

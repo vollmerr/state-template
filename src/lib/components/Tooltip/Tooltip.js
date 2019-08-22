@@ -22,7 +22,7 @@ const Tooltip = (props) => {
   ]);
 
   return (
-    <ReactTooltip data-test={'tooltip'} className={cn} id={id} effect='solid' {...rest}>
+    <ReactTooltip data-test={'tooltip'} className={cn} id={id} effect={'solid'} {...rest}>
       {text || children}
     </ReactTooltip>
   );

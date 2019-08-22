@@ -11,7 +11,7 @@ import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.m
 import TableHeader from './TableHeader';
 
 class Table extends React.Component {
-  buildColumns = columns => columns.map(x => ({
+  buildColumns = (columns) => columns.map((x) => ({
     ...x,
     headerStyle: {
       ...x.style,
@@ -40,7 +40,7 @@ class Table extends React.Component {
 
   // rendered after size per page dropdown
   renderPaginationTotal = () => (
-    <span className="react-bootstrap-table-pagination-total"> Per Page</span>
+    <span className={'react-bootstrap-table-pagination-total'}> Per Page</span>
   )
 
   renderTable = ({ searchProps, baseProps }) => {
@@ -94,8 +94,8 @@ class Table extends React.Component {
 
   render() {
     const {
-      keyField = 'id',
-      search = true,
+      keyField,
+      search,
       ...rest
     } = this.props;
 
@@ -109,7 +109,9 @@ class Table extends React.Component {
 
 Table.propTypes = {
   /** Options for editing cells */
-  cellEdit: T.object,
+  cellEdit: T.shape({
+    mode: T.string.isRequired,
+  }),
 
   /** Additional class name to attach to table */
   className: T.string,
@@ -145,6 +147,9 @@ Table.propTypes = {
   /** Hides the search box */
   hideSearch: T.bool,
 
+  /* Key that will be used as the unique identifier in columns */
+  keyField: T.string,
+
   /** Menu to render */
   menu: T.node,
 
@@ -156,16 +161,21 @@ Table.propTypes = {
     onClick: T.func,
   }),
 
-  /** Options for selecting rows */
-  selectRow: T.object,
+  /* Display the search box */
+  search: T.bool,
 
-  /** Title to render */
-  title: T.string,
+  /** Options for selecting rows */
+  selectRow: T.shape({
+    mode: T.string.isRequired,
+  }),
 
   /** Ref to attach to table */
   tableRef: T.shape({
     current: T.object,
   }),
+
+  /** Title to render */
+  title: T.string,
 };
 
 Table.defaultProps = {
@@ -174,13 +184,14 @@ Table.defaultProps = {
   defaultSorted: null,
   hidePagination: false,
   hideSearch: false,
+  keyField: 'id',
   menu: null,
   rowClasses: null,
   rowEvents: null,
+  search: true,
   selectRow: null,
-  title: '',
   tableRef: null,
+  title: '',
 };
-
 
 export default Table;

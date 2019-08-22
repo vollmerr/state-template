@@ -11,25 +11,13 @@ import { Button } from '../lib';
  * of the library.
  */
 export class ExampleForm extends React.Component {
-  static propTypes = {
-    children: T.node.isRequired,
-    customButton: T.object,
-    formValues: T.object,
-    handleSubmit: T.func.isRequired,
-    inputRef: T.object,
-    reset: T.func.isRequired,
+  constructor(props) {
+    super(props);
+    this.state = { showValues: false };
   }
-
-  static defaultProps = {
-    customButton: null,
-    formValues: {},
-    inputRef: null,
-  }
-
-  state = { showValues: false }
 
   onSubmit = (values) => {
-    alert(JSON.stringify(values, null, 2));
+    alert(JSON.stringify(values, null, 2)); // eslint-disable-line
   }
 
   onFocusRef = () => {
@@ -38,7 +26,7 @@ export class ExampleForm extends React.Component {
   }
 
   toggleValues = () => {
-    this.setState(state => ({ showValues: !state.showValues }));
+    this.setState((state) => ({ showValues: !state.showValues }));
   }
 
   clickCustomButton = () => {
@@ -79,6 +67,21 @@ export class ExampleForm extends React.Component {
     );
   }
 }
+
+ExampleForm.propTypes = {
+  children: T.node.isRequired,
+  customButton: T.shape(Button.propTypes),
+  formValues: T.object, // eslint-disable-line
+  handleSubmit: T.func.isRequired,
+  inputRef: T.shape({ current: T.object }),
+  reset: T.func.isRequired,
+};
+
+ExampleForm.defaultProps = {
+  customButton: null,
+  formValues: {},
+  inputRef: null,
+};
 
 const withReduxForm = reduxForm();
 const WrappedForm = withReduxForm(ExampleForm);

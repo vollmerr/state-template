@@ -4,7 +4,11 @@ import T from 'prop-types';
 import * as propUtils from '../../utils/propTypes';
 import NavItem from './NavItem';
 
-const Navigation = ({ isMobileOpen, toggleMobileOpen, routes }) => {
+const Navigation = ({
+  isMobileOpen,
+  routes,
+  toggleMobileOpen,
+}) => {
   const closedClass = isMobileOpen ? '' : 'mobile-closed';
 
   if (!routes.length) {
@@ -12,10 +16,10 @@ const Navigation = ({ isMobileOpen, toggleMobileOpen, routes }) => {
   }
 
   return (
-    <nav id="navigation" className={`main-navigation singlelevel auto-highlight ${closedClass}`}>
-      <ul id="nav_list" className="top-level-nav">
+    <nav id={'navigation'} className={`main-navigation singlelevel auto-highlight ${closedClass}`}>
+      <ul id={'nav_list'} className={'top-level-nav'}>
         {
-          routes.map(route => (
+          routes.map((route) => (
             <NavItem {...route} toggleMobileOpen={toggleMobileOpen} />
           ))
         }
@@ -26,8 +30,8 @@ const Navigation = ({ isMobileOpen, toggleMobileOpen, routes }) => {
 
 Navigation.propTypes = {
   isMobileOpen: T.bool.isRequired,
-  toggleMobileOpen: T.func.isRequired,
   routes: T.arrayOf(propUtils.route).isRequired,
+  toggleMobileOpen: T.func.isRequired,
 };
 
 export default Navigation;

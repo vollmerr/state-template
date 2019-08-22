@@ -10,7 +10,7 @@ export const mapStateToProps = createStructuredSelector({
   error: selectors.getError(),
 });
 
-export const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = (dispatch) => ({
   onDismiss: () => dispatch(actions.setError(null)),
 });
 

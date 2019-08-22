@@ -30,7 +30,7 @@ class ErrorMessage extends React.Component {
 
     if (error) {
       const errorMessage = error.message || error;
-      console.log('error: ', error);
+
       return (
         <div className={'error-message'}>
           <div className={'text-center'}>
@@ -57,7 +57,7 @@ ErrorMessage.propTypes = {
   onDismiss: T.func.isRequired,
 
   /** Props to pass to `Button` in error message */
-  btnProps: T.object,
+  btnProps: T.shape(Button.propTypes),
 };
 
 ErrorMessage.defaultProps = {

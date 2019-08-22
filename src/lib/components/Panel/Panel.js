@@ -23,20 +23,20 @@ const Panel = (props) => {
 
   return (
     <div className={cn} {...rest} data-test={'panel'}>
-      <div className="panel-heading">
+      <div className={'panel-heading'}>
         <h2>
           {icon && <span className={`${icon} m-r-sm`} />}
           {title}
         </h2>
         {
           buttonProps && (
-            <div className="options">
+            <div className={'options'}>
               <Button {...buttonProps} />
             </div>
           )
         }
       </div>
-      <div className="panel-body">
+      <div className={'panel-body'}>
         {children}
       </div>
     </div>
@@ -48,7 +48,7 @@ Panel.propTypes = {
   title: T.string.isRequired,
 
   /** Props to pass to Button in panel  heading */
-  buttonProps: T.object,
+  buttonProps: T.shape(Button.propTypes),
 
   /** Content to render in panel body */
   children: T.node.isRequired,

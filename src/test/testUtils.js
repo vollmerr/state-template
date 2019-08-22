@@ -34,4 +34,4 @@ export const eventMap = () => {
   return events;
 };
 
-export const wait = ms => new Promise(r => setTimeout(r, ms));
+export const wait = (ms) => new Promise((r) => setTimeout(r, ms));

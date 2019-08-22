@@ -22,7 +22,7 @@ export class FieldFile extends React.PureComponent {
     }
   }
 
-  eventHandler = func => () => {
+  eventHandler = (func) => () => {
     const { multiple } = this.props;
     const { files } = this.inputRef.current;
     const value = multiple ? files : files[0];
@@ -146,7 +146,7 @@ FieldFile.propTypes = {
   placeholder: T.string,
 
   /** Value of the field */
-  value: T.any,
+  value: T.any, // eslint-disable-line react/forbid-prop-types
 };
 
 FieldFile.defaultProps = {

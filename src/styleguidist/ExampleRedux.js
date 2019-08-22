@@ -16,7 +16,7 @@ const ExampleRedux = ({ children, store, ...rest }) => {
 
 ExampleRedux.propTypes = {
   children: T.node.isRequired,
-  store: T.object.isRequired,
+  store: T.object.isRequired, // eslint-disable-line
 };
 
 export default ExampleRedux;

@@ -58,7 +58,7 @@ export const FieldRadioButtons = (props) => {
   return (
     <div {...wrapperProps}>
       {
-        options.filter(x => !x.hidden).map(option => (
+        options.filter((x) => !x.hidden).map((option) => (
           <RadioButton
             key={option.value}
             option={option}
