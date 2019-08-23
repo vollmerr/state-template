@@ -3,6 +3,7 @@
 ## v0.4.4
 
 - (chore) update dependencies
+- (chore) update docs/readme - add github pages
 - (fix) all eslint issues / update to latest rules
 
 ## v0.4.3 (2019-08-09)

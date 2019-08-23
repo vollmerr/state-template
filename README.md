@@ -1,5 +1,5 @@
 # state-template
-[CA State Template](https://webstandards.ca.gov/state-template-v5/) (v5.0.10) styled react components.
+[CA State Template](https://webstandards.ca.gov/state-template-v5/) (v5.0.10) styled react components. See the docs at [https://vollmerr.github.io/state-template](https://vollmerr.github.io/state-template).
 
 [![npm version](https://img.shields.io/npm/v/state-template.svg?style=flat)](https://www.npmjs.com/package/state-template)
 
@@ -9,6 +9,7 @@
     - [Project Setup](#Project-Setup)
     - [Styling](#Styling)
   - [Docs](#Docs)
+    - [Deploying Docs](#Deploying-Docs)
   - [Testing](#Testing)
     - [Unit Tests](#Unit-Tests)
     - [Visual Regression Tests](#Visual-Regression-Tests)
@@ -40,11 +41,15 @@ import 'state-template/dist/style/core/css/colorscheme-oceanside.min.css';
 ```
 
 ## Docs
-The best way to try components and discover what is provided in this package is to run the documentation.
+The best way to try components and discover what is provided in this package is to run the documentation, or view it at [https://vollmerr.github.io/state-template](https://vollmerr.github.io/state-template).
 
-Use `npm run docs` and navigate to `http://localhost:6060/` to view the documentation.
+Use `npm run docs` and navigate to `http://localhost:6060/` to view the documentation locally.
 
-Every exmaple provides an editable example of code for trying the feature out.
+Every example provides an editable snippet of code for trying the feature out.
+
+### Deploying Docs
+
+Use `npm run deploy` to build and deploy the docs to [https://vollmerr.github.io/state-template](https://vollmerr.github.io/state-template).
 
 ## Testing
 There are several types of tests in this project as follows:
