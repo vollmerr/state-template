@@ -1,8 +1,8 @@
 # state-template - Change Log
 
-## v0.4.4
+## v0.4.4 (2019-08-26)
 
-- (chore) update dependencies
+- (chore) update dependency versions
 - (chore) update docs/readme - add github pages
 - (fix) all eslint issues / update to latest rules
 
