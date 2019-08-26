@@ -13,7 +13,7 @@ export class Routing extends React.Component {
     // do not render if no component provided
     if (!C) { return null; }
 
-    const render = props => <ErrorBoundary><C {...props} /></ErrorBoundary>;
+    const render = (props) => <ErrorBoundary><C {...props} /></ErrorBoundary>;
     return <Route render={render} {...rest} />;
   }
 
@@ -23,7 +23,7 @@ export class Routing extends React.Component {
     return (
       <Switch>
         {
-          routes.map(route => this.renderRoute(route))
+          routes.map((route) => this.renderRoute(route))
         }
         {redirect && <Redirect to={redirect} />}
       </Switch>

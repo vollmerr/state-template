@@ -1,6 +1,5 @@
 import { call } from 'redux-saga/effects';
 import decode from 'jwt-decode';
-import { request } from './api';
 
 export const TOKEN = 'id_token';
 export const DEFAULT_EXPIRE = 1000;
@@ -71,20 +70,17 @@ export function* authenticate({
     return decode(token);
   }
 
-  try {
-    const newOptions = {
-      method: 'get',
-      ...options,
-      headers: {
-        ...options.headers || { 'Content-Type': 'application/json' },
-      },
-    };
-    const response = yield call(request, url, newOptions);
-    token = response[tokenKey];
-    // set token into local storage for future authentication caching
-    setToken(token);
-    return decode(token);
-  } catch (err) {
-    throw err;
-  }
+  const newOptions = {
+    method: 'get',
+    ...options,
+    headers: {
+      ...options.headers || { 'Content-Type': 'application/json' },
+    },
+  };
+  const response = yield call(fetch, url, newOptions);
+  const json = yield response.json();
+  token = json[tokenKey];
+  // set token into local storage for future authentication caching
+  setToken(token);
+  return decode(token);
 }

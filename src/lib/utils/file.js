@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 export const saveFile = (content, fileName) => {
   const blob = new Blob([content]);
 

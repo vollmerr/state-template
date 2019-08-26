@@ -1,4 +1,5 @@
 import React from 'react';
+import T from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import A from '../A';
@@ -11,15 +12,13 @@ import A from '../A';
  * @param {string} hash     - current hash name from redux
  */
 const NavItem = ({
-  name,
-  path,
   href,
   icon,
-  toggleMobileOpen,
-  hash,
-  onClick,
   location,
-  ...props
+  name,
+  onClick,
+  path,
+  toggleMobileOpen,
 }) => {
   const isActive = location.pathname === path;
   const activeClass = isActive ? 'active' : '';
@@ -36,11 +35,28 @@ const NavItem = ({
         className={'first-level-link'}
         onClick={mappedOnClick}
       >
-        <span className={icon} aria-hidden={'true'} />
+        <span className={icon} aria-hidden />
         {name}
       </A>
     </li>
   );
+};
+
+NavItem.propTypes = {
+  href: T.string,
+  icon: T.string,
+  location: T.shape({ pathname: T.string }).isRequired,
+  name: T.string.isRequired,
+  onClick: T.func,
+  path: T.string,
+  toggleMobileOpen: T.func.isRequired,
+};
+
+NavItem.defaultProps = {
+  href: null,
+  icon: null,
+  onClick: null,
+  path: null,
 };
 
 export default withRouter(NavItem);

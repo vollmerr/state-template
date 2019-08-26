@@ -84,7 +84,7 @@ class Header extends React.Component {
       isSettingsOpen,
     } = this.state;
 
-    const filteredRoutes = routes.filter(x => !x.hidden);
+    const filteredRoutes = routes.filter((x) => !x.hidden);
     const cn = classNames([
       'global-header',
       { fixed },

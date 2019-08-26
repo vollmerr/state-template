@@ -59,7 +59,7 @@ export const countiesCA = [
   'Yuba',
 ];
 
-export const countyOptionsCA = countiesCA.map(x => ({
+export const countyOptionsCA = countiesCA.map((x) => ({
   value: x,
   label: x,
 }));

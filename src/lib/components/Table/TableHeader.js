@@ -70,7 +70,7 @@ class TableHeader extends React.Component {
             className={'form-control'}
             placeholder={'Search'}
             aria-label={`Search ${title || ''}`}
-            onInput={e => onSearch(e.target.value)}
+            onInput={(e) => onSearch(e.target.value)}
           />
           <span className={'ca-gov-icon-search-right'} />
         </div>

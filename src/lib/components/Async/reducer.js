@@ -7,12 +7,12 @@ export const initialState = {
   error: null,
 };
 
-export const increaseLoading = state => ({
+export const increaseLoading = (state) => ({
   ...state,
   isLoading: state.isLoading + 1,
 });
 
-export const decreaseLoading = state => ({
+export const decreaseLoading = (state) => ({
   ...state,
   isLoading: state.isLoading - 1,
 });

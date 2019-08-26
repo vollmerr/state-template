@@ -1,6 +1,6 @@
 import * as auth from './auth';
 
-export const wait = ms => new Promise(r => setTimeout(r, ms));
+export const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
  * Checks if a network request came back fine, and throws an error if not

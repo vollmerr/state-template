@@ -29,7 +29,7 @@ export const clearMessage = (state, action) => {
       ...state.byId,
       [id]: null,
     },
-    allIds: state.allIds.filter(x => x !== id),
+    allIds: state.allIds.filter((x) => x !== id),
   });
 };
 

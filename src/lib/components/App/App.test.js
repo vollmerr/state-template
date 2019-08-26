@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import App from './App';
 
 const props = {
-  history: {},
+  history: { push: jest.fn() },
 };
 
 let wrapper;

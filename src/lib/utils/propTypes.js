@@ -68,5 +68,5 @@ export const option = T.shape({
   label: T.string.isRequired,
 
   /** Internal value of option */
-  value: T.string.isRequired,
+  value: T.oneOfType([T.string, T.bool, T.number]),
 });

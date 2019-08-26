@@ -1,6 +1,8 @@
 import React from 'react';
 import T from 'prop-types';
 
+import Button from '../Button';
+
 import ErrorMessage from './ErrorMessage';
 import LoadingIndicator from './LoadingIndicator';
 
@@ -44,7 +46,7 @@ const Async = (props) => {
 
 Async.propTypes = {
   /** Props to pass to `Button` in error message */
-  btnProps: T.object,
+  btnProps: T.shape(Button.propTypes),
 
   /** Content to render */
   children: T.node,

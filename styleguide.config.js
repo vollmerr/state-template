@@ -7,6 +7,9 @@ module.exports = {
   ],
   require: [
     path.join(__dirname, 'src/styleguidist/setup.js'),
+    path.join(__dirname, 'src/lib/style/core/css/cagov.core.min.css'),
+    path.join(__dirname, 'src/lib/style/core/css/colorscheme-oceanside.min.css'),
+    path.join(__dirname, 'src/lib/style/style.scss'),
   ],
   styleguideComponents: {
     Wrapper: path.join(__dirname, 'src/styleguidist/Wrapper'),

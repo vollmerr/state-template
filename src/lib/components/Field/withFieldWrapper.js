@@ -1,7 +1,8 @@
 import React from 'react';
 import T from 'prop-types';
-import classNames from 'classnames';
+import { fieldInputPropTypes, fieldMetaPropTypes } from 'redux-form';
 
+import classNames from 'classnames';
 import FieldLabel from './FieldLabel';
 import FieldError from './FieldError';
 import FieldHelp from './FieldHelp';
@@ -131,13 +132,13 @@ export const withFieldWrapper = (Component, options = {}) => {
     helpId: T.string,
 
     /** Input from redux-form's Field, attaches name, value, etc  */
-    input: T.object.isRequired,
+    input: T.shape(fieldInputPropTypes).isRequired,
 
     /** Label to display above input */
     label: T.string,
 
     /** Meta information from redux-form's Field, such as errors and touched */
-    meta: T.object.isRequired,
+    meta: T.shape(fieldMetaPropTypes).isRequired,
 
     /** The field should use the default required validation */
     required: T.bool,

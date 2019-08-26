@@ -1,5 +1,11 @@
 # state-template - Change Log
 
+## v0.4.4 (2019-08-26)
+
+- (chore) update dependency versions
+- (chore) update docs/readme - add github pages
+- (fix) all eslint issues / update to latest rules
+
 ## v0.4.3 (2019-08-09)
 
 - (chore) update react-styleguidist v9.1.13

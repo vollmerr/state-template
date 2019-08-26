@@ -58,7 +58,7 @@ export const FieldCheckboxes = (props) => {
   return (
     <div {...wrapperProps}>
       {
-        options.filter(x => !x.hidden).map(option => (
+        options.filter((x) => !x.hidden).map((option) => (
           <Checkbox
             key={option.value}
             option={option}

@@ -5,6 +5,8 @@ import {
   Route, withRouter, Switch, Redirect,
 } from 'react-router-dom';
 
+import * as propUtils from '../../utils/propTypes';
+
 import A from '../A';
 
 /**
@@ -12,11 +14,11 @@ import A from '../A';
  */
 const NavTabs = (props) => {
   const {
-    match,
-    location,
-    routes,
     className,
     defaultPath,
+    location,
+    match,
+    routes,
     staticContext, // pull out so not passed on
     ...rest
   } = props;
@@ -33,7 +35,7 @@ const NavTabs = (props) => {
     <>
       <div className={cn} {...rest}>
         {
-          routes.filter(x => !x.hidden).map((route) => {
+          routes.filter((x) => !x.hidden).map((route) => {
             const to = `${match.url}${route.path}`;
             const active = location.pathname === to;
             const linkClass = classNames([
@@ -52,7 +54,7 @@ const NavTabs = (props) => {
 
       <Switch>
         {
-          routes.map(route => (
+          routes.map((route) => (
             <Route {...route} path={`${match.path}${route.path}`} />
           ))
         }
@@ -63,20 +65,26 @@ const NavTabs = (props) => {
 };
 
 NavTabs.propTypes = {
-  /** match objected supplied by withRouter */
-  match: T.object.isRequired,
-
-  /** location objected supplied by withRouter */
-  location: T.object.isRequired,
-
-  /** routes to render and display as nav tabs */
-  routes: T.array.isRequired,
-
   /** additional class name to attach to top level div */
   className: T.string,
 
   /** Default path to redirect to */
   defaultPath: T.string,
+
+  /** location objected - supplied by withRouter */
+  location: T.shape({ pathname: T.string.isRequired }).isRequired,
+
+  /** match objected - supplied by withRouter */
+  match: T.shape({
+    url: T.string.isRequired,
+    path: T.string.isRequired,
+  }).isRequired,
+
+  /** routes to render and display as nav tabs */
+  routes: T.arrayOf(propUtils.route).isRequired,
+
+  /** context - supplied by withRouter */
+  staticContext: T.any, // eslint-disable-line
 };
 
 NavTabs.defaultProps = {
