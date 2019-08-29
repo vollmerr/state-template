@@ -1,6 +1,6 @@
 # state-template - Change Log
 
-## v0.4.5 (2019-08-26)
+## v0.4.5 (2019-08-29)
 
 - (feat) add Form component to encapsulate connecting to redux-form
 - (fix) license name/date + include in package.json
