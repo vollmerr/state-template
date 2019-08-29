@@ -21,11 +21,6 @@ exports[`FieldSelect should render correctly 1`] = `
     <option
       disabled={true}
       hidden={true}
-      style={
-        Object {
-          "display": "none",
-        }
-      }
       value=""
     />
     <option

@@ -283,7 +283,7 @@ FieldDate.propTypes = {
   onChange: T.func,
 
   /** Value of date selected */
-  value: T.string,
+  value: T.oneOfType([T.string, T.instanceOf(Date)]),
 };
 
 FieldDate.defaultProps = {
