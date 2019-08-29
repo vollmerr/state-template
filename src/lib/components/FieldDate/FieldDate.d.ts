@@ -32,7 +32,7 @@ export interface FieldDateProps extends HTMLInputElement {
   onChange?: (string: value?) => void;
 
   /** Value of the field */
-  value?: string;
+  value?: string | Date;
 }
 
 declare class FieldDate extends React.Component<FieldDateProps, {}> {}

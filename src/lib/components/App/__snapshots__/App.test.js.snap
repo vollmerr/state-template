@@ -2,7 +2,11 @@
 
 exports[`App render should render correctly 1`] = `
 <Router
-  history={Object {}}
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
 >
   <ErrorBoundary>
     <Header
