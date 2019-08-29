@@ -7,8 +7,10 @@
   "files": [
     "dist",
     "scripts/fixPikaday.js",
-    "README.md"
+    "README.md",
+    "LICENSE.md"
   ],
+  "license": "MIT",
   "homepage": "https://github.com/vollmerr/state-template",
   "repository": {
     "type": "git",
