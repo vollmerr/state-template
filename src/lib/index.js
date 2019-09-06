@@ -1,5 +1,6 @@
 // ////////////////////////////////////// UTILS
 import * as api from './utils/api';
+import * as aria from './utils/aria';
 import * as auth from './utils/auth';
 import configureStore from './utils/configureStore';
 import * as date from './utils/date';
@@ -13,6 +14,7 @@ import * as validate from './utils/validate';
 
 export {
   api,
+  aria,
   auth,
   configureStore,
   date,

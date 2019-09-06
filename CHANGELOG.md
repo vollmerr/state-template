@@ -1,9 +1,10 @@
 # state-template - Change Log
 
-## v0.4.6
+## v0.4.6 (2019-09-06)
 
 - (chore) update dependency versions
 - (feat) automatically deploy docs on publish
+- (feat) improve docs, seperate into sections
 - (fix) FieldComboBox async issues / reinitialization. Improve method naming and simpler logic
   
 ## v0.4.5 (2019-08-29)

@@ -2,8 +2,51 @@ const path = require('path');
 
 module.exports = {
   skipComponentsWithoutExample: true,
-  components: [
-    'src/lib/components/**/[A-Z]*.js',
+  pagePerSection: true,
+  sections: [
+    {
+      name: 'Getting Started',
+      sections: [
+        {
+          name: 'Introduction',
+          content: 'src/styleguidist/sections/getting-started/introduction.md',
+        },
+        {
+          name: 'Basic Project Setup',
+          content: 'src/styleguidist/sections/getting-started/project-setup.md',
+        },
+        {
+          name: 'Theming',
+          content: 'src/styleguidist/sections/getting-started/theming.md',
+        },
+      ],
+    },
+    {
+      name: 'Components',
+      components: ['src/lib/components/**/[A-Z]*.js'],
+      sectionDepth: 0,
+    },
+    {
+      name: 'Utilities',
+      sections: [
+        {
+          name: 'Async',
+          content: 'src/styleguidist/sections/utilities/async.md',
+        },
+        {
+          name: 'Form',
+          content: 'src/styleguidist/sections/utilities/form.md',
+        },
+        {
+          name: 'Messages',
+          content: 'src/styleguidist/sections/utilities/messages.md',
+        },
+        {
+          name: 'Redux',
+          content: 'src/styleguidist/sections/utilities/redux.md',
+        },
+      ],
+    },
   ],
   require: [
     path.join(__dirname, 'src/styleguidist/setup.js'),
