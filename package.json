@@ -28,6 +28,7 @@
     "predocs:deploy": "npm run docs:build",
     "docs:deploy": "gh-pages -d styleguide",
     "prepare": "npm run build",
+    "postpublish": "npm run docs:deploy",
     "postinstall": "node ./scripts/fixPikaday.js",
     "update:icons": "node ./scripts/updateIconList.js",
     "lint": "eslint src/**/*.js"

@@ -3,6 +3,7 @@
 ## v0.4.6
 
 - (chore) update dependency versions
+- (feat) automatically deploy docs on publish
 - (fix) FieldComboBox async issues / reinitialization. Improve method naming and simpler logic
   
 ## v0.4.5 (2019-08-29)
