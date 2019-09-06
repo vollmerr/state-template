@@ -30,99 +30,164 @@ export class FieldComboBox extends React.Component {
   }
 
   componentDidMount() {
-    this.initDisplayValue();
-    document.body.addEventListener('click', this.checkHide);
+    this.setItemFromValue();
+    document.body.addEventListener('click', this.onClickOutside);
   }
 
   componentDidUpdate(prevProps) {
     const { value } = this.props;
-    // handle reset form (no value, set display as no value)
-    if (!value && prevProps.value) {
-      this.setDisplayValue('');
+
+    if (value !== prevProps.value) {
+      this.setItemFromValue();
     }
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener('click', this.checkHide);
+    document.body.removeEventListener('click', this.onClickOutside);
   }
 
-  initDisplayValue = () => {
+  setItemFromValue = () => {
     const { value, options } = this.props;
 
-    options.find((option, index) => {
+    const item = options.find((option, index) => {
       if (option.value === value) {
         this.setState({ focusedIndex: index });
-        this.setDisplayValue(option.label);
         return true;
       }
       return false;
     });
+
+    this.setLabel(item);
   }
 
-  checkKey = (event) => {
-    const key = event.which || event.keyCode;
+  showListbox = () => {
+    const { onShow } = this.props;
+    const { showListbox } = this.state;
 
-    switch (key) {
-      case keyCodes.up:
-      case keyCodes.down:
-      case keyCodes.esc:
-      case keyCodes.enter:
-        event.preventDefault();
-        return;
-      default:
-        this.updateList();
+    if (!showListbox) {
+      this.setState({
+        activeIndex: 0,
+        focusedIndex: 0,
+        showListbox: true,
+      });
+
+      if (onShow) onShow();
     }
   }
 
-  // assures listbox is visible by adjusting to top if would scroll off page
-  positionList = () => {
+  hideListbox = () => {
+    const { onHide } = this.props;
+
+    this.setState({
+      activeIndex: -1,
+      showListbox: false,
+    });
+
+    if (onHide) onHide();
+  }
+
+  updateFilteredList = () => {
+    const { options } = this.props;
+    const input = this.inputRef.current;
+
+    const value = input.value.toLowerCase();
+    const filteredList = options.filter((x) => (
+      !x.hidden && x.label.toLowerCase().indexOf(value) > -1
+    ));
+
+    this.setState({ filteredList }, this.positionList);
+  }
+
+  scrollToFocus = (index) => {
     const listbox = this.listboxRef.current;
 
-    if (!listbox) {
-      return;
+    if (listbox) {
+      const selectedItem = listbox.children[index];
+
+      if (selectedItem) {
+        listbox.scrollTop = selectedItem.offsetTop;
+      }
     }
+  }
+
+  positionList = () => {
+    const listbox = this.listboxRef.current;
+    const input = this.inputRef.current;
+
+    if (!listbox) return;
 
     const { top, bottom, height } = listbox.getBoundingClientRect();
 
     if (top < 0) {
       // scrolled off top, position below input
-      listbox.style.top = `${this.inputRef.current.offsetHeight}px`;
+      listbox.style.top = `${input.offsetHeight}px`;
     } else if (bottom > window.innerHeight) {
       // scrolled off bottom, position above input
       listbox.style.top = `-${height}px`;
     }
   }
 
-  updateList = () => {
-    const { options, onShow } = this.props;
-
-    const value = this.inputRef.current.value.toLowerCase();
-    const filteredList = options.filter((x) => (
-      !x.hidden && x.label.toLowerCase().indexOf(value) > -1
-    ));
-
-    this.setState({
-      filteredList,
-      showListbox: true,
-      activeIndex: 0,
-      focusedIndex: 0,
-    }, () => {
-      this.positionList();
-      if (onShow) onShow();
-    });
+  getItemAt = (index) => {
+    const { filteredList } = this.state;
+    return filteredList[index];
   }
 
-  setActiveItem = (event) => {
+  setLabel = (item = {}) => {
+    const { label } = item;
+    const input = this.inputRef.current;
+
+    if (input) {
+      input.value = label || '';
+    }
+  }
+
+  setValue = (item = {}) => {
+    const { onChange } = this.props;
+    onChange(item.value);
+  }
+
+  onClickOutside = (event) => {
+    const { target } = event;
+    const wrapper = this.wrapperRef.current;
+    // if event is outside this component hide the listbox
+    if (target !== wrapper && !wrapper.contains(target)) {
+      this.hideListbox();
+    }
+  }
+
+  onBlur = () => {
+    const { focusedIndex } = this.state;
+    const item = this.getItemAt(focusedIndex);
+
+    this.setLabel(item);
+    this.setValue(item);
+  }
+
+  onFocus = () => {
+    const { activeIndex } = this.state;
+
+    if (activeIndex >= 0) {
+      const activeItem = this.getItemAt(activeIndex);
+      this.onSelectItem(activeItem);
+    }
+  }
+
+  onKeyDown = (event) => {
     const { id } = this.props;
     const { activeIndex, filteredList } = this.state;
     const key = event.which || event.keyCode;
-
+    // [ESC] pressed - hide listbox
     if (key === keyCodes.esc) {
       this.hideListbox();
       return;
     }
 
-    let newActiveIndex = activeIndex;
+    this.showListbox();
+
+    let newActiveIndex = activeIndex < 0
+      ? 0
+      : activeIndex;
+
     switch (key) {
       // up, move active up 1 or loop to end
       case keyCodes.up:
@@ -140,10 +205,9 @@ export class FieldComboBox extends React.Component {
         break;
       case keyCodes.enter:
         event.preventDefault();
-        this.selectItem(this.getItemAt(activeIndex));
+        this.onSelectItem(this.getItemAt(newActiveIndex));
         return;
       case keyCodes.tab:
-        this.checkSelection();
         this.hideListbox();
         return;
       default:
@@ -151,13 +215,14 @@ export class FieldComboBox extends React.Component {
     }
 
     const activeItem = this.getItemAt(newActiveIndex);
+    const input = this.inputRef.current;
 
     if (activeItem) {
       const itemId = `${id}-item-${newActiveIndex}`;
-      this.inputRef.current.setAttribute('aria-activedescendant', itemId);
+      input.setAttribute('aria-activedescendant', itemId);
       this.scrollToFocus(newActiveIndex);
     } else {
-      this.inputRef.current.setAttribute('aria-activedescendant', '');
+      input.setAttribute('aria-activedescendant', '');
     }
 
     this.setState({
@@ -166,83 +231,41 @@ export class FieldComboBox extends React.Component {
     });
   }
 
-  scrollToFocus = (index) => {
-    const listbox = this.listboxRef.current;
+  onKeyUp = (event) => {
+    const key = event.which || event.keyCode;
 
-    if (listbox) {
-      const selectedItem = listbox.children[index];
-
-      if (selectedItem) {
-        listbox.scrollTop = selectedItem.offsetTop;
-      }
+    switch (key) {
+      case keyCodes.down:
+      case keyCodes.enter:
+      case keyCodes.esc:
+      case keyCodes.up:
+        event.preventDefault();
+        return;
+      default:
+        this.updateFilteredList();
     }
   }
 
-  setDisplayValue = (value) => {
-    if (this.inputRef.current) {
-      this.inputRef.current.value = value;
-    }
-  }
+  onSelectItem = (item) => {
+    const { onSelect } = this.props;
 
-  getItemAt = (index) => {
-    const { filteredList } = this.state;
+    this.hideListbox();
+    this.setValue(item);
 
-    return filteredList[index];
-  }
-
-  selectItem = (item) => {
-    const { onChange } = this.props;
-
-    if (item) {
-      this.hideListbox();
-      this.setDisplayValue(item.label);
-      onChange(item.value);
-    }
-  }
-
-  checkHide = (event) => {
-    const { target } = event;
-    // if event is outside this component hide the listbox
-    if (target !== this.wrapperRef.current && !this.wrapperRef.current.contains(target)) {
-      this.hideListbox();
-    }
-  }
-
-  hideListbox = () => {
-    const { onHide } = this.props;
-
-    this.setState({
-      activeIndex: -1,
-      showListbox: false,
-    }, onHide);
-  }
-
-  checkSelection = () => {
-    const { activeIndex } = this.state;
-
-    if (activeIndex >= 0) {
-      const activeitem = this.getItemAt(activeIndex);
-      this.selectItem(activeitem);
-    }
-  }
-
-  selectFocusedItem = () => {
-    const { onChange } = this.props;
-    const { focusedIndex } = this.state;
-    const item = this.getItemAt(focusedIndex);
-
-    if (item) {
-      this.setDisplayValue(item.label);
-      onChange(item.value);
-    } else {
-      this.setDisplayValue('');
-      onChange('');
-    }
+    if (onSelect) onSelect(item);
   }
 
   onClickIcon = () => {
-    this.updateList();
-    this.inputRef.current.focus();
+    const { showListbox } = this.state;
+    const input = this.inputRef.current;
+
+    if (showListbox) {
+      this.hideListbox();
+    } else {
+      this.showListbox();
+      this.updateFilteredList();
+      input.focus();
+    }
   }
 
   render() {
@@ -281,14 +304,14 @@ export class FieldComboBox extends React.Component {
           <input
             aria-controls={listboxId}
             className={'form-control'}
-            id={id}
-            type={'text'}
-            onKeyUp={this.checkKey}
-            onKeyDown={this.setActiveItem}
-            onFocus={this.checkSelection}
-            onBlur={this.selectFocusedItem}
             disabled={disabled}
+            id={id}
+            onBlur={this.onBlur}
+            onFocus={this.onFocus}
+            onKeyDown={this.onKeyDown}
+            onKeyUp={this.onKeyUp}
             ref={this.inputRef}
+            type={'text'}
           />
 
           {
@@ -322,7 +345,7 @@ export class FieldComboBox extends React.Component {
                   role={'option'}
                   aria-selected={isActive}
                   className={activeClass}
-                  onClick={() => this.selectItem(option)}
+                  onClick={() => this.onSelectItem(option)}
                   id={`${id}-item-${i}`}
                 >
                   {option.label}
@@ -380,6 +403,9 @@ FieldComboBox.propTypes = {
   /** Called after listbox is shown */
   onShow: T.func,
 
+  /** Called after listbox item is selected */
+  onSelect: T.func,
+
   /** Options to select from */
   options: T.arrayOf(propUtils.option).isRequired,
 
@@ -396,6 +422,7 @@ FieldComboBox.defaultProps = {
   inputRef: null,
   onHide: null,
   onShow: null,
+  onSelect: null,
   value: null,
 };
 

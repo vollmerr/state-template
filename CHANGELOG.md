@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.4.6
+
+- (fix) FieldComboBox async issues / reinitialization. Improve method naming and simpler logic
+  
 ## v0.4.5 (2019-08-29)
 
 - (feat) add Form component to encapsulate connecting to redux-form

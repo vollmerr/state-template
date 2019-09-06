@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as types from '../../utils/types';
 
 export interface FieldSelectProps extends HTMLSelectElement {
   /** Accessible indicator of related information */
@@ -17,7 +18,7 @@ export interface FieldSelectProps extends HTMLSelectElement {
   id?: string;
 
   /** Ref to attach to input */
-  inputRef?: React.Ref;
+  inputRef?: React.RefObject<HTMLInputElement>;
 
   /** Label for the field */
   label: string;
@@ -26,13 +27,16 @@ export interface FieldSelectProps extends HTMLSelectElement {
   name: string;
 
   /** Called when the field changes, provided by redux-form */
-  onChange: (string: value?) => void;
+  onChange: (value?: string) => void;
 
   /** Called after listbox is hidden */
   onHide?: () => void;
 
   /** Called after listbox is shown */
   onShow?: () => void;
+
+  /** Called after listbox item is selected */
+  onSelect: (item?: types.Option) => void,
 
   /** Options to select from  */
   options: Array<types.Option>;
@@ -41,6 +45,6 @@ export interface FieldSelectProps extends HTMLSelectElement {
   value?: string;
 }
 
-declare class FieldSelect extends React.Component<FieldSelectProps, {}> {}
+declare class FieldSelect extends React.Component<FieldSelectProps, {}> { }
 
 export default FieldSelect;
