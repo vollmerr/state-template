@@ -2,6 +2,7 @@
 
 ## v0.4.7
 
+- (chore) update dependency versions
 - (fix) visual refs to new backstop snapshots
 - (fix) missing id references in Combo Box (accessibility)
 
