@@ -227,16 +227,12 @@ export class FieldDate extends React.Component {
           Use home and end for navigating weeks.
         </p>
 
-        {
-          !disabled
-          && (
-            <Icon
-              name={'calendar'}
-              data-test={'field__date-icon'}
-              className={'field__date-icon'}
-            />
-          )
-        }
+        <Icon
+          hidden={disabled}
+          name={'calendar'}
+          data-test={'field__date-icon'}
+          className={'field__date-icon'}
+        />
 
         {/* redux-form field */}
         <input

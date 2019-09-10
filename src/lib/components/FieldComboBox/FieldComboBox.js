@@ -314,46 +314,41 @@ export class FieldComboBox extends React.Component {
             type={'text'}
           />
 
-          {
-            !disabled
-            && (
-              <Icon
-                name={'triangle-down'}
-                data-test={'field__combo-box-icon'}
-                className={'field__combo-box-icon'}
-                onClick={this.onClickIcon}
-              />
-            )
-          }
+          <Icon
+            hidden={disabled}
+            name={'triangle-down'}
+            data-test={'field__combo-box-icon'}
+            className={'field__combo-box-icon'}
+            onClick={this.onClickIcon}
+          />
         </div>
 
-        {showListbox && (
-          <ul
-            aria-label={label}
-            className={'field__combo-box--listbox'}
-            id={listboxId}
-            role={'listbox'}
-            ref={this.listboxRef}
-          >
-            {filteredList.map((option, i) => {
-              const isActive = activeIndex === i;
-              const activeClass = isActive ? 'bg-primary' : '';
+        <ul
+          aria-label={label}
+          className={'field__combo-box--listbox'}
+          id={listboxId}
+          role={'listbox'}
+          ref={this.listboxRef}
+          hidden={!showListbox}
+        >
+          {filteredList.map((option, i) => {
+            const isActive = activeIndex === i;
+            const activeClass = isActive ? 'bg-primary' : '';
 
-              return (
-                <li
-                  key={option.value}
-                  role={'option'}
-                  aria-selected={isActive}
-                  className={activeClass}
-                  onClick={() => this.onSelectItem(option)}
-                  id={`${id}-item-${i}`}
-                >
-                  {option.label}
-                </li>
-              );
-            })}
-          </ul>
-        )}
+            return (
+              <li
+                key={option.value}
+                role={'option'}
+                aria-selected={isActive}
+                className={activeClass}
+                onClick={() => this.onSelectItem(option)}
+                id={`${id}-item-${i}`}
+              >
+                {option.label}
+              </li>
+            );
+          })}
+        </ul>
 
         <input
           type={'hidden'}

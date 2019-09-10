@@ -30,6 +30,7 @@ exports[`FieldDate should render correctly 1`] = `
   <Icon
     className="field__date-icon"
     data-test="field__date-icon"
+    hidden={false}
     name="calendar"
     tag="span"
   />

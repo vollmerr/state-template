@@ -3,6 +3,7 @@
 ## v0.4.7
 
 - (fix) visual refs to new backstop snapshots
+- (fix) missing id references in Combo Box (accessibility)
 
 ## v0.4.6 (2019-09-06)
 
