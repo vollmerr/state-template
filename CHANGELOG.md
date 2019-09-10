@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.4.7
+
+- (fix) visual refs to new backstop snapshots
+
 ## v0.4.6 (2019-09-06)
 
 - (chore) update dependency versions
