@@ -50,6 +50,7 @@ export class FieldFile extends React.PureComponent {
 
   render() {
     const {
+      'aria-describedby': ariaDescribedBy,
       btnText,
       className,
       inputRef,
@@ -67,9 +68,15 @@ export class FieldFile extends React.PureComponent {
       className,
     ]);
 
+    const fileNameId = `${name}--filename`;
+    const fileNameText = this.getFileText();
+    const describedBy = `${ariaDescribedBy} ${fileNameId}`.trim();
+
     return (
       <div data-test={'field__file'} className={cn}>
         <input
+          aria-describedby={describedBy}
+          aria-label={label}
           type={'file'}
           onChange={this.eventHandler(onChange)}
           onBlur={this.eventHandler(onBlur)}
@@ -79,9 +86,13 @@ export class FieldFile extends React.PureComponent {
           {...rest}
         />
 
-        <label className={'form-control field__file-text'} htmlFor={name}>
-          {this.getFileText()}
+        {/* file name for display - hide from screen readers */}
+        <label className={'form-control field__file-text'} htmlFor={name} aria-hidden>
+          {fileNameText}
         </label>
+
+        {/* file name for screen readers - hide from vision */}
+        <span id={fileNameId} hidden>{fileNameText}</span>
 
         <div className={'field__file-button'}>
           {btnText}
@@ -150,7 +161,7 @@ FieldFile.propTypes = {
 };
 
 FieldFile.defaultProps = {
-  'aria-describedby': null,
+  'aria-describedby': '',
   'aria-invalid': 'false',
   accept: null,
   btnText: 'Choose File',

@@ -4,7 +4,8 @@
 
 - (chore) update dependency versions
 - (fix) visual refs to new backstop snapshots
-- (fix) missing id references in Combo Box (accessibility)
+- (fix) missing id references in FieldComboBox (accessibility)
+- (fix) filename and label assoctiation for screen readers in FieldFile (accessibility)
 
 ## v0.4.6 (2019-09-06)
 

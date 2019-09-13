@@ -7,8 +7,9 @@ exports[`FieldFile should render correctly 1`] = `
 >
   <input
     accept=".jpg, .jpeg, .png"
-    aria-describedby="aria-desc-id"
+    aria-describedby="aria-desc-id test-name--filename"
     aria-invalid="false"
+    aria-label="test-label"
     capture={null}
     disabled={false}
     files="test-value"
@@ -21,11 +22,18 @@ exports[`FieldFile should render correctly 1`] = `
     type="file"
   />
   <label
+    aria-hidden={true}
     className="form-control field__file-text"
     htmlFor="test-name"
   >
     test-placeholder
   </label>
+  <span
+    hidden={true}
+    id="test-name--filename"
+  >
+    test-placeholder
+  </span>
   <div
     className="field__file-button"
   >
