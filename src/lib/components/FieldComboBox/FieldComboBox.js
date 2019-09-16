@@ -13,6 +13,8 @@ import Icon from '../Icon';
  *
  * Based off https://www.w3.org/TR/wai-aria-practices/examples/combobox/aria1.1pattern/listbox-combo.html
  * to provide accessibility features.
+ *
+ * Extends [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement) properties (id, data-*, etc)
  */
 export class FieldComboBox extends React.Component {
   constructor(props) {

@@ -9,12 +9,14 @@ import { isValid } from '../../utils/date';
 import { withField, FieldLabel } from '../Field';
 import Icon from '../Icon';
 
-// /**
-//  * Date picker field and label that applies state-template styling. Uses
-//  * the pikaday library for handling date picking.
-//  *
-//  * See https://whatsock.com/tsg/Coding%20Arena/ARIA%20Date%20Pickers/ARIA%20Date%20Picker%20(Basic)/demo.htm for accesibility applied.
-//  */
+/**
+ * Date picker field and label that applies state-template styling. Uses
+ * the pikaday library for handling date picking.
+ *
+ * Refer to [this demo](https://whatsock.com/tsg/Coding%20Arena/ARIA%20Date%20Pickers/ARIA%20Date%20Picker%20%28Basic%29/demo.htm) for accesibility applied.
+ *
+ * Extends [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) properties (id, data-*, etc)
+ */
 export class FieldDate extends React.Component {
   constructor(props, context) {
     super(props, context);

@@ -5,9 +5,11 @@ import classNames from 'classnames';
 import { isEmptyFile } from '../../utils/validate';
 import { withField, FieldLabel } from '../Field';
 
-// /**
-//  * File attachment field and label that applies state-template styling
-//  */
+/**
+ * File attachment field and label that applies state-template styling
+ *
+ * Extends [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) properties (id, data-*, etc)
+ */
 export class FieldFile extends React.PureComponent {
   constructor(props, context) {
     super(props, context);

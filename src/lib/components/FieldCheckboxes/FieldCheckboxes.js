@@ -8,9 +8,9 @@ import { withField, FieldLabel } from '../Field';
 
 import Checkbox from './Checkbox';
 
-// /**
-//  * Group of checkboxes and label that applies state-template styling
-//  */
+/**
+ * Group of checkboxes and label that applies state-template styling
+ */
 export const FieldCheckboxes = (props) => {
   const {
     'aria-describedby': ariaDescribedby,

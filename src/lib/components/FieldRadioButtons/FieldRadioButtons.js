@@ -8,9 +8,9 @@ import { withField, FieldLabel } from '../Field';
 
 import RadioButton from './RadioButton';
 
-// /**
-//  * Group of radio buttons and label that applies state-template styling
-//  */
+/**
+ * Group of radio buttons and label that applies state-template styling
+ */
 export const FieldRadioButtons = (props) => {
   const {
     'aria-describedby': ariaDescribedby,

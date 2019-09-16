@@ -6,11 +6,11 @@ import { isEmptyRadio } from '../../utils/validate';
 import * as propUtils from '../../utils/propTypes';
 import { withField, FieldLabel } from '../Field';
 
-// /**
-//  * Select field and label that applies state-template styling
-//  *
-//  * Extends [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement) properties (id, data-*, etc)
-//  */
+/**
+ * Select field and label that applies state-template styling
+ *
+ * Extends [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement) properties (id, data-*, etc)
+ */
 export const FieldSelect = (props) => {
   const {
     className,

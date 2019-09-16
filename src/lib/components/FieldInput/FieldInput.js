@@ -5,11 +5,11 @@ import classNames from 'classnames';
 import { isEmptyText } from '../../utils/validate';
 import { withField, FieldLabel } from '../Field';
 
-// /**
-//  * Input field and label that applies state-template styling
-//  *
-//  * Extends [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) properties (id, data-*, etc)
-//  */
+/**
+ * Input field and label that applies state-template styling
+ *
+ * Extends [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) properties (id, data-*, etc)
+ */
 export const FieldInput = (props) => {
   const {
     className,
