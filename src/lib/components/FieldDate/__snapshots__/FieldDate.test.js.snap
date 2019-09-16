@@ -1,42 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldDate should render correctly 1`] = `
-<div
-  className="field__date test-classname"
-  data-test="field__date"
->
-  <input
-    aria-describedby="aria-desc-id test-name--date-info"
-    aria-invalid="false"
-    autoComplete="off"
-    className="form-control"
-    data-test="field__date-control"
-    disabled={false}
-    id="test-id"
+<Fragment>
+  <FieldLabel
+    htmlFor="test-name"
+    label="test-label"
     name="test-name"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    value="2020-05-03"
+    required={false}
+    tag="label"
+    tooltip={null}
   />
-  <p
-    className="hidden"
-    id="test-name--date-info"
+  <div
+    className="field__date test-classname"
+    data-test="field__date"
   >
-    Type a YYYY-MM-DD format date, hit escape to cancel. Use the arrow keys for picking from the date picker. Use page up and down for navigating months. Use home and end for navigating weeks.
-  </p>
-  <Icon
-    className="field__date-icon"
-    data-test="field__date-icon"
-    hidden={false}
-    name="calendar"
-    tag="span"
-  />
-  <input
-    disabled={false}
-    type="hidden"
-  />
-</div>
+    <input
+      aria-describedby="aria-desc-id test-name--date-info"
+      aria-invalid="false"
+      autoComplete="off"
+      className="form-control"
+      data-test="field__date-control"
+      disabled={false}
+      id="test-id"
+      name="test-name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={null}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      value="2020-05-03"
+    />
+    <p
+      className="hidden"
+      id="test-name--date-info"
+    >
+      Type a YYYY-MM-DD format date, hit escape to cancel. Use the arrow keys for picking from the date picker. Use page up and down for navigating months. Use home and end for navigating weeks.
+    </p>
+    <Icon
+      className="field__date-icon"
+      data-test="field__date-icon"
+      hidden={false}
+      name="calendar"
+      tag="span"
+    />
+    <input
+      disabled={false}
+      type="hidden"
+    />
+  </div>
+</Fragment>
 `;

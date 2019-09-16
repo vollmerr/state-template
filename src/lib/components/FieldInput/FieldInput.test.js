@@ -35,6 +35,6 @@ describe('FieldInput', () => {
 
   it('should pass addtional props', () => {
     wrapper.setProps({ disabled: true });
-    expect(wrapper.prop('disabled')).toBe(true);
+    expect(wrapper.find(props.tag).prop('disabled')).toBe(true);
   });
 });

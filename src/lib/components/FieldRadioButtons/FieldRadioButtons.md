@@ -15,6 +15,9 @@ const initialValues = {
       { value: 'value2', label: 'label 2' },
     ]}
     helpText={'This is the `helpText` content...'}
+    onBlur={(e,v) => { console.log('blurring...', e, v) }}
+    onChange={(e,v) => { console.log('changing...', e, v) }}
+    onFocus={(e,v) => { console.log('focusing...', e, v) }}
     tooltip={'Example tooltip!'}
   />
   <FieldRadioButtons 

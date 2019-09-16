@@ -15,6 +15,9 @@ const inputRef = React.createRef();
     label={'Date'}
     helpText={'This is the `helpText` content...'}
     tooltip={'Example tooltip!'}
+    onBlur={(e) => { console.log('blurring...', e) }}
+    onChange={(v) => { console.log('changing...', v) }}
+    onFocus={(e,v) => { console.log('focusing...', e, v) }}
     inputRef={inputRef}
   />
   <FieldDate 

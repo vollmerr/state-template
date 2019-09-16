@@ -1,43 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldFile should render correctly 1`] = `
-<div
-  className="field__file test-classname"
-  data-test="field__file"
->
-  <input
-    accept=".jpg, .jpeg, .png"
-    aria-describedby="aria-desc-id test-name--filename"
-    aria-invalid="false"
-    aria-label="test-label"
-    capture={null}
-    disabled={false}
-    files="test-value"
-    id="test-id"
-    multiple={false}
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    placeholder="test-placeholder"
-    type="file"
+<Fragment>
+  <FieldLabel
+    label="test-label"
+    name="test-name"
+    required={true}
+    tag="div"
+    tooltip="test-tooltip"
   />
-  <label
-    aria-hidden={true}
-    className="form-control field__file-text"
-    htmlFor="test-name"
-  >
-    test-placeholder
-  </label>
-  <span
-    hidden={true}
-    id="test-name--filename"
-  >
-    test-placeholder
-  </span>
   <div
-    className="field__file-button"
+    className="field__file test-classname"
+    data-test="field__file"
   >
-    upload-button-text
+    <input
+      accept=".jpg, .jpeg, .png"
+      aria-describedby="aria-desc-id test-name--filename"
+      aria-invalid="false"
+      aria-label="test-label"
+      capture={null}
+      disabled={false}
+      files="test-value"
+      id="test-id"
+      multiple={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      placeholder="test-placeholder"
+      type="file"
+    />
+    <label
+      aria-hidden={true}
+      className="form-control field__file-text"
+      htmlFor="test-name"
+    >
+      test-placeholder
+    </label>
+    <span
+      hidden={true}
+      id="test-name--filename"
+    >
+      test-placeholder
+    </span>
+    <div
+      className="field__file-button"
+    >
+      upload-button-text
+    </div>
   </div>
-</div>
+</Fragment>
 `;

@@ -7,17 +7,8 @@ export interface FieldDateProps extends HTMLInputElement {
   /** Accessible indicator for errors existing */
   'aria-invalid'?: string;
 
-  /** Class names to attach to the field wrapper */
-  className?: string;
-
-  /** Disable the input */
-  disabled?: boolean;
-
-  /** Id of field */
-  id?: string;
-
   /** Ref to attach to input */
-  inputRef?: React.Ref;
+  inputRef?: React.Ref<HTMLInputElement>;
 
   /** Label for the field */
   label: string;
@@ -28,11 +19,17 @@ export interface FieldDateProps extends HTMLInputElement {
   /** Name of field */
   name: string;
 
-  /** Called when the date changes */
-  onChange?: (string: value?) => void;
+  /** Called when the field is blurred */
+  onBlur?: (event: FocusEvent) => void;
 
-  /** Value of the field */
-  value?: string | Date;
+  /** Called when the field changes */
+  onChange?: (value?: string) => void;
+
+  /** Called when the field is focused */
+  onFocus?: (event: FocusEvent, nodeType: string) => void;
+
+  /** Tooltip to render */
+  tooltip: React.ReactNode;
 }
 
 declare class FieldDate extends React.Component<FieldDateProps, {}> {}

@@ -4,11 +4,13 @@ import classNames from 'classnames';
 
 import { isEmptyCheck } from '../../utils/validate';
 import * as propUtils from '../../utils/propTypes';
-import { withField } from '../Field';
+import { withField, FieldLabel } from '../Field';
 
 import Checkbox from './Checkbox';
 
-// group of checkboxes
+// /**
+//  * Group of checkboxes and label that applies state-template styling
+//  */
 export const FieldCheckboxes = (props) => {
   const {
     'aria-describedby': ariaDescribedby,
@@ -23,10 +25,14 @@ export const FieldCheckboxes = (props) => {
     onChange,
     onFocus,
     options,
+    required,
+    tooltip,
     value,
     variant,
     ...rest
   } = props;
+
+  const labelId = `${id}--label`;
 
   const cn = classNames([
     'field__checkboxes',
@@ -34,9 +40,9 @@ export const FieldCheckboxes = (props) => {
   ]);
 
   const wrapperProps = {
-    'aria-label': label,
-    className: cn,
+    'aria-describedby': labelId,
     'data-test': 'field__checkboxes',
+    className: cn,
     id,
     role: 'group',
     ...rest,
@@ -56,18 +62,29 @@ export const FieldCheckboxes = (props) => {
   };
 
   return (
-    <div {...wrapperProps}>
-      {
-        options.filter((x) => !x.hidden).map((option) => (
-          <Checkbox
-            key={option.value}
-            option={option}
-            {...option}
-            {...checkProps}
-          />
-        ))
-      }
-    </div>
+    <>
+      <FieldLabel
+        label={label}
+        name={name}
+        required={required}
+        tooltip={tooltip}
+        tag={'div'}
+        id={labelId}
+      />
+
+      <div {...wrapperProps}>
+        {
+          options.filter((x) => !x.hidden).map((option) => (
+            <Checkbox
+              key={option.value}
+              option={option}
+              {...option}
+              {...checkProps}
+            />
+          ))
+        }
+      </div>
+    </>
   );
 };
 
@@ -108,6 +125,12 @@ FieldCheckboxes.propTypes = {
   /** Options to select from */
   options: T.arrayOf(propUtils.option).isRequired,
 
+  /** Determines if field is required */
+  required: T.bool,
+
+  /** Tooltip to render */
+  tooltip: T.node,
+
   /** Value of the field */
   value: T.oneOfType([T.string, T.array]),
 
@@ -127,6 +150,8 @@ FieldCheckboxes.defaultProps = {
   onBlur: null,
   onChange: null,
   onFocus: null,
+  required: false,
+  tooltip: null,
   value: null,
   variant: null,
 };

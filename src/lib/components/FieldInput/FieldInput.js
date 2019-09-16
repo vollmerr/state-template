@@ -3,14 +3,22 @@ import T from 'prop-types';
 import classNames from 'classnames';
 
 import { isEmptyText } from '../../utils/validate';
-import { withField } from '../Field';
+import { withField, FieldLabel } from '../Field';
 
-// input field that applies state-template styling
+// /**
+//  * Input field and label that applies state-template styling
+//  *
+//  * Extends [HTMLInputElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement) properties (id, data-*, etc)
+//  */
 export const FieldInput = (props) => {
   const {
     className,
-    tag: Tag,
     inputRef,
+    label,
+    name,
+    required,
+    tag: Tag,
+    tooltip,
     ...rest
   } = props;
 
@@ -21,30 +29,29 @@ export const FieldInput = (props) => {
   ]);
 
   return (
-    <Tag
-      data-test={'field__input'}
-      className={cn}
-      ref={inputRef}
-      {...rest}
-    />
+    <>
+      <FieldLabel
+        htmlFor={name}
+        label={label}
+        name={name}
+        required={required}
+        tooltip={tooltip}
+      />
+
+      <Tag
+        className={cn}
+        data-test={'field__input'}
+        name={name}
+        ref={inputRef}
+        {...rest}
+      />
+    </>
   );
 };
 
 FieldInput.propTypes = {
-  /** Accessible indicator of related information */
-  'aria-describedby': T.string,
-
-  /** Accessible indicator for errors existing */
-  'aria-invalid': T.string,
-
   /** Class names to attach to the field */
   className: T.string,
-
-  /** Disable the input */
-  disabled: T.bool,
-
-  /** Id of field */
-  id: T.string,
 
   /** Ref to attach to input */
   inputRef: T.shape({
@@ -57,34 +64,22 @@ FieldInput.propTypes = {
   /** Name of field */
   name: T.string.isRequired,
 
-  /** Called when radio button is blurred */
-  onBlur: T.func,
-
-  /** Called when radio button changes */
-  onChange: T.func,
-
-  /** Called when radio button is focused */
-  onFocus: T.func,
+  /** Determines if field is required */
+  required: T.bool,
 
   /** HTML tag to render as */
   tag: T.node,
 
-  /** Value of the field */
-  value: T.string,
+  /** Tooltip to render */
+  tooltip: T.node,
 };
 
 FieldInput.defaultProps = {
-  'aria-describedby': null,
-  'aria-invalid': 'false',
   className: null,
-  disabled: false,
-  id: null,
   inputRef: null,
-  onBlur: null,
-  onChange: null,
-  onFocus: null,
+  required: false,
   tag: 'input',
-  value: null,
+  tooltip: null,
 };
 
 export default withField(isEmptyText)(FieldInput);

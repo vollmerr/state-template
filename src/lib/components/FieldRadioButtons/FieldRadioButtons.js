@@ -4,11 +4,13 @@ import classNames from 'classnames';
 
 import { isEmptyRadio } from '../../utils/validate';
 import * as propUtils from '../../utils/propTypes';
-import { withField } from '../Field';
+import { withField, FieldLabel } from '../Field';
 
 import RadioButton from './RadioButton';
 
-// group of radio buttons
+// /**
+//  * Group of radio buttons and label that applies state-template styling
+//  */
 export const FieldRadioButtons = (props) => {
   const {
     'aria-describedby': ariaDescribedby,
@@ -23,10 +25,14 @@ export const FieldRadioButtons = (props) => {
     onChange,
     onFocus,
     options,
+    required,
+    tooltip,
     value,
     variant,
     ...rest
   } = props;
+
+  const labelId = `${id}--label`;
 
   const cn = classNames([
     'field__radio-buttons',
@@ -34,11 +40,11 @@ export const FieldRadioButtons = (props) => {
   ]);
 
   const wrapperProps = {
-    'aria-label': label,
+    'aria-describedby': labelId,
     'data-test': 'field__radio-buttons',
     className: cn,
     id,
-    role: 'group',
+    role: 'radiogroup',
     ...rest,
   };
 
@@ -56,18 +62,29 @@ export const FieldRadioButtons = (props) => {
   };
 
   return (
-    <div {...wrapperProps}>
-      {
-        options.filter((x) => !x.hidden).map((option) => (
-          <RadioButton
-            key={option.value}
-            option={option}
-            {...option}
-            {...radioProps}
-          />
-        ))
-      }
-    </div>
+    <>
+      <FieldLabel
+        label={label}
+        name={name}
+        required={required}
+        tooltip={tooltip}
+        tag={'div'}
+        id={labelId}
+      />
+
+      <div {...wrapperProps}>
+        {
+          options.filter((x) => !x.hidden).map((option) => (
+            <RadioButton
+              key={option.value}
+              option={option}
+              {...option}
+              {...radioProps}
+            />
+          ))
+        }
+      </div>
+    </>
   );
 };
 
@@ -108,6 +125,12 @@ FieldRadioButtons.propTypes = {
   /** Options to select from */
   options: T.arrayOf(propUtils.option).isRequired,
 
+  /** Determines if field is required */
+  required: T.bool,
+
+  /** Tooltip to render */
+  tooltip: T.node,
+
   /** Value of the field */
   value: T.string,
 
@@ -127,6 +150,8 @@ FieldRadioButtons.defaultProps = {
   onBlur: null,
   onChange: null,
   onFocus: null,
+  required: false,
+  tooltip: null,
   value: null,
   variant: null,
 };

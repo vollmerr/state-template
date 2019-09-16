@@ -21,6 +21,9 @@ const inputRef = React.createRef();
       { value: 'brown value', label: 'brown label' },
       { value: 'purple value', label: 'purple label' },
     ]}
+    onHide={() => { console.log('hiding...') }}
+    onShow={() => { console.log('showing...') }}
+    onSelect={(item) => { console.log('selecting...', item) }}
     helpText={'This is the `helpText` content...'}
     tooltip={'Example tooltip!'}
     inputRef={inputRef}

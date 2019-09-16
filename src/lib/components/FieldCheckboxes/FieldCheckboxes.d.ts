@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as types from '../../utils/types';
 
-export interface FieldCheckboxesProps extends HTMLInputElement {
+export interface FieldCheckboxesProps {
   /** Accessible indicator of related information */
   'aria-describedby'?: string;
 
@@ -10,7 +10,7 @@ export interface FieldCheckboxesProps extends HTMLInputElement {
   'aria-invalid'?: string;
 
   /** Class names to attach to the field */
-  className?: T.string;
+  className?: string;
 
   /** Disable the input */
   disabled?: boolean;
@@ -27,17 +27,23 @@ export interface FieldCheckboxesProps extends HTMLInputElement {
   /** Name of field */
   name: string;
 
-  /** Called when checkbox is blurred */
-  onBlur?: (string: value?) => void;
+  /** Called when the field is blurred */
+  onBlur?: (event: any, value?: string[]) => void;
 
-  /** Called when checkbox changes */
-  onChange?: (string: value?) => void;
+  /** Called when the field changes */
+  onChange?: (value?: string[]) => void;
 
-  /** Called when checkbox is focused */
-  onFocus?: (string: value?) => void;
+  /** Called when the field is focused */
+  onFocus?: (event: any, nodeType: string) => void;
 
   /** Options to select from */
   options: Array<types.Option>;
+
+  /** Determines if field is required */
+  required?: boolean;
+
+  /** Tooltip to render */
+  tooltip?: React.ReactNode;
 
   /** Value of the field */
   value?: string;

@@ -6,11 +6,15 @@ import classNames from 'classnames';
 import { isValidDate } from '../../utils/validate';
 import { keyCodes } from '../../utils/aria';
 import { isValid } from '../../utils/date';
-import { withField } from '../Field';
+import { withField, FieldLabel } from '../Field';
 import Icon from '../Icon';
 
-// Date picker for redux-form using pikaday library
-// see https://whatsock.com/tsg/Coding%20Arena/ARIA%20Date%20Pickers/ARIA%20Date%20Picker%20(Basic)/demo.htm for accesibility needed
+// /**
+//  * Date picker field and label that applies state-template styling. Uses
+//  * the pikaday library for handling date picking.
+//  *
+//  * See https://whatsock.com/tsg/Coding%20Arena/ARIA%20Date%20Pickers/ARIA%20Date%20Picker%20(Basic)/demo.htm for accesibility applied.
+//  */
 export class FieldDate extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -92,11 +96,14 @@ export class FieldDate extends React.Component {
   }
 
   onClose = () => {
-    const { onChange } = this.props;
+    const { onChange, onBlur } = this.props;
     const date = this.picker.getDate();
     // update passed in value
     if (onChange) {
       onChange(this.getDisplayDate(date));
+    }
+    if (onBlur) {
+      onBlur();
     }
     // update display field
     this.updateDisplay(date);
@@ -188,6 +195,9 @@ export class FieldDate extends React.Component {
       label,
       minDate,
       name,
+      onFocus,
+      required,
+      tooltip,
       ...rest
     } = this.props;
     const { displayText } = this.state;
@@ -201,46 +211,56 @@ export class FieldDate extends React.Component {
     const describedby = ariaDescBy ? `${ariaDescBy} ${infoId}` : infoId;
 
     return (
-      <div data-test={'field__date'} className={cn}>
-        {/* field that will be displayed */}
-        <input
-          {...rest}
-          autoComplete={'off'}
-          aria-describedby={describedby}
-          className={'form-control'}
-          data-test={'field__date-control'}
-          disabled={disabled}
-          ref={this.displayRef}
+      <>
+        <FieldLabel
+          htmlFor={name}
+          label={label}
           name={name}
-          value={displayText}
-          onChange={this.onChange}
-          onBlur={this.onClose}
-          onFocus={() => { }}
-          onKeyDown={this.onKeyDown}
-          onKeyUp={this.onKeyUp}
+          required={required}
+          tooltip={tooltip}
         />
 
-        <p id={infoId} className={'hidden'}>
-          Type a YYYY-MM-DD format date, hit escape to cancel.
-          Use the arrow keys for picking from the date picker.
-          Use page up and down for navigating months.
-          Use home and end for navigating weeks.
-        </p>
+        <div data-test={'field__date'} className={cn}>
+          {/* field that will be displayed */}
+          <input
+            {...rest}
+            autoComplete={'off'}
+            aria-describedby={describedby}
+            className={'form-control'}
+            data-test={'field__date-control'}
+            disabled={disabled}
+            ref={this.displayRef}
+            name={name}
+            value={displayText}
+            onChange={this.onChange}
+            onBlur={this.onClose}
+            onFocus={onFocus}
+            onKeyDown={this.onKeyDown}
+            onKeyUp={this.onKeyUp}
+          />
 
-        <Icon
-          hidden={disabled}
-          name={'calendar'}
-          data-test={'field__date-icon'}
-          className={'field__date-icon'}
-        />
+          <p id={infoId} className={'hidden'}>
+            Type a YYYY-MM-DD format date, hit escape to cancel.
+            Use the arrow keys for picking from the date picker.
+            Use page up and down for navigating months.
+            Use home and end for navigating weeks.
+          </p>
 
-        {/* redux-form field */}
-        <input
-          type={'hidden'}
-          ref={this.pickerRef}
-          disabled={disabled}
-        />
-      </div>
+          <Icon
+            hidden={disabled}
+            name={'calendar'}
+            data-test={'field__date-icon'}
+            className={'field__date-icon'}
+          />
+
+          {/* redux-form field */}
+          <input
+            type={'hidden'}
+            ref={this.pickerRef}
+            disabled={disabled}
+          />
+        </div>
+      </>
     );
   }
 }
@@ -275,8 +295,20 @@ FieldDate.propTypes = {
   /** Name of field */
   name: T.string.isRequired,
 
-  /** Called when radio button changes */
+  /** Called when field value changes */
   onChange: T.func,
+
+  /** Called when field is blurred */
+  onBlur: T.func,
+
+  /** Called when field is focused */
+  onFocus: T.func,
+
+  /** Determines if field is required */
+  required: T.bool,
+
+  /** Tooltip to render */
+  tooltip: T.node,
 
   /** Value of date selected */
   value: T.oneOfType([T.string, T.instanceOf(Date)]),
@@ -291,6 +323,10 @@ FieldDate.defaultProps = {
   inputRef: null,
   minDate: null,
   onChange: null,
+  onBlur: null,
+  onFocus: null,
+  required: false,
+  tooltip: null,
   value: null,
 };
 

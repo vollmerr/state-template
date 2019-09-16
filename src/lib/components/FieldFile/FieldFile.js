@@ -3,11 +3,11 @@ import T from 'prop-types';
 import classNames from 'classnames';
 
 import { isEmptyFile } from '../../utils/validate';
-import { withField } from '../Field';
+import { withField, FieldLabel } from '../Field';
 
-import FieldFileLabel from './FieldFileLabel';
-
-// file attachment field that applies state-template styling
+// /**
+//  * File attachment field and label that applies state-template styling
+//  */
 export class FieldFile extends React.PureComponent {
   constructor(props, context) {
     super(props, context);
@@ -59,6 +59,8 @@ export class FieldFile extends React.PureComponent {
       onBlur,
       onChange,
       onFocus,
+      required,
+      tooltip,
       value, // will be passed as `files`, do not pass value
       ...rest
     } = this.props;
@@ -70,34 +72,44 @@ export class FieldFile extends React.PureComponent {
 
     const fileNameId = `${name}--filename`;
     const fileNameText = this.getFileText();
-    const describedBy = `${ariaDescribedBy} ${fileNameId}`.trim();
+    const describedBy = ariaDescribedBy ? `${ariaDescribedBy} ${fileNameId}` : fileNameId;
 
     return (
-      <div data-test={'field__file'} className={cn}>
-        <input
-          aria-describedby={describedBy}
-          aria-label={label}
-          type={'file'}
-          onChange={this.eventHandler(onChange)}
-          onBlur={this.eventHandler(onBlur)}
-          onFocus={this.eventHandler(onFocus)}
-          files={value}
-          ref={this.inputRef}
-          {...rest}
+      <>
+        <FieldLabel
+          label={label}
+          name={name}
+          required={required}
+          tooltip={tooltip}
+          tag={'div'}
         />
 
-        {/* file name for display - hide from screen readers */}
-        <label className={'form-control field__file-text'} htmlFor={name} aria-hidden>
-          {fileNameText}
-        </label>
+        <div data-test={'field__file'} className={cn}>
+          <input
+            aria-describedby={describedBy}
+            aria-label={label}
+            type={'file'}
+            onChange={this.eventHandler(onChange)}
+            onBlur={this.eventHandler(onBlur)}
+            onFocus={this.eventHandler(onFocus)}
+            files={value}
+            ref={this.inputRef}
+            {...rest}
+          />
 
-        {/* file name for screen readers - hide from vision */}
-        <span id={fileNameId} hidden>{fileNameText}</span>
+          {/* file name for display - hide from screen readers */}
+          <label className={'form-control field__file-text'} htmlFor={name} aria-hidden>
+            {fileNameText}
+          </label>
 
-        <div className={'field__file-button'}>
-          {btnText}
+          {/* file name for screen readers - hide from vision */}
+          <span id={fileNameId} hidden>{fileNameText}</span>
+
+          <div className={'field__file-button'}>
+            {btnText}
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
@@ -156,12 +168,18 @@ FieldFile.propTypes = {
   /** Displayed when no file is selected */
   placeholder: T.string,
 
+  /** Determines if field is required */
+  required: T.bool,
+
+  /** Tooltip to render */
+  tooltip: T.node,
+
   /** Value of the field */
   value: T.any, // eslint-disable-line react/forbid-prop-types
 };
 
 FieldFile.defaultProps = {
-  'aria-describedby': '',
+  'aria-describedby': null,
   'aria-invalid': 'false',
   accept: null,
   btnText: 'Choose File',
@@ -175,11 +193,9 @@ FieldFile.defaultProps = {
   onChange: null,
   onFocus: null,
   placeholder: null,
+  required: false,
+  tooltip: null,
   value: null,
 };
 
-const options = {
-  renderLabel: FieldFileLabel,
-};
-
-export default withField(isEmptyFile)(FieldFile, options);
+export default withField(isEmptyFile)(FieldFile);

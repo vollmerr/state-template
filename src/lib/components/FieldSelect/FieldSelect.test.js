@@ -19,6 +19,8 @@ const props = {
     { value: 'value-1', label: 'label-1', className: 'option-class' },
     { value: 'value-2', label: 'label-2' },
   ],
+  required: true,
+  tooltip: 'test-tooltip',
   value: 'value-1',
 };
 

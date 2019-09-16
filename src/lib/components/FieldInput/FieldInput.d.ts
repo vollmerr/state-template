@@ -7,38 +7,26 @@ export interface FieldInputProps extends HTMLInputElement {
   /** Accessible indicator for errors existing */
   'aria-invalid'?: string;
 
-  /** Class names to attach to the field */
-  className?: string;
-
-  /** Disable the input */
-  disabled?: boolean;
-
-  /** Id of field */
-  id?: string;
-
   /** Ref to attach to input */
-  inputRef?: React.Ref;
+  inputRef?: React.Ref<HTMLInputElement>;
 
   /** Label for the field */
   label: string;
 
-  /** Name of field */
-  name: string;
-
   /** Called when the field is blurred */
-  onBlur?: (string: value?) => void;
+  onBlur?: (event: FocusEvent, value?: string) => void;
 
   /** Called when the field changes */
-  onChange?: (string: value?) => void;
+  onChange?: (event: Event, value?: string) => void;
 
   /** Called when the field is focused */
-  onFocus?: (string: value?) => void;
+  onFocus?: (event: FocusEvent, nodeType: string) => void;
 
   /** HTML tag to render as */
   tag?: string | React.ReactNode;
 
-  /** Value of the field */
-  value?: string;
+  /** Tooltip to render */
+  tooltip: React.ReactNode;
 }
 
 declare class FieldInput extends React.Component<FieldInputProps, {}> {}
