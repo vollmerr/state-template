@@ -1,18 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldInput should render correctly 1`] = `
-<input
-  aria-describedby="aria-desc-id"
-  aria-invalid="false"
-  className="field__input form-control test-classname"
-  data-test="field__input"
-  disabled={false}
-  id="test-id"
-  label="test-label"
-  name="test-name"
-  onBlur={[MockFunction]}
-  onChange={[MockFunction]}
-  onFocus={[MockFunction]}
-  value="test-value"
-/>
+<Fragment>
+  <FieldLabel
+    htmlFor="test-name"
+    label="test-label"
+    name="test-name"
+    required={false}
+    tag="label"
+    tooltip={null}
+  />
+  <input
+    aria-describedby="aria-desc-id"
+    aria-invalid="false"
+    className="field__input form-control test-classname"
+    data-test="field__input"
+    disabled={false}
+    id="test-id"
+    name="test-name"
+    onBlur={[MockFunction]}
+    onChange={[MockFunction]}
+    onFocus={[MockFunction]}
+    value="test-value"
+  />
+</Fragment>
 `;

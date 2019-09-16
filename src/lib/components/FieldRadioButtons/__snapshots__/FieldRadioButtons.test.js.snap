@@ -1,54 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldRadioButtons should render correctly 1`] = `
-<div
-  aria-label="test-label"
-  className="field__radio-buttons test-classname"
-  data-test="field__radio-buttons"
-  id="test-id"
-  role="group"
->
-  <RadioButton
-    aria-describedby="aria-desc-id"
-    aria-invalid="false"
-    className="option-class"
-    disabled={false}
-    inline={false}
-    key="value-1"
-    label="label-1"
+<Fragment>
+  <FieldLabel
+    id="test-id--label"
+    label="test-label"
     name="test-name"
-    onBlur={[MockFunction]}
-    onChange={[MockFunction]}
-    onFocus={[MockFunction]}
-    option={
-      Object {
-        "className": "option-class",
-        "label": "label-1",
-        "value": "value-1",
-      }
-    }
-    value="value-1"
-    variant={null}
+    required={false}
+    tag="div"
+    tooltip={null}
   />
-  <RadioButton
-    aria-describedby="aria-desc-id"
-    aria-invalid="false"
-    disabled={false}
-    inline={false}
-    key="value-2"
-    label="label-2"
-    name="test-name"
-    onBlur={[MockFunction]}
-    onChange={[MockFunction]}
-    onFocus={[MockFunction]}
-    option={
-      Object {
-        "label": "label-2",
-        "value": "value-2",
+  <div
+    aria-describedby="test-id--label"
+    className="field__radio-buttons test-classname"
+    data-test="field__radio-buttons"
+    id="test-id"
+    role="radiogroup"
+  >
+    <RadioButton
+      aria-describedby="aria-desc-id"
+      aria-invalid="false"
+      className="option-class"
+      disabled={false}
+      inline={false}
+      key="value-1"
+      label="label-1"
+      name="test-name"
+      onBlur={[MockFunction]}
+      onChange={[MockFunction]}
+      onFocus={[MockFunction]}
+      option={
+        Object {
+          "className": "option-class",
+          "label": "label-1",
+          "value": "value-1",
+        }
       }
-    }
-    value="value-1"
-    variant={null}
-  />
-</div>
+      value="value-1"
+      variant={null}
+    />
+    <RadioButton
+      aria-describedby="aria-desc-id"
+      aria-invalid="false"
+      disabled={false}
+      inline={false}
+      key="value-2"
+      label="label-2"
+      name="test-name"
+      onBlur={[MockFunction]}
+      onChange={[MockFunction]}
+      onFocus={[MockFunction]}
+      option={
+        Object {
+          "label": "label-2",
+          "value": "value-2",
+        }
+      }
+      value="value-1"
+      variant={null}
+    />
+  </div>
+</Fragment>
 `;

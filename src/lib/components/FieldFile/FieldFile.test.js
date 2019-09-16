@@ -4,9 +4,9 @@ import { shallow } from 'enzyme';
 import { FieldFile } from './FieldFile';
 
 const props = {
-  accept: '.jpg, .jpeg, .png',
   'aria-describedby': 'aria-desc-id',
   'aria-invalid': 'false',
+  accept: '.jpg, .jpeg, .png',
   btnText: 'upload-button-text',
   className: 'test-classname',
   disabled: false,
@@ -18,6 +18,8 @@ const props = {
   onChange: jest.fn(),
   onFocus: jest.fn(),
   placeholder: 'test-placeholder',
+  required: true,
+  tooltip: 'test-tooltip',
   value: 'test-value',
 };
 

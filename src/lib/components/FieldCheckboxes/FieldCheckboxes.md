@@ -15,6 +15,9 @@ const initialValues = {
       { value: 'value2', label: 'label 2' },
     ]}
     helpText={'This is the `helpText` content...'}
+    onBlur={(obj, v) => { console.log('blurring...', obj, v) }}
+    onChange={(v) => { console.log('changing...', v) }}
+    onFocus={(obj, el) => { console.log('focusing...', obj, el) }}
     tooltip={'Example tooltip!'}
   />
   <FieldCheckboxes 

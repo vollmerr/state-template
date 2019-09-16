@@ -1,9 +1,8 @@
 import React from 'react';
 import T from 'prop-types';
 import { fieldInputPropTypes, fieldMetaPropTypes } from 'redux-form';
-
 import classNames from 'classnames';
-import FieldLabel from './FieldLabel';
+
 import FieldError from './FieldError';
 import FieldHelp from './FieldHelp';
 
@@ -27,7 +26,6 @@ export const withFieldWrapper = (Component, options = {}) => {
     } = props;
 
     const {
-      renderLabel,
       renderError,
       renderHelp,
     } = options;
@@ -69,15 +67,10 @@ export const withFieldWrapper = (Component, options = {}) => {
       'aria-invalid': ariaInvalid,
       disabled,
       label,
-      ...input,
-      ...rest,
-    };
-
-    const labelProps = {
-      label,
-      name,
       required,
       tooltip,
+      ...input,
+      ...rest,
     };
 
     const errorProps = {
@@ -92,12 +85,6 @@ export const withFieldWrapper = (Component, options = {}) => {
 
     return (
       <div className={cn}>
-        {label && (
-          renderLabel
-            ? renderLabel(labelProps)
-            : <FieldLabel {...labelProps} />
-        )}
-
         <Component id={name} {...fieldProps} />
 
         {errorMessage && (

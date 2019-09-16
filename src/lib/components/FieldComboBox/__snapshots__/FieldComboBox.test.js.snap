@@ -1,40 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldComboBox should render correctly 1`] = `
-<div
-  className="field__combo-box test-classname"
-  data-test="field__combo-box"
->
+<Fragment>
+  <FieldLabel
+    htmlFor="test-name"
+    label="test-label"
+    name="test-name"
+    required={false}
+    tag="label"
+    tooltip={null}
+  />
   <div
-    aria-expanded={false}
-    aria-haspopup="listbox"
-    aria-owns="test-id-listbox"
-    id="test-id-combobox"
-    role="combobox"
+    className="field__combo-box test-classname"
+    data-test="field__combo-box"
   >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="test-id-listbox"
+      id="test-id-combobox"
+      role="combobox"
+    >
+      <input
+        aria-controls="test-id-listbox"
+        className="form-control"
+        disabled={false}
+        id="test-id"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        type="text"
+      />
+      <Icon
+        className="field__combo-box-icon"
+        data-test="field__combo-box-icon"
+        hidden={false}
+        name="triangle-down"
+        onClick={[Function]}
+        tag="span"
+      />
+    </div>
+    <ul
+      aria-label="test-label"
+      className="field__combo-box--listbox"
+      hidden={true}
+      id="test-id-listbox"
+      role="listbox"
+    >
+      <li
+        aria-selected={false}
+        className=""
+        id="test-id-item-0"
+        key="value-1"
+        onClick={[Function]}
+        role="option"
+      >
+        label-1
+      </li>
+      <li
+        aria-selected={false}
+        className=""
+        id="test-id-item-1"
+        key="value-2"
+        onClick={[Function]}
+        role="option"
+      >
+        label-2
+      </li>
+    </ul>
     <input
-      aria-controls="test-id-listbox"
-      className="form-control"
       disabled={false}
-      id="test-id"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
-      type="text"
-    />
-    <Icon
-      className="field__combo-box-icon"
-      data-test="field__combo-box-icon"
-      name="triangle-down"
-      onClick={[Function]}
-      tag="span"
+      name="test-name"
+      type="hidden"
     />
   </div>
-  <input
-    disabled={false}
-    name="test-name"
-    type="hidden"
-  />
-</div>
+</Fragment>
 `;

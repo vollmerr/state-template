@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { isEmptyRadio } from '../../utils/validate';
 import { keyCodes } from '../../utils/aria';
 import * as propUtils from '../../utils/propTypes';
-import { withField } from '../Field';
+import { withField, FieldLabel } from '../Field';
 import Icon from '../Icon';
 
 /**
@@ -13,6 +13,8 @@ import Icon from '../Icon';
  *
  * Based off https://www.w3.org/TR/wai-aria-practices/examples/combobox/aria1.1pattern/listbox-combo.html
  * to provide accessibility features.
+ *
+ * Extends [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement) properties (id, data-*, etc)
  */
 export class FieldComboBox extends React.Component {
   constructor(props) {
@@ -77,13 +79,16 @@ export class FieldComboBox extends React.Component {
 
   hideListbox = () => {
     const { onHide } = this.props;
+    const { showListbox } = this.state;
 
-    this.setState({
-      activeIndex: -1,
-      showListbox: false,
-    });
+    if (showListbox) {
+      this.setState({
+        activeIndex: -1,
+        showListbox: false,
+      });
 
-    if (onHide) onHide();
+      if (onHide) onHide();
+    }
   }
 
   updateFilteredList = () => {
@@ -182,8 +187,6 @@ export class FieldComboBox extends React.Component {
       return;
     }
 
-    this.showListbox();
-
     let newActiveIndex = activeIndex < 0
       ? 0
       : activeIndex;
@@ -214,6 +217,7 @@ export class FieldComboBox extends React.Component {
         break;
     }
 
+    this.showListbox();
     const activeItem = this.getItemAt(newActiveIndex);
     const input = this.inputRef.current;
 
@@ -273,8 +277,10 @@ export class FieldComboBox extends React.Component {
       className,
       disabled,
       id,
-      name,
       label,
+      name,
+      required,
+      tooltip,
     } = this.props;
 
     const {
@@ -293,47 +299,52 @@ export class FieldComboBox extends React.Component {
     /* eslint-disable jsx-a11y/click-events-have-key-events */
     /* eslint-disable jsx-a11y/role-has-required-aria-props */
     return (
-      <div data-test={'field__combo-box'} className={cn} ref={this.wrapperRef}>
-        <div
-          aria-expanded={showListbox}
-          aria-haspopup={'listbox'}
-          aria-owns={listboxId}
-          id={`${id}-combobox`}
-          role={'combobox'}
-        >
-          <input
-            aria-controls={listboxId}
-            className={'form-control'}
-            disabled={disabled}
-            id={id}
-            onBlur={this.onBlur}
-            onFocus={this.onFocus}
-            onKeyDown={this.onKeyDown}
-            onKeyUp={this.onKeyUp}
-            ref={this.inputRef}
-            type={'text'}
-          />
+      <>
+        <FieldLabel
+          htmlFor={name}
+          label={label}
+          name={name}
+          required={required}
+          tooltip={tooltip}
+        />
 
-          {
-            !disabled
-            && (
-              <Icon
-                name={'triangle-down'}
-                data-test={'field__combo-box-icon'}
-                className={'field__combo-box-icon'}
-                onClick={this.onClickIcon}
-              />
-            )
-          }
-        </div>
+        <div data-test={'field__combo-box'} className={cn} ref={this.wrapperRef}>
+          <div
+            aria-expanded={showListbox}
+            aria-haspopup={'listbox'}
+            aria-owns={listboxId}
+            id={`${id}-combobox`}
+            role={'combobox'}
+          >
+            <input
+              aria-controls={listboxId}
+              className={'form-control'}
+              disabled={disabled}
+              id={id}
+              onBlur={this.onBlur}
+              onFocus={this.onFocus}
+              onKeyDown={this.onKeyDown}
+              onKeyUp={this.onKeyUp}
+              ref={this.inputRef}
+              type={'text'}
+            />
 
-        {showListbox && (
+            <Icon
+              hidden={disabled}
+              name={'triangle-down'}
+              data-test={'field__combo-box-icon'}
+              className={'field__combo-box-icon'}
+              onClick={this.onClickIcon}
+            />
+          </div>
+
           <ul
             aria-label={label}
             className={'field__combo-box--listbox'}
             id={listboxId}
             role={'listbox'}
             ref={this.listboxRef}
+            hidden={!showListbox}
           >
             {filteredList.map((option, i) => {
               const isActive = activeIndex === i;
@@ -353,14 +364,14 @@ export class FieldComboBox extends React.Component {
               );
             })}
           </ul>
-        )}
 
-        <input
-          type={'hidden'}
-          name={name}
-          disabled={disabled}
-        />
-      </div>
+          <input
+            type={'hidden'}
+            name={name}
+            disabled={disabled}
+          />
+        </div>
+      </>
     );
     /* eslint-enable jsx-a11y/click-events-have-key-events */
     /* eslint-enable jsx-a11y/role-has-required-aria-props */
@@ -368,9 +379,6 @@ export class FieldComboBox extends React.Component {
 }
 
 FieldComboBox.propTypes = {
-  /** Accessible indicator of related information */
-  'aria-describedby': T.string, // eslint-disable-line react/no-unused-prop-types
-
   /** Accessible indicator for errors existing */
   'aria-invalid': T.string, // eslint-disable-line react/no-unused-prop-types
 
@@ -394,6 +402,9 @@ FieldComboBox.propTypes = {
   /** Name of field */
   name: T.string.isRequired,
 
+  /** Determines if field is required */
+  required: T.bool,
+
   /** Called when input changes, provided by redux-form */
   onChange: T.func.isRequired,
 
@@ -409,20 +420,24 @@ FieldComboBox.propTypes = {
   /** Options to select from */
   options: T.arrayOf(propUtils.option).isRequired,
 
+  /** Tooltip to render */
+  tooltip: T.node,
+
   /** Value of option, provided by redux-form */
   value: T.string,
 };
 
 FieldComboBox.defaultProps = {
-  'aria-describedby': null,
   'aria-invalid': 'false',
   className: null,
   disabled: false,
   id: null,
   inputRef: null,
+  required: false,
   onHide: null,
   onShow: null,
   onSelect: null,
+  tooltip: null,
   value: null,
 };
 

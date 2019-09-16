@@ -54,7 +54,14 @@ export { default as Card } from './components/Card';
 export { default as Footer } from './components/Footer';
 // Form
 export { default as Form } from './components/Form';
-export { withField, withFieldWrapper, withReduxForm } from './components/Field';
+export {
+  FieldError,
+  FieldHelp,
+  FieldLabel,
+  withField,
+  withFieldWrapper,
+  withReduxForm,
+} from './components/Field';
 export { default as FieldCheckboxes, Checkbox } from './components/FieldCheckboxes';
 export { default as FieldComboBox } from './components/FieldComboBox';
 export { default as FieldDate } from './components/FieldDate';

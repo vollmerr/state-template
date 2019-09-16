@@ -1,40 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldSelect should render correctly 1`] = `
-<div
-  className="select field__select test-classname"
-  data-test="field__select"
->
-  <select
-    aria-describedby="aria-desc-id"
-    aria-invalid="false"
-    className="form-control"
-    disabled={false}
-    id="test-id"
-    multiple={false}
+<Fragment>
+  <FieldLabel
+    htmlFor="test-name"
+    label="test-label"
     name="test-name"
-    onBlur={[MockFunction]}
-    onChange={[MockFunction]}
-    onFocus={[MockFunction]}
-    value="value-1"
+    required={true}
+    tag="label"
+    tooltip="test-tooltip"
+  />
+  <div
+    className="select field__select test-classname"
+    data-test="field__select"
   >
-    <option
-      disabled={true}
-      hidden={true}
-      value=""
-    />
-    <option
-      key="value-1"
+    <select
+      aria-describedby="aria-desc-id"
+      aria-invalid="false"
+      className="form-control"
+      disabled={false}
+      id="test-id"
+      multiple={false}
+      onBlur={[MockFunction]}
+      onChange={[MockFunction]}
+      onFocus={[MockFunction]}
       value="value-1"
     >
-      label-1
-    </option>
-    <option
-      key="value-2"
-      value="value-2"
-    >
-      label-2
-    </option>
-  </select>
-</div>
+      <option
+        disabled={true}
+        hidden={true}
+        value=""
+      />
+      <option
+        key="value-1"
+        value="value-1"
+      >
+        label-1
+      </option>
+      <option
+        key="value-2"
+        value="value-2"
+      >
+        label-2
+      </option>
+    </select>
+  </div>
+</Fragment>
 `;

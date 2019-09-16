@@ -4,17 +4,23 @@ import classNames from 'classnames';
 
 import { isEmptyRadio } from '../../utils/validate';
 import * as propUtils from '../../utils/propTypes';
-import { withField } from '../Field';
+import { withField, FieldLabel } from '../Field';
 
-// select with optional help text and label
-// displays error if validation fails
+/**
+ * Select field and label that applies state-template styling
+ *
+ * Extends [HTMLSelectElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement) properties (id, data-*, etc)
+ */
 export const FieldSelect = (props) => {
   const {
     className,
     inputRef,
     label,
     multiple,
+    name,
     options,
+    required,
+    tooltip,
     value,
     ...rest
   } = props;
@@ -29,40 +35,41 @@ export const FieldSelect = (props) => {
   ]);
 
   return (
-    <div data-test={'field__select'} className={cn}>
-      <select
-        multiple={multiple}
-        value={mappedValue}
-        className={'form-control'}
-        ref={inputRef}
-        {...rest}
-      >
-        <option disabled hidden value={''}>{null}</option>
-        {
-          options.filter((x) => !x.hidden).map((option) => (
-            <option key={option.value} value={option.value}>{option.label}</option>
-          ))
-        }
-      </select>
-    </div>
+    <>
+      <FieldLabel
+        htmlFor={name}
+        label={label}
+        name={name}
+        required={required}
+        tooltip={tooltip}
+      />
+
+      <div data-test={'field__select'} className={cn}>
+        <select
+          multiple={multiple}
+          value={mappedValue}
+          className={'form-control'}
+          ref={inputRef}
+          {...rest}
+        >
+          <option disabled hidden value={''}>{null}</option>
+          {
+            options.filter((x) => !x.hidden).map((option) => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))
+          }
+        </select>
+      </div>
+    </>
   );
 };
 
 FieldSelect.propTypes = {
-  /** Accessible indicator of related information */
-  'aria-describedby': T.string,
-
   /** Accessible indicator for errors existing */
   'aria-invalid': T.string,
 
   /** Class names to attach to the field wrapper */
   className: T.string,
-
-  /** Disable the input */
-  disabled: T.bool,
-
-  /** Id of field */
-  id: T.string,
 
   /** Ref to attach to input */
   inputRef: T.shape({
@@ -78,33 +85,26 @@ FieldSelect.propTypes = {
   /** Name of field */
   name: T.string.isRequired,
 
-  /** Called when radio button is blurred */
-  onBlur: T.func,
-
-  /** Called when radio button changes */
-  onChange: T.func,
-
-  /** Called when radio button is focused */
-  onFocus: T.func,
+  /** Determines if field is required */
+  required: T.bool,
 
   /** Options to select from */
   options: T.arrayOf(propUtils.option).isRequired,
+
+  /** Tooltip to render */
+  tooltip: T.node,
 
   /** Value of option */
   value: T.oneOfType([T.string, T.bool, T.number]),
 };
 
 FieldSelect.defaultProps = {
-  'aria-describedby': null,
   'aria-invalid': 'false',
   className: null,
-  disabled: false,
-  id: null,
   inputRef: null,
+  required: false,
   multiple: false,
-  onBlur: null,
-  onChange: null,
-  onFocus: null,
+  tooltip: null,
   value: null,
 };
 

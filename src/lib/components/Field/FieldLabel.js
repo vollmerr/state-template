@@ -9,7 +9,9 @@ const FieldLabel = (props) => {
     label,
     name,
     required,
+    tag: Tag,
     tooltip,
+    ...rest
   } = props;
 
   if (!label) {
@@ -19,10 +21,8 @@ const FieldLabel = (props) => {
   const tooltipId = `${name}-tooltip`;
 
   return (
-    <label data-test={'label'} className={'field__label control-label'} htmlFor={name}>
-      {required && (
-        <span data-test={'required'} className={'required-label'} aria-hidden>* </span>
-      )}
+    <Tag data-test={'label'} className={'field__label control-label'} {...rest}>
+      {required && <span data-test={'required'} className={'required-label'} aria-hidden>* </span>}
 
       {label}
 
@@ -32,14 +32,24 @@ const FieldLabel = (props) => {
           <Tooltip id={tooltipId} text={tooltip} />
         </span>
       )}
-    </label>
+    </Tag>
   );
 };
 
 FieldLabel.propTypes = {
+  /** Label to render */
   label: T.string,
+
+  /** Name of field */
   name: T.string.isRequired,
+
+  /** Indicates the field is required */
   required: T.bool,
+
+  /** HTML tag to render as */
+  tag: T.node,
+
+  /** Tooltip to display next to label */
   tooltip: T.oneOfType([
     T.string,
     T.node,
@@ -49,6 +59,7 @@ FieldLabel.propTypes = {
 FieldLabel.defaultProps = {
   label: null,
   required: false,
+  tag: 'label',
   tooltip: null,
 };
 
