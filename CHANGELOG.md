@@ -1,5 +1,9 @@
 # state-template - Change Log
 
+## v0.4.8
+
+- (fix) FieldComboBox shift + tab changing selection, enter then tab clearing selection
+
 ## v0.4.7 (2019-09-16)
 
 - (chore) update dependency versions
