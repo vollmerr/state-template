@@ -51,13 +51,7 @@ export class FieldComboBox extends React.Component {
   setItemFromValue = () => {
     const { value, options } = this.props;
 
-    const item = options.find((option, index) => {
-      if (option.value === value) {
-        this.setState({ focusedIndex: index });
-        return true;
-      }
-      return false;
-    });
+    const item = options.find((option) => option.value === value);
 
     this.setLabel(item);
   }
@@ -211,6 +205,7 @@ export class FieldComboBox extends React.Component {
         this.onSelectItem(this.getItemAt(newActiveIndex));
         return;
       case keyCodes.tab:
+      case keyCodes.tab && event.shiftKey:
         this.hideListbox();
         return;
       default:
