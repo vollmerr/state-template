@@ -2,6 +2,7 @@
 
 ## v0.4.8
 
+- (chore) update dev dependency versions
 - (fix) FieldComboBox shift + tab changing selection, enter then tab clearing selection
 
 ## v0.4.7 (2019-09-16)
