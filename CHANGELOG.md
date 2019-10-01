@@ -3,6 +3,7 @@
 ## v0.4.9
 
 - (feat) Allow passing screen reader only text to Icon / refactor usage
+- (feat) Allow passing base style class to Button
 
 ## v0.4.8 (2019-09-20)
 
