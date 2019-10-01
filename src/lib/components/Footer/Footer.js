@@ -3,10 +3,36 @@ import React from 'react';
 import * as propUtils from '../../utils/propTypes';
 import A from '../A';
 
-const externalLink = {
-  target: '_blank',
-  rel: 'noopener noreferrer',
-};
+// TODO: pull from config (and config link) / allow custom...
+const footerLinks = [
+  {
+    href: 'http://www.ca.gov/Use',
+    text: 'Conditions of Use',
+  }, {
+    href: 'http://www.ca.gov/Privacy',
+    text: 'Privacy Policy',
+  }, {
+    href: 'http://www.ca.gov/Accessibility',
+    text: 'Accessibility',
+  },
+];
+
+// TODO: pull from config / allow custom...
+const socialLinks = [
+  {
+    href: 'https://www.flickr.com/groups/californiagovernment',
+    iconProps: { name: 'flickr', srOnly: 'Flickr' },
+  }, {
+    href: 'https://www.pinterest.com/cagovernment',
+    iconProps: { name: 'pinterest', srOnly: 'Pinterest' },
+  }, {
+    href: 'https://twitter.com/cagovernment',
+    iconProps: { name: 'twitter', srOnly: 'Twitter' },
+  }, {
+    href: 'https://www.youtube.com/user/californiagovernment',
+    iconProps: { name: 'youtube', srOnly: 'YouTube' },
+  },
+];
 
 /**
  * Renders a footer with links to policies and social media.
@@ -32,38 +58,21 @@ class Footer extends React.Component {
             <div className={'row'}>
               <div className={'three-quarters'}>
                 <ul className={'footer-links'}>
-                  <li><a href={'http://www.ca.gov/Use'} {...externalLink}>Conditions of Use</a></li>
-                  <li><a href={'http://www.ca.gov/Privacy'} {...externalLink}>Privacy Policy</a></li>
-                  <li><a href={'http://www.ca.gov/Accessibility'} {...externalLink}>Accessibility</a></li>
+                  {
+                    footerLinks.map((link) => (
+                      <li key={link.href}><A {...link} /></li>
+                    ))
+                  }
                   <li><A {...contactLink} /></li>
                 </ul>
               </div>
               <div className={'quarter text-right'}>
                 <ul className={'socialsharer-container'}>
-                  <li>
-                    <a href={'https://www.flickr.com/groups/californiagovernment'} {...externalLink}>
-                      <span className={'ca-gov-icon-flickr'} aria-hidden={'true'} />
-                      <span className={'sr-only'}>Flickr</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={'https://www.pinterest.com/cagovernment/'} {...externalLink}>
-                      <span className={'ca-gov-icon-pinterest'} aria-hidden={'true'} />
-                      <span className={'sr-only'}>Pinterest</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={'https://twitter.com/cagovernment'} {...externalLink}>
-                      <span className={'ca-gov-icon-twitter'} aria-hidden={'true'} />
-                      <span className={'sr-only'}>Twitter</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={'https://www.youtube.com/user/californiagovernment'} {...externalLink}>
-                      <span className={'ca-gov-icon-youtube'} aria-hidden={'true'} />
-                      <span className={'sr-only'}>YouTube</span>
-                    </a>
-                  </li>
+                  {
+                    socialLinks.map((link) => (
+                      <li key={link.href}><A {...link} /></li>
+                    ))
+                  }
                 </ul>
               </div>
             </div>

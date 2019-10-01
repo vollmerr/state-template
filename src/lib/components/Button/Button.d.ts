@@ -14,6 +14,15 @@ export interface ButtonProps {
   /** Style as active */
   active?: boolean;
 
+  /** Base button class to apply */
+  baseClass?: string;
+
+  /** Icon to render */
+  iconProps: Icon.IconProps;
+
+  /** HTML tag to render as */
+  tag?: React.ReactNode;
+
   /** Content to render, mutually exlusive with `children` */
   text?: React.ReactNode;
 

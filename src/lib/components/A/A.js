@@ -37,24 +37,10 @@ const A = (props) => {
     Tag = Link;
   }
 
-  let content;
-  if (text) {
-    content = text;
-  } else if (children) {
-    content = children;
-  } else if (iconProps) {
-    const { srOnly, ...icon } = iconProps;
-    content = (
-      <>
-        <Icon {...icon} />
-        {srOnly && <span className={'sr-only'}>{srOnly}</span>}
-      </>
-    );
-  }
-
   return (
     <Tag data-test={'link'} {...aProps}>
-      {content}
+      {iconProps && <Icon {...iconProps} />}
+      {text || children}
     </Tag>
   );
 };

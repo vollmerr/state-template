@@ -52,7 +52,7 @@ describe('A', () => {
 
   describe('icon links', () => {
     it('should render links as icons', () => {
-      wrapper.setProps({ iconProps: { name: 'test' }, text: null });
+      wrapper.setProps({ iconProps: { name: 'test', srOnly: 'test-sr' }, text: null });
       expect(wrapper.find(Icon).length).toBe(1);
     });
   });

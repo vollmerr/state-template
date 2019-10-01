@@ -307,6 +307,9 @@ export interface IconProps {
   /** Class names to attach to the top level div */
   className?: string;
 
+  /** Screen Reader only text */
+  srOnly?: string;
+
   /** HTML tag to render as  */
   tag?: React.ReactNode;
 }

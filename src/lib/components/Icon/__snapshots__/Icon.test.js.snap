@@ -1,9 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Icon should render correctly 1`] = `
-<span
-  aria-hidden={true}
-  className="ca-gov-icon-test text"
-  data-test="icon"
-/>
+<Fragment>
+  <span
+    aria-hidden={true}
+    className="ca-gov-icon-test-text"
+    data-test="icon"
+  />
+  <span
+    className="sr-only"
+  >
+    sr-only-text
+  </span>
+</Fragment>
 `;

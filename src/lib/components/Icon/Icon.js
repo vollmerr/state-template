@@ -10,8 +10,9 @@ import classNames from 'classnames';
  */
 const Icon = (props) => {
   const {
-    name,
     className,
+    name,
+    srOnly,
     tag: Tag,
     ...rest
   } = props;
@@ -21,15 +22,23 @@ const Icon = (props) => {
     `ca-gov-icon-${name}`,
   ]);
 
-  return <Tag data-test={'icon'} className={cn} aria-hidden {...rest} />;
+  return (
+    <>
+      <Tag data-test={'icon'} className={cn} aria-hidden {...rest} />
+      {srOnly && <span className={'sr-only'}>{srOnly}</span>}
+    </>
+  );
 };
 
 Icon.propTypes = {
+  /** Class names to attach to the top level div */
+  className: T.string,
+
   /** Name of icon to use (auto prefixes with ca-gov-icon-) */
   name: T.string.isRequired,
 
-  /** Class names to attach to the top level div */
-  className: T.string,
+  /** Screen Reader only text */
+  srOnly: T.string,
 
   /** HTML tag to render as  */
   tag: T.node,
@@ -37,6 +46,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   className: null,
+  srOnly: '',
   tag: 'span',
 };
 

@@ -38,6 +38,7 @@ exports[`FieldComboBox should render correctly 1`] = `
         hidden={false}
         name="triangle-down"
         onClick={[Function]}
+        srOnly=""
         tag="span"
       />
     </div>

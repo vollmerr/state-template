@@ -48,6 +48,21 @@ Button.propTypes = {
   /** Style as active */
   active: T.bool,
 
+  /** Base button class to apply */
+  baseClass: T.string,
+
+  /** Content to render, mutually exclusive with `text` */
+  children: T.node,
+
+  /** Style class name to attach to button */
+  className: T.string,
+
+  /** Icon to render */
+  iconProps: T.shape({ ...Icon.propTypes }),
+
+  /** HTML tag to render as */
+  tag: T.elementType,
+
   /** Content to render, mutually exclusive with `children` */
   text: T.node,
 

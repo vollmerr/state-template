@@ -22,5 +22,5 @@ You can use the shorthand `text` prop instead of passing `children`.
 You can render the links as an [Icon](#icon) using the `iconProps`.
 
 ```jsx
-<A iconProps={{ name: 'home' }} />
+<A iconProps={{ name: 'home', srOnly: 'Home' }} />
 ```
