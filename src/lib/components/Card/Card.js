@@ -31,6 +31,7 @@ const Card = (props) => {
             onClick={onDismiss}
             className={'dismiss-icon'}
             data-test={'button-dismiss'}
+            srOnly={'dismiss'}
           />
         )
       }

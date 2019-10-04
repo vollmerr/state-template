@@ -1,6 +1,8 @@
 import React from 'react';
 import T from 'prop-types';
 
+import Icon from '../Icon';
+
 class SettingsBar extends React.Component {
   setHighContrast = () => {
     document.getElementsByTagName('html')[0].classList.add('high-contrast');
@@ -79,8 +81,7 @@ class SettingsBar extends React.Component {
                 <span className={'hidden-xs'}>Increase Font Size</span>
                 <span className={'visible-xs'}>
                   {'Font '}
-                  <span className={'sr-only'}>Increase</span>
-                  <span className={'ca-gov-icon-plus-line font-size-sm'} aria-hidden={'true'} />
+                  <Icon name={'plus-line'} className={'font-size-sm'} srOnly={'Increase'} />
                 </span>
               </button>
             </div>
@@ -90,8 +91,7 @@ class SettingsBar extends React.Component {
                 <span className={'hidden-xs'}>Decrease Font Size</span>
                 <span className={'visible-xs'}>
                   {'Font '}
-                  <span className={'sr-only'}>Decrease</span>
-                  <span className={'ca-gov-icon-minus-line font-size-sm'} aria-hidden={'true'} />
+                  <Icon name={'minus-line'} className={'font-size-sm'} srOnly={'Decrease'} />
                 </span>
               </button>
             </div>

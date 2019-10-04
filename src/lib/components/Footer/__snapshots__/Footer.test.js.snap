@@ -17,32 +17,35 @@ exports[`Footer should render correctly 1`] = `
           <ul
             className="footer-links"
           >
-            <li>
-              <a
+            <li
+              key="http://www.ca.gov/Use"
+            >
+              <A
                 href="http://www.ca.gov/Use"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Conditions of Use
-              </a>
+                iconProps={null}
+                text="Conditions of Use"
+                to=""
+              />
             </li>
-            <li>
-              <a
+            <li
+              key="http://www.ca.gov/Privacy"
+            >
+              <A
                 href="http://www.ca.gov/Privacy"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Privacy Policy
-              </a>
+                iconProps={null}
+                text="Privacy Policy"
+                to=""
+              />
             </li>
-            <li>
-              <a
+            <li
+              key="http://www.ca.gov/Accessibility"
+            >
+              <A
                 href="http://www.ca.gov/Accessibility"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                Accessibility
-              </a>
+                iconProps={null}
+                text="Accessibility"
+                to=""
+              />
             </li>
             <li>
               <A
@@ -60,73 +63,65 @@ exports[`Footer should render correctly 1`] = `
           <ul
             className="socialsharer-container"
           >
-            <li>
-              <a
+            <li
+              key="https://www.flickr.com/groups/californiagovernment"
+            >
+              <A
                 href="https://www.flickr.com/groups/californiagovernment"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span
-                  aria-hidden="true"
-                  className="ca-gov-icon-flickr"
-                />
-                <span
-                  className="sr-only"
-                >
-                  Flickr
-                </span>
-              </a>
+                iconProps={
+                  Object {
+                    "name": "flickr",
+                    "srOnly": "Flickr",
+                  }
+                }
+                text=""
+                to=""
+              />
             </li>
-            <li>
-              <a
-                href="https://www.pinterest.com/cagovernment/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span
-                  aria-hidden="true"
-                  className="ca-gov-icon-pinterest"
-                />
-                <span
-                  className="sr-only"
-                >
-                  Pinterest
-                </span>
-              </a>
+            <li
+              key="https://www.pinterest.com/cagovernment"
+            >
+              <A
+                href="https://www.pinterest.com/cagovernment"
+                iconProps={
+                  Object {
+                    "name": "pinterest",
+                    "srOnly": "Pinterest",
+                  }
+                }
+                text=""
+                to=""
+              />
             </li>
-            <li>
-              <a
+            <li
+              key="https://twitter.com/cagovernment"
+            >
+              <A
                 href="https://twitter.com/cagovernment"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span
-                  aria-hidden="true"
-                  className="ca-gov-icon-twitter"
-                />
-                <span
-                  className="sr-only"
-                >
-                  Twitter
-                </span>
-              </a>
+                iconProps={
+                  Object {
+                    "name": "twitter",
+                    "srOnly": "Twitter",
+                  }
+                }
+                text=""
+                to=""
+              />
             </li>
-            <li>
-              <a
+            <li
+              key="https://www.youtube.com/user/californiagovernment"
+            >
+              <A
                 href="https://www.youtube.com/user/californiagovernment"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span
-                  aria-hidden="true"
-                  className="ca-gov-icon-youtube"
-                />
-                <span
-                  className="sr-only"
-                >
-                  YouTube
-                </span>
-              </a>
+                iconProps={
+                  Object {
+                    "name": "youtube",
+                    "srOnly": "YouTube",
+                  }
+                }
+                text=""
+                to=""
+              />
             </li>
           </ul>
         </div>

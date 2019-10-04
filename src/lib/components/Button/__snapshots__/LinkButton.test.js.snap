@@ -3,6 +3,7 @@
 exports[`LinkButton should render correctly 1`] = `
 <Button
   active={false}
+  baseClass="btn"
   className=""
   href="http://www.google.com"
   iconProps={null}

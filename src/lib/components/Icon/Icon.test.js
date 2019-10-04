@@ -5,7 +5,8 @@ import { Icon as fromLib } from '../..';
 import Icon from '.';
 
 const props = {
-  name: 'test text',
+  name: 'test-text',
+  srOnly: 'sr-only-text',
 };
 
 let wrapper;
@@ -24,7 +25,7 @@ describe('Icon', () => {
 
   it('should attach classNames', () => {
     wrapper.setProps({ className: 'textClass' });
-    const className = wrapper.prop('className');
+    const className = wrapper.find('[data-test="icon"]').prop('className');
     expect(className).toMatch(/textClass/);
   });
 
@@ -35,6 +36,6 @@ describe('Icon', () => {
 
   it('should pass additional props', () => {
     wrapper.setProps({ id: 'testId' });
-    expect(wrapper.prop('id')).toBe('testId');
+    expect(wrapper.find('[data-test="icon"]').prop('id')).toBe('testId');
   });
 });

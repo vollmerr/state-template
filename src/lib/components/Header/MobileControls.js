@@ -3,29 +3,30 @@ import T from 'prop-types';
 
 import * as propUtils from '../../utils/propTypes';
 
+import Button from '../Button';
+
 const MobileControls = ({ routes, toggleMobileOpen }) => {
   const menuButtonProps = {
-    type: 'button', /* eslint-disable react/button-has-type */
-    onClick: toggleMobileOpen,
-    className: 'mobile-control toggle-menu pull-right',
-    'aria-expanded': 'false',
     'aria-controls': 'navigation',
+    'aria-expanded': 'false',
+    baseClass: '',
+    className: 'mobile-control toggle-menu pull-right hidden-print',
+    iconProps: { name: 'menu', srOnly: 'Menu' },
+    onClick: toggleMobileOpen,
+    type: 'button',
   };
 
   return (
     <div className={'mobile-controls'}>
       <span className={'mobile-control-group mobile-header-icons'} />
 
-      <div className={'mobile-control-group main-nav-icons pull-right'}>
-        {
-          Boolean(routes.length) && (
-            <button {...menuButtonProps}>
-              <span className={'ca-gov-icon-menu hidden-print'} aria-hidden />
-              <span className={'sr-only'}>Menu</span>
-            </button>
-          )
-        }
-      </div>
+      {
+        Boolean(routes.length) && (
+          <div className={'mobile-control-group main-nav-icons pull-right'}>
+            <Button {...menuButtonProps} />
+          </div>
+        )
+      }
     </div>
   );
 };

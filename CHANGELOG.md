@@ -1,5 +1,11 @@
 # state-template - Change Log
 
+## v0.4.9 (2019-10-04)
+
+- (chore) update dependency versions
+- (feat) Allow passing screen reader only text to Icon / refactor usage
+- (feat) Allow passing base style class to Button
+
 ## v0.4.8 (2019-09-20)
 
 - (chore) update dev dependency versions

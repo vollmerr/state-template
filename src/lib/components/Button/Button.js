@@ -10,20 +10,21 @@ import Icon from '../Icon';
  */
 const Button = (props) => {
   const {
-    variant,
     active,
-    text,
-    className,
-    tag: Tag,
+    baseClass,
     children,
+    className,
     iconProps,
+    tag: Tag,
+    text,
+    variant,
     ...rest
   } = props;
 
   const btnClass = classNames([
-    'btn',
+    baseClass,
     className,
-    { active, [`btn-${variant}`]: variant },
+    { active, [`${baseClass}-${variant}`]: variant },
   ]);
 
   return (
@@ -35,18 +36,23 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
-  /** Use style variant */
-  variant: T.oneOf([
-    '',
-    'default',
-    'primary',
-    'secondary',
-    'highlight',
-    'standout',
-  ]),
-
   /** Style as active */
   active: T.bool,
+
+  /** Base button class to apply */
+  baseClass: T.string,
+
+  /** Content to render, mutually exclusive with `text` */
+  children: T.node,
+
+  /** Style class name to attach to button */
+  className: T.string,
+
+  /** Icon to render */
+  iconProps: T.shape({ ...Icon.propTypes }),
+
+  /** HTML tag to render as */
+  tag: T.elementType,
 
   /** Content to render, mutually exclusive with `children` */
   text: T.node,
@@ -59,28 +65,27 @@ Button.propTypes = {
     'reset',
   ]),
 
-  /** Style class name to attach to button */
-  className: T.string,
-
-  /** HTML tag to render as */
-  tag: T.oneOfType([T.node, T.func]),
-
-  /** Content to render */
-  children: T.node,
-
-  /** Icon to render */
-  iconProps: T.shape({ ...Icon.propTypes }),
+  /** Use style variant */
+  variant: T.oneOf([
+    '',
+    'default',
+    'primary',
+    'secondary',
+    'highlight',
+    'standout',
+  ]),
 };
 
 Button.defaultProps = {
-  variant: '',
   active: false,
+  baseClass: 'btn',
+  children: null,
+  className: '',
+  iconProps: null,
+  tag: 'button',
   text: null,
   type: 'button',
-  className: '',
-  tag: 'button',
-  children: null,
-  iconProps: null,
+  variant: '',
 };
 
 export default Button;

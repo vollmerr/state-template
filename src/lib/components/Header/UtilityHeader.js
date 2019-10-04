@@ -1,6 +1,5 @@
 import React from 'react';
 import T from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import * as propUtils from '../../utils/propTypes';
 import govLogo from '../../images/Ca-Gov-Logo-Gold.svg';
@@ -23,12 +22,7 @@ const UtilityHeader = ({ toggleSettingsOpen, contactLink, title }) => (
           {
             title
               ? <div className={'header-title'}>{title}</div>
-              : (
-                <Link to={'/'}>
-                  <span className={'ca-gov-icon-home'} aria-hidden={'true'} />
-                  <span className={'sr-only'}>Home</span>
-                </Link>
-              )
+              : <A to={'/'} iconProps={{ name: 'home', srOnly: 'Home' }} />
           }
         </div>
 

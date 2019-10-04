@@ -41,6 +41,7 @@ exports[`FieldDate should render correctly 1`] = `
       data-test="field__date-icon"
       hidden={false}
       name="calendar"
+      srOnly=""
       tag="span"
     />
     <input
