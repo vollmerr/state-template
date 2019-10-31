@@ -1,6 +1,6 @@
 # state-template - Change Log
 
-## v0.4.9
+## v0.4.9 (2019-10-31)
 
 - (chore) update dependency versions
 - (docs) fix typos, update readme
