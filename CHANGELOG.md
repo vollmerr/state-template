@@ -4,6 +4,7 @@
 
 - (chore) update dependency versions
 - (docs) fix typos, update readme
+- (test) set id in backstop so no auto generated, update visual refs
 
 ## v0.4.9 (2019-10-04)
 
