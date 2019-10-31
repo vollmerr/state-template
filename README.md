@@ -33,12 +33,14 @@ git clone https://github.com/vollmerr/state-template-starter
 ```
 
 ### Styling
-This project does not include the state template stlying by default, it can be added by adding the following lines in the projects entry file, where 'oceanside' can be the name of the colorscheme to use:
+This project does not include the state template styling by default, it can be added by adding the following lines in the projects entry file, where 'oceanside' can be the name of the colorscheme to use:
 
 ```
 import 'state-template/dist/style/core/css/cagov.core.min.css';
 import 'state-template/dist/style/core/css/colorscheme-oceanside.min.css';
 ```
+
+This project is currently only tested and maintained for the oceanside colorscheme. There are long term plans to allow other themes, but currently not all colors are applied correctly for other themes.
 
 ## Docs
 The best way to try components and discover what is provided in this package is to run the documentation, or view it at [https://vollmerr.github.io/state-template](https://vollmerr.github.io/state-template).
@@ -59,19 +61,19 @@ Unit tests use [Jest](https://jestjs.io/) with [Enzyme](https://github.com/airbn
 
 Use `npm run test` for a single run of unit tests with a code coverage report generated.
 
-Use `npm run test:watch` for a continuous runs of unit tests, updated upon saving a file. Snapshots can be updated by pressin `u` while these types of tests are being ran.
+Use `npm run test:watch` for a continuous runs of unit tests, updated upon saving a file. Snapshots can be updated by pressing `u` while these types of tests are being ran.
 
 ### Visual Regression Tests
 Visual Regression tests use [backstop.js](https://github.com/garris/BackstopJS) to capture screenshots and compare against previous screenshots. Configure running backstop in the `backstop.json` config file.
 
 These tests require the styleguidist documentation to be running. Before any visual regression test start the docs using `npm run docs`.
 
-Use `npm run visual` to run visual regression tests. A html page will open with the results. There can sometimes be inconsistencies, such as if you run have debugWindow turned on (to view the results as they process) the screenshot may capture different.
+Use `npm run visual` to run visual regression tests. A html page will open with the results. There can sometimes be inconsistencies, such as if you run have debugWindow turned on (to view the results as they process) the screenshot may capture different, as well as components that use animations or some other time oriented feature.
 
 Use `npm run visual:update` to udpate the reference snapshots. These snapshots are stored in backstop_data/bitmaps_reference.
 
 ## Caveats
-This project currently contains dependencies upon several libraries for certain funcitonality, this is subject to change in future releases (they will most likely just get pulled out into a sperate project). These dependencies are as follows:
+This project currently contains dependencies upon several libraries for certain functionality, this is subject to change in future releases (they will most likely just get pulled out into a sperate project). These dependencies are as follows:
 
 - form fields require `redux-form` as their managment system and are not designed for use outside of it.
 - the `configureStore` util currently requires `redux`, `redux-saga`, and `redux-form`. It handles initializing them with any passed in reducers and sagas. This functionality is required for any redux connected component, such as ConnectedAsync, and form fields.
