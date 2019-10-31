@@ -10,6 +10,7 @@
     "README.md",
     "LICENSE.md"
   ],
+  "author": "CA Dept of Technology",
   "license": "MIT",
   "homepage": "https://github.com/vollmerr/state-template",
   "repository": {
