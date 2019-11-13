@@ -1,3 +1,5 @@
+***THIS PROJECT HAS MOVED TO https://odibpas.visualstudio.com/React%20State%20Template/_git/React%20State%20Template***
+
 # state-template
 [CA State Template](https://webstandards.ca.gov/state-template-v5/) (v5.0.10) styled react components. See the docs at [https://vollmerr.github.io/state-template](https://vollmerr.github.io/state-template).
 
